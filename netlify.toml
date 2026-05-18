@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NEXT_DISABLE_BUILD_WORKER = "1"
+  NODE_OPTIONS = "--max-old-space-size=6144"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
