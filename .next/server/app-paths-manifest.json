@@ -1,7 +1,0 @@
-{
-  "/admin/posts/create/page": "app/admin/posts/create/page.js",
-  "/admin/contacts/page": "app/admin/contacts/page.js",
-  "/admin/google-reviews/page": "app/admin/google-reviews/page.js",
-  "/(public)/expertise/page": "app/(public)/expertise/page.js",
-  "/(public)/page": "app/(public)/page.js"
-}
