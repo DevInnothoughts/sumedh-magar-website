@@ -1,4 +1,4 @@
-// File: /home/project/app/(public)/sports-medicine/page.tsx
+// File: C:\xampp\htdocs\DrSumedhProfessionalPortfolio\app\(public)\sports-medicine\page.tsx
 import * as entry from '../../../../../app/(public)/sports-medicine/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

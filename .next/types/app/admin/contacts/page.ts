@@ -1,4 +1,4 @@
-// File: /home/project/app/admin/contacts/page.tsx
+// File: C:\xampp\htdocs\DrSumedhProfessionalPortfolio\app\admin\contacts\page.tsx
 import * as entry from '../../../../../app/admin/contacts/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

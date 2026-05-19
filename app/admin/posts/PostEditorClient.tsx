@@ -7,7 +7,7 @@ import { Save, Eye, ArrowLeft } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import dynamic from 'next/dynamic';
-import 'react-quill/dist/quill.snow.css';
+import 'react-quill-new/dist/quill.snow.css';
 import { supabase } from '@/lib/supabase';
 import { getSession } from '@/lib/auth';
 import { Button } from '@/components/Button';
@@ -17,7 +17,7 @@ import { AdminLayout } from '@/components/AdminLayout';
 import { ImageUpload } from '@/components/ImageUpload';
 import { VideoUpload } from '@/components/VideoUpload';
 
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
 
 type PostFormData = { title: string; category: string; subcategory: string; excerpt: string; status: 'draft' | 'published' };
 
