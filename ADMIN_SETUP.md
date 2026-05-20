@@ -1,3 +1,17 @@
+VERY IMPORTANT
+
+Every future update becomes easy:
+
+After code changes:
+
+git add .
+git commit -m "updated"
+git push
+
+Vercel automatically redeploys website. 🚀
+
+
+
 # Admin Setup Instructions
 
 ## Admin User Credentials

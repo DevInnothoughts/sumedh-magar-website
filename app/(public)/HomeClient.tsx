@@ -56,7 +56,7 @@ export default function HomeClient() {
       <section className="section-padding bg-gradient-to-br from-secondary via-secondary to-primary-600 text-white">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-accent mb-4">About Dr. Sumedh Magar</h2>
+            <h2 className="text-accent mb-4">About Dr. Sumedh Magar.</h2>
           </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
