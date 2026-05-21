@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-# Block admin area from all crawlers
-Disallow: /admin
-Disallow: /admin/
-
-Sitemap: https://sportsurgeon.in/sitemap.xml
+Sitemap: https://www.sportsurgeon.in/sitemap.xml
