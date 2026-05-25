@@ -140,13 +140,16 @@ export default function BlogDetailClient({ post, initialComments, relatedPosts }
 
             <div
               className="prose prose-lg max-w-none mb-8 prose-headings:font-heading prose-headings:text-secondary prose-a:text-primary"
-              style={{
-                hyphens: 'none',
-                wordBreak: 'normal',
-                overflowWrap: 'break-word',
-                whiteSpace: 'normal',
+              // style={{
+              //   hyphens: 'none',
+              //   wordBreak: 'normal',
+              //   overflowWrap: 'break-word',
+              //   whiteSpace: 'normal',
+              // }}
+              // dangerouslySetInnerHTML={{ __html: post.description }}
+              dangerouslySetInnerHTML={{
+                __html: post.description.replace(/&nbsp;/g, ' ')
               }}
-              dangerouslySetInnerHTML={{ __html: post.description }}
             />
 
             {post.video_url && (
