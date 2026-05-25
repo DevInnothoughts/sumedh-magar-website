@@ -129,7 +129,7 @@ export default function BlogClient({ initialPosts }: BlogClientProps) {
                         </span>
                       </div>
                       <Link
-                        href={`/blog/${post.id}`}
+                        href={`/blog/${post.slug}`}
                         className="text-primary font-semibold hover:text-primary-600 inline-flex items-center text-sm"
                       >
                         Read More <ArrowRight className="ml-1 w-4 h-4" />

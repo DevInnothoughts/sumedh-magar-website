@@ -140,6 +140,12 @@ export default function BlogDetailClient({ post, initialComments, relatedPosts }
 
             <div
               className="prose prose-lg max-w-none mb-8 prose-headings:font-heading prose-headings:text-secondary prose-a:text-primary"
+              style={{
+                hyphens: 'none',
+                wordBreak: 'normal',
+                overflowWrap: 'break-word',
+                whiteSpace: 'normal',
+              }}
               dangerouslySetInnerHTML={{ __html: post.description }}
             />
 
@@ -184,7 +190,7 @@ export default function BlogDetailClient({ post, initialComments, relatedPosts }
                       {related.title}
                     </h4>
                     <Link
-                      href={`/blog/${related.id}`}
+                      href={`/blog/${related.slug || related.id}`}
                       className="text-primary text-sm font-medium hover:text-primary-600 inline-flex items-center"
                     >
                       Read <ArrowLeft className="w-3 h-3 ml-1 rotate-180" />

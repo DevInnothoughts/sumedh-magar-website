@@ -125,7 +125,7 @@ export default function ArticlesClient() {
                     {post.excerpt || post.description.substring(0, 150) + '...'}
                   </p>
                   <Link
-                    href={`/articles/${post.id}`}
+                    href={`/blog/${post.slug}`}
                     className="text-primary font-semibold hover:text-primary-600 inline-flex items-center"
                   >
                     Read More <ArrowRight className="ml-2 w-4 h-4" />

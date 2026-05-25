@@ -15,11 +15,13 @@ function getSupabase() {
   );
 }
 
-async function getPost(id: string): Promise<Post | null> {
+async function getPost(slug: string): Promise<Post | null> {
+  // Support both slug and UUID fallback for backwards compatibility
+  const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(slug);
   const { data } = await getSupabase()
     .from('posts')
     .select('*')
-    .eq('id', id)
+    .eq(isUUID ? 'id' : 'slug', slug)
     .eq('status', 'published')
     .maybeSingle();
   return data ?? null;
@@ -67,7 +69,8 @@ export async function generateMetadata({
       .replace(/<[^>]*>/g, '')
       .substring(0, 160)
       .trim();
-  const canonical = `${SITE_URL}/blog/${id}`;
+  const slugOrId = post.slug || post.id;
+  const canonical = `${SITE_URL}/blog/${slugOrId}`;
 
   return {
     title: post.title,
@@ -101,11 +104,18 @@ export default async function BlogDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const [post, comments] = await Promise.all([getPost(id), getComments(id)]);
+  // id here is actually a slug (or legacy UUID) — getPost handles both
+  const post = await getPost(id);
 
   if (!post) notFound();
 
-  const relatedPosts = await getRelatedPosts(id, post.category);
+  // Always use post.id (UUID) for database joins
+  const [comments, relatedPosts] = await Promise.all([
+    getComments(post.id),
+    getRelatedPosts(post.id, post.category),
+  ]);
+
+  const slugOrId = post.slug || post.id;
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -131,7 +141,7 @@ export default async function BlogDetailPage({
       name: 'I-SPORT Medical Centre',
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/SumedhMagar.jpeg` },
     },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${id}` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${slugOrId}` },
     articleSection: post.category,
     keywords: [post.category, post.subcategory].filter(Boolean).join(', '),
   };
@@ -142,7 +152,7 @@ export default async function BlogDetailPage({
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
       { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
-      { '@type': 'ListItem', position: 3, name: post.title, item: `${SITE_URL}/blog/${id}` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `${SITE_URL}/blog/${slugOrId}` },
     ],
   };
 

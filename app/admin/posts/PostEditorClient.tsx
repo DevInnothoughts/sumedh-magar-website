@@ -19,7 +19,7 @@ import { VideoUpload } from '@/components/VideoUpload';
 
 const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
 
-type PostFormData = { title: string; category: string; subcategory: string; excerpt: string; status: 'draft' | 'published' };
+type PostFormData = { title: string; slug: string; category: string; subcategory: string; excerpt: string; status: 'draft' | 'published' };
 
 const categories = [
   { value: 'Medical Thesis', subcategories: ['ACL Reconstruction', 'Patellofemoral Instability', 'Biomechanics', 'Rehabilitation Study'] },
@@ -52,6 +52,7 @@ export default function PostEditorClient() {
       if (error) throw error;
       if (data) {
         setValue('title', data.title);
+        setValue('slug', data.slug || '');
         setValue('category', data.category);
         setValue('subcategory', data.subcategory || '');
         setValue('excerpt', data.excerpt || '');
@@ -79,7 +80,7 @@ export default function PostEditorClient() {
     if (!description.trim()) { toast.error('Description is required'); return; }
     setSaving(true);
     try {
-      const postData = { title: data.title, category: data.category, subcategory: data.subcategory || null, description, excerpt: data.excerpt || null, photo_url: photoUrl || null, video_url: videoUrl || null, status: data.status };
+      const postData = { title: data.title, slug: data.slug.trim().toLowerCase().replace(/\s+/g, '-'), category: data.category, subcategory: data.subcategory || null, description, excerpt: data.excerpt || null, photo_url: photoUrl || null, video_url: videoUrl || null, status: data.status };
       if (id) {
         const { error } = await supabase.from('posts').update(postData).eq('id', id);
         if (error) throw error;
@@ -112,23 +113,67 @@ export default function PostEditorClient() {
           </Button>
         </div>
 
-        {showPreview && (
+        {/* {showPreview && (
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
             <Card>
               <h3 className="text-2xl font-heading font-bold text-secondary mb-4">Preview</h3>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+            
               {photoUrl && <img src={photoUrl} alt="Preview" className="w-full h-64 object-cover rounded-xl mb-4" />}
               <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: description }} />
             </Card>
           </motion.div>
-        )}
+        )} */}
 
+        {showPreview && (
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-full block">
+            <Card>
+              <div className="w-full max-w-full overflow-hidden block px-2">
+                <h3 className="text-2xl font-heading font-bold text-secondary mb-4">Preview</h3>
+                {photoUrl && <img src={photoUrl} alt="Preview" className="w-full h-64 object-cover rounded-xl mb-4" />}
+
+                {/* Hardcoded styling rules to force the browser to respect borders */}
+                <div
+                  className="prose prose-lg max-w-none mb-8 prose-headings:font-heading prose-headings:text-secondary prose-a:text-primary"
+                  style={{
+                    wordBreak: 'break-word',
+                    overflowWrap: 'break-word',
+                    whiteSpace: 'normal'
+                  }}
+                  dangerouslySetInnerHTML={{
+                    __html: description.replace(/&nbsp;/g, ' ')
+                  }}
+                />
+              </div>
+            </Card>
+          </motion.div>
+        )}
         <Card>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
               <label className="block text-neutral-700 font-medium mb-2">Title *</label>
               <input {...register('title', { required: 'Title is required' })} className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:border-primary transition-colors" placeholder="Enter post title" />
               {errors.title && <p className="text-red-500 text-sm mt-1">{errors.title.message}</p>}
+            </div>
+
+            {/* NEW FIELD: Manual URL Slug Field */}
+            <div>
+              <label className="block text-neutral-700 font-medium mb-2">Custom URL Slug *</label>
+              <div className="flex items-center border border-neutral-300 rounded-xl bg-neutral-50 overflow-hidden focus-within:border-primary transition-colors">
+                <span className="bg-neutral-100 text-neutral-500 px-4 py-3 border-r border-neutral-300 text-sm select-none">blog/</span>
+                <input
+                  {...register('slug', {
+                    required: 'Custom slug is required',
+                    pattern: {
+                      value: /^[a-z0-9-_]+$/,
+                      message: 'Slugs can only contain lowercase letters, numbers, hyphens, and underscores'
+                    }
+                  })}
+
+                  className="w-full px-4 py-3 bg-white focus:outline-none"
+                  placeholder="best-knee-specialist-pune"
+                />
+              </div>
+              {errors.slug && <p className="text-red-500 text-sm mt-1">{errors.slug.message}</p>}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -156,7 +201,17 @@ export default function PostEditorClient() {
 
             <div>
               <label className="block text-neutral-700 font-medium mb-2">Description *</label>
-              <ReactQuill theme="snow" value={description} onChange={setDescription} modules={modules} className="bg-white rounded-xl" />
+              {/* Force the editor to use beautiful typography styles */}
+              <div className="prose max-w-none backend-editor">
+                <ReactQuill
+                  theme="snow"
+                  value={description}
+                  onChange={setDescription}
+                  modules={modules}
+                  className="bg-white rounded-xl"
+                />
+              </div>
+              {/* <ReactQuill theme="snow" value={description} onChange={setDescription} modules={modules} className="bg-white rounded-xl" /> */}
             </div>
 
             <ImageUpload onUploadComplete={setPhotoUrl} currentImage={photoUrl} label="Featured Image" />

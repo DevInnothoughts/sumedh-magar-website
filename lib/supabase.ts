@@ -13,6 +13,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export type Post = {
   id: string;
+  slug: string;
   category: string;
   subcategory: string | null;
   title: string;
