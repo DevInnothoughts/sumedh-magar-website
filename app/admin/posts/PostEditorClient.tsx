@@ -81,6 +81,29 @@ export default function PostEditorClient() {
   const onSubmit = async (data: PostFormData) => {
     if (!description.trim()) { toast.error('Description is required'); return; }
     setSaving(true);
+    
+    // Clean up canonical URL if user pasted a full HTML tag or invalid format
+    const cleanCanonicalUrl = (url: string | null | undefined): string | null => {
+      if (!url) return null;
+      let cleaned = url.trim();
+      
+      if (cleaned.includes('<link') && cleaned.includes('href=')) {
+        const match = cleaned.match(/href=["']\s*([^"']+)\s*["']/i);
+        if (match && match[1]) {
+          cleaned = match[1].trim();
+        }
+      }
+      
+      if (cleaned.startsWith('https:/') && !cleaned.startsWith('https://')) {
+        cleaned = cleaned.replace('https:/', 'https://');
+      } else if (cleaned.startsWith('http:/') && !cleaned.startsWith('http://')) {
+        cleaned = cleaned.replace('http:/', 'http://');
+      }
+      
+      cleaned = cleaned.replace(/^["']|["']$/g, '').trim();
+      return cleaned || null;
+    };
+
     try {
       const postData = { 
         title: data.title, 
@@ -92,7 +115,7 @@ export default function PostEditorClient() {
         photo_url: photoUrl || null, 
         video_url: videoUrl || null, 
         status: data.status,
-        custom_canonical_url: data.custom_canonical_url?.trim() || null,
+        custom_canonical_url: cleanCanonicalUrl(data.custom_canonical_url),
         custom_schema: data.custom_schema?.trim() || null
       };
       if (id) {

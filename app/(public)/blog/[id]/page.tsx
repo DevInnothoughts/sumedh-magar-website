@@ -8,6 +8,31 @@ const SITE_URL = 'https://sportsurgeon.in';
 
 export const revalidate = 300;
 
+function cleanCanonicalUrl(url: string | null | undefined): string | null {
+  if (!url) return null;
+  let cleaned = url.trim();
+  
+  // If they pasted a whole HTML link tag, extract the href value
+  if (cleaned.includes('<link') && cleaned.includes('href=')) {
+    const match = cleaned.match(/href=["']\s*([^"']+)\s*["']/i);
+    if (match && match[1]) {
+      cleaned = match[1].trim();
+    }
+  }
+  
+  // Fix protocol formatting issues like https:/ instead of https:// or extra spaces
+  if (cleaned.startsWith('https:/') && !cleaned.startsWith('https://')) {
+    cleaned = cleaned.replace('https:/', 'https://');
+  } else if (cleaned.startsWith('http:/') && !cleaned.startsWith('http://')) {
+    cleaned = cleaned.replace('http:/', 'http://');
+  }
+
+  // Remove any surrounding quotes that might have been pasted
+  cleaned = cleaned.replace(/^["']|["']$/g, '').trim();
+  
+  return cleaned || null;
+}
+
 function getSupabase() {
   return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -70,7 +95,7 @@ export async function generateMetadata({
       .substring(0, 160)
       .trim();
   const slugOrId = post.slug || post.id;
-  const canonical = post.custom_canonical_url || `${SITE_URL}/blog/${slugOrId}`;
+  const canonical = cleanCanonicalUrl(post.custom_canonical_url) || `${SITE_URL}/blog/${slugOrId}`;
 
   return {
     title: post.title,
