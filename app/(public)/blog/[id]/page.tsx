@@ -70,7 +70,7 @@ export async function generateMetadata({
       .substring(0, 160)
       .trim();
   const slugOrId = post.slug || post.id;
-  const canonical = `${SITE_URL}/blog/${slugOrId}`;
+  const canonical = post.custom_canonical_url || `${SITE_URL}/blog/${slugOrId}`;
 
   return {
     title: post.title,
@@ -158,7 +158,17 @@ export default async function BlogDetailPage({
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      {post.custom_schema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: post.custom_schema }}
+        />
+      ) : (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

@@ -25,6 +25,8 @@ export type Post = {
   view_count: number;
   created_at: string;
   updated_at: string;
+  custom_canonical_url: string | null;
+  custom_schema: string | null;
 };
 
 export type Contact = {

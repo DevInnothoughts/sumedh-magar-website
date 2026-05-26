@@ -19,7 +19,7 @@ import { VideoUpload } from '@/components/VideoUpload';
 
 const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
 
-type PostFormData = { title: string; slug: string; category: string; subcategory: string; excerpt: string; status: 'draft' | 'published' };
+type PostFormData = { title: string; slug: string; category: string; subcategory: string; excerpt: string; status: 'draft' | 'published'; custom_canonical_url?: string; custom_schema?: string };
 
 const categories = [
   { value: 'Medical Thesis', subcategories: ['ACL Reconstruction', 'Patellofemoral Instability', 'Biomechanics', 'Rehabilitation Study'] },
@@ -57,6 +57,8 @@ export default function PostEditorClient() {
         setValue('subcategory', data.subcategory || '');
         setValue('excerpt', data.excerpt || '');
         setValue('status', data.status);
+        setValue('custom_canonical_url', data.custom_canonical_url || '');
+        setValue('custom_schema', data.custom_schema || '');
         setDescription(data.description);
         setPhotoUrl(data.photo_url || '');
         setVideoUrl(data.video_url || '');
@@ -80,7 +82,19 @@ export default function PostEditorClient() {
     if (!description.trim()) { toast.error('Description is required'); return; }
     setSaving(true);
     try {
-      const postData = { title: data.title, slug: data.slug.trim().toLowerCase().replace(/\s+/g, '-'), category: data.category, subcategory: data.subcategory || null, description, excerpt: data.excerpt || null, photo_url: photoUrl || null, video_url: videoUrl || null, status: data.status };
+      const postData = { 
+        title: data.title, 
+        slug: data.slug.trim().toLowerCase().replace(/\s+/g, '-'), 
+        category: data.category, 
+        subcategory: data.subcategory || null, 
+        description, 
+        excerpt: data.excerpt || null, 
+        photo_url: photoUrl || null, 
+        video_url: videoUrl || null, 
+        status: data.status,
+        custom_canonical_url: data.custom_canonical_url?.trim() || null,
+        custom_schema: data.custom_schema?.trim() || null
+      };
       if (id) {
         const { error } = await supabase.from('posts').update(postData).eq('id', id);
         if (error) throw error;
@@ -216,6 +230,16 @@ export default function PostEditorClient() {
 
             <ImageUpload onUploadComplete={setPhotoUrl} currentImage={photoUrl} label="Featured Image" />
             <VideoUpload onUploadComplete={setVideoUrl} currentVideo={videoUrl} label="Video (Optional)" />
+
+            <div>
+              <label className="block text-neutral-700 font-medium mb-2">Custom Canonical URL (Optional)</label>
+              <input {...register('custom_canonical_url')} className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:border-primary transition-colors" placeholder="e.g., https://example.com/original-article-url" />
+            </div>
+
+            <div>
+              <label className="block text-neutral-700 font-medium mb-2">Custom Schema Markup (Optional JSON-LD)</label>
+              <textarea {...register('custom_schema')} rows={5} className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:border-primary transition-colors font-mono text-sm resize-y" placeholder='{ "@context": "https://schema.org", "@type": "Article", ... }' />
+            </div>
 
             <div>
               <label className="block text-neutral-700 font-medium mb-2">Status *</label>
