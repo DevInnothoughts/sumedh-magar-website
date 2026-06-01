@@ -55,6 +55,11 @@ export const metadata: Metadata = {
     default: 'Dr. Sumedh Magar – Sports Orthopedic Surgeon | I-Sport Medical Centre Pune',
     template: '%s | Dr. Sumedh Magar',
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.png',
+  },
   description:
     'Dr. Sumedh Magar – MS Orthopaedics, Masters in Sports Medicine (UCL, UK), ISAKOS Fellowship. Founder & Director I-SPORT Medical Centre Pune. Lead Sports Medicine, Khelo India.',
   // keywords: [
