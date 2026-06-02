@@ -23,7 +23,7 @@ type Slide = {
 const slides: Slide[] = [
   {
     id: 1,
-    image: '/DrInAction.jpeg',
+    image: '/DrInAction.png',
     alt: 'Dr. Sumedh Magar - Sports Medicine Specialist',
     heading: 'Dr. Sumedh Magar',
     qualifications: [
@@ -210,9 +210,8 @@ export const HeroCarousel = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 md:h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-primary w-8 md:w-12' : 'bg-white/50 hover:bg-white/70 w-2 md:w-3'
-            }`}
+            className={`h-2 md:h-3 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-primary w-8 md:w-12' : 'bg-white/50 hover:bg-white/70 w-2 md:w-3'
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
