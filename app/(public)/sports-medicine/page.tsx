@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import SportsMedicineClient from './SportsMedicineClient';
 
-const SITE_URL = 'https://sportsurgeon.in';
+const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
   title: 'Sports Medicine - Advanced Injury Care & Rehabilitation',

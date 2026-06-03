@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { createClient } from '@supabase/supabase-js';
 import ArticleDetailClient from './ArticleDetailClient';
 
-const SITE_URL = 'https://sportsurgeon.in';
+const SITE_URL = 'https://www.sportsurgeon.in';
 
 function getSupabase() {
   return createClient(

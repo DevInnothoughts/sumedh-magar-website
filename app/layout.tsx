@@ -47,7 +47,7 @@ const openSans = localFont({
   display: 'swap',
 });
 
-const SITE_URL = 'https://sportsurgeon.in';
+const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

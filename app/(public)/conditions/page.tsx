@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Card } from '@/components/Card';
 
-const SITE_URL = 'https://sportsurgeon.in';
+const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
   title: 'Orthopedic Conditions Pune – Diagnosis & Treatment Information',

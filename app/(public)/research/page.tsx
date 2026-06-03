@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import ResearchClient from './ResearchClient';
 
-const SITE_URL = 'https://sportsurgeon.in';
+const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
   title: 'Research & Publications',

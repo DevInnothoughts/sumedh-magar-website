@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import ContactClient from './ContactClient';
 
-const SITE_URL = 'https://sportsurgeon.in';
+const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
   title: 'Contact Us - Book an Appointment with Dr. Sumedh Magar',

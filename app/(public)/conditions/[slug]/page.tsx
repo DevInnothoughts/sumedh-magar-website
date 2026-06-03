@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { ChevronRight, ArrowRight, CheckCircle, Phone } from 'lucide-react';
 import { Card } from '@/components/Card';
 
-const SITE_URL = 'https://sportsurgeon.in';
+const SITE_URL = 'https://www.sportsurgeon.in';
 
 type ConditionData = {
   title: string;

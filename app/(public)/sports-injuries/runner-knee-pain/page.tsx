@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { ChevronRight, ArrowRight, CheckCircle, Phone } from 'lucide-react';
 import { Card } from '@/components/Card';
 
-const SITE_URL = 'https://sportsurgeon.in';
+const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
   title: "Runner's Knee Pain Treatment Pune – Patellofemoral & IT Band Specialist",

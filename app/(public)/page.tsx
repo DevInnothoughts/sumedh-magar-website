@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import HomeClient from './HomeClient';
 
-const SITE_URL = 'https://sportsurgeon.in';
+const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
   title: 'Dr. Sumedh Magar – Sports Orthopedic Surgeon | I-Sport Medical Centre Pune',

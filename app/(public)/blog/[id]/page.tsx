@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import BlogDetailClient from './BlogDetailClient';
 import type { Post, Comment } from '@/lib/supabase';
 
-const SITE_URL = 'https://sportsurgeon.in';
+const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const revalidate = 300;
 

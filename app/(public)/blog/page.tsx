@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import BlogClient from './BlogClient';
 import type { Post } from '@/lib/supabase';
 
-const SITE_URL = 'https://sportsurgeon.in';
+const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const revalidate = 300;
 

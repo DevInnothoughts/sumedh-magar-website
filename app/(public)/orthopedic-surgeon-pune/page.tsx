@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { ChevronRight, ArrowRight, CheckCircle, Phone, Star, Award } from 'lucide-react';
 import { Card } from '@/components/Card';
 
-const SITE_URL = 'https://sportsurgeon.in';
+const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
   title: 'Best Orthopedic Surgeon in Pune – Dr. Sumedh Magar | I-SPORT Medical Centre',
