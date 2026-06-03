@@ -38,7 +38,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: '/aclsurgery.JPG',
+    image: '/orthopedicsurgery.png',
     alt: 'Advanced Orthopedic Surgery',
     heading: 'Orthopedic Surgery',
     subheading: 'Fellowship-Trained Arthroscopy Specialist',
