@@ -68,7 +68,7 @@ const slides: Slide[] = [
   },
   {
     id: 5,
-    image: 'https://images.pexels.com/photos/6740820/pexels-photo-6740820.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    image: '/Sports_injury.png',
     alt: 'Sports Injury Management',
     heading: 'Sports Injury Management',
     subheading: 'Masters from University College London',
