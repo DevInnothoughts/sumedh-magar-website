@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: 'Knee Arthroscopy in Pune – Knee Specialist Dr. Sumedh Magar',
   description:
     'Knee arthroscopy specialist in Pune. Minimally invasive knee surgery for meniscus tears, cartilage damage, and sports injuries by Dr. Sumedh Magar, I-SPORT Medical Centre.',
-  alternates: { canonical: `${SITE_URL}/treatments/knee-arthroscopy-pune` },
+  alternates: {
+    canonical: `${SITE_URL}/treatments/knee-arthroscopy-pune`,
+  },
   keywords: ['knee arthroscopy Pune', 'knee specialist Pune', 'meniscus surgery Pune', 'knee surgery Balewadi'],
   openGraph: {
     type: 'website',

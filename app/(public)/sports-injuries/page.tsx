@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: 'Sports Injuries Pune – Expert Diagnosis & Treatment',
   description:
     'Comprehensive sports injury care in Pune by Dr. Sumedh Magar. Cricket, football, gym, and running injuries treated with evidence-based sports medicine at I-SPORT Medical Centre.',
-  alternates: { canonical: `${SITE_URL}/sports-injuries` },
+  alternates: {
+    canonical: `${SITE_URL}/sports-injuries`,
+  },
   keywords: ['sports injuries Pune', 'sports injury doctor Pune', 'sports medicine specialist Pune', 'athlete injury treatment Pune'],
   openGraph: {
     type: 'website',

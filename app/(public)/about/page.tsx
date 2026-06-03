@@ -7,7 +7,9 @@ export const metadata: Metadata = {
   title: 'About Dr. Sumedh Magar – Sports Orthopedic Surgeon Pune',
   description:
     "Learn about Dr. Sumedh Magar's education, professional experience, and achievements as a sports orthopedic surgeon with international training from UCL London.",
-  alternates: { canonical: `${SITE_URL}/about` },
+  alternates: {
+    canonical: `${SITE_URL}/about`,
+  },
   openGraph: {
     type: 'profile',
     url: `${SITE_URL}/about`,

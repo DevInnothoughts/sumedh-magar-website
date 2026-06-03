@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: 'Meniscus Tear Treatment Pune – Arthroscopic Meniscus Repair',
   description:
     'Expert meniscus tear treatment in Pune by Dr. Sumedh Magar. Arthroscopic meniscus repair and meniscectomy for sports-related knee injuries at I-SPORT Medical Centre.',
-  alternates: { canonical: `${SITE_URL}/treatments/meniscus-tear-treatment-pune` },
+  alternates: {
+    canonical: `${SITE_URL}/treatments/meniscus-tear-treatment-pune`,
+  },
   keywords: ['meniscus tear treatment Pune', 'meniscus repair Pune', 'knee meniscus surgery Pune'],
   openGraph: {
     type: 'website',

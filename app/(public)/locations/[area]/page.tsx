@@ -6,6 +6,8 @@ import { Card } from '@/components/Card';
 
 const SITE_URL = 'https://sportsurgeon.in';
 
+
+
 type AreaData = {
   name: string;
   metaTitle: string;

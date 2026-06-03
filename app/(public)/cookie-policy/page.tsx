@@ -1,8 +1,13 @@
 import type { Metadata } from 'next';
 
+const SITE_URL = 'https://sportsurgeon.in';
+
 export const metadata: Metadata = {
   title: 'Cookie Policy',
   description: "Cookie policy for Sportsurgeon.in - how we use cookies on Dr. Sumedh Magar's sports medicine website.",
+  alternates: {
+    canonical: `${SITE_URL}/cookie-policy`,
+  },
 };
 
 export default function CookiePolicyPage() {

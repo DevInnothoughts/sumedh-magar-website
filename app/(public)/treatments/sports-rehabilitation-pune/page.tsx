@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: 'Sports Rehabilitation Pune – Post-Surgery Rehab & Recovery',
   description:
     'Specialised sports rehabilitation in Pune at I-SPORT Medical Centre. Post-surgical rehab, strength recovery, and return-to-sport protocols by Dr. Sumedh Magar.',
-  alternates: { canonical: `${SITE_URL}/treatments/sports-rehabilitation-pune` },
+  alternates: {
+    canonical: `${SITE_URL}/treatments/sports-rehabilitation-pune`,
+  },
   keywords: ['sports rehabilitation Pune', 'sports physiotherapy Pune', 'post surgery rehab Pune', 'return to sport Pune'],
   openGraph: {
     type: 'website',

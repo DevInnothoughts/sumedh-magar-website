@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   description:
     'Dr. Sumedh Magar – MS Orthopaedics, Masters in Sports Medicine (UCL, UK), ISAKOS Fellowship. Founder & Director I-SPORT Medical Centre Pune. Expert in ACL reconstruction, knee surgery, arthroscopy & joint preservation.',
   alternates: {
-    canonical: SITE_URL,
+    canonical: `${SITE_URL}`,
   },
   openGraph: {
     type: 'website',
-    url: SITE_URL,
+    url: `${SITE_URL}`,
     title: 'Dr. Sumedh Magar – Sports Orthopedic Surgeon | Pune',
     description:
       'Founder & Director I-SPORT Medical Centre. MS Orthopaedics, Masters Sports Medicine UCL London, ISAKOS Fellowship. Expert in ACL reconstruction, arthroscopy & joint preservation.',

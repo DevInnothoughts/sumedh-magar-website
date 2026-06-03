@@ -7,7 +7,9 @@ export const metadata: Metadata = {
   title: 'Contact Us - Book an Appointment with Dr. Sumedh Magar',
   description:
     'Book an appointment with Dr. Sumedh Magar at I-SPORT Medical Centre, Pune. Contact us for sports orthopedic consultations, ACL surgery, knee treatment and more.',
-  alternates: { canonical: `${SITE_URL}/contact` },
+  alternates: {
+    canonical: `${SITE_URL}/contact`,
+  },
   openGraph: {
     url: `${SITE_URL}/contact`,
     title: 'Contact Dr. Sumedh Magar – I-SPORT Medical Centre Pune',

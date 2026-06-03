@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: 'Shoulder Arthroscopy Pune – Rotator Cuff Treatment Specialist',
   description:
     'Shoulder arthroscopy specialist in Pune. Expert treatment for rotator cuff tears, shoulder instability, and sports shoulder injuries by Dr. Sumedh Magar, I-SPORT Medical Centre.',
-  alternates: { canonical: `${SITE_URL}/treatments/shoulder-arthroscopy-pune` },
+  alternates: {
+    canonical: `${SITE_URL}/treatments/shoulder-arthroscopy-pune`,
+  },
   keywords: ['shoulder arthroscopy Pune', 'rotator cuff treatment Pune', 'shoulder surgeon Pune', 'shoulder instability Pune'],
   openGraph: {
     type: 'website',

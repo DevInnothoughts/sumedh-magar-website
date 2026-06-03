@@ -11,7 +11,9 @@ export const metadata: Metadata = {
   title: 'Blog – Sports Medicine & Orthopedic Insights',
   description:
     'Expert blog on sports injuries, ACL reconstruction, knee arthroscopy, shoulder surgery, and athlete recovery by Dr. Sumedh Magar – Sports Orthopedic Surgeon, Pune.',
-  alternates: { canonical: `${SITE_URL}/blog` },
+  alternates: {
+    canonical: `${SITE_URL}/blog`,
+  },
   openGraph: {
     type: 'website',
     url: `${SITE_URL}/blog`,

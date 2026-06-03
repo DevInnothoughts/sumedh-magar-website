@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: 'Best Orthopedic Surgeon in Pune – Dr. Sumedh Magar | I-SPORT Medical Centre',
   description:
     'Dr. Sumedh Magar – leading orthopedic surgeon in Pune. MS Orthopaedics, Masters in Sports Medicine (UCL London), ISAKOS Fellowship. Expert in ACL reconstruction, arthroscopy & joint preservation at I-SPORT Medical Centre, Balewadi.',
-  alternates: { canonical: `${SITE_URL}/orthopedic-surgeon-pune` },
+  alternates: {
+    canonical: `${SITE_URL}/orthopedic-surgeon-pune`,
+  },
   keywords: [
     'orthopedic surgeon Pune',
     'best orthopedic doctor Pune',

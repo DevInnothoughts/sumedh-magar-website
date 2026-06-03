@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: 'Football Knee Injuries Pune – ACL, Meniscus & Ankle Treatment',
   description:
     'Expert treatment for football knee injuries in Pune. ACL tears, meniscus injuries, and ankle instability in football players treated by Dr. Sumedh Magar, I-SPORT Medical Centre.',
-  alternates: { canonical: `${SITE_URL}/sports-injuries/football-knee-injuries` },
+  alternates: {
+    canonical: `${SITE_URL}/sports-injuries/football-knee-injuries`,
+  },
   keywords: ['football knee injury Pune', 'ACL football injury Pune', 'football injuries Pune', 'footballer knee specialist Pune'],
   openGraph: {
     type: 'website',

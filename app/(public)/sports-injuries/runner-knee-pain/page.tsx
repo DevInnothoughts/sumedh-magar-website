@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: "Runner's Knee Pain Treatment Pune – Patellofemoral & IT Band Specialist",
   description:
     "Expert treatment for runner's knee pain in Pune. Patellofemoral pain syndrome, IT band syndrome, and running injuries treated by Dr. Sumedh Magar, I-SPORT Medical Centre.",
-  alternates: { canonical: `${SITE_URL}/sports-injuries/runner-knee-pain` },
+  alternates: {
+    canonical: `${SITE_URL}/sports-injuries/runner-knee-pain`,
+  },
   keywords: ["runner's knee Pune", 'patellofemoral pain Pune', 'IT band syndrome Pune', 'running knee pain Pune'],
   openGraph: {
     type: 'website',

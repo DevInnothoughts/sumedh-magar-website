@@ -1,8 +1,13 @@
 import type { Metadata } from 'next';
 
+const SITE_URL = 'https://sportsurgeon.in';
+
 export const metadata: Metadata = {
   title: 'Terms & Conditions',
   description: "Terms and conditions for using Sportsurgeon.in - Dr. Sumedh Magar's sports medicine and orthopedic practice website.",
+  alternates: {
+    canonical: `${SITE_URL}/terms-conditions`,
+  },
 };
 
 export default function TermsConditionsPage() {

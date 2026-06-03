@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: 'Gym & Weight Training Shoulder Injuries Pune – Rotator Cuff Specialist',
   description:
     'Expert treatment for gym and weight training shoulder injuries in Pune. Rotator cuff tears, shoulder impingement, and overload injuries treated by Dr. Sumedh Magar, I-SPORT.',
-  alternates: { canonical: `${SITE_URL}/sports-injuries/gym-shoulder-injuries` },
+  alternates: {
+    canonical: `${SITE_URL}/sports-injuries/gym-shoulder-injuries`,
+  },
   keywords: ['gym shoulder injury Pune', 'weightlifting shoulder injury', 'rotator cuff gym injury Pune'],
   openGraph: {
     type: 'website',

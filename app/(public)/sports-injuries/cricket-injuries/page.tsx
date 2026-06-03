@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: 'Cricket Injuries Treatment Pune – Shoulder, Knee & Stress Injuries',
   description:
     'Expert treatment for cricket injuries in Pune. Shoulder injuries in bowlers, knee injuries, stress fractures, and overuse conditions managed by Dr. Sumedh Magar, I-SPORT Medical Centre.',
-  alternates: { canonical: `${SITE_URL}/sports-injuries/cricket-injuries` },
+  alternates: {
+    canonical: `${SITE_URL}/sports-injuries/cricket-injuries`,
+  },
   keywords: ['cricket injuries Pune', 'cricket shoulder injury', 'bowler shoulder Pune', 'cricket knee injury Pune'],
   openGraph: {
     type: 'website',

@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: 'Treatments – Orthopedic & Sports Surgery Pune',
   description:
     'Comprehensive orthopedic and sports surgery treatments by Dr. Sumedh Magar at I-SPORT Medical Centre, Pune. ACL reconstruction, knee arthroscopy, shoulder surgery, and more.',
-  alternates: { canonical: `${SITE_URL}/treatments` },
+  alternates: {
+    canonical: `${SITE_URL}/treatments`,
+  },
   openGraph: {
     type: 'website',
     url: `${SITE_URL}/treatments`,

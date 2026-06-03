@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: 'ACL Tear Treatment in Pune – ACL Reconstruction Surgery',
   description:
     'Expert ACL tear treatment and ACL reconstruction surgery in Pune by Dr. Sumedh Magar. Arthroscopic ACL surgery, sports knee specialist at I-SPORT Medical Centre, Balewadi.',
-  alternates: { canonical: `${SITE_URL}/treatments/acl-tear-treatment-pune` },
+  alternates: {
+    canonical: `${SITE_URL}/treatments/acl-tear-treatment-pune`,
+  },
   keywords: [
     'ACL tear treatment Pune',
     'ACL reconstruction Pune',

@@ -1,8 +1,13 @@
 import type { Metadata } from 'next';
 
+const SITE_URL = 'https://sportsurgeon.in';
+
 export const metadata: Metadata = {
   title: 'Medical Disclaimer',
   description: "Medical disclaimer for Sportsurgeon.in - important information regarding the use of Dr. Sumedh Magar's sports medicine and orthopedic website.",
+  alternates: {
+    canonical: `${SITE_URL}/medical-disclaimer`,
+  },
 };
 
 export default function MedicalDisclaimerPage() {

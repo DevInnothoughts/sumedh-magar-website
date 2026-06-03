@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: 'Knee Pain Treatment Pune – Sports Knee Specialist',
   description:
     'Specialist knee pain treatment in Pune by Dr. Sumedh Magar. Expert diagnosis and treatment for sports injuries, arthritis, and ligament injuries at I-SPORT Medical Centre.',
-  alternates: { canonical: `${SITE_URL}/treatments/knee-pain-treatment-pune` },
+  alternates: {
+    canonical: `${SITE_URL}/treatments/knee-pain-treatment-pune`,
+  },
   keywords: ['knee pain treatment Pune', 'knee specialist Pune', 'knee doctor Pune', 'sports knee pain Pune'],
   openGraph: {
     type: 'website',

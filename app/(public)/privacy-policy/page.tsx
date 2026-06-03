@@ -1,8 +1,13 @@
 import type { Metadata } from 'next';
 
+const SITE_URL = 'https://sportsurgeon.in';
+
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: "Privacy policy for Sportsurgeon.in - Dr. Sumedh Magar's practice.",
+  alternates: {
+    canonical: `${SITE_URL}/privacy-policy`,
+  },
 };
 
 export default function PrivacyPolicyPage() {
