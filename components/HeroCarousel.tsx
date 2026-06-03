@@ -48,7 +48,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    image: '/JointPreservation.jpeg',
+    image: '/JointPreservation.png',
     alt: 'Joint Preservation & Rehabilitation',
     heading: 'Joint Preservation & Arthroscopy',
     subheading: 'Adult Joint Preservation Specialist',
