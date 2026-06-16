@@ -24,6 +24,7 @@ const navLinks: NavItem[] = [
       { path: '/treatments/sports-rehabilitation-pune', label: 'Sports Rehabilitation' },
     ],
   },
+  { path: '/sports-medicine', label: 'Sports medicine' },
   // {
   //   label: 'Sports Injuries',
   //   children: [
@@ -35,7 +36,7 @@ const navLinks: NavItem[] = [
   //   ],
   // },
   { path: '/expertise', label: 'Expertise' },
-  { path: '/sports-medicine', label: 'Sports Injuries' },
+  
   { path: '/blog', label: 'Blog' },
   { path: '/gallery', label: 'Gallery' },
   { path: '/contact', label: 'Contact' },
