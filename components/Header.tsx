@@ -24,18 +24,18 @@ const navLinks: NavItem[] = [
       { path: '/treatments/sports-rehabilitation-pune', label: 'Sports Rehabilitation' },
     ],
   },
-  {
-    label: 'Sports Injuries',
-    children: [
-      { path: '/sports-injuries', label: 'All Sports Injuries' },
-      { path: '/sports-injuries/cricket-injuries', label: 'Cricket Injuries' },
-      { path: '/sports-injuries/football-knee-injuries', label: 'Football Injuries' },
-      { path: '/sports-injuries/gym-shoulder-injuries', label: 'Gym & Weight Training' },
-      { path: '/sports-injuries/runner-knee-pain', label: "Runner's Knee" },
-    ],
-  },
+  // {
+  //   label: 'Sports Injuries',
+  //   children: [
+  //     { path: '/sports-injuries', label: 'All Sports Injuries' },
+  //     { path: '/sports-injuries/cricket-injuries', label: 'Cricket Injuries' },
+  //     { path: '/sports-injuries/football-knee-injuries', label: 'Football Injuries' },
+  //     { path: '/sports-injuries/gym-shoulder-injuries', label: 'Gym & Weight Training' },
+  //     { path: '/sports-injuries/runner-knee-pain', label: "Runner's Knee" },
+  //   ],
+  // },
   { path: '/expertise', label: 'Expertise' },
-  { path: '/sports-medicine', label: 'Sports Medicine' },
+  { path: '/sports-medicine', label: 'Sports Injuries' },
   { path: '/blog', label: 'Blog' },
   { path: '/gallery', label: 'Gallery' },
   { path: '/contact', label: 'Contact' },
@@ -77,9 +77,8 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-soft' : 'bg-white/95 backdrop-blur-sm'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-soft' : 'bg-white/95 backdrop-blur-sm'
+        }`}
       ref={headerRef}
     >
       <div className="container-custom">
@@ -101,17 +100,15 @@ export const Header = () => {
                   <div key={link.label} className="relative">
                     <button
                       onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
-                      className={`flex items-center gap-1 px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm ${
-                        isActive(link)
+                      className={`flex items-center gap-1 px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm ${isActive(link)
                           ? 'text-primary bg-primary/10'
                           : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
-                      }`}
+                        }`}
                     >
                       {link.label}
                       <ChevronDown
-                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                          openDropdown === link.label ? 'rotate-180' : ''
-                        }`}
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''
+                          }`}
                       />
                     </button>
                     <AnimatePresence>
@@ -142,11 +139,10 @@ export const Header = () => {
                 <Link
                   key={link.path}
                   href={link.path!}
-                  className={`px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm ${
-                    pathname === link.path
+                  className={`px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm ${pathname === link.path
                       ? 'text-primary bg-primary/10'
                       : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -181,17 +177,15 @@ export const Header = () => {
                         onClick={() =>
                           setExpandedMobile(expandedMobile === link.label ? null : link.label)
                         }
-                        className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
-                          isActive(link)
+                        className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-all duration-300 ${isActive(link)
                             ? 'text-primary bg-primary/10'
                             : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
-                        }`}
+                          }`}
                       >
                         {link.label}
                         <ChevronDown
-                          className={`w-4 h-4 transition-transform ${
-                            expandedMobile === link.label ? 'rotate-180' : ''
-                          }`}
+                          className={`w-4 h-4 transition-transform ${expandedMobile === link.label ? 'rotate-180' : ''
+                            }`}
                         />
                       </button>
                       <AnimatePresence>
@@ -221,11 +215,10 @@ export const Header = () => {
                   <Link
                     key={link.path}
                     href={link.path!}
-                    className={`px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
-                      pathname === link.path
+                    className={`px-4 py-3 rounded-xl font-medium transition-all duration-300 ${pathname === link.path
                         ? 'text-primary bg-primary/10'
                         : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
-                    }`}
+                      }`}
                   >
                     {link.label}
                   </Link>

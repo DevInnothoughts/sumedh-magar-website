@@ -105,9 +105,25 @@ export default function PostEditorClient() {
     };
 
     try {
+      const cleanSlug = data.slug.trim().toLowerCase().replace(/\s+/g, '-');
+
+      // Check if this slug is already used by another post
+      const query = supabase.from('posts').select('id, title').eq('slug', cleanSlug);
+      if (id) {
+        query.neq('id', id);
+      }
+      const { data: existingPosts, error: checkError } = await query;
+      if (checkError) throw checkError;
+
+      if (existingPosts && existingPosts.length > 0) {
+        toast.error(`A post with slug "${cleanSlug}" already exists. Please choose a unique slug.`);
+        setSaving(false);
+        return;
+      }
+
       const postData = { 
         title: data.title, 
-        slug: data.slug.trim().toLowerCase().replace(/\s+/g, '-'), 
+        slug: cleanSlug, 
         category: data.category, 
         subcategory: data.subcategory || null, 
         description, 
