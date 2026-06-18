@@ -24,7 +24,7 @@ const navLinks: NavItem[] = [
       { path: '/treatments/sports-rehabilitation-pune', label: 'Sports Rehabilitation' },
     ],
   },
-  { path: '/sports-medicine', label: 'Sports medicine' },
+  { path: '/sports-medicine', label: 'Sports Medicine' },
   // {
   //   label: 'Sports Injuries',
   //   children: [
@@ -36,7 +36,7 @@ const navLinks: NavItem[] = [
   //   ],
   // },
   { path: '/expertise', label: 'Expertise' },
-  
+
   { path: '/blog', label: 'Blog' },
   { path: '/gallery', label: 'Gallery' },
   { path: '/contact', label: 'Contact' },
@@ -102,8 +102,8 @@ export const Header = () => {
                     <button
                       onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
                       className={`flex items-center gap-1 px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm ${isActive(link)
-                          ? 'text-primary bg-primary/10'
-                          : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
+                        ? 'text-primary bg-primary/10'
+                        : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
                         }`}
                     >
                       {link.label}
@@ -141,8 +141,8 @@ export const Header = () => {
                   key={link.path}
                   href={link.path!}
                   className={`px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm ${pathname === link.path
-                      ? 'text-primary bg-primary/10'
-                      : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
+                    ? 'text-primary bg-primary/10'
+                    : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
                     }`}
                 >
                   {link.label}
@@ -179,8 +179,8 @@ export const Header = () => {
                           setExpandedMobile(expandedMobile === link.label ? null : link.label)
                         }
                         className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-all duration-300 ${isActive(link)
-                            ? 'text-primary bg-primary/10'
-                            : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
+                          ? 'text-primary bg-primary/10'
+                          : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
                           }`}
                       >
                         {link.label}
@@ -217,8 +217,8 @@ export const Header = () => {
                     key={link.path}
                     href={link.path!}
                     className={`px-4 py-3 rounded-xl font-medium transition-all duration-300 ${pathname === link.path
-                        ? 'text-primary bg-primary/10'
-                        : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
+                      ? 'text-primary bg-primary/10'
+                      : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
                       }`}
                   >
                     {link.label}

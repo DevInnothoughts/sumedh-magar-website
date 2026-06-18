@@ -40,8 +40,18 @@ export default function ExpertiseClient() {
 
   return (
     <div className="min-h-screen pt-20">
-      <section className="section-padding bg-gradient-to-br from-secondary to-secondary-400 text-white">
-        <div className="container-custom">
+      <section className="section-padding text-white relative overflow-hidden">
+        {/* Background image with overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(/BioOrthopaedics.png)',
+          }}
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40" />
+        
+        <div className="container-custom relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto text-center">
             <h1 className="mb-6">Clinical Expertise</h1>
             <p className="text-xl text-neutral-200 leading-relaxed">
@@ -50,6 +60,8 @@ export default function ExpertiseClient() {
           </motion.div>
         </div>
       </section>
+
+
 
       <section className="section-padding bg-white">
         <div className="container-custom">
