@@ -26,6 +26,7 @@ const categories = [
   { value: 'Surgery', subcategories: ['Knee', 'Shoulder', 'Hip', 'Elbow', 'Ankle', 'Hand & Wrist'] },
   { value: 'Rehabilitation', subcategories: ['Return-to-Sport', 'Movement Analysis', 'Physiotherapy Protocols', 'Injury Prevention'] },
   { value: 'Research', subcategories: ['Sports Medicine', 'Arthroscopy', 'Regenerative Medicine', 'Orthopedic Innovations'] },
+  { value: 'Sport Medicine', subcategories: ['Doctor', 'Surgeon', 'Orthopedic Surgeon'] }
 ];
 
 const modules = {
@@ -81,25 +82,25 @@ export default function PostEditorClient() {
   const onSubmit = async (data: PostFormData) => {
     if (!description.trim()) { toast.error('Description is required'); return; }
     setSaving(true);
-    
+
     // Clean up canonical URL if user pasted a full HTML tag or invalid format
     const cleanCanonicalUrl = (url: string | null | undefined): string | null => {
       if (!url) return null;
       let cleaned = url.trim();
-      
+
       if (cleaned.includes('<link') && cleaned.includes('href=')) {
         const match = cleaned.match(/href=["']\s*([^"']+)\s*["']/i);
         if (match && match[1]) {
           cleaned = match[1].trim();
         }
       }
-      
+
       if (cleaned.startsWith('https:/') && !cleaned.startsWith('https://')) {
         cleaned = cleaned.replace('https:/', 'https://');
       } else if (cleaned.startsWith('http:/') && !cleaned.startsWith('http://')) {
         cleaned = cleaned.replace('http:/', 'http://');
       }
-      
+
       cleaned = cleaned.replace(/^["']|["']$/g, '').trim();
       return cleaned || null;
     };
@@ -121,15 +122,15 @@ export default function PostEditorClient() {
         return;
       }
 
-      const postData = { 
-        title: data.title, 
-        slug: cleanSlug, 
-        category: data.category, 
-        subcategory: data.subcategory || null, 
-        description, 
-        excerpt: data.excerpt || null, 
-        photo_url: photoUrl || null, 
-        video_url: videoUrl || null, 
+      const postData = {
+        title: data.title,
+        slug: cleanSlug,
+        category: data.category,
+        subcategory: data.subcategory || null,
+        description,
+        excerpt: data.excerpt || null,
+        photo_url: photoUrl || null,
+        video_url: videoUrl || null,
         status: data.status,
         custom_canonical_url: cleanCanonicalUrl(data.custom_canonical_url),
         custom_schema: data.custom_schema?.trim() || null
