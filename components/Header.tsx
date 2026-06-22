@@ -18,7 +18,7 @@ const navLinks: NavItem[] = [
       { path: '/treatments', label: 'All Treatments' },
       { path: '/treatments/acl-tear-treatment-pune', label: 'Robotic Knee Replacement' },
       { path: '/treatments/shoulder-arthroscopy-pune', label: 'Shoulder Surgery ' },
-      { path: '/treatments/knee-arthroscopy-pune', label: 'Knee Arthroscopy' },
+      { path: '/treatments/knee-arthroscopy-pune', label: 'Knee Surgery' },
       { path: '/treatments/meniscus-tear-treatment-pune', label: 'Meniscus Tear' },
       { path: '/treatments/knee-pain-treatment-pune', label: 'Knee Pain' },
       { path: '/treatments/sports-rehabilitation-pune', label: 'Sports Rehabilitation' },

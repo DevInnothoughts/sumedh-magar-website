@@ -25,21 +25,18 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    q: 'What conditions are treated with knee arthroscopy?',
-    a: 'Knee arthroscopy treats meniscus tears, cartilage injuries (chondral lesions), loose bodies, anterior cruciate ligament (ACL) injuries, and various sports-related knee conditions.',
+    q: 'What conditions can knee arthroscopy treat?',
+    a: 'Knee arthroscopy is commonly used to treat ACL tears, meniscus injuries, cartilage damage, and other sports-related knee conditions.',
   },
   {
-    q: 'Is knee arthroscopy painful?',
-    a: 'The procedure is performed under anaesthesia so you feel no pain during surgery. Post-operative discomfort is generally mild and well-controlled with medication.',
+    q: 'How soon can I walk after knee surgery?',
+    a: 'Many patients begin walking with support shortly after surgery, depending on the type of procedure and their surgeon’s advice.',
   },
   {
-    q: 'How long is the recovery after knee arthroscopy?',
-    a: 'Recovery depends on the procedure. Simple diagnostic arthroscopy allows return to normal activities in 1–2 weeks. More complex procedures like meniscus repair require 4–6 weeks.',
+    q: 'Will I need physiotherapy after knee surgery?',
+    a: 'Yes. Physiotherapy is an important part of recovery and helps restore strength, flexibility, and knee function.',
   },
-  {
-    q: 'How many incisions are made in knee arthroscopy?',
-    a: 'Typically 2–3 small incisions (portals), each less than 1 cm in length, are used to access the knee joint.',
-  },
+
 ];
 
 const breadcrumbSchema = {
@@ -76,16 +73,16 @@ export default function KneeArthroscopyPage() {
               <ChevronRight className="w-3.5 h-3.5" />
               <Link href="/treatments" className="hover:text-white transition-colors">Treatments</Link>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-white">Knee Arthroscopy</span>
+              <span className="text-white">Knee Surgery</span>
             </nav>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Minimally Invasive</p>
-                <h1 className="mb-4 text-4xl md:text-5xl font-bold">Knee Arthroscopy in Pune</h1>
-                <p className="text-neutral-200 text-lg leading-relaxed mb-6">
+                <h1 className="mb-4 text-4xl md:text-5xl font-bold">Knee Surgery in Pune – Expert ACL Reconstruction and Knee Arthroscopy</h1>
+                {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
                   Keyhole knee surgery for meniscus tears, cartilage damage, and sports knee injuries
                   with minimal recovery time.
-                </p>
+                </p> */}
                 <Link href="/contact" className="inline-flex items-center btn-primary">
                   Book Consultation <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
@@ -102,32 +99,30 @@ export default function KneeArthroscopyPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-10">
                 <div>
-                  <h2 className="text-secondary mb-4">What is Knee Arthroscopy?</h2>
+                  <h2 className="text-secondary mb-4">What Is Knee Surgery?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
-                    Knee arthroscopy is a minimally invasive surgical procedure that uses a small
-                    camera (arthroscope) inserted through tiny incisions to diagnose and treat
-                    conditions inside the knee joint. It offers significant advantages over open
-                    surgery including less pain, faster recovery, and reduced risk of complications.
+                    There are knee operations that use advanced arthroscopic surgery techniques used to diagnose and fix ligament problems, cartilage problems, meniscus tears, and sports injuries. Through minimally invasive surgery methods, knee joints can be stabilized and maintained.
                   </p>
-                  <p className="text-neutral-700 leading-relaxed">
-                    Dr. Sumedh Magar is an ISAKOS-fellowship-trained arthroscopy specialist with
-                    extensive experience performing knee arthroscopic procedures for athletes and
-                    active patients across Pune.
-                  </p>
+
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Conditions Treated</h2>
+                  <h2 className="text-secondary mb-4">Who May Need Knee Surgery?</h2>
+                  <p className='mb-4'>If a patient suffers from constant knee pain, instability, or mechanical problems despite physiotherapy, he or she can opt for surgery.
+                  </p>
+                  <p className='mb-4'>
+                    Surgical interventions include:
+                  </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
-                      'Meniscus tears (medial & lateral)',
-                      'ACL and PCL injuries',
-                      'Cartilage damage (chondral lesions)',
-                      'Loose bodies in the joint',
-                      'Patellofemoral problems',
-                      'Synovitis and joint inflammation',
-                      'Plica syndrome',
-                      'Post-traumatic arthrofibrosis',
+                      'ACL tear',
+                      'PCL tear',
+                      'Torn meniscus',
+                      'Degraded cartilage',
+                      'Sport injuries',
+                      'Knee instability',
+                      'Painful locking sensation',
+                      'Knee joint swelling',
                     ].map((c) => (
                       <div key={c} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -138,45 +133,76 @@ export default function KneeArthroscopyPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Meniscus Injuries</h2>
-                  <p className="text-neutral-700 leading-relaxed mb-4">
-                    The menisci are two C-shaped cartilage discs that act as shock absorbers in the
-                    knee. Tears are common in athletes and can cause pain, swelling, locking, and
-                    reduced function. Arthroscopic meniscus repair preserves the meniscus tissue
-                    wherever possible, while partial meniscectomy removes damaged tissue when repair
-                    is not feasible.
-                  </p>
+                  <h2 className="text-secondary mb-4">Procedures Offered</h2>
+                  <ul className="space-y-4">
+                    {[
+                      {
+                        title: "Anterior Cruciate Ligament Reconstruction",
+                        description:
+                          "Ligament reconstructive surgery done to restore stability in the knee following an injury from sports activities.",
+                      },
+                      {
+                        title: "Posterior Cruciate Ligament Reconstruction",
+                        description:
+                          "Surgical procedure performed on the posterior cruciate ligament following ligament injuries.",
+                      },
+                      {
+                        title: "Meniscus Repair",
+                        description:
+                          "Techniques used in repairing the joint while preserving shock absorption to prevent arthritis.",
+                      },
+                      {
+                        title: "Knee Arthroscopy",
+                        description:
+                          "Surgeries that can treat a variety of injuries within the joint including cartilage damage and synovitis.",
+                      },
+                    ].map((item) => (
+                      <li key={item.title} className="flex items-start gap-3">
+                        <ChevronRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-medium text-secondary">
+                            {item.title}
+                          </h4>
+                          <p className="text-neutral-700 mt-1">
+                            {item.description}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Cartilage Damage</h2>
-                  <p className="text-neutral-700 leading-relaxed">
-                    Articular cartilage injuries in athletes present unique challenges due to
-                    cartilage&apos;s limited healing capacity. Arthroscopic techniques including
-                    microfracture, cartilage shaving, and debridement can relieve symptoms and
-                    slow progression of damage, while biological treatments like PRP may support
-                    healing.
-                  </p>
+                  <h2 className="text-secondary mb-4">Benefits of Arthroscopic Knee Surgery</h2>
+                  <ul className="space-y-3 mb-4">
+                    {[
+                      'Small incisions',
+                      'Faster rehabilitation',
+                      'Less postoperative discomfort',
+                      'Preservation of healthy tissues',
+                      'Improved joint stability',
+                      'Earlier return to sports and daily activities',
+                    ].map((s) => (
+                      <li key={s} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-neutral-700">{s}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">The Procedure</h2>
+                  <h2 className="text-secondary mb-4">Recovery</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
-                    The procedure is performed under spinal or general anaesthesia as a day-case.
-                    Two to three small portals are created around the knee. A camera and instruments
-                    are introduced to visualise the joint and perform the necessary repair or
-                    debridement. The procedure typically takes 30–90 minutes.
-                  </p>
+                    Rehabilitation includes structured physiotherapy focused on restoring range of motion, strength, balance, and confidence. Recovery timelines vary depending on the procedure and patient goals.</p>
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Rehabilitation & Return to Sport</h2>
+                  <h2 className="text-secondary mb-4">Why Choose Dr. Sumedh Magar for Knee Surgery in Pune?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
-                    A structured physiotherapy programme begins immediately after surgery.
-                    Goals include pain control, swelling reduction, strength restoration, and
-                    sport-specific conditioning. Return to competitive sport depends on the
-                    procedure performed and ranges from 4 weeks (meniscectomy) to 4–6 months
-                    (meniscus repair).
+                    Dr. Sumedh Magar specializes in sports medicine, ACL reconstruction, meniscus repair, and advanced knee arthroscopy, delivering evidence-based care tailored to athletes and active individuals.
+
+
                   </p>
                 </div>
 
