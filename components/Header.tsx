@@ -13,10 +13,10 @@ const navLinks: NavItem[] = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
   {
-    label: 'Treatments',
+    label: 'Orthopedic',
     children: [
       { path: '/treatments', label: 'All Treatments' },
-      { path: '/treatments/acl-tear-treatment-pune', label: 'ACL Tear Treatment' },
+      { path: '/treatments/acl-tear-treatment-pune', label: 'Robotic Knee Replacement' },
       { path: '/treatments/knee-arthroscopy-pune', label: 'Knee Arthroscopy' },
       { path: '/treatments/shoulder-arthroscopy-pune', label: 'Shoulder Arthroscopy' },
       { path: '/treatments/meniscus-tear-treatment-pune', label: 'Meniscus Tear' },

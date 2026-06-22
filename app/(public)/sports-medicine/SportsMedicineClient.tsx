@@ -229,7 +229,7 @@ export default function SportsMedicineClient() {
             </motion.div>
 
             <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold">
-              Best Sports Medicine Doctor in Pune – Advanced Sports Medicine Care by Dr. Sumedh Magar
+              Best Sports Medicine Doctor in Pune – by Dr. Sumedh Magar
             </h1>
 
             {/* <p className="text-2xl md:text-3xl font-light mb-8 text-accent">

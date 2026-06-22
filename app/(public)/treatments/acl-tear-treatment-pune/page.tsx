@@ -31,25 +31,18 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    q: 'How long does ACL reconstruction surgery take?',
-    a: 'ACL reconstruction is typically a 60–90 minute procedure performed under anaesthesia. Most patients are discharged the same day or within 24 hours.',
+    q: 'How long does robotic knee replacement surgery take?',
+    a: 'The procedure typically lasts between one and two hours, depending on the complexity of the case and whether one or both knees are being treated.',
   },
   {
-    q: 'When can I return to sports after ACL surgery?',
-    a: 'Return to sport typically occurs 9–12 months post-surgery, depending on rehabilitation progress and sport-specific criteria being met.',
+    q: 'How soon can I walk after surgery?',
+    a: 'Many patients begin standing and walking with assistance shortly after surgery under the supervision of their healthcare team and physiotherapists.',
   },
   {
-    q: 'Is ACL surgery always necessary?',
-    a: 'Not always. Non-surgical management may be appropriate for less active individuals. However, athletes and young active patients generally benefit from surgical reconstruction.',
+    q: 'Can I return to normal activities?',
+    a: 'Most patients can resume everyday activities after rehabilitation, although high-impact sports and strenuous activities should only be undertaken based on medical advice.',
   },
-  {
-    q: 'What graft is used in ACL reconstruction?',
-    a: "Dr. Magar uses autograft tissue — typically the patient's own hamstring tendons or patellar tendon — tailored to the individual's anatomy and activity demands.",
-  },
-  {
-    q: 'Can I walk after ACL surgery?',
-    a: 'Most patients are walking with crutches within 1–2 days. Full weight-bearing without crutches is usually achieved within 2–4 weeks.',
-  },
+
 ];
 
 const breadcrumbSchema = {
@@ -87,7 +80,7 @@ export default function ACLTreatmentPage() {
               <ChevronRight className="w-3.5 h-3.5" />
               <Link href="/treatments" className="hover:text-white transition-colors">Treatments</Link>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-white">ACL Tear Treatment</span>
+              <span className="text-white">Robotic Knee Replacement</span>
             </nav>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -95,12 +88,12 @@ export default function ACLTreatmentPage() {
                   Knee Surgery Specialist
                 </p>
                 <h1 className="mb-4 text-4xl md:text-5xl font-bold">
-                  ACL Tear Treatment in Pune
+                  Robotic Knee Replacement in Pune – Advanced Precision for Better Mobility
                 </h1>
-                <p className="text-neutral-200 text-lg leading-relaxed mb-6">
+                {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
                   Expert anterior cruciate ligament reconstruction using arthroscopic techniques.
                   Trusted by athletes across Maharashtra.
-                </p>
+                </p> */}
                 <Link href="/contact" className="inline-flex items-center btn-primary">
                   Book Consultation <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
@@ -125,31 +118,28 @@ export default function ACLTreatmentPage() {
               <div className="lg:col-span-2 space-y-10">
                 {/* What is ACL */}
                 <div>
-                  <h2 className="text-secondary mb-4">What is an ACL Injury?</h2>
+                  <h2 className="text-secondary mb-4">What is Robotic Knee Replacement?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
-                    The anterior cruciate ligament (ACL) is one of the four key ligaments stabilising
-                    the knee joint. It connects the femur (thigh bone) to the tibia (shin bone) and
-                    is critical for rotational stability and directional changes during sport.
+                    Robotic knee replacement is a state-of-the-art joint replacement surgery that couples the skill of an orthopedic surgeon with robotic-assisted technology to enhance the accuracy of the procedure. The robotic system allows for a personalized surgical plan based on the patient's anatomy and guides precise implant placement while preserving healthy bone and soft tissue whenever possible.
                   </p>
-                  <p className="text-neutral-700 leading-relaxed">
-                    ACL tears are among the most common serious sports injuries, particularly in
-                    football, cricket, basketball, and skiing. The ligament can sustain a partial or
-                    complete tear, often accompanied by a characteristic &ldquo;pop&rdquo; sensation
-                    at the time of injury.
+                  <p className="text-neutral-700 leading-relaxed mb-4">
+                    Contrary to popular opinion, the robot doesn’t do the operation on its own. “The surgeon is in complete control during the entire procedure, utilizing the robotic platform as a very precise guide to obtain the best alignment and balance.
                   </p>
-                </div>
+                  <p className="text-neutral-700 leading-relaxed mb-4">
+                    Robotic knee replacement can give dependable pain relief and enhanced mobility for patients with advanced knee arthritis, chronic pain or substantial loss of function when conservative measures are no longer effective. The content and style are based on the reference website’s structure and method of teaching.
+                  </p>
 
-                {/* Symptoms */}
-                <div>
-                  <h2 className="text-secondary mb-4">Common Symptoms of ACL Tear</h2>
-                  <ul className="space-y-3">
+                  <ul className="space-y-3 mb-4">
                     {[
-                      'Sudden severe knee pain at time of injury',
-                      'Audible "pop" in the knee',
-                      'Rapid swelling within 2–6 hours',
-                      'Feeling of instability or the knee "giving way"',
-                      'Reduced range of motion',
-                      'Difficulty weight-bearing',
+                      'Who is a candidate for robotic knee replacement surgery?',
+                      'A robotic-assisted knee replacement may be an option for patients who continue to have knee pain that limits their ability to walk, climb stairs or perform daily activities despite medications, physical therapy, injections or lifestyle changes.',
+                      'Common conditions where robotic knee replacement might be necessary include:',
+                      'Severe osteoarthritis of the knee',
+                      'Rheumatoid arthritis of the knee joint',
+                      'Post-traumatic arthritis from prior injuries',
+                      'Severe loss of cartilage with bone touching bone',
+                      'Arthritic deformities of the knee',
+                      'Failure of nonsurgical treatment for chronic knee pain'
                     ].map((s) => (
                       <li key={s} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -157,50 +147,101 @@ export default function ACLTreatmentPage() {
                       </li>
                     ))}
                   </ul>
+
+                  <p className="text-neutral-700 leading-relaxed ">Robotic knee replacement is the best treatment option based on a complete clinical evaluation and imaging studies.</p>
+                </div>
+
+                {/* Symptoms */}
+                <div>
+                  <h2 className="text-secondary mb-4">Advantages of Robotic Knee Replacement</h2>
+                  <p className='text-neutral-700 leading-relaxed mb-4'>Robotic-assisted technology offers better planning and surgical accuracy than traditional techniques. The objective is to improve the performance and the longevity of the knee, through accurate implant positioning and soft tissue balancing.
+                  </p>
+                  <p className='text-neutral-700 leading-relaxed mb-4'>
+                    Benefits include less post-operative pain, better joint alignment, increased implant accuracy, preservation of healthy tissues, faster functional recovery and higher patient satisfaction But how well each person does depends on their overall health, rehabilitation and how well they follow the instructions after surgery.
+                  </p>
+                  <p className='text-secondary mb-3'><strong>How the Process Works</strong></p>
+                  <p className='text-neutral-700 leading-relaxed mb-2'>Before surgery, advanced imaging is used to create a 3-D model of the patient’s knee. This allows the surgeon to create a personalized surgical plan that is specific to the individual's anatomy.
+                  </p>
+                  <p className='text-neutral-700 leading-relaxed mb-2'>
+                    During the operation the robotic system gives real-time feedback and assists in precise bone preparation according to planned implant positioning. The surgeon supervises and directs each step making sure that it is correct and appropriate for the patient’s specific needs.
+                  </p>
+                  <p>
+                    The artificial parts substitute for the damaged cartilage and bone surfaces.
+                  </p>
                 </div>
 
                 {/* Diagnosis */}
-                <div>
-                  <h2 className="text-secondary mb-4">Diagnosis</h2>
-                  <p className="text-neutral-700 leading-relaxed mb-4">
-                    Accurate diagnosis is essential for optimal treatment planning. Dr. Magar performs
-                    a thorough clinical examination including the Lachman test and pivot shift test,
-                    supplemented by:
-                  </p>
-                  <ul className="space-y-2">
-                    {[
-                      'MRI scan — gold standard for ACL assessment',
-                      'X-rays to rule out associated bone fractures',
-                      'KT-1000 arthrometer testing for laxity measurement',
-                    ].map((s) => (
-                      <li key={s} className="flex items-start gap-3">
-                        <ChevronRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                        <span className="text-neutral-700">{s}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="space-y-4">
+                  {[
+                    {
+                      title: "Arthritis Osteoarthritis",
+                      description:
+                        "Osteoarthritis, the most common reason for knee replacement, slowly wears away the cartilage in the joint causing pain, stiffness, swelling and limited mobility.",
+                    },
+                    {
+                      title: "Rheumatoid Arthritis ",
+                      description:
+                        "Inflammatory joint disease may severely damage knee structures over time, making replacement surgery necessary when conservative management fails.",
+                    },
+                    {
+                      title: "Deformity, Knee",
+                      description:
+                        "Robotic assisted surgery allows for precise correction of deformity in patients with arthritis and bow-legged or knock-kneed deformities.",
+                    },
+                  ].map((item) => (
+                    <li key={item.title} className="flex items-start gap-3">
+                      <ChevronRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-medium text-secondary">
+                          {item.title}
+                        </h4>
+                        <p className="text-neutral-700 mt-1">
+                          {item.description}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
 
                 {/* Surgery */}
                 <div>
-                  <h2 className="text-secondary mb-4">ACL Reconstruction Surgery</h2>
+                  <h2 className="text-secondary mb-4">Recovery After Robotic Knee Replacement</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
-                    Arthroscopic ACL reconstruction is the standard of care for active patients
-                    seeking to return to sport. The procedure involves replacing the torn ligament
-                    with a graft — typically the patient&apos;s own hamstring or patellar tendon tissue
-                    (autograft) — positioned through bone tunnels to replicate the native ACL.
+                    Supervised mobilization and physiotherapy, soon after surgery, initiates the recovery process. Many patients are encouraged to get up and move about, with assistance, very soon after the procedure.
+
+                  </p>
+                  <p className="text-neutral-700 leading-relaxed mb-4">
+                    Early rehabilitation focuses on controlling pain, improving the range of motion, strengthening muscles and restoring the ability to walk. Over the following weeks and months, patients slowly return to their normal activities under tailored rehabilitation programs.
+
                   </p>
                   <p className="text-neutral-700 leading-relaxed">
-                    Dr. Magar performs this using keyhole arthroscopic techniques, resulting in
-                    minimal soft tissue disruption, reduced post-operative pain, and faster recovery
-                    compared to open surgery.
+                    While many people notice marked improvements within weeks, full recovery and adjustment to the new joint can take several months.
+
                   </p>
+
                 </div>
 
                 {/* Recovery */}
                 <div>
-                  <h2 className="text-secondary mb-4">Recovery Timeline</h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <h2 className="text-secondary mb-4">Advantages Over Conventional Knee Replacement</h2>
+                  <p className="text-neutral-700 leading-relaxed mb-4">Robotic-assisted surgery is an advanced technology that helps improve surgical planning and execution. It may deliver, compared to traditional approaches:</p>
+                  <ul className="space-y-3 mb-4">
+                    {[
+                      'Individual pre-operative planning',
+                      'More precise implant placement',
+                      'Improved soft tissue orientation',
+                      'Less variation during surgery',
+                      'Possibility of better knee function',
+                      'Improved consistency in implant placement'
+                    ].map((s) => (
+                      <li key={s} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-neutral-700">{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-neutral-700 leading-relaxed">The skill of the orthopedic surgeon remains the most important factor for successful outcomes.</p>
+                  {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       { phase: 'Week 1–2', milestone: 'Walking with crutches, pain management, swelling control' },
                       { phase: 'Week 3–6', milestone: 'Full weight-bearing, range of motion restoration' },
@@ -214,7 +255,25 @@ export default function ACLTreatmentPage() {
                         <p className="text-neutral-700 text-sm">{milestone}</p>
                       </Card>
                     ))}
-                  </div>
+                  </div> */}
+                </div>
+
+                <div>
+                  <h2 className="text-secondary mb-6">Is Robotic Knee Replacement Safe?</h2>
+                  <p className="text-neutral-700 leading-relaxed mb-4">Robotic knee replacement has become an established technique in modern orthopedic surgery in the hands of trained specialists using approved systems. It uses advanced imaging, computer-assisted planning and surgeon-controlled execution for improved accuracy.
+                  </p>
+                  <p className="text-neutral-700 leading-relaxed">
+                    There are always risks with any surgery such as infection, blood clots, problems with the implant or stiffness but good patient selection and post-operative care will help minimize these risks.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-secondary mb-6">Why Choose Dr. Sumedh Magar for Robotic Knee Replacement in Pune?</h2>
+                  <p className="text-neutral-700 leading-relaxed mb-4">The patients who opt for robotic knee replacement in Pune get the advantage of a thorough examination of their condition, proper treatment plan, and effective rehabilitation process. The orthopedist Dr. Sumedh Magar has combined his skills in the field of sports orthopedics, arthroscopy, joint reconstruction with advanced procedures aimed at making them mobile and providing high-quality life.
+                  </p>
+                  <p className="text-neutral-700 leading-relaxed">
+                    Treatment plans are customized depending on patients' needs and future perspectives.
+                  </p>
                 </div>
 
                 {/* FAQs */}

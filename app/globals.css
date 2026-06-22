@@ -27,7 +27,7 @@
 
   h2 {
     @apply text-2xl md:text-3xl lg:text-4xl font-bold;
-    font-size: 2rem;
+    font-size: 1.6rem;
     line-height: 1.2;
   }
 
