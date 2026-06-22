@@ -33,6 +33,22 @@ const breadcrumbSchema = {
   ],
 };
 
+const faqs = [
+  {
+    q: 'Who is a good candidate for joint replacement surgery?',
+    a: 'People with severe arthritis or chronic joint pain that limits daily activities and does not improve with conservative treatment may benefit from joint replacement.',
+  },
+  {
+    q: 'How long do joint replacement implants last?',
+    a: 'Modern hip and knee implants can often last 15–20 years or longer, depending on factors such as activity level and overall health.',
+  },
+  {
+    q: 'Can I return to normal activities after joint replacement?',
+    a: 'Most patients can return to everyday activities after rehabilitation, although high-impact activities should only be resumed based on medical advice.',
+  },
+
+];
+
 export default function KneePainPage() {
   return (
     <>
@@ -45,15 +61,15 @@ export default function KneePainPage() {
               <ChevronRight className="w-3.5 h-3.5" />
               <Link href="/treatments" className="hover:text-white transition-colors">Treatments</Link>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-white">Knee Pain Treatment</span>
+              <span className="text-white">Joint Replacement </span>
             </nav>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Sports Knee Specialist</p>
-                <h1 className="mb-4 text-4xl md:text-5xl font-bold">Knee Pain Treatment in Pune</h1>
-                <p className="text-neutral-200 text-lg leading-relaxed mb-6">
+                <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Joint Replacement Specialist</p>
+                <h1 className="mb-4 text-4xl md:text-5xl font-bold">Joint Replacement in Pune – Total Knee and Hip Replacement Surgery</h1>
+                {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
                   Comprehensive evaluation and treatment for knee pain in athletes and active individuals.
-                </p>
+                </p> */}
                 <Link href="/contact" className="inline-flex items-center btn-primary">
                   Book Consultation <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
@@ -69,35 +85,30 @@ export default function KneePainPage() {
           <div className="container-custom max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-10">
-                <div>
-                  <h2 className="text-secondary mb-4">Common Causes of Knee Pain</h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {[
-                      { cause: 'ACL / PCL Injuries', desc: 'Ligament tears causing instability and pain' },
-                      { cause: 'Meniscus Tears', desc: 'Cartilage damage from twisting injuries' },
-                      { cause: 'Patellofemoral Pain', desc: 'Knee cap pain common in runners and cyclists' },
-                      { cause: 'IT Band Syndrome', desc: 'Lateral knee pain in endurance athletes' },
-                      { cause: 'Osteoarthritis', desc: 'Wear and tear affecting joint cartilage' },
-                      { cause: 'Patellar Tendinopathy', desc: 'Jumper\'s knee from overload' },
-                    ].map(({ cause, desc }) => (
-                      <Card key={cause}>
-                        <p className="font-semibold text-primary text-sm mb-1">{cause}</p>
-                        <p className="text-neutral-700 text-sm">{desc}</p>
-                      </Card>
-                    ))}
-                  </div>
+
+                <div className="">
+                  <h2 className="font-heading font-semibold text-secondary mb-3">What Is Joint Replacement Surgery?</h2>
+                  <p className="text-neutral-700 text-sm leading-relaxed">
+                    Joint replacement entails the replacement of worn-out joints with artificial implants in order to reduce the pain and increase mobility in people with severe arthritis or joint degeneration. The most up-to-date technique of minimizing tissue injury during joint replacement surgery includes the use of minimally invasive surgical procedures.</p>
                 </div>
 
+
                 <div>
-                  <h2 className="text-secondary mb-4">When to See a Specialist</h2>
+                  <h2 className="font-heading font-semibold text-secondary mb-4">Who May Need Joint Replacement?</h2>
+                  <p>
+                    Patients with advanced joint disease who experience:
+                  </p>
                   <ul className="space-y-3">
                     {[
-                      'Knee pain that persists beyond 2 weeks',
-                      'Swelling that does not resolve',
-                      'Feeling of instability or the knee "giving way"',
-                      'Locking or catching sensation in the knee',
-                      'Pain that prevents sport or daily activities',
-                      'Night pain or pain at rest',
+                      'People with severely degenerated joints such as:',
+                      'Advanced cases of osteoarthritis',
+                      'Severe rheumatoid arthritis',
+                      'Post-traumatic arthritis',
+                      'Pain limiting movement',
+                      'Joint deformity',
+                      'Failed medication',
+                      'Failed joint injections',
+
                     ].map((s) => (
                       <li key={s} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -108,38 +119,90 @@ export default function KneePainPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Treatment Options</h2>
-                  <p className="text-neutral-700 leading-relaxed mb-4">
-                    Treatment is always personalised. Dr. Magar performs a comprehensive
-                    assessment before recommending the most appropriate management strategy:
-                  </p>
-                  <ul className="space-y-3">
+                  <h2 className="font-heading font-semibold text-secondary mb-4">Types of Joint Replacement</h2>
+                  <ul className="space-y-4">
                     {[
-                      'Physiotherapy and rehabilitation',
-                      'Activity modification and load management',
-                      'PRP (Platelet-Rich Plasma) therapy',
-                      'Hyaluronic acid injections for arthritis',
-                      'Arthroscopic surgery where indicated',
-                      'Cartilage restoration procedures',
-                    ].map((s) => (
-                      <li key={s} className="flex items-start gap-3">
+                      {
+                        title: "Total Knee Replacement",
+                        description:
+                          "This type of joint replacement entails replacing damaged knee joints with implants aimed at improving mobility and reducing pain.",
+                      },
+                      {
+                        title: "Total Hip Replacement",
+                        description:
+                          "It entails replacing worn out joints to help restore the functionality of the hip joint for individuals with advanced cases of arthritis.",
+                      },
+                      {
+                        title: "Minimally Invasive Joint Replacement",
+                        description:
+                          "It entails special surgical procedures designed to minimize the damage to muscles among certain patients.",
+                      },
+                    ].map((item) => (
+                      <li key={item.title} className="flex items-start gap-3">
                         <ChevronRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                        <span className="text-neutral-700 text-sm">{s}</span>
+                        <div>
+                          <h4 className="font-medium text-secondary">
+                            {item.title}
+                          </h4>
+                          <p className="text-neutral-700 mt-1">
+                            {item.description}
+                          </p>
+                        </div>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="bg-primary/5 rounded-2xl p-6">
-                  <h3 className="font-heading font-semibold text-secondary mb-3">Sports Injuries vs Arthritis</h3>
+                <div className="">
+                  <h2 className="font-heading font-semibold text-secondary mb-3">Benefits</h2>
                   <p className="text-neutral-700 text-sm leading-relaxed">
-                    Athletes can experience both sports-related knee injuries and early-onset
-                    arthritis. An accurate diagnosis is essential — treating a ligament injury
-                    as arthritis (or vice versa) leads to suboptimal outcomes. Dr. Magar uses
-                    clinical examination, imaging, and functional assessment to distinguish
-                    between these conditions accurately.
+                    Potential benefits include:</p>
+                  <ul className="space-y-3">
+                    {[
+                      'Reduced pain',
+                      'Ability to walk better',
+                      'Improvement in the quality of life',
+                      'Improved joint function',
+                      'Durability',
+                      'Early mobilization using rehabilitation',
+
+                    ].map((s) => (
+                      <li key={s} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-neutral-700 text-sm">{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                </div>
+
+                <div className="">
+                  <h2 className="font-heading font-semibold text-secondary mb-3">Recovery</h2>
+                  <p className="text-neutral-700 text-sm leading-relaxed">
+                    Patients usually start their mobilization shortly after undergoing surgery, and thereafter, undertake physiotherapy sessions.
+
                   </p>
                 </div>
+
+                <div className="">
+                  <h2 className="font-heading font-semibold text-secondary mb-3">Why Choose Dr. Sumedh Magar?</h2>
+                  <p className="text-neutral-700 text-sm leading-relaxed">
+                    Combining expertise in modern orthopedic surgery with personalized rehabilitation protocols, Dr. Sumedh Magar offers comprehensive care for patients seeking advanced hip and knee replacement surgery in Pune.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="font-heading font-semibold text-secondary mb-6">Frequently Asked Questions</h2>
+                  <div className="space-y-4">
+                    {faqs.map(({ q, a }) => (
+                      <Card key={q}>
+                        <h3 className="font-semibold text-secondary mb-2 text-base">{q}</h3>
+                        <p className="text-neutral-700 text-sm leading-relaxed">{a}</p>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+
               </div>
 
               <aside className="space-y-6">
