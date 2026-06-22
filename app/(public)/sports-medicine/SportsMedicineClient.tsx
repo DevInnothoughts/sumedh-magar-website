@@ -21,7 +21,7 @@ import { Card } from '@/components/Card';
 
 interface Condition {
   name: string;
-  description: string;
+  description?: string;
 }
 
 interface BodyRegion {
@@ -71,11 +71,11 @@ export default function SportsMedicineClient() {
       region: 'Knee Conditions',
       icon: '🦶',
       conditions: [
-        { name: 'ACL Injuries' },
-        { name: 'Meniscus Tears' },
-        { name: 'Cartilage Injuries' },
-        { name: 'Patellar Tendinitis' },
-        { name: 'Runner\'s Knee' }
+        { name: 'ACL Injuries', description: '' },
+        { name: 'Meniscus Tears', description: '' },
+        { name: 'Cartilage Injuries', description: '' },
+        { name: 'Patellar Tendinitis', description: '' },
+        { name: 'Runner\'s Knee', description: '' }
         // { name: 'Achilles Tendinitis', description: 'Overuse or sudden loading of the Achilles tendon' },
         // { name: 'Peroneal Tendinitis', description: 'Lateral ankle tendon irritation in cutting sports' },
         // { name: 'Ankle Sprain', description: 'Ligament injury from twisting or unstable landings' }
@@ -85,10 +85,10 @@ export default function SportsMedicineClient() {
       region: 'Shoulder Conditions',
       icon: '🦵',
       conditions: [
-        { name: 'Rotator Cuff Tears' },
-        { name: 'Shoulder Instability' },
-        { name: 'Shoulder Dislocations' },
-        { name: 'Labral Injuries' }
+        { name: 'Rotator Cuff Tears', description: '' },
+        { name: 'Shoulder Instability', description: '' },
+        { name: 'Shoulder Dislocations', description: '' },
+        { name: 'Labral Injuries', description: '' }
         // { name: 'Patellar Tendinitis', description: "Jumper's knee - strain of patella tendon from jumping sports" },
         // { name: 'Partial Ligament Tears', description: 'ACL, PCL, MCL tears common in pivoting sports' },
         // { name: 'Meniscus Injuries', description: 'Torn cartilage during twisting or direct trauma' }
@@ -98,10 +98,10 @@ export default function SportsMedicineClient() {
       region: 'Foot & Ankle Conditions',
       icon: '💪',
       conditions: [
-        { name: 'Ankle Sprains' },
-        { name: 'Achilles Tendinitis' },
-        { name: 'Plantar Fasciitis' },
-        { name: 'Stress Fractures' }
+        { name: 'Ankle Sprains', description: '' },
+        { name: 'Achilles Tendinitis', description: '' },
+        { name: 'Plantar Fasciitis', description: '' },
+        { name: 'Stress Fractures', description: '' }
         // { name: 'Rotator Cuff Injuries', description: 'Tears or strain in overhead sports (swimming, tennis)' },
         // { name: 'Adhesive Capsulitis', description: 'Frozen shoulder from inactivity or injury' },
         // { name: 'Bicipital Tendinitis', description: 'Inflammation of biceps tendon in shoulder region' },
@@ -112,19 +112,19 @@ export default function SportsMedicineClient() {
       region: 'Muscle & Tendon Injuries',
       icon: '🤝',
       conditions: [
-        { name: 'Hamstring Injuries' },
-        { name: 'Muscle Strains' },
-        { name: 'Tendon Tears' },
-        { name: 'Overuse Injuries' }
+        { name: 'Hamstring Injuries', description: '' },
+        { name: 'Muscle Strains', description: '' },
+        { name: 'Tendon Tears', description: '' },
+        { name: 'Overuse Injuries', description: '' }
       ]
     },
     {
       region: 'Elbow & Wrist Conditions',
       icon: '🏃',
       conditions: [
-        { name: 'Tennis Elbow' },
-        { name: 'Golfer\'s Elbow' },
-        { name: 'TFCC Injuries' }
+        { name: 'Tennis Elbow', description: '' },
+        { name: 'Golfer\'s Elbow', description: '' },
+        { name: 'TFCC Injuries', description: '' }
       ]
     },
     {
@@ -348,9 +348,9 @@ export default function SportsMedicineClient() {
                   <h3 className="text-lg font-heading font-semibold text-secondary mb-2">
                     {pillar.title}
                   </h3>
-                  <p className="text-neutral-600 text-sm">
+                  {/* <p className="text-neutral-600 text-sm">
                     {pillar.description}
-                  </p>
+                  </p> */}
                 </Card>
               </motion.div>
             ))}
