@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, ArrowRight, CheckCircle, Phone } from 'lucide-react';
 import { Card } from '@/components/Card';
-
+import { relatedTreatments } from '@/data/relatedtreatments';
 const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   description:
     'Specialist knee pain treatment in Pune by Dr. Sumedh Magar. Expert diagnosis and treatment for sports injuries, arthritis, and ligament injuries at I-SPORT Medical Centre.',
   alternates: {
-    canonical: `${SITE_URL}/treatments/knee-pain-treatment-pune`,
+    canonical: `${SITE_URL}/treatments/joint-replacement-surgery-pune`,
   },
   keywords: ['knee pain treatment Pune', 'knee specialist Pune', 'knee doctor Pune', 'sports knee pain Pune'],
   openGraph: {
     type: 'website',
-    url: `${SITE_URL}/treatments/knee-pain-treatment-pune`,
+    url: `${SITE_URL}/treatments/joint-replacement-surgery-pune`,
     title: 'Knee Pain Treatment Pune | Dr. Sumedh Magar',
     description: 'Expert knee pain diagnosis and treatment in Pune for athletes and active patients.',
     images: [{ url: `${SITE_URL}/KneeSurgery.jpeg`, width: 1200, height: 630, alt: 'Knee pain treatment Pune' }],
@@ -50,6 +50,12 @@ const faqs = [
 ];
 
 export default function KneePainPage() {
+  const currentPath = "/treatments/joint-replacement-surgery-pune";
+
+  const filteredTreatments = relatedTreatments.filter(
+    (item) => item.href !== currentPath
+  );
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -205,31 +211,39 @@ export default function KneePainPage() {
 
               </div>
 
-              <aside className="space-y-6">
-                <Card>
-                  <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
-                  <Link href="/contact" className="block w-full text-center btn-primary">Book Appointment</Link>
-                  <a href="tel:+919145517171" className="flex items-center justify-center gap-2 mt-3 text-sm text-neutral-600 hover:text-primary transition-colors">
-                    <Phone className="w-4 h-4" /> 9145517171
-                  </a>
-                </Card>
-                <Card>
-                  <h3 className="font-heading font-semibold text-secondary mb-4">Related</h3>
-                  <ul className="space-y-2">
-                    {[
-                      { href: '/treatments/acl-tear-treatment-pune', label: 'ACL Treatment' },
-                      { href: '/treatments/knee-arthroscopy-pune', label: 'Knee Arthroscopy' },
-                      { href: '/treatments/meniscus-tear-treatment-pune', label: 'Meniscus Tear' },
-                    ].map(({ href, label }) => (
-                      <li key={href}>
-                        <Link href={href} className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors">
-                          <ChevronRight className="w-4 h-4 text-primary" /> {label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
+              <aside className="lg:col-span-1">
+                <div className="sticky top-24 space-y-6">
+                  <Card>
+                    <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
+                    <Link href="/contact" className="block w-full text-center btn-primary">Book Appointment</Link>
+                    <a href="tel:+919145517171" className="flex items-center justify-center gap-2 mt-3 text-sm text-neutral-600 hover:text-primary transition-colors">
+                      <Phone className="w-4 h-4" /> 9145517171
+                    </a>
+                  </Card>
+
+                  <Card>
+                    <h3 className="font-heading font-semibold text-secondary mb-4">
+                      Related Treatments
+                    </h3>
+
+                    <ul className="space-y-2">
+                      {filteredTreatments.map((item) => (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors"
+                          >
+                            <ChevronRight className="w-4 h-4 text-primary" />
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </Card>
+
+                </div>
               </aside>
+
             </div>
           </div>
         </section>

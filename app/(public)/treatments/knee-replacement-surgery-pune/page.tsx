@@ -3,15 +3,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, ArrowRight, CheckCircle, Phone } from 'lucide-react';
 import { Card } from '@/components/Card';
+import { relatedTreatments } from '@/data/relatedtreatments';
 
 const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
-  title: 'ACL Tear Treatment in Pune – ACL Reconstruction Surgery',
+  title: 'Knee Replacement Surgery in Pune | Dr. Sumedh Magar',
   description:
     'Expert ACL tear treatment and ACL reconstruction surgery in Pune by Dr. Sumedh Magar. Arthroscopic ACL surgery, sports knee specialist at I-SPORT Medical Centre, Balewadi.',
   alternates: {
-    canonical: `${SITE_URL}/treatments/acl-tear-treatment-pune`,
+    canonical: `${SITE_URL}/treatments/knee-replacement-surgery-pune`,
   },
   keywords: [
     'ACL tear treatment Pune',
@@ -22,8 +23,8 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: 'website',
-    url: `${SITE_URL}/treatments/acl-tear-treatment-pune`,
-    title: 'ACL Tear Treatment Pune | Dr. Sumedh Magar',
+    url: `${SITE_URL}/treatments/knee-replacement-surgery-pune`,
+    title: 'Knee Replacement Surgery in Pune | Dr. Sumedh Magar',
     description: 'Arthroscopic ACL reconstruction by sports knee specialist Dr. Sumedh Magar at I-SPORT Medical Centre, Pune.',
     images: [{ url: `${SITE_URL}/aclsurgery.JPG`, width: 1200, height: 630, alt: 'ACL Surgery Pune' }],
   },
@@ -51,7 +52,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
     { '@type': 'ListItem', position: 2, name: 'Treatments', item: `${SITE_URL}/treatments` },
-    { '@type': 'ListItem', position: 3, name: 'ACL Tear Treatment', item: `${SITE_URL}/treatments/acl-tear-treatment-pune` },
+    { '@type': 'ListItem', position: 3, name: 'Knee Replacement Surgery', item: `${SITE_URL}/treatments/knee-replacement-surgery-pune` },
   ],
 };
 
@@ -66,6 +67,12 @@ const faqSchema = {
 };
 
 export default function ACLTreatmentPage() {
+  const currentPath = "/treatments/knee-replacement-surgery-pune";
+
+  const filteredTreatments = relatedTreatments.filter(
+    (item) => item.href !== currentPath
+  );
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -291,67 +298,39 @@ export default function ACLTreatmentPage() {
               </div>
 
               {/* Sidebar */}
-              <aside className="space-y-6">
-                <Card>
-                  <h3 className="font-heading font-semibold text-secondary mb-4">
-                    Book a Consultation
-                  </h3>
-                  <p className="text-neutral-600 text-sm mb-4">
-                    Get a specialist opinion from Dr. Sumedh Magar at I-SPORT Medical Centre,
-                    Balewadi, Pune.
-                  </p>
-                  <Link href="/contact" className="block w-full text-center btn-primary">
-                    Book Appointment
-                  </Link>
-                  <a
-                    href="tel:+919145517171"
-                    className="flex items-center justify-center gap-2 mt-3 text-sm text-neutral-600 hover:text-primary transition-colors"
-                  >
-                    <Phone className="w-4 h-4" /> 9145517171
-                  </a>
-                </Card>
+              <aside className="lg:col-span-1">
+                <div className="sticky top-24 space-y-6">
+                  <Card>
+                    <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
+                    <Link href="/contact" className="block w-full text-center btn-primary">Book Appointment</Link>
+                    <a href="tel:+919145517171" className="flex items-center justify-center gap-2 mt-3 text-sm text-neutral-600 hover:text-primary transition-colors">
+                      <Phone className="w-4 h-4" /> 9145517171
+                    </a>
+                  </Card>
 
-                <Card>
-                  <h3 className="font-heading font-semibold text-secondary mb-4">
-                    Related Treatments
-                  </h3>
-                  <ul className="space-y-2">
-                    {[
-                      { href: '/treatments/knee-arthroscopy-pune', label: 'Knee Arthroscopy' },
-                      { href: '/treatments/meniscus-tear-treatment-pune', label: 'Meniscus Tear' },
-                      { href: '/treatments/sports-rehabilitation-pune', label: 'Sports Rehab' },
-                    ].map(({ href, label }) => (
-                      <li key={href}>
-                        <Link
-                          href={href}
-                          className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors"
-                        >
-                          <ChevronRight className="w-4 h-4 text-primary" /> {label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
+                  <Card>
+                    <h3 className="font-heading font-semibold text-secondary mb-4">
+                      Related Treatments
+                    </h3>
 
-                <Card>
-                  <h3 className="font-heading font-semibold text-secondary mb-3">Sports Injuries</h3>
-                  <ul className="space-y-2">
-                    {[
-                      { href: '/sports-injuries/football-knee-injuries', label: 'Football ACL Injuries' },
-                      { href: '/sports-injuries/cricket-injuries', label: 'Cricket Injuries' },
-                    ].map(({ href, label }) => (
-                      <li key={href}>
-                        <Link
-                          href={href}
-                          className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors"
-                        >
-                          <ChevronRight className="w-4 h-4 text-primary" /> {label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
+                    <ul className="space-y-2">
+                      {filteredTreatments.map((item) => (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors"
+                          >
+                            <ChevronRight className="w-4 h-4 text-primary" />
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </Card>
+
+                </div>
               </aside>
+
             </div>
           </div>
         </section>

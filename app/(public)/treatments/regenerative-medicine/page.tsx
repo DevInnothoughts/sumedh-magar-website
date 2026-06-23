@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, ArrowRight, CheckCircle, Phone } from 'lucide-react';
 import { Card } from '@/components/Card';
+import { relatedTreatments } from '@/data/relatedtreatments';
+// import { usePathname } from "next/navigation";
 
 const SITE_URL = 'https://www.sportsurgeon.in';
 
@@ -39,20 +41,32 @@ const faqs = [
 
 ];
 
-const relatedTreatments = [
-  {
-    href: "/treatments/prp-therapy-pune",
-    label: "Robotic Knee Replacement",
-  },
-  {
-    href: "/treatments/sports-medicine-pune",
-    label: "Knee Replacement",
-  },
-  {
-    href: "/treatments/knee-arthroscopy-pune",
-    label: "Knee Arthroscopy",
-  },
-];
+// const relatedTreatments = [
+//   {
+//     href: "/treatments/knee-replacement-surgery-pune",
+//     label: "Robotic Knee Replacement",
+//   },
+//   {
+//     href: "/treatments/shoulder-arthroscopy-pune",
+//     label: "Shoulder Surgery",
+//   },
+//   {
+//     href: "/treatments/knee-arthroscopy-pune",
+//     label: "Knee Surgery",
+//   },
+//   {
+//     href: "/treatments/knee-pain-treatment-pune",
+//     label: "Joint Replacement",
+//   },
+//   {
+//     href: "/treatments/hip-surgery-pune",
+//     label: "Hip Surgery",
+//   },
+//   {
+//     href: "/treatments/regenerative-medicine",
+//     label: "Regenerative Medicine",
+//   },
+// ];
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -75,6 +89,13 @@ const breadcrumbSchema = {
 };
 
 export default function RegenerativeMedicinePage() {
+
+  const currentPath = "/treatments/regenerative-medicine";
+
+  const filteredTreatments = relatedTreatments.filter(
+    (item) => item.href !== currentPath
+  );
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -315,7 +336,7 @@ export default function RegenerativeMedicinePage() {
                     </ul>
                   </Card> */}
 
-                  <Card>
+                  {/* <Card>
                     <h3 className="font-heading font-semibold text-secondary mb-4">
                       Related Treatments
                     </h3>
@@ -333,7 +354,28 @@ export default function RegenerativeMedicinePage() {
                         </li>
                       ))}
                     </ul>
+                  </Card> */}
+
+                  <Card>
+                    <h3 className="font-heading font-semibold text-secondary mb-4">
+                      Related Treatments
+                    </h3>
+
+                    <ul className="space-y-2">
+                      {filteredTreatments.map((item) => (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors"
+                          >
+                            <ChevronRight className="w-4 h-4 text-primary" />
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </Card>
+
                 </div>
               </aside>
 
