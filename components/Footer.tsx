@@ -10,7 +10,12 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Activity className="w-8 h-8 text-primary" />
+              {/* <Activity className="w-8 h-8 text-primary" /> */}
+              <img
+                src="/logo.bmp"
+                alt="Dr. Sumedh Magar Logo"
+                className="w-10 h-10 object-contain"
+              />
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-lg leading-tight">Dr. Sumedh Magar</span>
                 <span className="text-sm text-neutral-300">Sports Orthopedic Surgeon</span>
@@ -27,12 +32,20 @@ export const Footer = () => {
             <ul className="space-y-2">
               {[
                 { href: '/about', label: 'About' },
-                { href: '/expertise', label: 'Clinical Expertise' },
-                { href: '/treatments', label: 'Treatments' },
-                { href: '/sports-injuries', label: 'Sports Injuries' },
+                { href: '/expertise', label: 'Expertise' },
+                { href: '/sports-medicine', label: 'Sports Medicine' },
                 { href: '/blog', label: 'Blog' },
-                { href: '/research', label: 'Research' },
                 { href: '/contact', label: 'Contact' },
+                // { href: '/research', label: 'Research' },
+                // { href: '/blog', label: 'Blog' },
+                // { href: '/sports-injuries', label: 'Sports Injuries' },
+
+
+                { href: '/privacy-policy', label: 'Privacy Policy' },
+                { href: '/terms-conditions', label: 'Terms & Conditions' },
+                { href: '/medical-disclaimer', label: 'Medical Disclaimer' },
+
+
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="text-neutral-300 hover:text-primary transition-colors text-sm">
@@ -47,12 +60,19 @@ export const Footer = () => {
             <h3 className="font-heading font-semibold text-lg mb-4">Treatments</h3>
             <ul className="space-y-2">
               {[
-                { href: '/treatments/acl-tear-treatment-pune', label: 'ACL Tear' },
-                { href: '/treatments/knee-arthroscopy-pune', label: 'Knee Arthroscopy' },
-                { href: '/treatments/shoulder-arthroscopy-pune', label: 'Shoulder Arthroscopy' },
-                { href: '/treatments/meniscus-tear-treatment-pune', label: 'Meniscus Tear' },
-                { href: '/treatments/sports-rehabilitation-pune', label: 'Sports Rehab' },
-                { href: '/orthopedic-surgeon-pune', label: 'Orthopedic Surgeon Pune' },
+                { href: '/treatments/knee-replacement-surgery-pune', label: 'Robotic Knee Replacement' },
+                { href: '/treatments/shoulder-arthroscopy-pune', label: 'Shoulder Surgery' },
+                { href: '/treatments/knee-arthroscopy-pune', label: 'Knee Surgery' },
+                { href: '/treatments/joint-replacement-surgery-pune', label: 'Joint Replacement' },
+                { href: '/treatments/hip-surgery-pune', label: 'Hip Surgery' },
+                { href: '/treatments/regenerative-medicine', label: 'Regenerative Medicine' },
+
+                // { href: '/treatments/acl-tear-treatment-pune', label: 'ACL Tear' },
+                // { href: '/treatments/knee-arthroscopy-pune', label: 'Knee Arthroscopy' },
+                // { href: '/treatments/shoulder-arthroscopy-pune', label: 'Shoulder Arthroscopy' },
+                // { href: '/treatments/meniscus-tear-treatment-pune', label: 'Meniscus Tear' },
+                // { href: '/treatments/sports-rehabilitation-pune', label: 'Sports Rehab' },
+                // { href: '/orthopedic-surgeon-pune', label: 'Orthopedic Surgeon Pune' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="text-neutral-300 hover:text-primary transition-colors text-sm">
@@ -88,7 +108,7 @@ export const Footer = () => {
                 </a>
               </li>
             </ul>
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <ul className="space-y-1">
                 {[
                   { href: '/privacy-policy', label: 'Privacy Policy' },
@@ -102,7 +122,7 @@ export const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
           </div>
 
           <div>

@@ -84,9 +84,14 @@ export const Header = () => {
       ref={headerRef}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between py-4 px-4 md:px-8">
+        <div className="flex items-center justify-between py-1 px-4 md:px-8">
           <Link href="/" className="flex items-center space-x-2">
-            <Activity className="w-8 h-8 text-primary" />
+            {/* <Activity className="w-8 h-8 text-primary" /> */}
+            <img
+              src="/logo.bmp"
+              alt="Dr. Sumedh Magar Logo"
+              className="w-16 h-16 object-contain"
+            />
             <div className="flex flex-col">
               <span className="font-heading font-bold text-secondary text-lg leading-tight">
                 Dr. Sumedh Magar

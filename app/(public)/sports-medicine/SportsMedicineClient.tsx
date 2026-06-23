@@ -207,12 +207,7 @@ export default function SportsMedicineClient() {
   return (
     <div className="min-h-screen pt-20">
       <section className="section-padding bg-gradient-to-br from-secondary via-primary-600 to-secondary text-white relative overflow-hidden"
-        style={{
-          backgroundImage: 'url(/sport-medicine.png)',
-          backgroundSize: "cover",
-          // backgroundPosition: "center right", // or "top center"
-          backgroundRepeat: "no-repeat",
-        }}>
+        style={{ backgroundImage: 'url(/sport-medicine.png)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
@@ -235,7 +230,7 @@ export default function SportsMedicineClient() {
             </motion.div>
 
             <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold">
-              Best Sports Medicine Doctor in Pune – by Dr. Sumedh Magar
+              Best Sports Medicine Doctor in Pune – Advanced Sports Medicine Care by Dr. Sumedh Magar
             </h1>
 
             {/* <p className="text-2xl md:text-3xl font-light mb-8 text-accent">
