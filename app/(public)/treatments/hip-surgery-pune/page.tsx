@@ -7,17 +7,17 @@ import { Card } from '@/components/Card';
 const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
-  title: 'Meniscus Tear Treatment Pune – Arthroscopic Meniscus Repair',
+  title: 'Hip Surgery in Pune | Dr. Sumedh Magar',
   description:
-    'Expert meniscus tear treatment in Pune by Dr. Sumedh Magar. Arthroscopic meniscus repair and meniscectomy for sports-related knee injuries at I-SPORT Medical Centre.',
+    'Expert hip surgery in Pune by Dr. Sumedh Magar. Arthroscopic meniscus repair and meniscectomy for sports-related knee injuries at I-SPORT Medical Centre.',
   alternates: {
-    canonical: `${SITE_URL}/treatments/meniscus-tear-treatment-pune`,
+    canonical: `${SITE_URL}/treatments/hip-surgery-pune`,
   },
-  keywords: ['meniscus tear treatment Pune', 'meniscus repair Pune', 'knee meniscus surgery Pune'],
+  keywords: ['hip surgery Pune', 'hip replacement surgery Pune', 'knee meniscus surgery Pune'],
   openGraph: {
     type: 'website',
-    url: `${SITE_URL}/treatments/meniscus-tear-treatment-pune`,
-    title: 'Meniscus Tear Treatment Pune | Dr. Sumedh Magar',
+    url: `${SITE_URL}/treatments/hip-surgery-pune`,
+    title: 'Hip Surgery in Pune | Dr. Sumedh Magar',
     description: 'Arthroscopic meniscus repair and treatment for knee injuries in Pune.',
     images: [{ url: `${SITE_URL}/Arthroscopy.jpeg`, width: 1200, height: 630, alt: 'Meniscus treatment Pune' }],
   },
@@ -25,16 +25,16 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    q: 'Can a meniscus tear heal on its own?',
-    a: 'Small tears in the outer (vascular) zone of the meniscus may heal with conservative management. However, most significant tears in athletes require surgical intervention.',
+    q: 'What is hip arthroscopy?',
+    a: 'Hip arthroscopy is a minimally invasive procedure used to diagnose and treat conditions such as labral tears, impingement, and cartilage injuries.',
   },
   {
-    q: 'What is the difference between meniscus repair and meniscectomy?',
-    a: 'Meniscus repair sutures the torn tissue back together, preserving the meniscus. Partial meniscectomy removes the damaged portion. Dr. Magar prioritises repair whenever technically feasible.',
+    q: 'When is hip replacement recommended?',
+    a: 'Hip replacement may be recommended for patients with severe arthritis or chronic hip pain that significantly affects mobility and quality of life.',
   },
   {
-    q: 'How long after meniscus surgery can I return to sport?',
-    a: 'After partial meniscectomy, return to sport is typically 4–6 weeks. Meniscus repair requires a longer protected recovery of 4–6 months.',
+    q: 'How long does it take to recover from hip surgery?',
+    a: 'Recovery depends on the type of surgery performed, but most patients gradually improve with physiotherapy and guided rehabilitation over several weeks to months.',
   },
 ];
 
@@ -68,15 +68,15 @@ export default function MeniscusTearPage() {
               <ChevronRight className="w-3.5 h-3.5" />
               <Link href="/treatments" className="hover:text-white transition-colors">Treatments</Link>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-white">Meniscus Tear Treatment</span>
+              <span className="text-white">Hip Surgery</span>
             </nav>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Knee Specialist</p>
-                <h1 className="mb-4 text-4xl md:text-5xl font-bold">Meniscus Tear Treatment in Pune</h1>
-                <p className="text-neutral-200 text-lg leading-relaxed mb-6">
+                <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Hip Specialist</p>
+                <h1 className="mb-4 text-4xl md:text-5xl font-bold">Hip Surgery in Pune – Hip Arthroscopy, Labral Repair, and Hip Replacement</h1>
+                {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
                   Precision arthroscopic meniscus repair and treatment for sports-related knee injuries.
-                </p>
+                </p> */}
                 <Link href="/contact" className="inline-flex items-center btn-primary">
                   Book Consultation <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
@@ -93,18 +93,25 @@ export default function MeniscusTearPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-10">
                 <div>
-                  <h2 className="text-secondary mb-4">Understanding Meniscus Tears</h2>
+                  <h2 className="text-secondary mb-4">What Is Hip Surgery?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
-                    The two menisci (medial and lateral) are C-shaped cartilage structures that
-                    cushion and stabilise the knee. Meniscus tears are extremely common in athletes,
-                    typically occurring during twisting movements with the foot planted.
+                    Hip surgery refers to minimally invasive and reconstructive surgical techniques performed to address labral tears, femoroacetabular impingement, arthritis, cartilage injuries, and long-term hip pain. Hip surgery aims at providing pain relief, maintaining joint functionality, and restoring movement.
                   </p>
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Symptoms</h2>
+                  <h2 className="text-secondary mb-4">Who May Need Hip Surgery?</h2>
+                  <p className="text-neutral-700 leading-relaxed mb-4">
+                    A patient may be required to undergo hip surgery if he/she experiences:
+                  </p>
                   <ul className="space-y-3">
-                    {['Pain along the joint line', 'Swelling within 24–48 hours', 'Knee locking or catching', 'Restricted range of motion', 'Pain when twisting or squatting'].map((s) => (
+                    {[
+
+                      'Pain in the groin area',
+                      'Stiffness in the hips',
+                      'Clicking or popping sensations in the hip',
+                      'Hip Pain when sitting or squatting',
+                    ].map((s) => (
                       <li key={s} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                         <span className="text-neutral-700 text-sm">{s}</span>
@@ -114,13 +121,13 @@ export default function MeniscusTearPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Types of Meniscus Tears</h2>
+                  <h2 className="text-secondary mb-4">Procedures Offered</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
-                      { type: 'Radial Tear', desc: 'Extends from inner to outer edge, typically requires partial removal' },
-                      { type: 'Horizontal Tear', desc: 'Splits meniscus into upper and lower layers' },
-                      { type: 'Bucket Handle Tear', desc: 'Large longitudinal tear that can displace and lock the knee' },
-                      { type: 'Flap Tear', desc: 'A portion detaches and can catch in the joint' },
+                      { type: 'Hip Arthroscopy', desc: 'Minimally-invasive surgery for treating impingement, cartilage injury, and hip disorders.' },
+                      { type: 'Labral Repair', desc: 'Surgery done to maintain the integrity of the hip labrum.' },
+                      { type: 'Hip Replacement Surgery', desc: 'Removal and replacement of the damaged hip joint structures by an artificial hip joint.' },
+
                     ].map(({ type, desc }) => (
                       <Card key={type}>
                         <p className="font-semibold text-primary text-sm mb-1">{type}</p>
@@ -131,12 +138,37 @@ export default function MeniscusTearPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Treatment Options</h2>
+                  <h2 className="text-secondary mb-4">Benefits</h2>
+                  <ul className="space-y-3">
+                    {[
+
+                      'Increased movement',
+                      'Pain relief',
+                      'Reduced recovery time',
+                      'Small incision size',
+                      'Minimized tissue damage',
+                      'Quick return to daily activities.',
+
+                    ].map((s) => (
+                      <li key={s} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-neutral-700 text-sm">{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h2 className="text-secondary mb-4">Recovery</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
-                    Treatment is determined by tear type, location, patient age, activity level,
-                    and associated injuries. Dr. Magar always aims to preserve meniscal tissue
-                    through repair when possible, as this protects long-term knee health.
+                    Recovery involves guided physiotherapy and gradual progression of weight-bearing and strengthening exercises based on surgical findings and healing.
                   </p>
+                </div>
+
+                <div>
+                  <h2 className="text-secondary mb-4">Why Choose Dr. Sumedh Magar for Hip Surgery in Pune?</h2>
+                  <p className="text-neutral-700 leading-relaxed mb-4">
+                    Patients receive individualized evaluation and advanced treatment using evidence-based techniques for hip arthroscopy, labral preservation, and hip replacement surgery, with an emphasis on long-term mobility and function. </p>
                 </div>
 
                 <div>

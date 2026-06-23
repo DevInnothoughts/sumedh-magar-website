@@ -22,12 +22,12 @@
   }
 
   h1 {
-    font-size: 2.4rem !important;
+    font-size: 2.2rem !important;
   }
 
   h2 {
     @apply text-2xl md:text-3xl lg:text-4xl font-bold;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.2;
   }
 
