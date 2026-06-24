@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, Award, Users, Briefcase, TrendingUp, Star, ExternalLink } from 'lucide-react';
+import { ArrowRight, Award, Users, Briefcase, TrendingUp, Star, ExternalLink, CheckCircle } from 'lucide-react';
 import { supabase, Post, GoogleReview } from '@/lib/supabase';
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
@@ -13,13 +13,71 @@ import { HeroCarousel } from '@/components/HeroCarousel';
 import { InfoCards } from '@/components/InfoCards';
 import { getTopRatedReviews, getFallbackReviews } from '@/services/googleReviewsService';
 
+// import {
+//   Award,
+//   Users,
+//   Briefcase,
+//   TrendingUp
+// } from "lucide-react";
+
+import {
+  Activity,
+  Bone,
+  HeartPulse
+} from "lucide-react";
+
+// const treatments = [
+//   { id: '1', title: 'Robotic Knee Replacement', description: 'Robotic knee replacement is a state-of-the-art joint replacement surgery that ...', imageUrl: '/ShoulderSurgery.jpeg' },
+//   { id: '2', title: 'Shoulder Surgery', description: 'Shoulder pain can make simple activities like lifting your arm, driving, ...', imageUrl: '/KneeSurgery.jpeg' },
+//   { id: '3', title: 'Knee Surgery', description: 'There are knee operations that use advanced arthroscopic surgery techniques ...', imageUrl: '/JointReplacement.jpeg' },
+//   { id: '4', title: 'Joint Replacement', description: 'Joint replacement entails the replacement of worn-out joints with artificial implants ...', imageUrl: '/HipSurgery.jpeg' },
+//   { id: '5', title: 'Hip  Surgery', description: 'Hip surgery refers to minimally invasive and reconstructive surgical techniques ...', imageUrl: '/BioOrthopaedics.jpeg' },
+//   { id: '6', title: 'Regenerative Medicine', description: 'Regenerative Medicine represents an innovative approach to orthopedic care ... ', imageUrl: '/SportsMedicine.jpeg' },
+// ];
+
 const treatments = [
-  { id: '1', title: 'Shoulder Surgery', description: 'Rotator cuff repair, SLAP repair, and shoulder instability treatment', imageUrl: '/ShoulderSurgery.jpeg' },
-  { id: '2', title: 'Knee Surgery', description: 'ACL/PCL reconstruction, meniscus repair, and advanced arthroscopic procedures', imageUrl: '/KneeSurgery.jpeg' },
-  { id: '3', title: 'Joint Replacement', description: 'Total hip and knee replacement with minimally invasive techniques', imageUrl: '/JointReplacement.jpeg' },
-  { id: '4', title: 'Hip Surgery', description: 'Hip replacement, labral repair, and minimally invasive arthroscopy for hip pain and mobility restoration.', imageUrl: '/HipSurgery.jpeg' },
-  { id: '5', title: 'BioOrthopaedics', description: 'Regenerative treatments like PRP, stem cells, and cartilage restoration to naturally heal and preserve joints.', imageUrl: '/BioOrthopaedics.jpeg' },
-  { id: '6', title: 'Sports Medicine', description: 'Injury prevention, performance optimization, and athlete rehabilitation', imageUrl: '/SportsMedicine.jpeg' },
+  {
+    id: '1',
+    title: 'Robotic Knee Replacement',
+    description: 'Robotic knee replacement is a state-of-the-art joint replacement surgery that ...',
+    imageUrl: '/KneeSurgery.jpeg ',
+    link: '/treatments/knee-replacement-surgery-pune'
+  },
+  {
+    id: '2',
+    title: 'Shoulder Surgery',
+    description: 'Shoulder pain can make simple activities like lifting your arm, driving, ...',
+    imageUrl: '/ShoulderSurgery.jpeg',
+    link: '/treatments/shoulder-arthroscopy-pune'
+  },
+  {
+    id: '3',
+    title: 'Knee Surgery',
+    description: 'There are knee operations that use advanced arthroscopic surgery techniques ...',
+    imageUrl: '/JointReplacement.jpeg',
+    link: '/treatments/knee-arthroscopy-pune'
+  },
+  {
+    id: '4',
+    title: 'Joint Replacement',
+    description: 'Joint replacement entails the replacement of worn-out joints with artificial implants ...',
+    imageUrl: '/HipSurgery.jpeg',
+    link: '/treatments/joint-replacement-surgery-pune'
+  },
+  {
+    id: '5',
+    title: 'Hip Surgery',
+    description: 'Hip surgery refers to minimally invasive and reconstructive surgical techniques ...',
+    imageUrl: '/BioOrthopaedics.jpeg',
+    link: '/treatments/hip-surgery-pune'
+  },
+  {
+    id: '6',
+    title: 'Regenerative Medicine',
+    description: 'Regenerative Medicine represents an innovative approach to orthopedic care ...',
+    imageUrl: '/SportsMedicine.jpeg',
+    link: '/treatments/regenerative-medicine'
+  },
 ];
 
 export default function HomeClient() {
@@ -51,12 +109,112 @@ export default function HomeClient() {
   return (
     <div className="min-h-screen">
       <HeroCarousel />
-      <InfoCards />
+      {/* <InfoCards /> */}
+
+
+      <section className="section-padding bg-neutral-50">
+
+        <div className="container-custom">
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+
+            {/* LEFT CONTENT */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 className="text-4xl lg:text-4xl font-bold text-secondary leading-tight">
+                Comprehensive Sports Medicine
+                <br />
+                & Orthopedic Care
+              </h2>
+              <p className="text-lg text-neutral-600 leading-relaxed">
+                Dr. Sumedh Magar provides specialized care
+                for sports injuries, joint disorders, and
+                orthopedic conditions. With international
+                training in Sports Medicine and extensive
+                experience treating athletes, he offers
+                advanced surgical and non-surgical treatment
+                solutions designed to restore mobility,
+                performance, and quality of life.
+              </p>
+              <p className="text-lg text-neutral-600 leading-relaxed">
+                Whether you are a professional athlete,
+                fitness enthusiast, or someone struggling
+                with joint pain, personalized treatment plans
+                are created to help you achieve long-term
+                recovery and optimal function.
+              </p>
+            </motion.div>
+
+            {/* RIGHT CARDS */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+
+              <div className="bg-secondary rounded-3xl p-10 text-white shadow-xl">
+                <h3 className="text-4xl font-bold mb-4">
+                  Sports Medicine
+                </h3>
+                <p className="text-neutral-200 text-lg leading-relaxed">
+                  Helping athletes and patients restore
+                  movement, strength and confidence
+                  through advanced orthopedic care.
+                </p>
+
+                <div className="mt-8 flex items-center gap-6">
+
+                  <div>
+                    <p className="text-4xl font-bold text-accent">
+                      10,000+
+                    </p>
+
+                    <p className="text-sm">
+                      Patients Treated
+                    </p>
+
+                  </div>
+
+                  <div>
+                    <p className="text-4xl font-bold text-accent">
+                      97%
+                    </p>
+                    <p className="text-sm">
+                      Satisfaction
+                    </p>
+                  </div>
+
+                </div>
+
+                <Link href="/sports-medicine">
+                  <Button className="mt-4 px-8 py-3 rounded-full">
+                    Explore Sports Medicine
+                  </Button>
+                </Link>
+
+              </div>
+
+
+            </motion.div>
+
+          </div>
+
+        </div>
+
+      </section>
+
 
       <section className="section-padding bg-gradient-to-br from-secondary via-secondary to-primary-600 text-white">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-accent mb-4">About Dr. Sumedh Magar</h2>
+            <h2 className="text-accent mb-4 text-4xl lg:text-4xl font-bold leading-tight">About Dr. Sumedh Magar</h2>
           </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
@@ -102,7 +260,7 @@ export default function HomeClient() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-secondary mb-4">Treatments We Provide</h2>
+            <h2 className="text-secondary text-4xl lg:text-4xl font-bold text-secondary leading-tight mb-4">Areas of Expertise</h2>
             <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
               Comprehensive orthopedic and sports medicine treatments using advanced surgical techniques and personalized care
             </p>
@@ -118,7 +276,7 @@ export default function HomeClient() {
                   <div className="p-6 text-center">
                     <h3 className="text-xl font-heading font-semibold text-secondary mb-3">{treatment.title}</h3>
                     <p className="text-neutral-600 text-sm leading-relaxed mb-4">{treatment.description}</p>
-                    <Link href={treatment.id === '1' ? '/sports-medicine' : '/expertise'}>
+                    <Link href={treatment.link}>
                       <button className="text-primary font-semibold text-sm hover:text-primary-600 transition-colors inline-flex items-center group">
                         Know More <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -131,11 +289,193 @@ export default function HomeClient() {
         </div>
       </section>
 
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            {/* LEFT */}
+
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+
+              <h2 className="text-4xl lg:text-4xl font-bold text-secondary mt-4 leading-tight">
+                Why Athletes &
+                <br />
+                Patients Choose Us
+              </h2>
+
+              <p className="text-neutral-600 text-lg mt-6 leading-relaxed">
+                Advanced sports medicine and orthopedic care
+                focused on faster recovery, better performance,
+                and long-term joint health.
+              </p>
+
+              <div className="mt-8 bg-primary/10 rounded-2xl p-6">
+                <p className="text-3xl font-bold text-primary">
+                  10,000+
+                </p>
+                <p className="text-neutral-700">
+                  Patients successfully treated
+                </p>
+              </div>
+
+            </motion.div>
+
+            {/* RIGHT */}
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+
+              <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-primary/20">
+              </div>
+
+              <div className="space-y-8">
+                {[
+                  {
+                    title: "Sports Medicine Expertise",
+                    text: "Specialized knowledge in treating sports injuries and performance-related conditions.",
+                    icon: "🏃"
+                  },
+
+                  {
+                    title: "Advanced Arthroscopic Techniques",
+                    text: "Minimally invasive surgical procedures that support faster recovery and reduced downtime.",
+                    icon: "🩺"
+                  },
+
+                  {
+                    title: "Athlete-Centric Care",
+                    text: "Treatment plans tailored to the unique demands of athletes and active individuals.",
+                    icon: "❤️"
+                  },
+
+                  {
+                    title: "Personalized Rehabilitation Programs",
+                    text: "Structured recovery plans focused on restoring strength, mobility, and confidence.",
+                    icon: "🔄"
+                  },
+
+                  {
+                    title: "Joint Preservation Approach",
+                    text: "Emphasis on maintaining natural joint health whenever possible.",
+                    icon: "🦴"
+                  },
+
+                  {
+                    title: "Comprehensive Orthopedic Solutions",
+                    text: "From sports injuries to joint replacement surgery, complete orthopedic care under one roof.",
+                    icon: "✨"
+                  }
+
+                ].map((item, index) => (
+
+
+                  <motion.div
+
+                    key={item.title}
+
+                    initial={{ opacity: 0, y: 20 }}
+
+                    whileInView={{ opacity: 1, y: 0 }}
+
+                    viewport={{ once: true }}
+
+                    transition={{
+                      delay: index * 0.1
+                    }}
+
+                    whileHover={{
+                      x: 10
+                    }}
+
+                    className="
+relative
+flex
+gap-5
+items-start
+pl-12
+"
+
+
+                  >
+
+
+                    <div className="
+absolute
+left-0
+w-12
+h-12
+rounded-full
+bg-white
+shadow-lg
+border
+border-primary/20
+flex
+items-center
+justify-center
+text-xl
+">
+
+                      {item.icon}
+
+                    </div>
+
+
+
+                    <div>
+
+                      <h3 className="
+text-xl
+font-bold
+text-secondary
+">
+
+                        {item.title}
+
+                      </h3>
+
+
+                      <p className="
+text-neutral-600
+mt-2
+leading-relaxed
+">
+
+                        {item.text}
+
+                      </p>
+
+
+                    </div>
+
+
+
+                  </motion.div>
+
+
+                ))}
+
+
+              </div>
+
+            </motion.div>
+          </div>
+
+        </div>
+      </section>
+
       {posts.length > 0 && (
         <section className="section-padding bg-neutral-50">
           <div className="container-custom">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-              <h2 className="text-secondary mb-4">Latest Articles</h2>
+              <h2 className="text-secondary text-4xl lg:text-4xl font-bold text-secondary leading-tight mb-4">Latest Blogs</h2>
               <p className="text-neutral-600 text-lg">Insights on sports medicine, surgical techniques, and athlete recovery</p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -162,17 +502,117 @@ export default function HomeClient() {
         </section>
       )}
 
+      <section className="section-padding bg-neutral-50">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-14"
+          >
+            <h2 className="text-4xl lg:text-4xl font-bold text-secondary">
+              Our Approach to Recovery
+            </h2>
+            <p className="text-neutral-600 text-lg mt-5">
+              A structured approach combining accurate diagnosis,
+              advanced treatment, and guided rehabilitation.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            {[
+              {
+                number: "01",
+                icon: "🔍",
+                title: "Accurate Diagnosis",
+                text: "Advanced clinical assessment and imaging evaluation to identify the root cause of pain and injury."
+              },
+
+              {
+                number: "02",
+                icon: "🎯",
+                title: "Personalized Treatment",
+                text: "Customized treatment plans based on patient goals, activity levels, and recovery requirements."
+              },
+
+              {
+                number: "03",
+                icon: "🏥",
+                title: "Advanced Procedures",
+                text: "Utilizing modern arthroscopic and orthopedic techniques for optimal outcomes."
+              },
+
+              {
+                number: "04",
+                icon: "🔄",
+                title: "Rehabilitation & Return to Activity",
+                text: "Guided rehabilitation programs helping patients safely return to sports, fitness, and daily life."
+              }
+
+            ].map((item, index) => (
+
+              <motion.div
+
+                key={item.number}
+
+                initial={{
+                  opacity: 0,
+                  y: 30
+                }}
+
+                whileInView={{
+                  opacity: 1,
+                  y: 0
+                }}
+
+                viewport={{ once: true }}
+
+                transition={{
+                  delay: index * 0.15
+                }}
+
+                className="relative bg-white rounded-3xl p-7 shadow-lg hover:-translate-y-3 transition-all duration-300"
+              >
+
+                <div className="flex justify-between items-center mb-6">
+                  <span className="text-5xl font-bold text-primary/20">
+                    {item.number}
+                  </span>
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-2xl">
+                    {item.icon}
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold text-secondary mb-3">
+                  {item.title}
+                </h3>
+
+                <p className="text-neutral-600 leading-relaxed text-sm">
+                  {item.text}
+                </p>
+
+              </motion.div>
+
+            ))}
+
+
+          </div>
+
+        </div>
+
+      </section>
+
       <section className="section-padding bg-white">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-secondary mb-4">Patient Testimonials</h2>
+            <h2 className="text-secondary text-4xl lg:text-4xl font-bold text-secondary leading-tight mb-4">Patient Testimonials</h2>
             <p className="text-neutral-600 text-lg mb-6">Hear from patients who&apos;ve experienced exceptional care and recovery</p>
             <div className="inline-flex items-center gap-2">
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
               </svg>
               <span className="text-lg font-semibold text-neutral-800">Google Reviews</span>
             </div>
@@ -230,17 +670,353 @@ export default function HomeClient() {
         </div>
       </section>
 
-      <section className="section-padding bg-primary text-white">
-        <div className="container-custom text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="mb-6">Ready to Start Your Recovery Journey?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Schedule a consultation with Dr. Sumedh Magar to discuss your orthopedic needs and explore personalized treatment options.
-            </p>
-            <Link href="/contact"><Button variant="secondary" className="text-lg px-8 py-4">Contact Us Today</Button></Link>
-          </motion.div>
+
+      <section className="relative min-h-[650px] flex items-center overflow-hidden">
+
+
+        {/* Background */}
+
+        <Image
+          src="/slider-bg-1.jpg"
+          alt="Sports Medicine"
+          fill
+          className="object-cover"
+        />
+
+
+        {/* Overlay */}
+
+        <div
+          className="
+  absolute
+  inset-0
+  "
+          style={{
+            backgroundColor: "#36383abf"
+          }}
+        />
+
+        <div className="
+container-custom
+relative
+z-10
+">
+
+
+          <div className="
+grid
+grid-cols-1
+lg:grid-cols-2
+gap-12
+items-center
+">
+
+
+
+            {/* LEFT */}
+
+            <motion.div
+
+              initial={{
+                opacity: 0,
+                x: -40
+              }}
+
+              whileInView={{
+                opacity: 1,
+                x: 0
+              }}
+
+              viewport={{
+                once: true
+              }}
+
+              className="text-white"
+
+            >
+
+
+              <div className="
+inline-flex
+items-center
+gap-2
+bg-white/10
+px-5
+py-2
+rounded-full
+mb-6
+">
+
+                <span className="
+w-2
+h-2
+bg-accent
+rounded-full
+animate-pulse
+"/>
+
+                Book Your Consultation
+
+              </div>
+
+
+
+              <h2 className="text-5xl lg:text-5xl font-bold leading-tight">
+                Move Better.
+                <br />
+                Recover Faster.
+                <br />
+                <span className="text-accent">
+                  Perform Stronger.
+                </span>
+              </h2>
+
+              <p className="mt-6 text-lg text-white/80 max-w-xl leading-relaxed">
+                Looking for the Best Sports Medicine Doctor in Pune?
+                Consult Dr. Sumedh Magar for expert Sports Medicine,
+                Sports Injury Treatment, Arthroscopic Surgery,
+                Joint Preservation, and Orthopedic Care.
+              </p>
+
+              <div className="
+mt-6
+flex
+items-center
+gap-4
+">
+
+
+                <Link href="/contact">
+
+                  <motion.button
+
+                    whileHover={{
+                      scale: 1.05
+                    }}
+
+                    className="
+bg-accent
+text-secondary
+px-8
+py-4
+font-bold
+rounded-full
+shadow-xl
+"
+
+                  >
+
+                    Schedule Appointment
+
+                  </motion.button>
+
+
+                </Link>
+
+
+
+                <Link href="/sports-medicine">
+
+
+
+                </Link>
+
+
+              </div>
+
+
+
+            </motion.div>
+
+
+
+
+
+
+            {/* RIGHT CARD */}
+
+
+            <motion.div
+
+              initial={{
+                opacity: 0,
+                scale: 0.9
+              }}
+
+              whileInView={{
+                opacity: 1,
+                scale: 1
+              }}
+
+              viewport={{
+                once: true
+              }}
+
+              className="relative"
+
+            >
+
+
+              <div className="
+bg-white/10
+backdrop-blur-xl
+border
+border-white/20
+rounded-3xl
+p-8
+text-white
+shadow-2xl
+">
+
+
+                <h3 className="
+text-2xl
+font-bold
+">
+
+                  Your Recovery Starts Here
+
+                </h3>
+
+
+                <p className="
+mt-4
+text-white/80
+">
+
+                  Schedule your appointment today and take
+                  the first step toward pain-free movement
+                  and peak performance.
+
+                </p>
+
+
+
+
+                <div className="
+grid
+grid-cols-2
+gap-4
+mt-8
+">
+
+
+                  <div className="
+bg-white/10
+rounded-xl
+p-5
+">
+
+                    <h4 className="
+text-3xl
+font-bold
+text-accent
+">
+
+                      10,000+
+
+                    </h4>
+
+                    <p>
+                      Patients Treated
+                    </p>
+
+                  </div>
+
+
+
+                  <div className="
+bg-white/10
+rounded-xl
+p-5
+">
+
+                    <h4 className="
+text-3xl
+font-bold
+text-accent
+">
+
+                      97%
+
+                    </h4>
+
+                    <p>
+                      Success Rate
+                    </p>
+
+                  </div>
+
+
+
+                </div>
+
+
+              </div>
+
+
+
+              {/* floating badge */}
+
+
+              <motion.div
+
+                animate={{
+                  y: [0, -10, 0]
+                }}
+
+                transition={{
+                  duration: 3,
+                  repeat: Infinity
+                }}
+
+                className="
+absolute
+-bottom-8
+-left-8
+bg-white
+text-secondary
+rounded-2xl
+px-6
+py-4
+shadow-xl
+"
+
+              >
+
+                <p className="
+font-bold
+">
+
+                  Sports Medicine
+
+                </p>
+
+                <p className="
+text-sm
+">
+
+                  Advanced Orthopedic Care
+
+                </p>
+
+
+              </motion.div>
+
+
+            </motion.div>
+
+
+
+
+          </div>
+
+
         </div>
+
+
       </section>
+
     </div>
   );
 }

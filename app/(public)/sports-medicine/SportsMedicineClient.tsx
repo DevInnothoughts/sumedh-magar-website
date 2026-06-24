@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Activity,
   Award,
@@ -13,7 +13,8 @@ import {
   Phone,
   Calendar,
   Star,
-  CheckCircle
+  CheckCircle,
+  ChevronRight
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -35,34 +36,28 @@ export default function SportsMedicineClient() {
 
   const pillars = [
     {
-      icon: <Stethoscope className="w-8 h-8" />,
+      icon: <Stethoscope className="w-6 h-6" />,
       title: 'Professional Athletes',
-      // description: 'Comprehensive biomechanics & movement analysis'
     },
     {
-      icon: <Activity className="w-8 h-8" />,
+      icon: <Activity className="w-6 h-6" />,
       title: 'Recreational Sports Players',
-      // description: 'Conservative and surgical management of sports injuries'
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
+      icon: <TrendingUp className="w-6 h-6" />,
       title: 'Runners and Cyclists',
-      // description: 'Enhancement and prevention of re-injury'
     },
     {
-      icon: <Target className="w-8 h-8" />,
+      icon: <Target className="w-6 h-6" />,
       title: 'Fitness Enthusiasts',
-      // description: 'Structured protocols tailored to each athlete'
     },
     {
-      icon: <Target className="w-8 h-8" />,
+      icon: <Target className="w-6 h-6" />,
       title: 'Gym-Goers',
-      // description: 'Structured protocols tailored to each athlete'
     },
     {
-      icon: <Target className="w-8 h-8" />,
+      icon: <Target className="w-6 h-6" />,
       title: 'Active Adults and Children',
-      // description: 'Structured protocols tailored to each athlete'
     }
   ];
 
@@ -76,9 +71,6 @@ export default function SportsMedicineClient() {
         { name: 'Cartilage Injuries', description: '' },
         { name: 'Patellar Tendinitis', description: '' },
         { name: 'Runner\'s Knee', description: '' }
-        // { name: 'Achilles Tendinitis', description: 'Overuse or sudden loading of the Achilles tendon' },
-        // { name: 'Peroneal Tendinitis', description: 'Lateral ankle tendon irritation in cutting sports' },
-        // { name: 'Ankle Sprain', description: 'Ligament injury from twisting or unstable landings' }
       ]
     },
     {
@@ -89,9 +81,6 @@ export default function SportsMedicineClient() {
         { name: 'Shoulder Instability', description: '' },
         { name: 'Shoulder Dislocations', description: '' },
         { name: 'Labral Injuries', description: '' }
-        // { name: 'Patellar Tendinitis', description: "Jumper's knee - strain of patella tendon from jumping sports" },
-        // { name: 'Partial Ligament Tears', description: 'ACL, PCL, MCL tears common in pivoting sports' },
-        // { name: 'Meniscus Injuries', description: 'Torn cartilage during twisting or direct trauma' }
       ]
     },
     {
@@ -102,10 +91,6 @@ export default function SportsMedicineClient() {
         { name: 'Achilles Tendinitis', description: '' },
         { name: 'Plantar Fasciitis', description: '' },
         { name: 'Stress Fractures', description: '' }
-        // { name: 'Rotator Cuff Injuries', description: 'Tears or strain in overhead sports (swimming, tennis)' },
-        // { name: 'Adhesive Capsulitis', description: 'Frozen shoulder from inactivity or injury' },
-        // { name: 'Bicipital Tendinitis', description: 'Inflammation of biceps tendon in shoulder region' },
-        // { name: 'SLAP/Bankart Lesions', description: 'Labral tears in throwing athletes' }
       ]
     },
     {
@@ -141,32 +126,32 @@ export default function SportsMedicineClient() {
 
   const advancedServices = [
     {
-      icon: <Activity className="w-8 h-8" />,
+      icon: <Activity className="w-6 h-6" />,
       title: 'Sports Injury Evaluation',
       description: 'Comprehensive assessment of acute and chronic sports injuries.'
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
+      icon: <TrendingUp className="w-6 h-6" />,
       title: 'Sports Rehabilitation',
       description: 'Customized rehabilitation programs focused on restoring strength, mobility, and performance.'
     },
     {
-      icon: <Target className="w-8 h-8" />,
+      icon: <Target className="w-6 h-6" />,
       title: 'Injury Prevention Programs',
       description: 'Movement analysis and biomechanical assessment to reduce injury risk.'
     },
     {
-      icon: <Stethoscope className="w-8 h-8" />,
+      icon: <Stethoscope className="w-6 h-6" />,
       title: 'Arthroscopic Sports Surgery',
       description: 'Minimally invasive procedures for ligament, cartilage, and joint injuries.'
     },
     {
-      icon: <Heart className="w-8 h-8" />,
+      icon: <Heart className="w-6 h-6" />,
       title: 'PRP & Regenerative Medicine',
       description: 'Advanced biological treatments that support tissue healing and recovery.'
     },
     {
-      icon: <Heart className="w-8 h-8" />,
+      icon: <Heart className="w-6 h-6" />,
       title: 'Return-to-Sport Programs',
       description: 'Evidence-based protocols that help athletes safely return to training and competition.'
     }
@@ -205,9 +190,11 @@ export default function SportsMedicineClient() {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 bg-neutral-50 overflow-x-hidden font-sans">
+      {/* HERO SECTION - KEPT EXACTLY AS IT IS FOR BANNER IMAGE */}
       <section className="section-padding bg-gradient-to-br from-secondary via-primary-600 to-secondary text-white relative overflow-hidden"
-        style={{ backgroundImage: 'url(/sport-medicine.png)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+        style={{ backgroundImage: 'url(/sport-medicine.png)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}
+      >
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
@@ -229,185 +216,208 @@ export default function SportsMedicineClient() {
               <Activity className="w-20 h-20 text-accent mx-auto" />
             </motion.div>
 
-            <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold">
+            <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold font-heading">
               Best Sports Medicine Doctor in Pune – Advanced Sports Medicine Care by Dr. Sumedh Magar
             </h1>
-
-            {/* <p className="text-2xl md:text-3xl font-light mb-8 text-accent">
-              Precision • Performance • Return to Sport
-            </p> */}
-
-            {/* <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="text-lg md:text-xl text-neutral-200 leading-relaxed max-w-4xl mx-auto"
-            >
-              Welcome to the Sports Medicine portal of Dr. Sumedh Magar, M.S. Orthopaedics, a fellowship-trained
-              specialist in sports orthopaedic surgery, rehabilitation and high-performance athlete care. With
-              world-class credentials and a deep commitment to athlete-specific recovery, Dr. Magar combines
-              surgical excellence and advanced rehabilitation to get you back in the game stronger than ever.
-            </motion.p> */}
           </motion.div>
         </div>
       </section>
 
-      <section className="section-padding bg-white">
-        <div className="container-custom">
+      {/* INTRODUCTION SECTION (STUNNING DOUBLE-GLOW & TWO-TONE TYPOGRAPHY) */}
+      <section className="section-padding bg-white relative overflow-hidden">
+        {/* Subtle mesh background glows */}
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div className="container-custom max-w-6xl mx-auto relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-5xl mx-auto"
+            transition={{ duration: 0.7 }}
+            className="grid md:grid-cols-12 gap-12 lg:gap-16 items-center"
           >
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
+            {/* LEFT – ASYMMETRIC VISUAL IMAGE BLOCK */}
+            <div className="md:col-span-5 relative group mx-auto max-w-md w-full">
+              {/* Backing rotated visual structures */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-25 rounded-[3rem] rotate-3 group-hover:rotate-6 transition-all duration-500 blur-[2px]"></div>
+              <div className="absolute inset-0 bg-secondary opacity-15 rounded-[3rem] -rotate-3 group-hover:-rotate-6 transition-all duration-500 blur-[2px]"></div>
 
-              {/* LEFT – IMAGE BLOCK */}
-              <div className="relative h-full">
-                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl w-full relative">
-                  <Image
-                    src="/DrInAction1.JPG"
-                    alt="Sports Medicine"
-                    fill
-                    className="w-full h-full object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-
-                {/* Subtle glow */}
-                <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
+              <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-soft-lg w-full border-[8px] border-white z-10 bg-white">
+                <Image
+                  src="/DrInAction1.JPG"
+                  alt="Sports Medicine Doctor in Action"
+                  fill
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary/50 via-transparent to-transparent"></div>
               </div>
 
-              {/* RIGHT – TEXT BLOCK */}
-              <div className="flex flex-col justify-center h-full">
-                <h2 className="text-secondary mb-6 leading-snug">
-                  Introduction
-                </h2>
-
-                <div className="space-y-4 text-neutral-700 leading-relaxed">
-                  <p>
-                    If you are looking for the <strong>best sports medicine doctor in Pune</strong>, expert diagnosis and timely treatment can help you recover from injuries faster and return to peak performance. <br />The prevention, diagnosis, treatment, rehabilitation, and performance improvement of athletes and active people are the main goals of sports medicine.
-                  </p>
-                  <p>
-                    <strong>Dr. Sumedh Magar </strong> is a leading Sports Medicine Doctor in Pune with advanced international training in Sports Medicine, Arthroscopy, and Athlete Rehabilitation. <br />He provides comprehensive care for sports injuries, overuse conditions, joint problems, and performance-related concerns for professional athletes, fitness enthusiasts, and active individuals.
-
-                    {/* Dr. Magar holds a <strong>Masters in Sports Medicine, Exercise & Health</strong>{' '}
-                    from the University College London (UK), a{' '}
-                    <strong>Diploma in Football Medicine from FIFA</strong>, and completed an{' '}
-                    <strong>ISAKOS Fellowship in Arthroscopy & Adult Reconstructive Surgery</strong>. */}
-                  </p>
-
-                  {/* <p>
-                    He serves as <strong>Lead – Sports Medicine</strong> for the Khelo India programme
-                    at Balewadi Sports Complex, Government of Maharashtra, and is the{' '}
-                    <strong>Founder Director of I-SPORT Medical Centre, Pune</strong>.
-                  </p> */}
-
-                  {/* <p>
-                    An accomplished former national-level swimmer and basketball player, he merges his athletic
-                    experience with orthopaedic expertise. At I-SPORT, he brings advanced arthroscopy,
-                    joint preservation, regenerative orthobiologics and sport-specific rehabilitation
-                    under one roof.
-                  </p> */}
+              {/* Glowing float card */}
+              <div className="absolute -bottom-6 -right-6 bg-white/90 backdrop-blur-md border border-white/60 text-secondary rounded-2xl p-5 shadow-soft-lg z-20 hover:scale-105 transition-transform duration-300">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent text-white rounded-xl flex items-center justify-center shadow-md shadow-primary/20">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase text-primary tracking-wider">Accredited</p>
+                    <p className="text-sm font-extrabold">Athlete Specific Care</p>
+                  </div>
                 </div>
               </div>
+            </div>
 
+            {/* RIGHT – TWO-TONE HEADER & TEXT */}
+            <div className="md:col-span-7 flex flex-col justify-center">
+              {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-xs uppercase tracking-wider mb-6 border border-primary/20 self-start shadow-sm">
+                <Activity className="w-4 h-4 text-accent animate-pulse" />
+                <span>SPORTS SURGEON</span> 
+              </div> */}
+
+              <h2 className="text-secondary font-extrabold text-3xl md:text-4xl mb-4">
+                Introduction
+              </h2>
+
+              <div className="space-y-6 text-neutral-600 leading-relaxed text-base md:text-lg">
+                <p className="text-secondary font-bold font-heading text-lg md:text-l border-l-4 border-primary pl-5 py-2 bg-gradient-to-r from-primary-50/30 via-primary-50/10 to-transparent rounded-r-xl mb-4">
+                  If you are looking for the <strong>best sports medicine doctor in Pune</strong>, expert diagnosis and timely treatment can help you recover from injuries faster and return to peak performance.
+                </p>
+                <p className="text-neutral-700 leading-relaxed mb-4">
+                  The prevention, diagnosis, treatment, rehabilitation, and performance improvement of athletes and active people are the main goals of sports medicine.
+                </p>
+                <p className='text-neutral-700 leading-relaxed mb-4'>
+                  <strong>Dr. Sumedh Magar </strong> is a leading Sports Medicine Doctor in Pune with advanced international training in Sports Medicine, Arthroscopy, and Athlete Rehabilitation. He provides comprehensive care for sports injuries, overuse conditions, joint problems, and performance-related concerns for professional athletes, fitness enthusiasts, and active individuals.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
-      </section >
+      </section>
 
-      <section className="section-padding bg-gradient-to-br from-silver-light to-white">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-secondary mb-4">What is Sports Medicine?</h2>
-            <p className="text-neutral-600 text-lg max-w-4xl mx-auto">
-              Sports Medicine is a specialized field of medicine focused on preventing, diagnosing, treating, and
-              rehabilitating injuries related to sports, exercise, and physical activity.
-              It also helps improve athletic performance and reduce the risk of future injuries.
-            </p>
-          </motion.div>
+      {/* WHAT IS SPORTS MEDICINE (HIGH-END GLOW MESH SPLIT) */}
+      <section className="section-padding bg-gradient-to-b from-neutral-50 to-neutral-100 relative overflow-hidden">
+        {/* Glow ambient bulb */}
+        <div className="absolute top-1/4 -left-20 w-[450px] h-[450px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {pillars.map((pillar, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-              >
-                <Card className="h-full text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white border-2 border-transparent hover:border-primary">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
-                    {pillar.icon}
+        <div className="container-custom relative z-10 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+
+            {/* LEFT – DEFINITION GRADIENT CARD */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="lg:col-span-5"
+            >
+              <div className="bg-gradient-to-br from-secondary via-secondary-700 to-primary-700 text-white rounded-[2.5rem] p-8 shadow-soft-lg border border-white/10 relative overflow-hidden group hover:scale-[1.01] transition-transform">
+                <div className="absolute -top-12 -right-12 w-48 h-48 bg-accent/25 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-500"></div>
+                <div className="relative z-10">
+                  <span className="text-xs font-bold text-accent uppercase tracking-widest bg-white/10 px-3 py-1 rounded-md mb-6 inline-block">
+                    Philosophy
+                  </span>
+                  <h2 className="text-white font-heading font-extrabold text-3xl mb-5 leading-tight">
+                    What is <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-white">
+                      Sports Medicine?
+                    </span>
+                  </h2>
+                  <p className="text-neutral-200 text-base md:text-lg leading-relaxed font-light mb-6">
+                    Sports Medicine is a specialized field of medicine focused on preventing, diagnosing, treating, and
+                    rehabilitating injuries related to sports, exercise, and physical activity.
+                  </p>
+                  <p className="text-accent text-sm md:text-base font-semibold">
+                    It also helps improve athletic performance and reduce the risk of future injuries.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* RIGHT – COMPACT BADGES GRID */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="lg:col-span-7"
+            >
+              <div className="grid sm:grid-cols-2 gap-4">
+                {pillars.map((pillar, idx) => (
+                  <div
+                    key={idx}
+                    className="group flex items-center gap-4 bg-white border border-neutral-200/50 rounded-2xl p-5 shadow-soft hover:shadow-soft-lg hover:border-primary/40 transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/15 rounded-xl flex items-center justify-center text-primary group-hover:from-primary group-hover:to-primary-600 group-hover:text-white transition-all duration-300 flex-shrink-0 group-hover:scale-105">
+                      {pillar.icon}
+                    </div>
+                    <div className="flex justify-between items-center w-full">
+                      <h3 className="text-base md:text-lg font-heading font-bold text-secondary tracking-tight group-hover:text-primary transition-colors">
+                        {pillar.title}
+                      </h3>
+                      <ChevronRight className="w-4 h-4 text-neutral-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                    </div>
                   </div>
-                  <h3 className="text-lg font-heading font-semibold text-secondary mb-2">
-                    {pillar.title}
-                  </h3>
-                  {/* <p className="text-neutral-600 text-sm">
-                    {pillar.description}
-                  </p> */}
-                </Card>
-              </motion.div>
-            ))}
+                ))}
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
 
-      <section className="section-padding bg-white">
-        <div className="container-custom max-w-5xl mx-auto">
+      {/* MEET DR. SUMEDH MAGAR & QUALIFICATIONS (MODERNIZED CARD GRID) */}
+      <section className="section-padding bg-white relative">
+        <div className="container-custom max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12 text-center"
+            className="mb-16 text-center max-w-3xl mx-auto"
           >
-            <Activity className="w-12 h-12 text-primary mx-auto mb-2" />
-            <h2 className="text-secondary mb-4">Meet Dr. Sumedh Magar – Sports Medicine Specialist in Pune</h2>
-            <p>
+            <Award className="w-12 h-12 text-primary mx-auto mb-4" />
+            <h2 className="text-secondary font-heading font-extrabold text-3xl md:text-4xl mb-4">
+              Meet <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent font-black">Dr. Sumedh Magar</span> – Sports Medicine Specialist in Pune
+            </h2>
+            <p className="text-neutral-500 text-lg leading-relaxed">
               One of Pune's most skilled sports medicine specialists,
               Dr. Sumedh Magar provides advanced treatment for orthopaedic conditions and sports injuries.
             </p>
           </motion.div>
 
-          <Card className="mb-4">
-            <h3 className="text-xl font-heading font-semibold text-secondary mb-4">
-              Qualifications & Expertise
-            </h3>
-            <ul className="space-y-2 pl-4">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <span className="text-neutral-700">MS Orthopaedics</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <span className="text-neutral-700">Masters in Sports Medicine, Exercise & Health (University College London, UK)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <span className="text-neutral-700">FIFA Diploma in Football Medicine</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <span className="text-neutral-700">ISAKOS Fellowship in Arthroscopy & Adult Reconstructive Surgery</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <span className="text-neutral-700">Lead Sports Medicine Consultant, Khelo India (Government of Maharashtra)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <span className="text-neutral-700">Founder Director, I-SPORT Medical Centre, Pune</span>
-              </li>
-            </ul>
-          </Card>
-          <motion.div>
-            <p>
+          <div className="grid md:grid-cols-2 gap-4 lg:gap-6 mb-12">
+            {[
+              "MS Orthopaedics",
+              "Masters in Sports Medicine, Exercise & Health (University College London, UK)",
+              "FIFA Diploma in Football Medicine",
+              "ISAKOS Fellowship in Arthroscopy & Adult Reconstructive Surgery",
+              "Lead Sports Medicine Consultant, Khelo India (Government of Maharashtra)",
+              "Founder Director, I-SPORT Medical Centre, Pune"
+            ].map((qual, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="flex items-start gap-4 bg-neutral-50 rounded-2xl p-5 border-l-4 border-l-primary/40 border border-neutral-200/50 shadow-sm hover:border-l-primary hover:bg-white hover:shadow-soft transition-all duration-300"
+              >
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 mt-0.5 shadow-sm">
+                  <CheckCircle className="w-5 h-5" />
+                </div>
+                <span className="text-secondary font-heading font-extrabold text-sm md:text-base leading-relaxed">{qual}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center text-neutral-600 text-base md:text-lg leading-relaxed bg-gradient-to-r from-primary-50/50 to-accent-50/30 rounded-2xl p-6 border border-primary/10 max-w-4xl mx-auto shadow-sm"
+          >
+            <p className="font-semibold text-secondary">
               His special blend of personal athletic experience and sports medical knowledge allows him to offer athlete-focused
               treatment strategies that promote a quicker recovery and a safe return to sports.
             </p>
@@ -415,63 +425,81 @@ export default function SportsMedicineClient() {
         </div>
       </section>
 
-      <section className="section-padding bg-neutral-50">
+      {/* CONDITIONS TREATED BY TABS (PREMIUM LIGHT SYSTEM) */}
+      <section className="section-padding bg-neutral-50/60 relative">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-12 max-w-3xl mx-auto"
           >
-            <h2 className="text-secondary mb-4">Conditions Treated by a Sports Medicine Doctor</h2>
-            {/* <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
-              Comprehensive care for a wide range of sports-related injuries and conditions
-            </p> */}
+            <h2 className="text-secondary font-heading font-extrabold text-3xl md:text-4xl mt-5 mb-4">Conditions Treated by a Sports Medicine Doctor</h2>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {/* Sliding tab selector */}
+            <div className="flex flex-wrap justify-center gap-2 mb-10 p-2 rounded-2xl bg-white border border-neutral-200 shadow-soft max-w-4xl mx-auto">
               {bodyRegions.map((region, idx) => (
-                <motion.button
+                <button
                   key={idx}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05 }}
                   onClick={() => setActiveTab(idx)}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${activeTab === idx
-                    ? 'bg-gradient-to-r from-primary to-primary-600 text-white shadow-lg scale-105'
-                    : 'bg-white text-neutral-700 border-2 border-neutral-200 hover:border-primary'
-                    }`}
+                  className="relative px-5 py-3 rounded-xl font-heading font-bold text-sm transition-all duration-300 flex items-center gap-2 outline-none hover:scale-[1.02]"
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
-                  <span className="mr-2">{region.icon}</span>
-                  {region.region}
-                </motion.button>
+                  {activeTab === idx && (
+                    <motion.div
+                      layoutId="activeTabIndicator"
+                      className="absolute inset-0 bg-primary rounded-xl shadow-soft"
+                      transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                    />
+                  )}
+                  <span className={`relative z-10 flex items-center gap-2 ${activeTab === idx ? 'text-white' : 'text-neutral-500 hover:text-secondary'}`}>
+                    <span className="text-lg">{region.icon}</span>
+                    <span>{region.region}</span>
+                  </span>
+                </button>
               ))}
             </div>
 
+            {/* Condition List Grid */}
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="bg-gradient-to-br from-white to-silver-light rounded-2xl p-8 shadow-lg border border-neutral-200"
+              className="bg-white rounded-3xl p-8 lg:p-10 shadow-soft border border-neutral-200/50 min-h-[250px]"
             >
-              <h3 className="text-2xl font-heading font-bold text-secondary mb-6 flex items-center">
-                <span className="text-4xl mr-3">{bodyRegions[activeTab].icon}</span>
+              <h3 className="text-2xl font-heading font-extrabold text-secondary mb-8 flex items-center gap-3 border-b border-neutral-100 pb-4">
+                <span className="text-3xl">{bodyRegions[activeTab].icon}</span>
                 {bodyRegions[activeTab].region}
               </h3>
-              <div className="grid md:grid-cols-2 gap-4">
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {bodyRegions[activeTab].conditions.map((condition, idx) => (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow"
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="group"
                   >
-                    <h4 className="font-semibold text-secondary mb-2">{condition.name}</h4>
-                    <p className="text-sm text-neutral-600">{condition.description}</p>
+                    {condition.description ? (
+                      <div className="bg-neutral-50 rounded-2xl p-6 border-l-4 border-l-primary/30 border border-neutral-200/60 hover:border-l-primary hover:bg-white hover:shadow-soft transition-all duration-300 flex flex-col h-full justify-between">
+                        <div>
+                          <h4 className="font-heading font-bold text-secondary mb-2 flex items-center gap-2">
+                            <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                            {condition.name}
+                          </h4>
+                          <p className="text-sm text-neutral-500 leading-relaxed pl-7">{condition.description}</p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-3 bg-neutral-50 rounded-2xl p-5 border-l-4 border-l-primary/30 border border-neutral-200/60 hover:border-l-primary hover:bg-white hover:shadow-soft transition-all duration-300">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <h4 className="font-heading font-bold text-secondary">{condition.name}</h4>
+                      </div>
+                    )}
                   </motion.div>
                 ))}
               </div>
@@ -480,22 +508,23 @@ export default function SportsMedicineClient() {
         </div>
       </section>
 
-      <section className="section-padding bg-gradient-to-br from-accent/10 to-white">
+      {/* ORTHO-BIOLOGICS (PREMIUM CARDS) */}
+      <section className="section-padding bg-white relative">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16 max-w-3xl mx-auto"
           >
-            <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h2 className="text-secondary mb-4">Ortho-Biologics & Regenerative Medicine</h2>
-            <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
+
+            <h2 className="text-secondary font-heading font-extrabold text-3xl md:text-4xl mb-4">Ortho-Biologics & Regenerative Medicine</h2>
+            <p className="text-neutral-500 text-lg leading-relaxed">
               Advanced regenerative treatments to accelerate healing and support tissue repair
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
                 title: 'PRP Injections',
@@ -515,110 +544,142 @@ export default function SportsMedicineClient() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.15 }}
+                transition={{ delay: idx * 0.1 }}
+                className="group"
               >
-                <Card className="text-center h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white border-2 border-primary/20">
-                  <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Zap className="w-8 h-8 text-white" />
+                <div className="h-full bg-neutral-50 rounded-[2rem] p-8 border border-neutral-200/50 hover:border-primary/30 hover:bg-white hover:shadow-soft-lg transition-all duration-300 flex flex-col justify-between shadow-soft">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-600 group-hover:text-white transition-all duration-300 shadow-md shadow-primary/20">
+                      <Zap className="w-8 h-8" />
+                    </div>
+                    <h3 className="text-xl font-heading font-bold text-secondary mb-4 group-hover:text-primary transition-colors">
+                      {treatment.title}
+                    </h3>
+                    <p className="text-neutral-500 text-sm leading-relaxed">
+                      {treatment.description}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-heading font-semibold text-secondary mb-3">
-                    {treatment.title}
-                  </h3>
-                  <p className="text-neutral-600 text-sm">
-                    {treatment.description}
-                  </p>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-padding bg-white">
-        <div className="container-custom">
+      {/* SPORTS MEDICINE SERVICES (HIGH-END ROW SYSTEM WITH GLOW HIGHLIGHT & BORDER UNDERLINES) */}
+      <section className="section-padding bg-gradient-to-br from-neutral-50 via-white to-neutral-100 relative overflow-hidden">
+        {/* Decorative Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div className="container-custom relative z-10 max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16 max-w-3xl mx-auto"
           >
-            <h2 className="text-secondary mb-4">Sports Medicine Services Offered</h2>
-            {/* <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
-              Complete athlete-care ecosystem under one roof
-            </p> */}
+            <h2 className="text-secondary font-heading font-extrabold text-3xl md:text-4xl mb-4">
+              Sports Medicine <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent font-black">Services Offered</span>
+            </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="divide-y divide-neutral-200 border-t border-b border-neutral-200 relative">
             {advancedServices.map((service, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                transition={{ delay: idx * 0.05 }}
+                className="group relative py-8 px-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-white hover:shadow-soft-lg transition-all duration-500 rounded-2xl md:rounded-none border-x border-transparent hover:border-neutral-200/50"
               >
-                <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 h-full">
-                  <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white mb-4">
-                    {service.icon}
+                {/* Horizontal row underline hover animation */}
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 hidden md:block"></div>
+
+                <div className="flex items-center gap-6 md:w-5/12">
+                  <span className="text-3xl font-heading font-extrabold text-primary/30 group-hover:text-primary transition-colors duration-300 flex-shrink-0">
+                    {String(idx + 1).padStart(2, '0')}.
+                  </span>
+
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-600 group-hover:text-white transition-all duration-500 flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 shadow-sm shadow-primary/10">
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      {service.icon}
+                    </div>
                   </div>
-                  <h3 className="text-lg font-heading font-semibold text-secondary mb-3">
+
+                  <h3 className="text-lg md:text-xl font-heading font-extrabold text-secondary group-hover:text-primary transition-colors duration-500">
                     {service.title}
                   </h3>
-                  <p className="text-neutral-600 text-sm">
-                    {service.description}
-                  </p>
-                </Card>
+                </div>
+
+                <div className="flex-1 md:max-w-xl text-neutral-500 text-sm md:text-base leading-relaxed pl-11 md:pl-0 font-light">
+                  {service.description}
+                </div>
+
+                <div className="flex justify-end pl-11 md:pl-0">
+                  <ChevronRight className="w-5 h-5 text-neutral-300 group-hover:text-primary group-hover:translate-x-1.5 transition-all duration-300 flex-shrink-0" />
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-padding bg-gradient-to-br from-secondary to-primary-600 text-white">
-        <div className="container-custom">
+      {/* WHY CHOOSE DR. MAGAR (HIGH-IMPACT DARK THEME REDESIGN) */}
+      <section className="section-padding bg-gradient-to-br from-secondary via-secondary-900 to-primary-800 text-white relative overflow-hidden">
+        {/* Dynamic graphics on dark theme */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+        <div className="absolute top-1/2 -left-32 w-80 h-80 bg-primary/20 rounded-full blur-3xl opacity-40"></div>
+        <div className="absolute -bottom-20 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl opacity-30"></div>
+
+        <div className="container-custom relative z-10 max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16 max-w-3xl mx-auto"
           >
-            <Award className="w-12 h-12 text-accent mx-auto mb-4" />
-            <h2 className="text-accent mb-4">Why Choose Dr. Sumedh Magar as Your Sports Medicine Doctor in Pune?</h2>
+            <Award className="w-12 h-12 text-accent mx-auto mb-4 animate-bounce" />
+            <h2 className="text-accent font-heading font-extrabold text-3xl md:text-4xl mb-4">Why Choose Dr. Sumedh Magar as Your Sports Medicine Doctor in Pune?</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {whyChoose.map((reason, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -25 : 25 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="flex items-start space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all"
+                transition={{ delay: idx * 0.08 }}
+                className="flex items-start gap-4 bg-white/5 backdrop-blur-sm rounded-[1.5rem] p-6 border border-white/10 hover:border-accent/40 hover:bg-white/10 transition-all duration-300"
               >
-                <CheckCircle className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                <p className="text-neutral-200 leading-relaxed">{reason}</p>
+                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent flex-shrink-0 mt-0.5">
+                  <CheckCircle className="w-4 h-4" />
+                </div>
+                <p className="text-neutral-200 leading-relaxed font-heading font-bold text-sm md:text-base">{reason}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-padding bg-neutral-50">
-        <div className="container-custom">
+      {/* TESTIMONIALS (CLEAN WHITE BLOCK CARDS) */}
+      <section className="section-padding bg-neutral-50 relative">
+        <div className="container-custom max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16 max-w-3xl mx-auto"
           >
-            <h2 className="text-secondary mb-4">Patient Testimonials</h2>
-            <p className="text-neutral-600 text-lg">
+            <h2 className="text-secondary font-heading font-extrabold text-3xl md:text-4xl mb-4">Patient Testimonials</h2>
+            <p className="text-neutral-500 text-lg">
               Hear from athletes who&apos;ve experienced exceptional care and recovery
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, idx) => (
               <motion.div
                 key={idx}
@@ -626,73 +687,71 @@ export default function SportsMedicineClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
+                className="group"
               >
-                <Card className="h-full testimonial-card">
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-                    ))}
+                <div className="h-full bg-white border border-neutral-200/50 p-8 testimonial-card transition-all duration-300 rounded-[1rem] flex flex-col justify-between">
+                  <div>
+                    {/* Quotation mark style icon */}
+                    <div className="flex items-center gap-1 mb-6">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
+                    <p className="text-neutral-600 mb-6 leading-relaxed italic text-sm md:text-base">"{testimonial.text}"</p>
                   </div>
-                  <p className="text-neutral-700 mb-4 leading-relaxed">{testimonial.text}</p>
-                  <div className="pt-4 border-t border-neutral-200">
-                    <p className="font-semibold text-secondary">{testimonial.name}</p>
-                    <p className="text-sm text-neutral-500">{testimonial.source}</p>
+                  <div className="pt-4 border-t border-neutral-100 flex justify-between items-center">
+                    <div>
+                      <p className="font-heading font-extrabold text-secondary text-sm md:text-base">{testimonial.name}</p>
+                      <p className="text-xs text-neutral-400 mt-0.5">{testimonial.source}</p>
+                    </div>
+                    <span className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                      <Star className="w-4 h-4 fill-primary text-primary" />
+                    </span>
                   </div>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* BOOK APPOINTMENT CTA */}
       <section className="section-padding bg-gradient-to-br from-primary to-primary-600 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
         </div>
 
-        <div className="container-custom relative z-10">
+        <div className="container-custom relative z-10 max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
+            className="flex flex-col items-center animate-pulse-slow"
           >
-            <h2 className="text-white mb-6">Book an Appointment with the Best Sports Medicine Doctor in Pune</h2>
-            <p className="text-xl text-neutral-100 mb-8 leading-relaxed">
+            <h2 className="text-white font-heading font-extrabold text-3xl md:text-5xl tracking-tight mb-6">Book an Appointment with the Best Sports Medicine Doctor in Pune</h2>
+            <p className="text-lg md:text-xl text-neutral-100 mb-10 leading-relaxed font-light max-w-3xl">
               Whether you are suffering from a sports injury, recurring joint pain, ligament tear, muscle strain, or want to improve athletic performance,
               Dr. Sumedh Magar provides comprehensive sports medicine care tailored to your needs.
             </p>
 
-            {/* <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8 border border-white/20 hover:bg-white/15 transition-all"
-            >
-              <p className="text-white mb-2 text-lg font-medium">I-SPORT MEDICAL CENTRE</p>
-              <p className="text-neutral-200">
-                Shop No. 9-13, 37/1 & 37/2 Kakkad Madhukosh, Madhuban Society Road,
-                Balewadi-Baner, Pune 411045
-              </p>
-            </motion.div> */}
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <button className="px-6 py-3 rounded-2xl font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed bg-secondary text-white hover:bg-secondary-400 shadow-soft hover:shadow-soft-lg inline-flex items-center gap-2 text-lg">
-                  <Calendar className="w-5 h-5" />
+            <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+              <Link href="/contact" className="w-full sm:w-auto">
+                <button className="px-8 py-4 w-full sm:w-auto rounded-2xl font-extrabold transition-all duration-300 bg-secondary text-white hover:bg-secondary-600 shadow-soft hover:shadow-soft-lg inline-flex items-center justify-center gap-2 text-lg hover:scale-[1.02]">
+                  <Calendar className="w-5 h-5 text-accent" />
                   Book Appointment
                 </button>
               </Link>
-              <button className="px-6 py-3 rounded-2xl font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed bg-secondary text-white hover:bg-secondary-400 shadow-soft hover:shadow-soft-lg inline-flex items-center gap-2 text-lg">
-                <Phone className="w-5 h-5" />
-                Call Now
-              </button>
+              <a href="tel:+918237071111" className="w-full sm:w-auto">
+                <button className="px-8 py-4 w-full sm:w-auto rounded-2xl font-extrabold transition-all duration-300 bg-secondary text-white hover:bg-secondary-600 shadow-soft hover:shadow-soft-lg inline-flex items-center justify-center gap-2 text-lg hover:scale-[1.02]">
+                  <Phone className="w-5 h-5 text-accent" />
+                  Call Now
+                </button>
+              </a>
             </div>
           </motion.div>
         </div>
       </section>
-    </div >
+    </div>
   );
 }
