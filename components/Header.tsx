@@ -15,7 +15,7 @@ const navLinks: NavItem[] = [
   {
     label: 'Orthopedic',
     children: [
-      { path: '/treatments', label: 'All Treatments' },
+      // { path: '/treatments', label: 'All Treatments' },
       { path: '/treatments/knee-replacement-surgery-pune', label: 'Robotic Knee Replacement' },
       { path: '/treatments/shoulder-arthroscopy-pune', label: 'Shoulder Surgery' },
       { path: '/treatments/knee-arthroscopy-pune', label: 'Knee Surgery' },
