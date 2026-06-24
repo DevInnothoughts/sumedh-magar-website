@@ -73,7 +73,7 @@ export default function ShoulderArthroscopyPage() {
 
       <div className="min-h-screen pt-20">
         <section className="section-padding bg-gradient-to-br from-secondary to-secondary-400 text-white" style={{
-          backgroundImage: "url('/shoulder pain banner')",
+          backgroundImage: "url('/shoulder pain banner.png')",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}>
