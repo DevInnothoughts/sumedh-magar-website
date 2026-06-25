@@ -14,7 +14,8 @@ import {
   Calendar,
   Star,
   CheckCircle,
-  ChevronRight
+  ChevronRight,
+  ArrowRight,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -192,36 +193,64 @@ export default function SportsMedicineClient() {
   return (
     <div className="min-h-screen pt-20 bg-neutral-50 overflow-x-hidden font-sans">
       {/* HERO SECTION - KEPT EXACTLY AS IT IS FOR BANNER IMAGE */}
-      <section className="section-padding bg-gradient-to-br from-secondary via-primary-600 to-secondary text-white relative overflow-hidden"
-        style={{ backgroundImage: 'url(/sport-medicine.png)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}
-      >
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
-        </div>
+      <section
+  className="relative section-padding bg-gradient-to-br from-secondary via-primary-600 to-secondary text-white min-h-[500px] flex items-center"
+  style={{
+    backgroundImage: "url('/sport-medicine.png')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  <div className="container-custom max-w-5xl mx-auto">
 
-        <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-5xl mx-auto text-center"
-          >
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="inline-block mb-6"
-            >
-              <Activity className="w-20 h-20 text-accent mx-auto" />
-            </motion.div>
+    <nav className="flex items-center gap-1.5 text-sm text-neutral-300 mb-6">
+      {/* <Link href="/" className="hover:text-white transition-colors">
+        Home
+      </Link>
 
-            <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold font-heading">
-              Best Sports Medicine Doctor in Pune – Advanced Sports Medicine Care by Dr. Sumedh Magar
-            </h1>
-          </motion.div>
-        </div>
-      </section>
+      <ChevronRight className="w-3.5 h-3.5" />
+
+      <Link href="/treatments" className="hover:text-white transition-colors">
+        Treatments
+      </Link> */}
+
+      {/* <ChevronRight className="w-3.5 h-3.5" /> */}
+
+      {/* <span className="text-white">
+        Sports Medicine
+      </span> */}
+    </nav>
+
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      <div>
+
+        <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">
+          Sports Medicine Specialist
+        </p>
+
+
+        <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold font-heading">
+          Best Sports Medicine Doctor in Pune – Dr. Sumedh Magar
+        </h1>
+
+
+        <Link 
+          href="/contact" 
+          className="inline-flex items-center btn-primary"
+        >
+          Book Consultation
+          <ArrowRight className="ml-2 w-5 h-5" />
+        </Link>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
       {/* INTRODUCTION SECTION (STUNNING DOUBLE-GLOW & TWO-TONE TYPOGRAPHY) */}
       <section className="section-padding bg-white relative overflow-hidden">
