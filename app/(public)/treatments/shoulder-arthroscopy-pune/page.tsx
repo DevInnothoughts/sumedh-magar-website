@@ -73,49 +73,81 @@ export default function ShoulderArthroscopyPage() {
 
       <div className="min-h-screen pt-20">
         <section
-  className="relative section-padding bg-gradient-to-br from-secondary to-secondary-400 text-white min-h-[450px] flex items-center"
-  style={{
-    backgroundImage: "url('/magnific_photo-a-man-running-up-st_swF2vgDl8e.png')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
->
-  <div className="container-custom max-w-5xl mx-auto">
-    <nav className="flex items-center gap-1.5 text-sm text-neutral-300 mb-6">
-      <Link href="/" className="hover:text-white transition-colors">
-        Home
-      </Link>
+            className="
+    relative
+    section-padding
+    bg-gradient-to-br
+    from-secondary
+    to-secondary-400
+    text-white
+    min-h-[450px]
+    2xl:min-h-[650px]
+    flex
+    items-center
+  "
+            style={{
+              backgroundImage: "url('/shoulder pain banner.png')",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "75% center",
+            }}
+          >
+          <div className="container-custom max-w-5xl mx-auto px-5">
 
-      <ChevronRight className="w-3.5 h-3.5" />
+            <nav className="flex items-center flex-wrap gap-1.5 text-sm text-neutral-300 mb-6">
+              <Link href="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
 
-      <Link href="/treatments" className="hover:text-white transition-colors">
-        Treatments
-      </Link>
+              <ChevronRight className="w-3.5 h-3.5" />
 
-      <ChevronRight className="w-3.5 h-3.5" />
+              <Link href="/treatments" className="hover:text-white transition-colors">
+                Treatments
+              </Link>
 
-      <span className="text-white">Shoulder Surgery</span>
-    </nav>
+              <ChevronRight className="w-3.5 h-3.5" />
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">
-          Shoulder Specialist
-        </p>
+              <span className="text-white">
+                Shoulder Surgery
+              </span>
+            </nav>
 
-        <h1 className="mb-4 text-4xl md:text-5xl font-bold">
-          Shoulder Surgery in Pune – Arthroscopic Shoulder Surgery by Dr. Sumedh Magar
-        </h1>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-        <Link href="/contact" className="inline-flex items-center btn-primary">
-          Book Consultation
-          <ArrowRight className="ml-2 w-5 h-5" />
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
+              <div>
+
+                <p className="text-primary font-semibold text-xs md:text-sm uppercase tracking-widest mb-3">
+                  Shoulder Specialist
+                </p>
+
+
+                <h1 className="
+                  mb-5 
+                  text-3xl 
+                  sm:text-4xl 
+                  md:text-5xl 
+                  font-bold 
+                  leading-tight
+                ">
+                  Shoulder Surgery in Pune – Arthroscopic Shoulder Surgery by Dr. Sumedh Magar
+                </h1>
+
+
+                <Link 
+                  href="/contact" 
+                  className="inline-flex items-center btn-primary"
+                >
+                  Book Consultation
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+
+
+              </div>
+
+            </div>
+
+          </div>
+        </section>
 
         <section className="section-padding bg-white">
           <div className="container-custom max-w-5xl mx-auto">

@@ -193,57 +193,51 @@ export default function SportsMedicineClient() {
   return (
     <div className="min-h-screen pt-20 bg-neutral-50 overflow-x-hidden font-sans">
       {/* HERO SECTION - KEPT EXACTLY AS IT IS FOR BANNER IMAGE */}
-      <section
-  className="relative section-padding bg-gradient-to-br from-secondary via-primary-600 to-secondary text-white min-h-[500px] flex items-center"
-  style={{
-    backgroundImage: "url('/sport-medicine.png')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
+     <section
+  className="relative section-padding bg-gradient-to-br from-secondary to-secondary-400 text-white 
+            min-h-[520px] md:min-h-[450px] flex items-center"
+            style={{
+              backgroundImage: "url('/sport-medicine.png')",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "93% center",
+            }}
 >
-  <div className="container-custom max-w-5xl mx-auto">
+  <div className="container-custom max-w-5xl mx-auto px-5">
 
-    <nav className="flex items-center gap-1.5 text-sm text-neutral-300 mb-6">
-      {/* <Link href="/" className="hover:text-white transition-colors">
-        Home
-      </Link>
-
-      <ChevronRight className="w-3.5 h-3.5" />
-
-      <Link href="/treatments" className="hover:text-white transition-colors">
-        Treatments
-      </Link> */}
-
-      {/* <ChevronRight className="w-3.5 h-3.5" /> */}
-
-      {/* <span className="text-white">
-        Sports Medicine
-      </span> */}
-    </nav>
-
-
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
       <div>
 
-        <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">
+        <p className="text-primary font-semibold text-xs md:text-sm uppercase tracking-widest mb-3">
           Sports Medicine Specialist
         </p>
 
 
-        <h1 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold font-heading">
+        <h1
+          className="
+          mb-6 
+          text-3xl 
+          sm:text-4xl 
+          md:text-5xl 
+          lg:text-6xl 
+          font-bold 
+          font-heading
+          leading-tight
+          "
+        >
           Best Sports Medicine Doctor in Pune – Dr. Sumedh Magar
         </h1>
 
 
-        <Link 
-          href="/contact" 
+        <Link
+          href="/contact"
           className="inline-flex items-center btn-primary"
         >
           Book Consultation
           <ArrowRight className="ml-2 w-5 h-5" />
         </Link>
+
 
       </div>
 

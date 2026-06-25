@@ -140,45 +140,27 @@
   background: linear-gradient(135deg, #14B8A6 0%, #0EA5E9 100%);
 }
 
-.education-timeline-circle {
-  position: absolute;
-
-  left: -42px;
-  top: 8px;
-
-  width: 32px;
-  height: 32px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 9999px;
-
-  background: linear-gradient(135deg,
-      rgb(45 212 191),
-      rgb(13 148 136));
-
-  color: white;
-
-  font-size: 12px;
-  font-weight: 600;
-
-  border: 1px solid rgba(226, 232, 240, 1);
-
-  box-shadow:
-    0 4px 12px rgba(45, 212, 191, 0.35);
-
-  z-index: 10;
-
-  transition: transform .3s ease, box-shadow .3s ease;
+.knee-hero {
+  min-height: 450px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 
-.education-timeline-circle:hover {
+/* Large laptop / desktop */
+@media (min-width: 1440px) {
+  .knee-hero {
+    min-height: 580px;
+    background-position: center 35%;
+  }
+}
 
-  transform: scale(1.12);
 
-  box-shadow:
-    0 8px 25px rgba(45, 212, 191, 0.5);
-
+/* Very large monitors */
+@media (min-width: 1800px) {
+  .knee-hero {
+    min-height: 650px;
+    background-position: center 30%;
+  }
 }

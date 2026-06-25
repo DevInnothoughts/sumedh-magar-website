@@ -72,7 +72,24 @@ export default function KneeArthroscopyPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div className="min-h-screen pt-20">
-        <section className="section-padding bg-gradient-to-br from-secondary to-secondary-400 text-white">
+        <section className="
+    relative
+    section-padding
+    bg-gradient-to-br
+    from-secondary
+    to-secondary-400
+    text-white
+    min-h-[450px]
+    2xl:min-h-[650px]
+    flex
+    items-center
+  "
+  style={{
+    backgroundImage: "url('/knee surgery banner.png')",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "75% center",
+  }}>
           <div className="container-custom max-w-5xl mx-auto">
             <nav className="flex items-center gap-1.5 text-sm text-neutral-300 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -93,9 +110,7 @@ export default function KneeArthroscopyPage() {
                   Book Consultation <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </div>
-              <div className="relative h-72 rounded-2xl overflow-hidden">
-                <Image src="/KneeSurgery.jpeg" alt="Knee arthroscopy Pune" fill className="object-cover" priority sizes="(max-width: 1024px) 100vw, 50vw" />
-              </div>
+              
             </div>
           </div>
         </section>
