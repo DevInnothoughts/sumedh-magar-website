@@ -303,14 +303,14 @@ export default function SportsMedicineClient() {
                 Introduction
               </h2>
 
-              <div className="space-y-6 text-neutral-600 leading-relaxed text-base md:text-lg">
+              <div className="">
                 <p className="text-secondary font-bold font-heading text-lg md:text-l border-l-4 border-primary pl-5 py-2 bg-gradient-to-r from-primary-50/30 via-primary-50/10 to-transparent rounded-r-xl mb-4">
                   If you are looking for the <strong>best sports medicine doctor in Pune</strong>, expert diagnosis and timely treatment can help you recover from injuries faster and return to peak performance.
                 </p>
-                <p className="text-neutral-700 leading-relaxed mb-4">
+                <p className="mt-5 text-slate-600 leading-relaxed">
                   The prevention, diagnosis, treatment, rehabilitation, and performance improvement of athletes and active people are the main goals of sports medicine.
                 </p>
-                <p className='text-neutral-700 leading-relaxed mb-4'>
+                <p className='mt-5 text-slate-600 leading-relaxed mb-4'>
                   <strong>Dr. Sumedh Magar </strong> is a leading Sports Medicine Doctor in Pune with advanced international training in Sports Medicine, Arthroscopy, and Athlete Rehabilitation. He provides comprehensive care for sports injuries, overuse conditions, joint problems, and performance-related concerns for professional athletes, fitness enthusiasts, and active individuals.
                 </p>
               </div>
@@ -403,7 +403,7 @@ export default function SportsMedicineClient() {
             <h2 className="text-secondary font-heading font-extrabold text-3xl md:text-4xl mb-4">
               Meet <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent font-black">Dr. Sumedh Magar</span> – Sports Medicine Specialist in Pune
             </h2>
-            <p className="text-neutral-500 text-lg leading-relaxed">
+            <p className="mt-5 text-slate-600 leading-relaxed">
               One of Pune's most skilled sports medicine specialists,
               Dr. Sumedh Magar provides advanced treatment for orthopaedic conditions and sports injuries.
             </p>
@@ -542,7 +542,7 @@ export default function SportsMedicineClient() {
           >
 
             <h2 className="text-secondary font-heading font-extrabold text-3xl md:text-4xl mb-4">Ortho-Biologics & Regenerative Medicine</h2>
-            <p className="text-neutral-500 text-lg leading-relaxed">
+            <p className="mt-5 text-slate-600 leading-relaxed">
               Advanced regenerative treatments to accelerate healing and support tissue repair
             </p>
           </motion.div>
@@ -697,7 +697,7 @@ export default function SportsMedicineClient() {
             className="text-center mb-16 max-w-3xl mx-auto"
           >
             <h2 className="text-secondary font-heading font-extrabold text-3xl md:text-4xl mb-4">Patient Testimonials</h2>
-            <p className="text-neutral-500 text-lg">
+            <p className="mt-5 text-slate-600 leading-relaxed">
               Hear from athletes who&apos;ve experienced exceptional care and recovery
             </p>
           </motion.div>

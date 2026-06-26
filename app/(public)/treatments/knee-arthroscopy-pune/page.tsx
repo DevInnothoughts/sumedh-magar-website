@@ -80,6 +80,7 @@ export default function KneeArthroscopyPage() {
     to-secondary-400
     text-white
     min-h-[450px]
+   
     2xl:min-h-[650px]
     flex
     items-center

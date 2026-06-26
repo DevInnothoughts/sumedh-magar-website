@@ -131,7 +131,7 @@ export default function HomeClient() {
                 <br />
                 & Orthopedic Care
               </h2>
-              <p className="text-lg text-neutral-600 leading-relaxed">
+              <p className="mt-5 text-slate-600 leading-relaxed">
                 Dr. Sumedh Magar provides specialized care
                 for sports injuries, joint disorders, and
                 orthopedic conditions. With international
@@ -141,7 +141,7 @@ export default function HomeClient() {
                 solutions designed to restore mobility,
                 performance, and quality of life.
               </p>
-              <p className="text-lg text-neutral-600 leading-relaxed">
+              <p className="mt-5 text-slate-600 leading-relaxed">
                 Whether you are a professional athlete,
                 fitness enthusiast, or someone struggling
                 with joint pain, personalized treatment plans
@@ -261,7 +261,7 @@ export default function HomeClient() {
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <h2 className="text-secondary text-4xl lg:text-4xl font-bold text-secondary leading-tight mb-4">Areas of Expertise</h2>
-            <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
+            <p className="mt-5 text-slate-600 leading-relaxed">
               Comprehensive orthopedic and sports medicine treatments using advanced surgical techniques and personalized care
             </p>
           </motion.div>
@@ -307,7 +307,7 @@ export default function HomeClient() {
                 Patients Choose Us
               </h2>
 
-              <p className="text-neutral-600 text-lg mt-6 leading-relaxed">
+              <p className="mt-5 text-slate-600 leading-relaxed">
                 Advanced sports medicine and orthopedic care
                 focused on faster recovery, better performance,
                 and long-term joint health.
@@ -488,7 +488,7 @@ leading-relaxed
                   )}
                   <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">{post.category}</div>
                   <h3 className="text-xl font-heading font-semibold text-secondary mb-2">{post.title}</h3>
-                  <p className="text-neutral-600 mb-4 line-clamp-3">{post.excerpt || post.description.substring(0, 150) + '...'}</p>
+                  <p className="text-neutral-600 text-sm leading-relaxed mb-4">{post.excerpt || post.description.substring(0, 150) + '...'}</p>
                   <Link href={`/articles/${post.id}`} className="text-primary font-semibold hover:text-primary-600 inline-flex items-center">
                     Read More <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>

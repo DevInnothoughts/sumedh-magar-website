@@ -155,7 +155,12 @@ return (
 
 {/* HERO */}
 
-<section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 text-white">
+<section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 text-white" style={{
+    /* Matches the structural height scale configuration of your previous banner */
+    height: "calc(100vw * (480 / 1440))", 
+    minHeight: "500px", // Keeps it roomy enough for text on smaller laptops/tablets
+    maxHeight: "520px"  // Stops it from growing too giant on massive screens
+  }}>
 
 <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_20%_20%,rgba(20,184,166,0.35),transparent_40%),radial-gradient(circle_at_80%_60%,rgba(56,189,248,0.25),transparent_45%)]" />
 
