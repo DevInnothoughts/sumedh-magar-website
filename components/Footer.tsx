@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Activity, Mail, Phone, MapPin, Instagram } from 'lucide-react';
+import { Activity, Mail, Phone, MapPin, Instagram, Youtube, Linkedin, Facebook } from 'lucide-react';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -136,6 +136,24 @@ export const Footer = () => {
                 aria-label="Follow on Instagram"
               >
                 <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/drsumedhmagar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"
+                aria-label="Follow on LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61554417404222"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"
+                aria-label="Follow on LinkedIn"
+              >
+                <Facebook className="w-5 h-5" />
               </a>
             </div>
             <div className="mt-6">
