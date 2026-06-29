@@ -61,7 +61,7 @@ const faqSchema = {
 };
 
 export default function KneeArthroscopyPage() {
-  const currentPath = "/treatments/knee-arthroscopy-pune";
+  const currentPath = "/treatments/knee-surgery-pune";
 
   const filteredTreatments = relatedTreatments.filter(
     (item) => item.href !== currentPath

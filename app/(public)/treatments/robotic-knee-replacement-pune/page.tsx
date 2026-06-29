@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     'Expert ACL tear treatment and ACL reconstruction surgery in Pune by Dr. Sumedh Magar. Arthroscopic ACL surgery, sports knee specialist at I-SPORT Medical Centre, Balewadi.',
   alternates: {
-    canonical: `${SITE_URL}/treatments/knee-replacement-surgery-pune`,
+    canonical: `${SITE_URL}/treatments/robotic-knee-replacement-pune`,
   },
   keywords: [
     'ACL tear treatment Pune',
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: 'website',
-    url: `${SITE_URL}/treatments/knee-replacement-surgery-pune`,
-    title: 'Knee Replacement Surgery in Pune | Dr. Sumedh Magar',
+    url: `${SITE_URL}/treatments/robotic-knee-replacement-pune`,
+    title: 'Robotic Knee Replacement Surgery in Pune | Dr. Sumedh Magar',
     description: 'Arthroscopic ACL reconstruction by sports knee specialist Dr. Sumedh Magar at I-SPORT Medical Centre, Pune.',
     images: [{ url: `${SITE_URL}/aclsurgery.JPG`, width: 1200, height: 630, alt: 'ACL Surgery Pune' }],
   },
@@ -67,7 +67,7 @@ const faqSchema = {
 };
 
 export default function ACLTreatmentPage() {
-  const currentPath = "/treatments/knee-replacement-surgery-pune";
+  const currentPath = "/treatments/robotic-knee-replacement-pune";
 
   const filteredTreatments = relatedTreatments.filter(
     (item) => item.href !== currentPath

@@ -190,9 +190,9 @@ export default function OrthopedicSurgeonPunePage() {
                     {[
                       { proc: 'ACL Reconstruction', link: '/treatments/acl-tear-treatment-pune' },
                       { proc: 'Knee Arthroscopy', link: '/treatments/knee-arthroscopy-pune' },
-                      { proc: 'Shoulder Arthroscopy', link: '/treatments/shoulder-arthroscopy-pune' },
+                      { proc: 'Shoulder Arthroscopy', link: '/treatments/shoulder-surgery-pune' },
                       { proc: 'Meniscus Repair', link: '/treatments/meniscus-tear-treatment-pune' },
-                      { proc: 'Rotator Cuff Repair', link: '/treatments/shoulder-arthroscopy-pune' },
+                      { proc: 'Rotator Cuff Repair', link: '/treatments/shoulder-surgery-pune' },
                       { proc: 'Joint Preservation', link: '/expertise' },
                       { proc: 'PRP & Bio-Orthopedics', link: '/expertise' },
                       { proc: 'Sports Rehabilitation', link: '/treatments/sports-rehabilitation-pune' },
@@ -262,8 +262,8 @@ export default function OrthopedicSurgeonPunePage() {
                   <ul className="space-y-2">
                     {[
                       { href: '/treatments/acl-tear-treatment-pune', label: 'ACL Reconstruction' },
-                      { href: '/treatments/knee-arthroscopy-pune', label: 'Knee Arthroscopy' },
-                      { href: '/treatments/shoulder-arthroscopy-pune', label: 'Shoulder Arthroscopy' },
+                      { href: '/treatments/knee-surgery-pune', label: 'Knee Surgery' },
+                      { href: '/treatments/shoulder-surgery-pune', label: 'Shoulder Surgery' },
                       { href: '/treatments', label: 'All Treatments' },
                     ].map(({ href, label }) => (
                       <li key={href}>

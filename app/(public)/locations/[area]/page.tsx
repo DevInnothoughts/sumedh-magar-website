@@ -158,7 +158,7 @@ export default async function LocationPage({ params }: { params: Promise<{ area:
                     {[
                       { service: 'ACL Reconstruction', link: '/treatments/acl-tear-treatment-pune' },
                       { service: 'Knee Arthroscopy', link: '/treatments/knee-arthroscopy-pune' },
-                      { service: 'Shoulder Arthroscopy', link: '/treatments/shoulder-arthroscopy-pune' },
+                      { service: 'Shoulder Arthroscopy', link: '/treatments/shoulder-surgery-pune' },
                       { service: 'Meniscus Repair', link: '/treatments/meniscus-tear-treatment-pune' },
                       { service: 'Sports Rehabilitation', link: '/treatments/sports-rehabilitation-pune' },
                       { service: 'PRP Therapy', link: '/expertise' },

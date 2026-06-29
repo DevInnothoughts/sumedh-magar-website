@@ -167,7 +167,7 @@ export default function GymShoulderInjuriesPage() {
                   <h3 className="font-heading font-semibold text-secondary mb-4">Related</h3>
                   <ul className="space-y-2">
                     {[
-                      { href: '/treatments/shoulder-arthroscopy-pune', label: 'Shoulder Arthroscopy' },
+                      { href: '/treatments/shoulder-surgery-pune', label: 'Shoulder Surgery' },
                       { href: '/treatments/sports-rehabilitation-pune', label: 'Sports Rehab' },
                     ].map(({ href, label }) => (
                       <li key={href}>

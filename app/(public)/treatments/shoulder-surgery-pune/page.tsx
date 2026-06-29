@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   description:
     'Shoulder arthroscopy specialist in Pune. Expert treatment for rotator cuff tears, shoulder instability, and sports shoulder injuries by Dr. Sumedh Magar, I-SPORT Medical Centre.',
   alternates: {
-    canonical: `${SITE_URL}/treatments/shoulder-arthroscopy-pune`,
+    canonical: `${SITE_URL}/treatments/shoulder-surgery-pune`,
   },
   keywords: ['shoulder arthroscopy Pune', 'rotator cuff treatment Pune', 'shoulder surgeon Pune', 'shoulder instability Pune'],
   openGraph: {
     type: 'website',
-    url: `${SITE_URL}/treatments/shoulder-arthroscopy-pune`,
+    url: `${SITE_URL}/treatments/shoulder-surgery-pune`,
     title: 'Shoulder Arthroscopy Pune | Dr. Sumedh Magar',
     description: 'Arthroscopic shoulder surgery for rotator cuff tears and shoulder instability in Pune.',
     images: [{ url: `${SITE_URL}/ShoulderSurgery.jpeg`, width: 1200, height: 630, alt: 'Shoulder Arthroscopy Pune' }],
@@ -45,7 +45,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
     { '@type': 'ListItem', position: 2, name: 'Treatments', item: `${SITE_URL}/treatments` },
-    { '@type': 'ListItem', position: 3, name: 'Shoulder Arthroscopy', item: `${SITE_URL}/treatments/shoulder-arthroscopy-pune` },
+    { '@type': 'ListItem', position: 3, name: 'Shoulder Arthroscopy', item: `${SITE_URL}/treatments/shoulder-surgery-pune` },
   ],
 };
 
@@ -60,7 +60,7 @@ const faqSchema = {
 };
 
 export default function ShoulderArthroscopyPage() {
-  const currentPath = "/treatments/shoulder-arthroscopy-pune";
+  const currentPath = "/treatments/shoulder-surgery-pune";
 
   const filteredTreatments = relatedTreatments.filter(
     (item) => item.href !== currentPath
@@ -73,7 +73,7 @@ export default function ShoulderArthroscopyPage() {
 
       <div className="min-h-screen pt-20">
         <section
-            className="
+          className="
     relative
     section-padding
     bg-gradient-to-br
@@ -85,13 +85,13 @@ export default function ShoulderArthroscopyPage() {
     flex
     items-center
   "
-            style={{
-              backgroundImage: "url('/shoulder pain banner.png')",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "75% center",
-            }}
-          >
+          style={{
+            backgroundImage: "url('/shoulder pain banner.png')",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "75% center",
+          }}
+        >
           <div className="container-custom max-w-5xl mx-auto px-5">
 
             <nav className="flex items-center flex-wrap gap-1.5 text-sm text-neutral-300 mb-6">
@@ -133,8 +133,8 @@ export default function ShoulderArthroscopyPage() {
                 </h1>
 
 
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="inline-flex items-center btn-primary"
                 >
                   Book Consultation

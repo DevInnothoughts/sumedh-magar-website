@@ -16,9 +16,9 @@ const navLinks: NavItem[] = [
     label: 'Orthopedic',
     children: [
       // { path: '/treatments', label: 'All Treatments' },
-      { path: '/treatments/knee-replacement-surgery-pune', label: 'Robotic Knee Replacement' },
-      { path: '/treatments/shoulder-arthroscopy-pune', label: 'Shoulder Surgery' },
-      { path: '/treatments/knee-arthroscopy-pune', label: 'Knee Surgery' },
+      { path: '/treatments/robotic-knee-replacement-pune', label: 'Robotic Knee Replacement' },
+      { path: '/treatments/shoulder-surgery-pune', label: 'Shoulder Surgery' },
+      { path: '/treatments/knee-surgery-pune', label: 'Knee Surgery' },
       { path: '/treatments/joint-replacement-surgery-pune', label: 'Joint Replacement' },
       { path: '/treatments/hip-surgery-pune', label: 'Hip Surgery' },
       { path: '/treatments/regenerative-medicine', label: 'Regenerative Medicine' },

@@ -47,11 +47,11 @@ const faqs = [
 //     label: "Robotic Knee Replacement",
 //   },
 //   {
-//     href: "/treatments/shoulder-arthroscopy-pune",
+//     href: "/treatments/shoulder-surgery-pune",
 //     label: "Shoulder Surgery",
 //   },
 //   {
-//     href: "/treatments/knee-arthroscopy-pune",
+//     href: "/treatments/knee-surgery-pune",
 //     label: "Knee Surgery",
 //   },
 //   {

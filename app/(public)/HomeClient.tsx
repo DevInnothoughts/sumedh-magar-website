@@ -41,21 +41,21 @@ const treatments = [
     title: 'Robotic Knee Replacement',
     description: 'Robotic knee replacement is a state-of-the-art joint replacement surgery that ...',
     imageUrl: '/KneeSurgery.jpeg',
-    link: '/treatments/knee-replacement-surgery-pune'
+    link: '/treatments/robotic-knee-replacement-pune'
   },
   {
     id: '2',
     title: 'Shoulder Surgery',
     description: 'Shoulder pain can make simple activities like lifting your arm, driving, ...',
     imageUrl: '/ShoulderSurgery.jpeg',
-    link: '/treatments/shoulder-arthroscopy-pune'
+    link: '/treatments/shoulder-surgery-pune'
   },
   {
     id: '3',
     title: 'Knee Surgery',
     description: 'There are knee operations that use advanced arthroscopic surgery techniques ...',
     imageUrl: '/JointReplacement.jpeg',
-    link: '/treatments/knee-arthroscopy-pune'
+    link: '/treatments/knee-surgery-pune'
   },
   {
     id: '4',

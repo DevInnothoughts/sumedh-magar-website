@@ -60,19 +60,14 @@ export const Footer = () => {
             <h3 className="font-heading font-semibold text-lg mb-4">Treatments</h3>
             <ul className="space-y-2">
               {[
-                { href: '/treatments/knee-replacement-surgery-pune', label: 'Robotic Knee Replacement' },
-                { href: '/treatments/shoulder-arthroscopy-pune', label: 'Shoulder Surgery' },
-                { href: '/treatments/knee-arthroscopy-pune', label: 'Knee Surgery' },
+                { href: '/treatments/robotic-knee-replacement-pune', label: 'Robotic Knee Replacement' },
+                { href: '/treatments/shoulder-surgery-pune', label: 'Shoulder Surgery' },
+                { href: '/treatments/knee-surgery-pune', label: 'Knee Surgery' },
                 { href: '/treatments/joint-replacement-surgery-pune', label: 'Joint Replacement' },
                 { href: '/treatments/hip-surgery-pune', label: 'Hip Surgery' },
                 { href: '/treatments/regenerative-medicine', label: 'Regenerative Medicine' },
 
-                // { href: '/treatments/acl-tear-treatment-pune', label: 'ACL Tear' },
-                // { href: '/treatments/knee-arthroscopy-pune', label: 'Knee Arthroscopy' },
-                // { href: '/treatments/shoulder-arthroscopy-pune', label: 'Shoulder Arthroscopy' },
-                // { href: '/treatments/meniscus-tear-treatment-pune', label: 'Meniscus Tear' },
-                // { href: '/treatments/sports-rehabilitation-pune', label: 'Sports Rehab' },
-                // { href: '/orthopedic-surgeon-pune', label: 'Orthopedic Surgeon Pune' },
+
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="text-neutral-300 hover:text-primary transition-colors text-sm">

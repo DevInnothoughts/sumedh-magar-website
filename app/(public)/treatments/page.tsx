@@ -41,8 +41,8 @@ const treatments = [
     tags: ['Knee Surgery', 'Meniscus', 'Cartilage'],
   },
   {
-    slug: 'shoulder-arthroscopy-pune',
-    title: 'Shoulder Arthroscopy',
+    slug: 'shoulder-surgery-pune',
+    title: 'Shoulder Surgery',
     description:
       'Arthroscopic shoulder surgery for rotator cuff tears, shoulder instability, and sports shoulder injuries with minimal downtime.',
     image: '/ShoulderSurgery.jpeg',
