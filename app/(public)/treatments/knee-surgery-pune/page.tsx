@@ -12,15 +12,15 @@ export const metadata: Metadata = {
   description:
     'Knee arthroscopy specialist in Pune. Minimally invasive knee surgery for meniscus tears, cartilage damage, and sports injuries by Dr. Sumedh Magar, I-SPORT Medical Centre.',
   alternates: {
-    canonical: `${SITE_URL}/treatments/knee-arthroscopy-pune`,
+    canonical: `${SITE_URL}/treatments/knee-surgery-pune`,
   },
   keywords: ['knee arthroscopy Pune', 'knee specialist Pune', 'meniscus surgery Pune', 'knee surgery Balewadi'],
   openGraph: {
     type: 'website',
-    url: `${SITE_URL}/treatments/knee-arthroscopy-pune`,
-    title: 'Knee Arthroscopy Pune | Dr. Sumedh Magar',
-    description: 'Expert knee arthroscopy for meniscus tears, cartilage damage, and sports injuries in Pune.',
-    images: [{ url: `${SITE_URL}/KneeSurgery.jpeg`, width: 1200, height: 630, alt: 'Knee Arthroscopy Pune' }],
+    url: `${SITE_URL}/treatments/knee-surgery-pune`,
+    title: 'Knee Surgery in Pune | Dr. Sumedh Magar',
+    description: 'Expert knee surgery for meniscus tears, cartilage damage, and sports injuries in Pune.',
+    images: [{ url: `${SITE_URL}/KneeSurgery.jpeg`, width: 1200, height: 630, alt: 'Knee Surgery Pune' }],
   },
 };
 
@@ -46,7 +46,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
     { '@type': 'ListItem', position: 2, name: 'Treatments', item: `${SITE_URL}/treatments` },
-    { '@type': 'ListItem', position: 3, name: 'Knee Arthroscopy', item: `${SITE_URL}/treatments/knee-arthroscopy-pune` },
+    { '@type': 'ListItem', position: 3, name: 'Knee Surgery', item: `${SITE_URL}/treatments/knee-surgery-pune` },
   ],
 };
 
@@ -85,12 +85,12 @@ export default function KneeArthroscopyPage() {
     flex
     items-center
   "
-  style={{
-    backgroundImage: "url('/knee surgery banner.png')",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "75% center",
-  }}>
+          style={{
+            backgroundImage: "url('/knee surgery banner.png')",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "75% center",
+          }}>
           <div className="container-custom max-w-5xl mx-auto">
             <nav className="flex items-center gap-1.5 text-sm text-neutral-300 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -111,7 +111,7 @@ export default function KneeArthroscopyPage() {
                   Book Consultation <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </div>
-              
+
             </div>
           </div>
         </section>
