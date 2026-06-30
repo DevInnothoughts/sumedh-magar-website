@@ -8,9 +8,9 @@ import { relatedTreatments } from '@/data/relatedtreatments';
 const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
-  title: 'Hip Surgery in Pune | Dr. Sumedh Magar',
+  title: 'Hip Replacement Surgery in Pune | Dr. Sumedh Magar ',
   description:
-    'Expert hip surgery in Pune by Dr. Sumedh Magar. Arthroscopic meniscus repair and meniscectomy for sports-related knee injuries at I-SPORT Medical Centre.',
+    'Dr. Sumedh Magar provides skilled hip surgery in Pune. Our areas of expertise include hip arthroscopy, hip replacement surgery, hip impingement, labral tear therapy, and customised rehabilitation. ',
   alternates: {
     canonical: `${SITE_URL}/treatments/hip-surgery-pune`,
   },
@@ -49,11 +49,59 @@ const breadcrumbSchema = {
   ],
 };
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
-};
+const schema =
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalWebPage",
+      "@id": "https://www.sportsurgeon.in/treatments/hip-surgery-pune#webpage",
+      "url": "https://www.sportsurgeon.in/treatments/hip-surgery-pune",
+      "name": "Hip Surgery in Pune",
+      "description": "Advanced hip surgery in Pune by Dr. Sumedh Magar for hip arthritis, hip labral tears, hip impingement, hip replacement, and sports-related hip conditions.",
+      "mainEntity": {
+        "@id": "https://www.sportsurgeon.in/treatments/hip-surgery-pune#procedure"
+      }
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://www.sportsurgeon.in/treatments/hip-surgery-pune#procedure",
+      "name": "Hip Surgery",
+      "procedureType": [
+        "Hip Arthroscopy",
+        "Hip Replacement Surgery"
+      ],
+      "bodyLocation": "Hip",
+      "howPerformed": "Hip surgery is performed using minimally invasive arthroscopy or joint replacement techniques to treat hip arthritis, labral tears, femoroacetabular impingement (FAI), sports injuries, and other hip disorders.",
+      "performedBy": {
+        "@type": "Physician",
+        "name": "Dr. Sumedh Magar",
+        "medicalSpecialty": [
+          "Orthopedic",
+          "Sports Medicine"
+        ]
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://www.sportsurgeon.in/#physician",
+      "name": "Dr. Sumedh Magar",
+      "jobTitle": "Sports Orthopedic Surgeon",
+      "url": "https://www.sportsurgeon.in/",
+      "medicalSpecialty": [
+        "Orthopedic",
+        "Sports Medicine"
+      ]
+    }
+  ]
+}
+
+
+// const faqSchema = {
+//   '@context': 'https://schema.org',
+//   '@type': 'FAQPage',
+//   mainEntity: faqs.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+// };
 
 export default function MeniscusTearPage() {
   const currentPath = "/treatments/hip-surgery-pune";
@@ -64,7 +112,7 @@ export default function MeniscusTearPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <div className="min-h-screen pt-20">
         <section className="section-padding bg-gradient-to-br from-secondary to-secondary-400 text-white">

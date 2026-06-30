@@ -10,7 +10,7 @@ export const revalidate = 300;
 export const metadata: Metadata = {
   title: 'Blog – Sports Medicine & Orthopedic Insights',
   description:
-    'Expert blog on sports injuries, ACL reconstruction, knee arthroscopy, shoulder surgery, and athlete recovery by Dr. Sumedh Magar – Sports Orthopedic Surgeon, Pune.',
+    'Explore expert articles by Dr. Sumedh Magar on sports medicine, orthopedic conditions, joint replacement, shoulder, knee and hip surgery, injury prevention, recovery, and rehabilitation.',
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },

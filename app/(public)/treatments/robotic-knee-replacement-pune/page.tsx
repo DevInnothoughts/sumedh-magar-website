@@ -8,9 +8,9 @@ import { relatedTreatments } from '@/data/relatedtreatments';
 const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
-  title: 'Knee Replacement Surgery in Pune | Dr. Sumedh Magar',
+  title: 'Best Robotic Knee Replacement Hospital in Pune | Dr. Sumedh Magar ',
   description:
-    'Expert ACL tear treatment and ACL reconstruction surgery in Pune by Dr. Sumedh Magar. Arthroscopic ACL surgery, sports knee specialist at I-SPORT Medical Centre, Balewadi.',
+    'Consult Dr. Sumedh Magar for robotic knee replacement surgery in Pune. Experience advanced robotic technology, accurate implant positioning, reduced pain, and quicker recovery.',
   alternates: {
     canonical: `${SITE_URL}/treatments/robotic-knee-replacement-pune`,
   },
@@ -27,6 +27,16 @@ export const metadata: Metadata = {
     title: 'Robotic Knee Replacement Surgery in Pune | Dr. Sumedh Magar',
     description: 'Arthroscopic ACL reconstruction by sports knee specialist Dr. Sumedh Magar at I-SPORT Medical Centre, Pune.',
     images: [{ url: `${SITE_URL}/aclsurgery.JPG`, width: 1200, height: 630, alt: 'ACL Surgery Pune' }],
+  },
+  "robots": {
+    "index": true,
+    "follow": true,
+    // maxImagePreview: 'large',
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+    // maxSnippet: -1,
+    // maxVideoPreview: -1,
   },
 };
 
@@ -56,15 +66,60 @@ const breadcrumbSchema = {
   ],
 };
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(({ q, a }) => ({
-    '@type': 'Question',
-    name: q,
-    acceptedAnswer: { '@type': 'Answer', text: a },
-  })),
-};
+const schema =
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalWebPage",
+      "@id": "https://www.sportsurgeon.in/treatments/robotic-knee-replacement-pune#webpage",
+      "url": "https://www.sportsurgeon.in/treatments/robotic-knee-replacement-pune",
+      "name": "Robotic Knee Replacement in Pune",
+      "description": "Learn about robotic knee replacement surgery in Pune performed by Dr. Sumedh Magar using advanced robotic-assisted technology for improved precision and recovery.",
+      "mainEntity": {
+        "@id": "https://www.sportsurgeon.in/treatments/robotic-knee-replacement-pune#service"
+      }
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://www.sportsurgeon.in/treatments/robotic-knee-replacement-pune#service",
+      "name": "Robotic Knee Replacement",
+      "procedureType": "Robot-Assisted Knee Replacement Surgery",
+      "bodyLocation": "Knee",
+      "howPerformed": "Robot-assisted knee replacement surgery using advanced surgical planning and precision-guided implant placement.",
+      "performedBy": {
+        "@type": "Physician",
+        "name": "Dr. Sumedh Magar",
+        "medicalSpecialty": [
+          "Orthopedic",
+          "Sports Medicine"
+        ]
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://www.sportsurgeon.in/#physician",
+      "name": "Dr. Sumedh Magar",
+      "jobTitle": "Sports Orthopedic Surgeon",
+      "url": "https://www.sportsurgeon.in/",
+      "medicalSpecialty": [
+        "Orthopedic",
+        "Sports Medicine"
+      ]
+    }
+  ]
+}
+
+
+// const faqSchema = {
+//   '@context': 'https://schema.org',
+//   '@type': 'FAQPage',
+//   mainEntity: faqs.map(({ q, a }) => ({
+//     '@type': 'Question',
+//     name: q,
+//     acceptedAnswer: { '@type': 'Answer', text: a },
+//   })),
+// };
 
 export default function ACLTreatmentPage() {
   const currentPath = "/treatments/robotic-knee-replacement-pune";
@@ -76,7 +131,7 @@ export default function ACLTreatmentPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <div className="min-h-screen pt-20">
         {/* Hero */}

@@ -8,9 +8,9 @@ import { relatedTreatments } from '@/data/relatedtreatments';
 const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
-  title: 'Knee Arthroscopy in Pune – Knee Specialist Dr. Sumedh Magar',
+  title: 'Best knee replacement surgeon in pune | Dr. Sumedh Magar ',
   description:
-    'Knee arthroscopy specialist in Pune. Minimally invasive knee surgery for meniscus tears, cartilage damage, and sports injuries by Dr. Sumedh Magar, I-SPORT Medical Centre.',
+    'Expert knee surgery in Pune by Dr. Sumedh Magar. We provide arthroscopic knee surgery, ACL reconstruction, meniscus repair, ligament reconstruction, and personalized rehabilitation. ',
   alternates: {
     canonical: `${SITE_URL}/treatments/knee-surgery-pune`,
   },
@@ -21,6 +21,16 @@ export const metadata: Metadata = {
     title: 'Knee Surgery in Pune | Dr. Sumedh Magar',
     description: 'Expert knee surgery for meniscus tears, cartilage damage, and sports injuries in Pune.',
     images: [{ url: `${SITE_URL}/KneeSurgery.jpeg`, width: 1200, height: 630, alt: 'Knee Surgery Pune' }],
+  },
+  "robots": {
+    "index": true,
+    "follow": true,
+    // maxImagePreview: 'large',
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+    // maxSnippet: -1,
+    // maxVideoPreview: -1,
   },
 };
 
@@ -50,15 +60,60 @@ const breadcrumbSchema = {
   ],
 };
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(({ q, a }) => ({
-    '@type': 'Question',
-    name: q,
-    acceptedAnswer: { '@type': 'Answer', text: a },
-  })),
-};
+// const faqSchema = {
+//   '@context': 'https://schema.org',
+//   '@type': 'FAQPage',
+//   mainEntity: faqs.map(({ q, a }) => ({
+//     '@type': 'Question',
+//     name: q,
+//     acceptedAnswer: { '@type': 'Answer', text: a },
+//   })),
+// };
+
+const schema =
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalWebPage",
+      "@id": "https://www.sportsurgeon.in/treatments/knee-surgery-pune#webpage",
+      "url": "https://www.sportsurgeon.in/treatments/knee-surgery-pune",
+      "name": "Knee Surgery in Pune",
+      "description": "Advanced knee surgery in Pune by Dr. Sumedh Magar for ACL injuries, meniscus tears, ligament reconstruction, cartilage injuries, and sports-related knee conditions.",
+      "mainEntity": {
+        "@id": "https://www.sportsurgeon.in/treatments/knee-surgery-pune#procedure"
+      }
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://www.sportsurgeon.in/treatments/knee-surgery-pune#procedure",
+      "name": "Knee Surgery",
+      "procedureType": "Arthroscopic Knee Surgery",
+      "bodyLocation": "Knee",
+      "howPerformed": "Minimally invasive arthroscopic surgery for ACL reconstruction, meniscus repair, ligament reconstruction, cartilage restoration, and other knee conditions.",
+      "performedBy": {
+        "@type": "Physician",
+        "name": "Dr. Sumedh Magar",
+        "medicalSpecialty": [
+          "Orthopedic",
+          "Sports Medicine"
+        ]
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://www.sportsurgeon.in/#physician",
+      "name": "Dr. Sumedh Magar",
+      "jobTitle": "Sports Orthopedic Surgeon",
+      "url": "https://www.sportsurgeon.in/",
+      "medicalSpecialty": [
+        "Orthopedic",
+        "Sports Medicine"
+      ]
+    }
+  ]
+}
+
 
 export default function KneeArthroscopyPage() {
   const currentPath = "/treatments/knee-surgery-pune";
@@ -69,7 +124,7 @@ export default function KneeArthroscopyPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <div className="min-h-screen pt-20">
         <section className="

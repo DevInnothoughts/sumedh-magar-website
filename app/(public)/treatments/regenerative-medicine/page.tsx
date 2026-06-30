@@ -9,9 +9,9 @@ import { relatedTreatments } from '@/data/relatedtreatments';
 const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
-  title: 'Sports Rehabilitation Pune – Post-Surgery Rehab & Recovery',
+  title: 'Regenerative Medicine Treatment in Pune | Dr. Sumedh Magar',
   description:
-    'Specialised sports rehabilitation in Pune at I-SPORT Medical Centre. Post-surgical rehab, strength recovery, and return-to-sport protocols by Dr. Sumedh Magar.',
+    'Regenerative medicine in Pune by Dr. Sumedh Magar uses PRP and advanced biologic therapies to promote natural healing for joint pain, sports injuries, and orthopedic conditions. ',
   alternates: {
     canonical: `${SITE_URL}/treatments/regenerative-medicine`,
   },
@@ -19,9 +19,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: `${SITE_URL}/treatments/regenerative-medicine`,
-    title: 'Regenerative Medicine Pune | I-SPORT Medical Centre',
+    title: 'Regenerative Medicine Pune | Dr Sumedh Magar',
     description: 'Expert regenerative medicine in Pune at I-SPORT Medical Centre. Post-surgical rehab, strength recovery, and return-to-sport protocols by Dr. Sumedh Magar.',
     images: [{ url: `${SITE_URL}/SportsMedicine.jpeg`, width: 1200, height: 630, alt: 'Regenerative Medicine Pune' }],
+  },
+  "robots": {
+    "index": true,
+    "follow": true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
   },
 };
 
@@ -41,42 +48,62 @@ const faqs = [
 
 ];
 
-// const relatedTreatments = [
-//   {
-//     href: "/treatments/knee-replacement-surgery-pune",
-//     label: "Robotic Knee Replacement",
-//   },
-//   {
-//     href: "/treatments/shoulder-surgery-pune",
-//     label: "Shoulder Surgery",
-//   },
-//   {
-//     href: "/treatments/knee-surgery-pune",
-//     label: "Knee Surgery",
-//   },
-//   {
-//     href: "/treatments/knee-pain-treatment-pune",
-//     label: "Joint Replacement",
-//   },
-//   {
-//     href: "/treatments/hip-surgery-pune",
-//     label: "Hip Surgery",
-//   },
-//   {
-//     href: "/treatments/regenerative-medicine",
-//     label: "Regenerative Medicine",
-//   },
-// ];
+const schema =
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalWebPage",
+      "@id": "https://www.sportsurgeon.in/treatments/regenerative-medicine#webpage",
+      "url": "https://www.sportsurgeon.in/treatments/regenerative-medicine",
+      "name": "Regenerative Medicine in Pune",
+      "description": "Regenerative medicine treatment in Pune by Dr. Sumedh Magar using PRP therapy and biologic treatments for sports injuries, tendon disorders, ligament injuries, and joint pain.",
+      "mainEntity": {
+        "@id": "https://www.sportsurgeon.in/treatments/regenerative-medicine#procedure"
+      }
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://www.sportsurgeon.in/treatments/regenerative-medicine#procedure",
+      "name": "Regenerative Medicine",
+      "procedureType": [
+        "Platelet-Rich Plasma (PRP) Therapy",
+        "Orthobiologic Treatment"
+      ],
+      "howPerformed": "Regenerative medicine uses biologic therapies such as platelet-rich plasma (PRP) to stimulate the body's natural healing response and support recovery from orthopedic and sports-related injuries.",
+      "performedBy": {
+        "@type": "Physician",
+        "name": "Dr. Sumedh Magar",
+        "medicalSpecialty": [
+          "Orthopedic",
+          "Sports Medicine"
+        ]
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://www.sportsurgeon.in/#physician",
+      "name": "Dr. Sumedh Magar",
+      "jobTitle": "Sports Orthopedic Surgeon",
+      "url": "https://www.sportsurgeon.in/",
+      "medicalSpecialty": [
+        "Orthopedic",
+        "Sports Medicine"
+      ]
+    }
+  ]
+}
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(({ q, a }) => ({
-    '@type': 'Question',
-    name: q,
-    acceptedAnswer: { '@type': 'Answer', text: a },
-  })),
-};
+
+// const faqSchema = {
+//   '@context': 'https://schema.org',
+//   '@type': 'FAQPage',
+//   mainEntity: faqs.map(({ q, a }) => ({
+//     '@type': 'Question',
+//     name: q,
+//     acceptedAnswer: { '@type': 'Answer', text: a },
+//   })),
+// };
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -99,6 +126,7 @@ export default function RegenerativeMedicinePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="min-h-screen pt-20">
         <section className="section-padding bg-gradient-to-br from-secondary to-secondary-400 text-white">
           <div className="container-custom max-w-5xl mx-auto">

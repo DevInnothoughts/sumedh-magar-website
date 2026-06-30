@@ -7,9 +7,9 @@ import { relatedTreatments } from '@/data/relatedtreatments';
 const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
-  title: 'Knee Pain Treatment Pune – Sports Knee Specialist',
+  title: 'Best Joint Replacement Surgeon in Pune | Dr. Sumedh Magar ',
   description:
-    'Specialist knee pain treatment in Pune by Dr. Sumedh Magar. Expert diagnosis and treatment for sports injuries, arthritis, and ligament injuries at I-SPORT Medical Centre.',
+    'Expert joint replacement surgeon in Pune offering knee replacement, hip replacement, minimally invasive techniques, personalized rehabilitation, and improved mobility. ',
   alternates: {
     canonical: `${SITE_URL}/treatments/joint-replacement-surgery-pune`,
   },
@@ -21,6 +21,17 @@ export const metadata: Metadata = {
     description: 'Expert knee pain diagnosis and treatment in Pune for athletes and active patients.',
     images: [{ url: `${SITE_URL}/KneeSurgery.jpeg`, width: 1200, height: 630, alt: 'Knee pain treatment Pune' }],
   },
+  "robots": {
+    "index": true,
+    "follow": true,
+    // maxImagePreview: 'large',
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+    // maxSnippet: -1,
+    // maxVideoPreview: -1,
+  },
+
 };
 
 const breadcrumbSchema = {
@@ -32,6 +43,51 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name: 'Knee Pain Treatment', item: `${SITE_URL}/treatments/knee-pain-treatment-pune` },
   ],
 };
+
+const schema =
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalWebPage",
+      "@id": "https://www.sportsurgeon.in/treatments/joint-replacement-surgery-pune#webpage",
+      "url": "https://www.sportsurgeon.in/treatments/joint-replacement-surgery-pune",
+      "name": "Joint Replacement Surgery in Pune",
+      "description": "Joint replacement surgery in Pune by Dr. Sumedh Magar for knee, hip, and shoulder arthritis and joint damage.",
+      "mainEntity": {
+        "@id": "https://www.sportsurgeon.in/treatments/joint-replacement-surgery-pune#procedure"
+      }
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://www.sportsurgeon.in/treatments/joint-replacement-surgery-pune#procedure",
+      "name": "Joint Replacement Surgery",
+      "procedureType": "Arthroplasty",
+      "bodyLocation": [
+        "Knee",
+        "Hip",
+        "Shoulder"
+      ],
+      "howPerformed": "Damaged joint surfaces are replaced with artificial implants to relieve pain, improve function, and restore mobility.",
+      "performedBy": {
+        "@type": "Physician",
+        "name": "Dr. Sumedh Magar",
+        "medicalSpecialty": [
+          "Orthopedic",
+          "Sports Medicine"
+        ]
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://www.sportsurgeon.in/#physician",
+      "name": "Dr. Sumedh Magar",
+      "jobTitle": "Sports Orthopedic Surgeon",
+      "url": "https://www.sportsurgeon.in/"
+    }
+  ]
+}
+
 
 const faqs = [
   {
@@ -59,6 +115,7 @@ export default function KneePainPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="min-h-screen pt-20">
         <section className="section-padding bg-gradient-to-br from-secondary to-secondary-400 text-white">
           <div className="container-custom max-w-5xl mx-auto">

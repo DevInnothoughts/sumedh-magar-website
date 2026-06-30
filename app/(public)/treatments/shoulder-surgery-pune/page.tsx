@@ -8,9 +8,9 @@ import { relatedTreatments } from '@/data/relatedtreatments';
 const SITE_URL = 'https://www.sportsurgeon.in';
 
 export const metadata: Metadata = {
-  title: 'Shoulder Arthroscopy Pune – Rotator Cuff Treatment Specialist',
+  title: 'Best Shoulder Surgeon in Pune | Dr. Sumedh Magar ',
   description:
-    'Shoulder arthroscopy specialist in Pune. Expert treatment for rotator cuff tears, shoulder instability, and sports shoulder injuries by Dr. Sumedh Magar, I-SPORT Medical Centre.',
+    'Get advanced shoulder surgery in Pune with Dr. Sumedh Magar. We specialize in shoulder arthroscopy, rotator cuff repair, instability surgery, and sports injury treatment. ',
   alternates: {
     canonical: `${SITE_URL}/treatments/shoulder-surgery-pune`,
   },
@@ -21,6 +21,16 @@ export const metadata: Metadata = {
     title: 'Shoulder Arthroscopy Pune | Dr. Sumedh Magar',
     description: 'Arthroscopic shoulder surgery for rotator cuff tears and shoulder instability in Pune.',
     images: [{ url: `${SITE_URL}/ShoulderSurgery.jpeg`, width: 1200, height: 630, alt: 'Shoulder Arthroscopy Pune' }],
+  },
+  "robots": {
+    "index": true,
+    "follow": true,
+    // maxImagePreview: 'large',
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+    // maxSnippet: -1,
+    // maxVideoPreview: -1,
   },
 };
 
@@ -49,15 +59,60 @@ const breadcrumbSchema = {
   ],
 };
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(({ q, a }) => ({
-    '@type': 'Question',
-    name: q,
-    acceptedAnswer: { '@type': 'Answer', text: a },
-  })),
-};
+const schema =
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalWebPage",
+      "@id": "https://www.sportsurgeon.in/treatments/shoulder-surgery-pune#webpage",
+      "url": "https://www.sportsurgeon.in/treatments/shoulder-surgery-pune",
+      "name": "Shoulder Surgery in Pune",
+      "description": "Comprehensive shoulder surgery in Pune by Dr. Sumedh Magar, including arthroscopic shoulder surgery, rotator cuff repair, shoulder instability treatment, and sports injury care.",
+      "mainEntity": {
+        "@id": "https://www.sportsurgeon.in/treatments/shoulder-surgery-pune#procedure"
+      }
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://www.sportsurgeon.in/treatments/shoulder-surgery-pune#procedure",
+      "name": "Shoulder Surgery",
+      "procedureType": "Arthroscopic Shoulder Surgery",
+      "bodyLocation": "Shoulder",
+      "howPerformed": "Minimally invasive arthroscopic and reconstructive shoulder procedures for rotator cuff tears, shoulder instability, frozen shoulder, and related conditions.",
+      "performedBy": {
+        "@type": "Physician",
+        "name": "Dr. Sumedh Magar",
+        "medicalSpecialty": [
+          "Orthopedic",
+          "Sports Medicine"
+        ]
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://www.sportsurgeon.in/#physician",
+      "name": "Dr. Sumedh Magar",
+      "jobTitle": "Sports Orthopedic Surgeon",
+      "url": "https://www.sportsurgeon.in/",
+      "medicalSpecialty": [
+        "Orthopedic",
+        "Sports Medicine"
+      ]
+    }
+  ]
+}
+
+
+// const faqSchema = {
+//   '@context': 'https://schema.org',
+//   '@type': 'FAQPage',
+//   mainEntity: faqs.map(({ q, a }) => ({
+//     '@type': 'Question',
+//     name: q,
+//     acceptedAnswer: { '@type': 'Answer', text: a },
+//   })),
+// };
 
 export default function ShoulderArthroscopyPage() {
   const currentPath = "/treatments/shoulder-surgery-pune";
@@ -69,7 +124,7 @@ export default function ShoulderArthroscopyPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <div className="min-h-screen pt-20">
         <section
