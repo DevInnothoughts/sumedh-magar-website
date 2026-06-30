@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, ArrowRight, CheckCircle2, Calendar, Send } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { supabase } from '@/lib/supabase';
@@ -20,8 +21,8 @@ type FormData = {
 };
 
 export default function ContactClient() {
+  const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset, watch } = useForm<FormData>();
 
   const needsAppointment = watch('needsAppointment');
@@ -44,11 +45,8 @@ export default function ContactClient() {
       if (error) throw error;
 
       toast.success('Message sent successfully!');
-      setIsSuccess(true);
-      setTimeout(() => {
-        setIsSuccess(false);
-        reset();
-      }, 5000);
+      reset();
+      router.push('/thank-you');
     } catch (error) {
       console.error('Error submitting form:', error);
       toast.error('Failed to send message. Please try again.');
@@ -166,127 +164,109 @@ export default function ContactClient() {
             {/* Right Column: Modern Dynamic Form Block */}
             <div className="lg:col-span-7">
               <Card className="p-6 md:p-8 border border-neutral-100 shadow-xl bg-white rounded-2xl">
-                <AnimatePresence mode="wait">
-                  {!isSuccess ? (
-                    <motion.div key="form-container" exit={{ opacity: 0 }}>
-                      <h2 className="text-xl font-bold text-secondary font-heading mb-6">Send Us a Message</h2>
+                <h2 className="text-xl font-bold text-secondary font-heading mb-6">Send Us a Message</h2>
 
-                      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-neutral-600 uppercase mb-1">Name *</label>
+                    <input
+                      {...register('name', { required: 'Name is required' })}
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-primary bg-neutral-50/50 text-sm"
+                      placeholder="Your full name"
+                    />
+                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-neutral-600 uppercase mb-1">Email *</label>
+                      <input
+                        {...register('email', {
+                          required: 'Email is required',
+                          pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Invalid address' }
+                        })}
+                        className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-primary bg-neutral-50/50 text-sm"
+                        placeholder="name@example.com"
+                      />
+                      {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-neutral-600 uppercase mb-1">Phone *</label>
+                      <input
+                        {...register('phone', { required: 'Phone is required' })}
+                        className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-primary bg-neutral-50/50 text-sm"
+                        placeholder="+91 1234567890"
+                      />
+                      {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-neutral-600 uppercase mb-1">Message *</label>
+                    <textarea
+                      {...register('message', { required: 'Message is required' })}
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-primary bg-neutral-50/50 text-sm resize-none"
+                      placeholder="How can we help you?"
+                    />
+                    {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
+                  </div>
+
+                  <div className="flex items-center p-3 bg-neutral-50 rounded-xl border border-neutral-200/60">
+                    <input
+                      {...register('needsAppointment')}
+                      type="checkbox"
+                      id="needsAppointment"
+                      className="w-4 h-4 text-primary border-neutral-300 rounded focus:ring-0"
+                    />
+                    <label htmlFor="needsAppointment" className="ml-2 text-sm text-neutral-700 cursor-pointer select-none">
+                      I would like to request an appointment slot
+                    </label>
+                  </div>
+
+                  <AnimatePresence>
+                    {needsAppointment && (
+                      <motion.div 
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 overflow-hidden"
+                      >
                         <div>
-                          <label className="block text-xs font-semibold text-neutral-600 uppercase mb-1">Name *</label>
+                          <label className="block text-xs font-semibold text-neutral-600 uppercase mb-1">Preferred Date</label>
                           <input
-                            {...register('name', { required: 'Name is required' })}
-                            className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-primary bg-neutral-50/50 text-sm"
-                            placeholder="Your full name"
+                            {...register('appointmentDate')}
+                            type="date"
+                            className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-primary"
                           />
-                          {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                         </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div>
-                            <label className="block text-xs font-semibold text-neutral-600 uppercase mb-1">Email *</label>
-                            <input
-                              {...register('email', {
-                                required: 'Email is required',
-                                pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Invalid address' }
-                              })}
-                              className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-primary bg-neutral-50/50 text-sm"
-                              placeholder="name@example.com"
-                            />
-                            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
-                          </div>
-                          <div>
-                            <label className="block text-xs font-semibold text-neutral-600 uppercase mb-1">Phone *</label>
-                            <input
-                              {...register('phone', { required: 'Phone is required' })}
-                              className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-primary bg-neutral-50/50 text-sm"
-                              placeholder="+91 1234567890"
-                            />
-                            {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
-                          </div>
-                        </div>
-
                         <div>
-                          <label className="block text-xs font-semibold text-neutral-600 uppercase mb-1">Message *</label>
-                          <textarea
-                            {...register('message', { required: 'Message is required' })}
-                            rows={4}
-                            className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:border-primary bg-neutral-50/50 text-sm resize-none"
-                            placeholder="How can we help you?"
-                          />
-                          {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
+                          <label className="block text-xs font-semibold text-neutral-600 uppercase mb-1">Preferred Time</label>
+                          <select
+                            {...register('appointmentTime')}
+                            className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-primary bg-white"
+                          >
+                            <option value="">Select time</option>
+                            {['09:00 AM', '11:00 AM', '02:00 PM', '04:00 PM'].map(t => (
+                              <option key={t} value={t}>{t}</option>
+                            ))}
+                          </select>
                         </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
 
-                        <div className="flex items-center p-3 bg-neutral-50 rounded-xl border border-neutral-200/60">
-                          <input
-                            {...register('needsAppointment')}
-                            type="checkbox"
-                            id="needsAppointment"
-                            className="w-4 h-4 text-primary border-neutral-300 rounded focus:ring-0"
-                          />
-                          <label htmlFor="needsAppointment" className="ml-2 text-sm text-neutral-700 cursor-pointer select-none">
-                            I would like to request an appointment slot
-                          </label>
-                        </div>
-
-                        <AnimatePresence>
-                          {needsAppointment && (
-                            <motion.div 
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 overflow-hidden"
-                            >
-                              <div>
-                                <label className="block text-xs font-semibold text-neutral-600 uppercase mb-1">Preferred Date</label>
-                                <input
-                                  {...register('appointmentDate')}
-                                  type="date"
-                                  className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-primary"
-                                />
-                              </div>
-                              <div>
-                                <label className="block text-xs font-semibold text-neutral-600 uppercase mb-1">Preferred Time</label>
-                                <select
-                                  {...register('appointmentTime')}
-                                  className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-primary bg-white"
-                                >
-                                  <option value="">Select time</option>
-                                  {['09:00 AM', '11:00 AM', '02:00 PM', '04:00 PM'].map(t => (
-                                    <option key={t} value={t}>{t}</option>
-                                  ))}
-                                </select>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-
-                        <Button type="submit" variant="primary" className="w-full py-3.5 mt-2 flex items-center justify-center gap-2 group" disabled={submitting}>
-                          {submitting ? (
-                            <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          ) : (
-                            <>
-                              <Send className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-                              Send Message
-                            </>
-                          )}
-                        </Button>
-                      </form>
-                    </motion.div>
-                  ) : (
-                    <motion.div 
-                      initial={{ opacity: 0, scale: 0.95 }} 
-                      animate={{ opacity: 1, scale: 1 }} 
-                      className="text-center py-12 space-y-3"
-                    >
-                      <CheckCircle2 className="w-12 h-12 text-emerald-500 mx-auto" />
-                      <h3 className="text-xl font-bold text-secondary font-heading">Form Submitted!</h3>
-                      <p className="text-neutral-500 text-sm max-w-xs mx-auto">
-                        Your message has been safely logged. Dr. Sumedh Magar's support team will verify details and connect with you shortly.
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                  <Button type="submit" variant="primary" className="w-full py-3.5 mt-2 flex items-center justify-center gap-2 group" disabled={submitting}>
+                    {submitting ? (
+                      <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </form>
               </Card>
             </div>
 
