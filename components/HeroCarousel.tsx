@@ -36,16 +36,16 @@ const slides: Slide[] = [
     ctaPrimary: { text: 'Book Appointment', link: '/contact' },
     ctaSecondary: { text: 'Contact Now', link: '/contact' },
   },
-  {
-    id: 2,
-    image: '/orthopedicsurgery.png',
-    alt: 'Advanced Orthopedic Surgery',
-    heading: 'Orthopedic Surgery',
-    subheading: 'Fellowship-Trained Arthroscopy Specialist',
-    description:
-      'Expert in minimally invasive arthroscopic procedures, adult joint reconstruction, and advanced surgical techniques with ISAKOS fellowship training.',
-    ctaPrimary: { text: 'Explore Treatments', link: '/expertise' },
-  },
+  // {
+  //   id: 2,
+  //   image: '/orthopedicsurgery.png',
+  //   alt: 'Advanced Orthopedic Surgery',
+  //   heading: 'Orthopedic Surgery',
+  //   subheading: 'Fellowship-Trained Arthroscopy Specialist',
+  //   description:
+  //     'Expert in minimally invasive arthroscopic procedures, adult joint reconstruction, and advanced surgical techniques with ISAKOS fellowship training.',
+  //   ctaPrimary: { text: 'Explore Treatments', link: '/expertise' },
+  // },
   {
     id: 3,
     image: '/JointPreservation.png',
