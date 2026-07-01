@@ -23,7 +23,7 @@ type Slide = {
 const slides: Slide[] = [
   {
     id: 1,
-    image: '/DrInAction.png',
+    image: '/home banner.jpeg',
     alt: 'Dr. Sumedh Magar - Sports Medicine Specialist',
     heading: 'Dr. Sumedh Magar',
     qualifications: [
@@ -34,18 +34,7 @@ const slides: Slide[] = [
     tagline: ' Orthopedic Surgeon | Sports Medicine Specialist',
     description: 'Advanced Sports Medicine Guiding Your Strongest Comeback—from Pain to Peak Performance',
     ctaPrimary: { text: 'Book Appointment', link: '/contact' },
-    // ctaSecondary: { text: 'Contact Now', link: '/contact' },
   },
-  // {
-  //   id: 2,
-  //   image: '/orthopedicsurgery.png',
-  //   alt: 'Advanced Orthopedic Surgery',
-  //   heading: 'Orthopedic Surgery',
-  //   subheading: 'Fellowship-Trained Arthroscopy Specialist',
-  //   description:
-  //     'Expert in minimally invasive arthroscopic procedures, adult joint reconstruction, and advanced surgical techniques with ISAKOS fellowship training.',
-  //   ctaPrimary: { text: 'Explore Treatments', link: '/expertise' },
-  // },
   {
     id: 3,
     image: '/JointPreservation.png',
@@ -68,7 +57,7 @@ const slides: Slide[] = [
   },
   {
     id: 5,
-    image: '/Sports_injury.png',
+    image: '/Dr. Magar web banner_1.jpeg',
     alt: 'Sports Injury Management',
     heading: 'Sports Injury Management',
     subheading: 'Masters from University College London',
@@ -94,30 +83,31 @@ export const HeroCarousel = () => {
   const goToSlide = (index: number) => setCurrentSlide(index);
 
   return (
-    <div className="relative w-full h-screen min-h-[600px] overflow-hidden">
+    /* Back to your original full screen container layout with no black padding spaces */
+    <div className="relative w-full h-screen min-h-[600px] overflow-hidden bg-black">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.05 }}
+          initial={{ opacity: 0, scale: 1.02 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 1.2, ease: 'easeInOut' }}
+          exit={{ opacity: 0, scale: 0.98 }}
+          transition={{ duration: 1.0, ease: 'easeInOut' }}
           className="absolute inset-0"
         >
           <Image
             src={slides[currentSlide].image}
             alt={slides[currentSlide].alt}
             fill
-            className="object-cover"
+            /* FIXED: Switched back to object-cover to force-fill the top and bottom spaces. 
+              Added 'object-right' so that the person/injury graphic on the right side of your 
+              banners never gets cut off, while the left dark gradient stretches over the text cleanly.
+            */
+            className="object-cover object-right sm:object-center lg:object-right"
             priority={currentSlide === 0}
             sizes="100vw"
-          // src={slides[currentSlide].image}
-          // alt={slides[currentSlide].alt}
-          // width={1920}
-          // height={1080}
-          // className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+          {/* Subtle gradient overlay to smoothly blend the text background into the image */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
