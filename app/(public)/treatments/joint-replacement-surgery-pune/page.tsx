@@ -129,7 +129,7 @@ export default function KneePainPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Joint Replacement Specialist</p>
-                <h1 className="mb-4 text-4xl md:text-5xl font-bold">Joint Replacement in Pune – Total Knee and Hip Replacement Surgery</h1>
+                <h1 className="mb-4 text-4xl md:text-4xl font-bold">Joint Replacement in Pune – Total Knee and Hip Replacement Surgery</h1>
                 {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
                   Comprehensive evaluation and treatment for knee pain in athletes and active individuals.
                 </p> */}

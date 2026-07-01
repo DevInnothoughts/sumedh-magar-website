@@ -34,7 +34,7 @@ const slides: Slide[] = [
     tagline: ' Orthopedic Surgeon | Sports Medicine Specialist',
     description: 'Advanced Sports Medicine Guiding Your Strongest Comeback—from Pain to Peak Performance',
     ctaPrimary: { text: 'Book Appointment', link: '/contact' },
-    ctaSecondary: { text: 'Contact Now', link: '/contact' },
+    // ctaSecondary: { text: 'Contact Now', link: '/contact' },
   },
   // {
   //   id: 2,
@@ -144,7 +144,7 @@ export const HeroCarousel = () => {
                       {slides[0].tagline}
                     </p>
                   )}
-                  <p className="text-xl sm:text-2xl md:text-3xl text-white font-medium mb-8 leading-relaxed">
+                  <p className="text-lg sm:text-xl md:text-2xl text-neutral-100 font-normal mb-8 leading-relaxed max-w-2xl">
                     {slides[0].description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">

@@ -135,7 +135,25 @@ export default function ACLTreatmentPage() {
 
       <div className="min-h-screen pt-20">
         {/* Hero */}
-        <section className="section-padding bg-gradient-to-br from-secondary to-secondary-400 text-white">
+        <section className="
+    relative
+    section-padding
+    bg-gradient-to-br
+    from-secondary
+    to-secondary-400
+    text-white
+    min-h-[450px]
+   
+    2xl:min-h-[650px]
+    flex
+    items-center
+  "
+          style={{
+            backgroundImage: "url('/robotic Knee Surgery.png')",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "75% center",
+          }}>
           <div className="container-custom max-w-5xl mx-auto">
             <nav className="flex items-center gap-1.5 text-sm text-neutral-300 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -149,7 +167,7 @@ export default function ACLTreatmentPage() {
                 <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">
                   Knee Surgery Specialist
                 </p>
-                <h1 className="mb-4 text-4xl md:text-5xl font-bold">
+                <h1 className="mb-4 text-4xl md:text-4xl font-bold">
                   Robotic Knee Replacement in Pune – Advanced Precision for Better Mobility
                 </h1>
                 {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
@@ -160,16 +178,7 @@ export default function ACLTreatmentPage() {
                   Book Consultation <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </div>
-              <div className="relative h-72 rounded-2xl overflow-hidden">
-                <Image
-                  src="/aclsurgery.JPG"
-                  alt="ACL reconstruction surgery Pune"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
+
             </div>
           </div>
         </section>

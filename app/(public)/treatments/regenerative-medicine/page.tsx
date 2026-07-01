@@ -140,7 +140,7 @@ export default function RegenerativeMedicinePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Athlete Recovery</p>
-                <h1 className="mb-4 text-4xl md:text-5xl font-bold">Regenerative Medicine in Pune – PRP Therapy, Stem Cell Treatments & Cartilage Restoration</h1>
+                <h1 className="mb-4 text-3xl sm:text-4xl md:text-4xl font-bold">Regenerative Medicine in Pune – PRP Therapy, Stem Cell Treatments & Cartilage Restoration</h1>
                 {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
                   Evidence-based rehabilitation programmes designed to return athletes to peak
                   performance safely and efficiently.

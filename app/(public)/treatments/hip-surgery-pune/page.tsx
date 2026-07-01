@@ -127,7 +127,7 @@ export default function MeniscusTearPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Hip Specialist</p>
-                <h1 className="mb-4 text-4xl md:text-5xl font-bold">Hip Surgery in Pune – Hip Arthroscopy, Labral Repair, and Hip Replacement</h1>
+                <h1 className="mb-4 text-4xl md:text-4xl font-bold">Hip Surgery in Pune – Hip Arthroscopy, Labral Repair, and Hip Replacement</h1>
                 {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
                   Precision arthroscopic meniscus repair and treatment for sports-related knee injuries.
                 </p> */}

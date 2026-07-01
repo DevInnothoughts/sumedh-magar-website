@@ -671,97 +671,52 @@ leading-relaxed
       </section>
 
 
-      <section className="relative min-h-[650px] flex items-center overflow-hidden">
-
+      <section className="relative min-h-[650px] py-16 md:py-24 lg:py-0 flex items-center overflow-hidden">
 
         {/* Background */}
-
         <Image
           src="/slider-bg-1.jpg"
           alt="Sports Medicine"
           fill
           className="object-cover"
+          priority
         />
 
-
         {/* Overlay */}
-
-        <div
-          className="
-  absolute
-  inset-0
-  "
+        <div className="absolute inset-0"
           style={{
             backgroundColor: "#36383abf"
           }}
         />
 
-        <div className="
-container-custom
-relative
-z-10
-">
+        <div className="container-custom relative z-10 px-4 md:px-8">
+          {/* Adjusted gap spacing for stacked layouts on mobile */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
 
-
-          <div className="
-grid
-grid-cols-1
-lg:grid-cols-2
-gap-12
-items-center
-">
-
-
-
-            {/* LEFT */}
-
+            {/* LEFT COLUMN */}
             <motion.div
-
               initial={{
                 opacity: 0,
                 x: -40
               }}
-
               whileInView={{
                 opacity: 1,
                 x: 0
               }}
-
               viewport={{
                 once: true
               }}
-
               className="text-white"
-
             >
 
-
-              <div className="
-inline-flex
-items-center
-gap-2
-bg-white/10
-px-5
-py-2
-rounded-full
-mb-6
-">
-
-                <span className="
-w-2
-h-2
-bg-accent
-rounded-full
-animate-pulse
-"/>
-
+              {/* Scaled down text size and adjustments for phone screens */}
+              <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 rounded-full mb-6 text-sm sm:text-base">
+                <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
                 Book Your Consultation
-
               </div>
 
-
-
-              <h2 className="text-5xl lg:text-5xl font-bold leading-tight">
+              {/* Made heading fluid and responsive using tailwind text classes */}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
                 Move Better.
                 <br />
                 Recover Faster.
@@ -771,250 +726,103 @@ animate-pulse
                 </span>
               </h2>
 
-              <p className="mt-6 text-lg text-white/80 max-w-xl leading-relaxed">
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg text-white/80 max-w-xl leading-relaxed">
                 Looking for the Best Sports Medicine Doctor in Pune?
                 Consult Dr. Sumedh Magar for expert Sports Medicine,
                 Sports Injury Treatment, Arthroscopic Surgery,
                 Joint Preservation, and Orthopedic Care.
               </p>
 
-              <div className="
-mt-6
-flex
-items-center
-gap-4
-">
-
-
-                <Link href="/contact">
-
+              {/* Mobile full-width responsive action button setup */}
+              <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <Link href="/contact" className="w-full sm:w-auto">
                   <motion.button
-
                     whileHover={{
-                      scale: 1.05
+                      scale: 1.02
                     }}
-
-                    className="
-bg-accent
-text-secondary
-px-8
-py-4
-font-bold
-rounded-full
-shadow-xl
-"
-
+                    className="bg-accent text-secondary px-8 py-4 font-bold rounded-full shadow-xl w-full text-center"
                   >
-
                     Schedule Appointment
-
                   </motion.button>
-
-
                 </Link>
-
-
-
-                <Link href="/sports-medicine">
-
-
-
-                </Link>
-
-
               </div>
-
-
 
             </motion.div>
 
-
-
-
-
-
-            {/* RIGHT CARD */}
-
-
+            {/* RIGHT CARD COLUMN */}
             <motion.div
-
               initial={{
                 opacity: 0,
                 scale: 0.9
               }}
-
               whileInView={{
                 opacity: 1,
                 scale: 1
               }}
-
               viewport={{
                 once: true
               }}
-
-              className="relative"
-
+              /* Added extra bottom margin on mobile to account for the absolute badge layout */
+              className="relative mb-8 lg:mb-0"
             >
 
-
-              <div className="
-bg-white/10
-backdrop-blur-xl
-border
-border-white/20
-rounded-3xl
-p-8
-text-white
-shadow-2xl
-">
-
-
-                <h3 className="
-text-2xl
-font-bold
-">
-
+              {/* Stats Content Card */}
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 text-white shadow-2xl">
+                <h3 className="text-xl sm:text-2xl font-bold">
                   Your Recovery Starts Here
-
                 </h3>
 
-
-                <p className="
-mt-4
-text-white/80
-">
-
+                <p className="mt-3 sm:mt-4 text-sm sm:text-base text-white/80">
                   Schedule your appointment today and take
                   the first step toward pain-free movement
                   and peak performance.
-
                 </p>
 
-
-
-
-                <div className="
-grid
-grid-cols-2
-gap-4
-mt-8
-">
-
-
-                  <div className="
-bg-white/10
-rounded-xl
-p-5
-">
-
-                    <h4 className="
-text-3xl
-font-bold
-text-accent
-">
-
+                <div className="grid grid-cols-2 gap-4 mt-6 sm:mt-8">
+                  <div className="bg-white/10 rounded-xl p-4 sm:p-5">
+                    <h4 className="text-2xl sm:text-3xl font-bold text-accent">
                       10,000+
-
                     </h4>
-
-                    <p>
+                    <p className="text-xs sm:text-sm text-white/90 mt-1">
                       Patients Treated
                     </p>
-
                   </div>
 
-
-
-                  <div className="
-bg-white/10
-rounded-xl
-p-5
-">
-
-                    <h4 className="
-text-3xl
-font-bold
-text-accent
-">
-
+                  <div className="bg-white/10 rounded-xl p-4 sm:p-5">
+                    <h4 className="text-2xl sm:text-3xl font-bold text-accent">
                       97%
-
                     </h4>
-
-                    <p>
+                    <p className="text-xs sm:text-sm text-white/90 mt-1">
                       Success Rate
                     </p>
-
                   </div>
-
-
-
                 </div>
-
-
               </div>
 
-
-
-              {/* floating badge */}
-
-
+              {/* FIXED FLOATING BADGE FOR MOBILE OVERFLOW */}
+              {/* Swapped -left-8 to left-4 on mobile devices so it stays cleanly within the viewport boundary */}
               <motion.div
-
                 animate={{
                   y: [0, -10, 0]
                 }}
-
                 transition={{
                   duration: 3,
                   repeat: Infinity
                 }}
-
-                className="
-absolute
--bottom-8
--left-8
-bg-white
-text-secondary
-rounded-2xl
-px-6
-py-4
-shadow-xl
-"
-
+                className="absolute -bottom-8 left-4 lg:-left-8 bg-white text-secondary rounded-2xl px-5 py-3.5 sm:px-6 sm:py-4 shadow-xl border border-neutral-100"
               >
-
-                <p className="
-font-bold
-">
-
+                <p className="font-bold text-sm sm:text-base text-neutral-900">
                   Sports Medicine
-
                 </p>
-
-                <p className="
-text-sm
-">
-
+                <p className="text-xs sm:text-sm text-neutral-600">
                   Advanced Orthopedic Care
-
                 </p>
-
-
               </motion.div>
-
 
             </motion.div>
 
-
-
-
           </div>
-
-
         </div>
-
-
       </section>
 
     </div>

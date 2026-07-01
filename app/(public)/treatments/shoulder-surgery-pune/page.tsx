@@ -176,26 +176,14 @@ export default function ShoulderArthroscopyPage() {
                 </p>
 
 
-                <h1 className="
-                  mb-5 
-                  text-3xl 
-                  sm:text-4xl 
-                  md:text-5xl 
-                  font-bold 
-                  leading-tight
-                ">
+                <h1 className="mb-5 text-3xl sm:text-4xl md:text-4xl font-bold leading-tight">
                   Shoulder Surgery in Pune – Arthroscopic Shoulder Surgery by Dr. Sumedh Magar
                 </h1>
 
-
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center btn-primary"
-                >
+                <Link href="/contact" className="inline-flex items-center btn-primary">
                   Book Consultation
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
-
 
               </div>
 

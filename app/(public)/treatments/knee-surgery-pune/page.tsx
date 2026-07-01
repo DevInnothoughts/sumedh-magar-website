@@ -157,7 +157,7 @@ export default function KneeArthroscopyPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Minimally Invasive</p>
-                <h1 className="mb-4 text-4xl md:text-5xl font-bold">Knee Surgery in Pune – Expert ACL Reconstruction and Knee Arthroscopy</h1>
+                <h1 className="mb-4 text-4xl md:text-4xl font-bold">Knee Surgery in Pune – Expert ACL Reconstruction and Knee Arthroscopy</h1>
                 {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
                   Keyhole knee surgery for meniscus tears, cartilage damage, and sports knee injuries
                   with minimal recovery time.
