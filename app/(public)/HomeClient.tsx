@@ -107,7 +107,7 @@ export default function HomeClient() {
   if (loading) return <Loading fullScreen />;
 
   return (
-    <div className="min-h-screen">
+    <div className="w-full overflow-x-hidden min-h-screen">
       <HeroCarousel />
       {/* <InfoCards /> */}
 
