@@ -40,7 +40,7 @@ const treatments = [
     id: '1',
     title: 'Robotic Knee Replacement',
     description: 'Robotic knee replacement is a state-of-the-art joint replacement surgery that ...',
-    imageUrl: '/KneeSurgery.jpeg',
+    imageUrl: '/Robotic Knee Replacement_Home page service image.png',
     link: '/treatments/robotic-knee-replacement-pune'
   },
   {

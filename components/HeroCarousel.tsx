@@ -26,13 +26,15 @@ const slides: Slide[] = [
     image: '/home banner.jpeg',
     alt: 'Dr. Sumedh Magar - Sports Medicine Specialist',
     heading: 'Dr. Sumedh Magar',
-    qualifications: [
-      'M.B.B.S., M.S. ORTHOPAEDICS',
-      'Masters in Sports Medicine, Exercise & Health (UCL, London)',
-      'Fellowship Adult Reconstruction Surgery (Arthroscopy and Arthroplasty)',
-    ],
+    qualifications:[],
+    // qualifications: [
+    //   'M.B.B.S., M.S. ORTHOPAEDICS',
+    //   'Masters in Sports Medicine, Exercise & Health (UCL, London)',
+    //   'Fellowship Adult Reconstruction Surgery (Arthroscopy and Arthroplasty)',
+    // ],
     tagline: ' Orthopedic Surgeon | Sports Medicine Specialist',
-    description: 'Advanced Sports Medicine Guiding Your Strongest Comeback—from Pain to Peak Performance',
+    description:"",
+    // description: 'Advanced Sports Medicine Guiding Your Strongest Comeback—from Pain to Peak Performance',
     ctaPrimary: { text: 'Book Appointment', link: '/contact' },
   },
   {
@@ -41,8 +43,9 @@ const slides: Slide[] = [
     alt: 'Joint Preservation & Rehabilitation',
     heading: 'Joint Preservation & Arthroscopy',
     subheading: 'Adult Joint Preservation Specialist',
-    description:
-      'Advanced joint preservation techniques, cartilage restoration, and comprehensive rehabilitation programs to help you achieve optimal recovery.',
+    description:'',
+    // description:
+    //   'Advanced joint preservation techniques, cartilage restoration, and comprehensive rehabilitation programs to help you achieve optimal recovery.',
     ctaPrimary: { text: 'Discover More', link: '/expertise' },
   },
   {
@@ -50,21 +53,39 @@ const slides: Slide[] = [
     image: '/Sports Medicine_Home page.png',
     alt: 'Sports Medicine Excellence',
     heading: 'Sports Medicine',
-    subheading: 'Lead Sports Medicine - Khelo India, Govt. of Maharashtra',
-    description:
-      'Comprehensive sports injury management, performance optimization, and evidence-based rehabilitation protocols for athletes at all levels.',
+    subheading: 'Masters from University College London',
+    description:'',
+    // description:
+    //   'Comprehensive sports injury management, performance optimization, and evidence-based rehabilitation protocols for athletes at all levels.',
     ctaPrimary: { text: 'Know More', link: '/sports-medicine' },
   },
+
   {
     id: 5,
-    image: '/Dr. Magar web banner_1.jpeg',
-    alt: 'Sports Injury Management',
-    heading: 'Sports Injury Management',
-    subheading: 'Masters from University College London',
-    description:
-      'Specialized care for ACL/PCL reconstruction, meniscus repair, rotator cuff injuries, and ligament reconstruction with focus on return to play.',
+    image: '/Dr. Magar_Regenerative Medicine_homepage.png',
+    alt: 'Regenerative Medicine & Stem Cell Therapy',
+    heading: 'Regenerative Medicine & Stem Cell Therapy',
+     subheading: '',
+    // subheading: 'Masters from University College London',
+    description: "",
     ctaPrimary: { text: 'Learn More', link: '/sports-medicine' },
+    // description:
+    //   'Specialized care for ACL/PCL reconstruction, meniscus repair, rotator cuff injuries, and ligament reconstruction with focus on return to play.',
+    
   },
+  // {
+  //   id: 5,
+  //   image: '/Dr. Magar web banner_1.jpeg',
+  //   alt: 'Sports Injury Management',
+  //   heading: 'Sports Injury Management',
+  //    subheading: '',
+  //   // subheading: 'Masters from University College London',
+  //   description: "",
+  //   ctaPrimary: { text: 'Learn More', link: '/sports-medicine' },
+  //   // description:
+  //   //   'Specialized care for ACL/PCL reconstruction, meniscus repair, rotator cuff injuries, and ligament reconstruction with focus on return to play.',
+    
+  // },
 ];
 
 export const HeroCarousel = () => {
@@ -84,7 +105,7 @@ export const HeroCarousel = () => {
 
   return (
     /* Back to your original full screen container layout with no black padding spaces */
-    <div className="relative w-full h-screen min-h-[600px] overflow-hidden bg-black">
+    <div className="relative w-full h-[calc(100vh-5rem)] min-h-[600px] mt-20 overflow-hidden bg-black">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -94,25 +115,24 @@ export const HeroCarousel = () => {
           transition={{ duration: 1.0, ease: 'easeInOut' }}
           className="absolute inset-0"
         >
-          <Image
-            src={slides[currentSlide].image}
-            alt={slides[currentSlide].alt}
-            fill
-            /* FIXED: Switched back to object-cover to force-fill the top and bottom spaces. 
-              Added 'object-right' so that the person/injury graphic on the right side of your 
-              banners never gets cut off, while the left dark gradient stretches over the text cleanly.
-            */
-            className="object-cover object-right sm:object-center lg:object-right"
-            priority={currentSlide === 0}
-            sizes="100vw"
-          />
-          {/* Subtle gradient overlay to smoothly blend the text background into the image */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+          {/* 1. FORCE IMAGE TO POSITION STRATEGICALLY */}
+        <Image
+          src={slides[currentSlide].image}
+          alt={slides[currentSlide].alt}
+          fill
+          // object-cover ensures it fills the space
+          // object-center keeps the vertical middle intact, or use object-bottom if you want to see the top more
+          className="object-cover object-center" 
+          priority={currentSlide === 0}
+          sizes="100vw"
+        />
+        {/* Subtle gradient overlay to smoothly blend the text background into the image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 flex items-center z-10">
-        <div className="w-full max-w-[1350px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="absolute inset-0 flex flex-col justify-center z-10">
+  <div className="w-full max-w-[1350px] mx-auto px-6 md:px-12 lg:px-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -124,7 +144,7 @@ export const HeroCarousel = () => {
             >
               {currentSlide === 0 ? (
                 <div>
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
+                  <h1 className="!text-3xl sm:!text-4xl md:!text-5xl lg:!text-6xl font-bold text-white mb-4 leading-tight">
                     {slides[0].heading}
                   </h1>
                   <div className="space-y-2 mb-6">
@@ -162,7 +182,7 @@ export const HeroCarousel = () => {
                 </div>
               ) : (
                 <div>
-                  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
+                  <h2 className="!text-3xl sm:!text-4xl md:!text-5xl lg:!text-6xl font-bold text-white mb-4 leading-tight">
                     {slides[currentSlide].heading}
                   </h2>
                   {slides[currentSlide].subheading && (

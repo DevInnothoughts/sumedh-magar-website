@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Activity, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type ChildLink = { path: string; label: string };
@@ -15,29 +15,16 @@ const navLinks: NavItem[] = [
   {
     label: 'Orthopedic',
     children: [
-      // { path: '/treatments', label: 'All Treatments' },
       { path: '/treatments/robotic-knee-replacement-pune', label: 'Robotic Knee Replacement' },
       { path: '/treatments/shoulder-surgery-pune', label: 'Shoulder Surgery' },
       { path: '/treatments/knee-surgery-pune', label: 'Knee Surgery' },
       { path: '/treatments/joint-replacement-surgery-pune', label: 'Joint Replacement' },
       { path: '/treatments/hip-surgery-pune', label: 'Hip Surgery' },
       { path: '/treatments/regenerative-medicine', label: 'Regenerative Medicine' },
-      // { path: '/treatments/sports-rehabilitation-pune', label: 'Sports Rehabilitation' },
     ],
   },
   { path: '/sports-medicine', label: 'Sports Medicine' },
-  // {
-  //   label: 'Sports Injuries',
-  //   children: [
-  //     { path: '/sports-injuries', label: 'All Sports Injuries' },
-  //     { path: '/sports-injuries/cricket-injuries', label: 'Cricket Injuries' },
-  //     { path: '/sports-injuries/football-knee-injuries', label: 'Football Injuries' },
-  //     { path: '/sports-injuries/gym-shoulder-injuries', label: 'Gym & Weight Training' },
-  //     { path: '/sports-injuries/runner-knee-pain', label: "Runner's Knee" },
-  //   ],
-  // },
   { path: '/expertise', label: 'Expertise' },
-
   { path: '/blog', label: 'Blog' },
   { path: '/gallery', label: 'Gallery' },
   { path: '/contact', label: 'Contact' },
@@ -79,94 +66,107 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-soft' : 'bg-white/95 backdrop-blur-sm'
-        }`}
+      className={`fixed top-0 left-0 right-0 h-20 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white shadow-soft' : 'bg-white border-b border-neutral-100'
+      }`}
       ref={headerRef}
     >
-      <div className="container-custom">
-        <div className="flex items-center justify-between py-1 px-4 md:px-8">
-          <Link href="/" className="flex items-center space-x-2">
-            {/* <Activity className="w-8 h-8 text-primary" /> */}
-            <img
-              src="/logo.bmp"
-              alt="Dr. Sumedh Magar Logo"
-              className="w-16 h-16 object-contain"
-            />
-            <div className="flex flex-col">
-              <span className="font-heading font-bold text-secondary text-lg leading-tight">
-                Dr. Sumedh Magar
-              </span>
-              <span className="text-xs text-neutral-600">Sports Orthopedic Surgeon</span>
-            </div>
-          </Link>
+      {/* CRITICAL FIX: Changed from container-custom to match the exact max-width (1350px) 
+        and padding classes (px-6 md:px-12 lg:px-16) used in your HeroCarousel text container!
+      */}
+      <div className="w-full max-w-[1350px] mx-auto h-full px-6 md:px-12 lg:px-16 flex items-center justify-between">
+        
+        {/* LOGO BLOCK - Aligns perfectly down the vertical axis with the hero content */}
+        <Link href="/" className="flex items-center space-x-2 shrink-0">
+          <img
+            src="/logo.bmp"
+            alt="Dr. Sumedh Magar Logo"
+            className="w-14 h-14 object-contain"
+          />
+          <div className="flex flex-col">
+            <span className="font-heading font-bold text-secondary text-base sm:text-lg leading-tight whitespace-nowrap">
+              Dr. Sumedh Magar
+            </span>
+            <span className="text-xs text-neutral-600 whitespace-nowrap">
+              Sports Orthopedic Surgeon
+            </span>
+          </div>
+        </Link>
 
-          <nav className="hidden lg:flex items-center space-x-0.5">
-            {navLinks.map((link) => {
-              if (link.children) {
-                return (
-                  <div key={link.label} className="relative">
-                    <button
-                      onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
-                      className={`flex items-center gap-1 px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm ${isActive(link)
+        {/* SPACER GAPS: Adjusted space-x rules and added xl:gap-2 to give 
+          the menu tabs a clean, breathable separator logic.
+        */}
+        <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+          {navLinks.map((link) => {
+            if (link.children) {
+              return (
+                <div key={link.label} className="relative">
+                  <button
+                    onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                    className={`flex items-center gap-1 px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm whitespace-nowrap ${
+                      isActive(link)
                         ? 'text-primary bg-primary/10'
                         : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
-                        }`}
-                    >
-                      {link.label}
-                      <ChevronDown
-                        className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''
-                          }`}
-                      />
-                    </button>
-                    <AnimatePresence>
-                      {openDropdown === link.label && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -6 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -6 }}
-                          transition={{ duration: 0.15 }}
-                          className="absolute top-full left-0 mt-1 w-60 bg-white rounded-2xl shadow-soft-lg border border-neutral-100 overflow-hidden z-50"
-                        >
-                          {link.children.map((child) => (
-                            <Link
-                              key={child.path}
-                              href={child.path}
-                              className="block px-4 py-2.5 text-sm text-neutral-700 hover:text-primary hover:bg-primary/5 transition-colors"
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              }
-              return (
-                <Link
-                  key={link.path}
-                  href={link.path!}
-                  className={`px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm ${pathname === link.path
+                    }`}
+                  >
+                    {link.label}
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        openDropdown === link.label ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {openDropdown === link.label && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute top-full right-0 lg:left-0 mt-2 w-60 bg-white rounded-2xl shadow-soft-lg border border-neutral-100 overflow-hidden z-50"
+                      >
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.path}
+                            href={child.path}
+                            className="block px-4 py-2.5 text-sm text-neutral-700 hover:text-primary hover:bg-primary/5 transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            }
+            return (
+              <Link
+                key={link.path}
+                href={link.path!}
+                className={`px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm whitespace-nowrap ${
+                  pathname === link.path
                     ? 'text-primary bg-primary/10'
                     : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
-                    }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
 
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-secondary hover:bg-secondary/10 rounded-xl transition-colors"
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+        {/* MOBILE MENU TOGGLE BUTTON */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="lg:hidden p-2 text-secondary hover:bg-secondary/10 rounded-xl transition-colors"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        >
+          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
 
+      {/* MOBILE EXPANDABLE DROPDOWN */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -175,7 +175,7 @@ export const Header = () => {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-white border-t border-neutral-200 overflow-hidden"
           >
-            <nav className="container-custom px-4 py-4 flex flex-col space-y-1">
+            <nav className="px-6 py-4 flex flex-col space-y-1">
               {navLinks.map((link) => {
                 if (link.children) {
                   return (
@@ -184,15 +184,17 @@ export const Header = () => {
                         onClick={() =>
                           setExpandedMobile(expandedMobile === link.label ? null : link.label)
                         }
-                        className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-all duration-300 ${isActive(link)
-                          ? 'text-primary bg-primary/10'
-                          : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
-                          }`}
+                        className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
+                          isActive(link)
+                            ? 'text-primary bg-primary/10'
+                            : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
+                        }`}
                       >
                         {link.label}
                         <ChevronDown
-                          className={`w-4 h-4 transition-transform ${expandedMobile === link.label ? 'rotate-180' : ''
-                            }`}
+                          className={`w-4 h-4 transition-transform ${
+                            expandedMobile === link.label ? 'rotate-180' : ''
+                          }`}
                         />
                       </button>
                       <AnimatePresence>
@@ -222,10 +224,11 @@ export const Header = () => {
                   <Link
                     key={link.path}
                     href={link.path!}
-                    className={`px-4 py-3 rounded-xl font-medium transition-all duration-300 ${pathname === link.path
-                      ? 'text-primary bg-primary/10'
-                      : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
-                      }`}
+                    className={`px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
+                      pathname === link.path
+                        ? 'text-primary bg-primary/10'
+                        : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
+                    }`}
                   >
                     {link.label}
                   </Link>

@@ -155,58 +155,56 @@ return (
 
 {/* HERO */}
 
-<section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 text-white" style={{
-    /* Matches the structural height scale configuration of your previous banner */
-    height: "calc(100vw * (480 / 1440))", 
-    minHeight: "500px", // Keeps it roomy enough for text on smaller laptops/tablets
-    maxHeight: "520px"  // Stops it from growing too giant on massive screens
-  }}>
-
-<div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_20%_20%,rgba(20,184,166,0.35),transparent_40%),radial-gradient(circle_at_80%_60%,rgba(56,189,248,0.25),transparent_45%)]" />
-
+<section 
+  className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 text-white flex items-center" 
+  style={{
+    minHeight: "calc(100vw * (480 / 1440))", 
+    height: "auto",
+    maxHeight: "560px" 
+  }}
+>
+  {/* Background effects */}
+  <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_20%_20%,rgba(20,184,166,0.35),transparent_40%),radial-gradient(circle_at_80%_60%,rgba(56,189,248,0.25),transparent_45%)]" />
   <div className="absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:48px_48px]" />
 
-
-  <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
-
+  {/* FIXED ALIGNMENT:
+    - max-w-[1350px] mx-auto matches the container system of your header and below section grids.
+    - px-6 md:px-12 lg:px-16 matches the side padding perfectly so the text aligns vertically on the left.
+    - pt-32 pb-20 md:pt-40 md:pb-24 stops the header from overlapping the text.
+  */}
+  <div className="relative mx-auto w-full max-w-[1350px] px-6 md:px-12 lg:px-16 pt-32 pb-20 md:pt-40 md:pb-24">
     <motion.div
-    initial={{opacity:0,y:24}}
-    animate={{opacity:1,y:0}}
-    transition={{duration:.6}}
-    className="max-w-3xl"
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="max-w-3xl"
     >
+      {/* Your updated typography sizing */}
+      <h1 className="mt-6 font-[Fraunces] text-3xl font-semibold leading-tight md:text-5xl">
+        About Dr. Sumedh Magar{" "}<br className="hidden sm:inline" />
+        <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent">
+          Helping athletes return stronger than before.
+        </span>
+      </h1>
 
-    {/* <span className="inline-flex items-center gap-2 rounded-full border border-teal-400/40 bg-teal-400/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-teal-200">
-    <Trophy className="h-3.5 w-3.5"/>
-    Leadership in Sports Medicine
-    </span> */}
+      {/* Action buttons aligned seamlessly to the left boundary edge */}
+      <div className="mt-8 flex flex-wrap gap-3">
+        <Link 
+          href="/sports-medicine" 
+          className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-teal-300"
+        >
+          Explore Sports Medicine <ArrowRight className="h-4 w-4" />
+        </Link>
 
-    <h1 className="mt-6 font-[Fraunces] text-4xl font-semibold leading-tight md:text-6xl">
-      About Dr. Sumedh Magar{" "} <br />
-      <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent">
-      Helping athletes return stronger than before.
-      </span>
-    </h1>
-
-    <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-     A distinguished sports orthopedic surgeon combining international training, extensive surgical experience, and personal athletic achievement to deliver exceptional care to athletes and patients.
-    </p>
-
-    <div className="mt-8 flex flex-wrap gap-3">
-
-      <Link href="/sports-medicine" className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-teal-300">Explore Sports Medicine<ArrowRight className="h-4 w-4"/>
-      </Link>
-
-      <a href="#expertise" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-        Clinical Expertise
-      </a>
-
-    </div>
-
+        <a 
+          href="#expertise" 
+          className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+        >
+          Clinical Expertise
+        </a>
+      </div>
     </motion.div>
-
   </div>
-
 </section>
 
 <section id="about" className="relative py-24 md:py-32">
