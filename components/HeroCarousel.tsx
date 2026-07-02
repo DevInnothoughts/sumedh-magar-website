@@ -76,11 +76,7 @@ export const HeroCarousel = () => {
   const goToSlide = (index: number) => setCurrentSlide(index);
 
   return (
-    /* Container Height Configured:
-      - h-[480px] on mobile to keep a crisp, compact viewport layout
-      - md:h-[calc(100vh-5rem)] scales up beautifully back to full screen size on desktop layout screens
-    */
-    <div className="relative w-full h-[480px] md:h-[calc(100vh-5rem)] mt-20 overflow-hidden bg-black">
+    <div className="relative w-full h-[400px] md:h-[calc(100vh-5rem)] mt-20 overflow-hidden bg-black">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -98,12 +94,10 @@ export const HeroCarousel = () => {
             priority={currentSlide === 0}
             sizes="100vw"
           />
-          {/* High contrast gradient shield to make text beautifully readable over complex backgrounds */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Content wrapper blocks centered across all sizes */}
       <div className="absolute inset-0 flex flex-col justify-center z-10">
         <div className="w-full max-w-[1350px] mx-auto px-6 md:px-12 lg:px-16">
           <AnimatePresence mode="wait">
@@ -127,9 +121,10 @@ export const HeroCarousel = () => {
                     </p>
                   )}
                   
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Link href={slides[0].ctaPrimary.link} className="w-full sm:w-auto">
-                      <Button variant="primary" className="text-sm sm:text-lg px-6 py-2.5 w-full font-semibold">
+                  {/* UPDATED: Removed w-full configs from both the container and inner Button handles */}
+                  <div className="flex flex-row gap-3">
+                    <Link href={slides[0].ctaPrimary.link}>
+                      <Button variant="primary" className="text-sm sm:text-lg px-6 py-2.5 font-semibold">
                         {slides[0].ctaPrimary.text}
                       </Button>
                     </Link>
@@ -145,11 +140,14 @@ export const HeroCarousel = () => {
                       {slides[currentSlide].subheading}
                     </p>
                   )}
-                  <Link href={slides[currentSlide].ctaPrimary.link} className="w-full sm:w-auto">
-                    <Button variant="primary" className="text-sm sm:text-lg px-6 py-2.5 w-full font-semibold">
-                      {slides[currentSlide].ctaPrimary.text}
-                    </Button>
-                  </Link>
+                  {/* UPDATED: Removed w-full configs here as well */}
+                  <div className="flex flex-row gap-3">
+                    <Link href={slides[currentSlide].ctaPrimary.link}>
+                      <Button variant="primary" className="text-sm sm:text-lg px-6 py-2.5 font-semibold">
+                        {slides[currentSlide].ctaPrimary.text}
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               )}
             </motion.div>
@@ -157,7 +155,6 @@ export const HeroCarousel = () => {
         </div>
       </div>
 
-      {/* Control Chevrons: Hidden on mobile layouts (hidden md:flex) to prevent UI crowding */}
       <button
         onClick={prevSlide}
         className="hidden md:flex absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all"
@@ -173,7 +170,6 @@ export const HeroCarousel = () => {
         <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
       </button>
 
-      {/* Carousel dot tracks configured seamlessly for compact spaces */}
       <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-1.5 md:gap-3">
         {slides.map((_, index) => (
           <button
