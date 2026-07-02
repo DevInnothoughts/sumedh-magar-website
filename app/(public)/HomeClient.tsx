@@ -126,7 +126,7 @@ export default function HomeClient() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="text-4xl lg:text-4xl font-bold text-secondary leading-tight">
+              <h2 className="text-3xl lg:text-4xl font-bold text-secondary leading-tight">
                 Comprehensive Sports Medicine
                 <br />
                 & Orthopedic Care
@@ -214,7 +214,7 @@ export default function HomeClient() {
       <section className="section-padding bg-gradient-to-br from-secondary via-secondary to-primary-600 text-white">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-accent mb-4 text-4xl lg:text-4xl font-bold leading-tight">About Dr. Sumedh Magar</h2>
+            <h2 className="text-accent mb-4 text-3xl lg:text-4xl font-bold leading-tight">About Dr. Sumedh Magar</h2>
           </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
@@ -260,7 +260,7 @@ export default function HomeClient() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-secondary text-4xl lg:text-4xl font-bold text-secondary leading-tight mb-4">Areas of Expertise</h2>
+            <h2 className="text-secondary text-3xl lg:text-4xl font-bold text-secondary leading-tight mb-4">Areas of Expertise</h2>
             <p className="mt-5 text-slate-600 leading-relaxed">
               Comprehensive orthopedic and sports medicine treatments using advanced surgical techniques and personalized care
             </p>
@@ -301,7 +301,7 @@ export default function HomeClient() {
               viewport={{ once: true }}
             >
 
-              <h2 className="text-4xl lg:text-4xl font-bold text-secondary mt-4 leading-tight">
+              <h2 className="text-3xl lg:text-4xl font-bold text-secondary mt-4 leading-tight">
                 Why Athletes &
                 <br />
                 Patients Choose Us
@@ -475,7 +475,7 @@ leading-relaxed
         <section className="section-padding bg-neutral-50">
           <div className="container-custom">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-              <h2 className="text-secondary text-4xl lg:text-4xl font-bold text-secondary leading-tight mb-4">Latest Blogs</h2>
+              <h2 className="text-secondary text-3xl lg:text-4xl font-bold text-secondary leading-tight mb-4">Latest Blogs</h2>
               <p className="text-neutral-600 text-lg">Insights on sports medicine, surgical techniques, and athlete recovery</p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -510,7 +510,7 @@ leading-relaxed
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto mb-14"
           >
-            <h2 className="text-4xl lg:text-4xl font-bold text-secondary">
+            <h2 className="text-3xl lg:text-4xl font-bold text-secondary">
               Our Approach to Recovery
             </h2>
             <p className="text-neutral-600 text-lg mt-5">
@@ -605,7 +605,7 @@ leading-relaxed
       <section className="section-padding bg-white">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-secondary text-4xl lg:text-4xl font-bold text-secondary leading-tight mb-4">Patient Testimonials</h2>
+            <h2 className="text-secondary text-3xl lg:text-4xl font-bold text-secondary leading-tight mb-4">Patient Testimonials</h2>
             <p className="text-neutral-600 text-lg mb-6">Hear from patients who&apos;ve experienced exceptional care and recovery</p>
             <div className="inline-flex items-center gap-2">
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
