@@ -193,10 +193,10 @@ export default function SportsMedicineClient() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       {/* HERO SECTION - KEPT EXACTLY AS IT IS FOR BANNER IMAGE */}
-   <section
-  className="relative bg-gradient-to-br from-secondary to-secondary-400 text-white flex items-center"
+ <section
+  className="relative bg-gradient-to-br from-secondary to-secondary-400 text-white flex items-center mt-20"
   style={{
-    backgroundImage: "linear-gradient(to right, rgba(15, 23, 42, 0.95) 40%, rgba(15, 23, 42, 0.4) 100%), url('/sport-medicine.png')",
+    backgroundImage: `url('/sport-medicine.png')`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "93% center",
@@ -205,8 +205,11 @@ export default function SportsMedicineClient() {
     maxHeight: "560px",
   }}
 >
-  {/* Left-edge aligned layout wrapper system */}
-  <div className="relative mx-auto w-full max-w-[1350px] px-6 md:px-12 lg:px-16 pt-32 pb-20 md:pt-40 md:pb-24">
+  {/* FIXED FOR VERTICAL CENTERING:
+    - Changed asymmetrical padding to perfectly balanced vertical padding (py-20 md:py-28).
+    - This allows the parent's `flex items-center` to balance the content cleanly from top to bottom.
+  */}
+  <div className="relative mx-auto w-full max-w-[1350px] px-6 md:px-12 lg:px-16 py-20 md:py-28 w-full">
     <div className="max-w-3xl">
       
       <p className="text-teal-400 font-semibold text-xs md:text-sm uppercase tracking-widest mb-3">
@@ -217,7 +220,7 @@ export default function SportsMedicineClient() {
       <h1 className="mt-6 font-[Fraunces] text-3xl font-semibold leading-tight md:text-5xl text-white">
         Best Sports Medicine Doctor in <br className="hidden sm:inline" />Pune – 
         <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent">
-          Dr. Sumedh Magar
+          {" "}Dr. Sumedh Magar
         </span>
       </h1>
 

@@ -47,35 +47,35 @@ const treatments = [
     id: '2',
     title: 'Shoulder Surgery',
     description: 'Shoulder pain can make simple activities like lifting your arm, driving, ...',
-    imageUrl: '/ShoulderSurgery.jpeg',
+    imageUrl: '/services/Shoulder Surgery.png',
     link: '/treatments/shoulder-surgery-pune'
   },
   {
     id: '3',
     title: 'Knee Surgery',
     description: 'There are knee operations that use advanced arthroscopic surgery techniques ...',
-    imageUrl: '/JointReplacement.jpeg',
+    imageUrl: '/services/Knee Surgery.png',
     link: '/treatments/knee-surgery-pune'
   },
   {
     id: '4',
     title: 'Joint Replacement',
     description: 'Joint replacement entails the replacement of worn-out joints with artificial implants ...',
-    imageUrl: '/HipSurgery.jpeg',
+    imageUrl: '/services/Joint Replacement.png',
     link: '/treatments/joint-replacement-surgery-pune'
   },
   {
     id: '5',
     title: 'Hip Surgery',
     description: 'Hip surgery refers to minimally invasive and reconstructive surgical techniques ...',
-    imageUrl: '/BioOrthopaedics.jpeg',
+    imageUrl: '/services/Hip Replacement.png',
     link: '/treatments/hip-surgery-pune'
   },
   {
     id: '6',
     title: 'Regenerative Medicine',
     description: 'Regenerative Medicine represents an innovative approach to orthopedic care ...',
-    imageUrl: '/SportsMedicine.jpeg',
+    imageUrl: '/services/Regenerative Medicine.png',
     link: '/treatments/regenerative-medicine'
   },
 ];

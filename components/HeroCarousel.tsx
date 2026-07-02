@@ -26,66 +26,38 @@ const slides: Slide[] = [
     image: '/home banner.jpeg',
     alt: 'Dr. Sumedh Magar - Sports Medicine Specialist',
     heading: 'Dr. Sumedh Magar',
-    qualifications:[],
-    // qualifications: [
-    //   'M.B.B.S., M.S. ORTHOPAEDICS',
-    //   'Masters in Sports Medicine, Exercise & Health (UCL, London)',
-    //   'Fellowship Adult Reconstruction Surgery (Arthroscopy and Arthroplasty)',
-    // ],
-    tagline: ' Orthopedic Surgeon | Sports Medicine Specialist',
-    description:"",
-    // description: 'Advanced Sports Medicine Guiding Your Strongest Comeback—from Pain to Peak Performance',
+    qualifications: [],
+    tagline: 'Orthopedic Surgeon | Sports Medicine Specialist',
+    description: "",
     ctaPrimary: { text: 'Book Appointment', link: '/contact' },
   },
   {
-    id: 3,
-    image: '/JointPreservation.png',
-    alt: 'Joint Preservation & Rehabilitation',
-    heading: 'Joint Preservation & Arthroscopy',
-    subheading: 'Adult Joint Preservation Specialist',
-    description:'',
-    // description:
-    //   'Advanced joint preservation techniques, cartilage restoration, and comprehensive rehabilitation programs to help you achieve optimal recovery.',
-    ctaPrimary: { text: 'Discover More', link: '/expertise' },
-  },
-  {
-    id: 4,
+    id: 2,
     image: '/Sports Medicine_Home page.png',
     alt: 'Sports Medicine Excellence',
     heading: 'Sports Medicine',
     subheading: 'Masters from University College London',
-    description:'',
-    // description:
-    //   'Comprehensive sports injury management, performance optimization, and evidence-based rehabilitation protocols for athletes at all levels.',
+    description: '',
     ctaPrimary: { text: 'Know More', link: '/sports-medicine' },
   },
-
   {
-    id: 5,
+    id: 3,
     image: '/Dr. Magar_Regenerative Medicine_homepage.png',
     alt: 'Regenerative Medicine & Stem Cell Therapy',
     heading: 'Regenerative Medicine & Stem Cell Therapy',
-     subheading: '',
-    // subheading: 'Masters from University College London',
+    subheading: '',
     description: "",
     ctaPrimary: { text: 'Learn More', link: '/sports-medicine' },
-    // description:
-    //   'Specialized care for ACL/PCL reconstruction, meniscus repair, rotator cuff injuries, and ligament reconstruction with focus on return to play.',
-    
   },
-  // {
-  //   id: 5,
-  //   image: '/Dr. Magar web banner_1.jpeg',
-  //   alt: 'Sports Injury Management',
-  //   heading: 'Sports Injury Management',
-  //    subheading: '',
-  //   // subheading: 'Masters from University College London',
-  //   description: "",
-  //   ctaPrimary: { text: 'Learn More', link: '/sports-medicine' },
-  //   // description:
-  //   //   'Specialized care for ACL/PCL reconstruction, meniscus repair, rotator cuff injuries, and ligament reconstruction with focus on return to play.',
-    
-  // },
+  {
+    id: 4,
+    image: '/JointPreservation.png',
+    alt: 'Joint Preservation & Rehabilitation',
+    heading: 'Joint Preservation & Arthroscopy',
+    subheading: 'Adult Joint Preservation Specialist',
+    description: '',
+    ctaPrimary: { text: 'Discover More', link: '/expertise' },
+  },
 ];
 
 export const HeroCarousel = () => {
@@ -104,8 +76,11 @@ export const HeroCarousel = () => {
   const goToSlide = (index: number) => setCurrentSlide(index);
 
   return (
-    /* Back to your original full screen container layout with no black padding spaces */
-    <div className="relative w-full h-[calc(100vh-5rem)] min-h-[600px] mt-20 overflow-hidden bg-black">
+    /* Container Height Configured:
+      - h-[480px] on mobile to keep a crisp, compact viewport layout
+      - md:h-[calc(100vh-5rem)] scales up beautifully back to full screen size on desktop layout screens
+    */
+    <div className="relative w-full h-[480px] md:h-[calc(100vh-5rem)] mt-20 overflow-hidden bg-black">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -115,86 +90,63 @@ export const HeroCarousel = () => {
           transition={{ duration: 1.0, ease: 'easeInOut' }}
           className="absolute inset-0"
         >
-          {/* 1. FORCE IMAGE TO POSITION STRATEGICALLY */}
-        <Image
-          src={slides[currentSlide].image}
-          alt={slides[currentSlide].alt}
-          fill
-          // object-cover ensures it fills the space
-          // object-center keeps the vertical middle intact, or use object-bottom if you want to see the top more
-          className="object-cover object-center" 
-          priority={currentSlide === 0}
-          sizes="100vw"
-        />
-        {/* Subtle gradient overlay to smoothly blend the text background into the image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
+          <Image
+            src={slides[currentSlide].image}
+            alt={slides[currentSlide].alt}
+            fill
+            className="object-cover object-center" 
+            priority={currentSlide === 0}
+            sizes="100vw"
+          />
+          {/* High contrast gradient shield to make text beautifully readable over complex backgrounds */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
+      {/* Content wrapper blocks centered across all sizes */}
       <div className="absolute inset-0 flex flex-col justify-center z-10">
-  <div className="w-full max-w-[1350px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="w-full max-w-[1350px] mx-auto px-6 md:px-12 lg:px-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 50 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              exit={{ opacity: 0, x: 30 }}
+              transition={{ duration: 0.6 }}
               className="max-w-3xl"
             >
               {currentSlide === 0 ? (
                 <div>
-                  <h1 className="!text-3xl sm:!text-4xl md:!text-5xl lg:!text-6xl font-bold text-white mb-4 leading-tight">
+                  <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 leading-tight">
                     {slides[0].heading}
                   </h1>
-                  <div className="space-y-2 mb-6">
-                    {slides[0].qualifications?.map((qual, i) => (
-                      <p key={i} className="text-lg sm:text-xl md:text-2xl text-neutral-100">
-                        {qual}
-                      </p>
-                    ))}
-                  </div>
+                  
                   {slides[0].tagline && (
-                    <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-accent mb-6 leading-snug">
+                    <p className="text-base sm:text-2xl md:text-3xl font-semibold text-accent mb-5 leading-snug">
                       {slides[0].tagline}
                     </p>
                   )}
-                  <p className="text-lg sm:text-xl md:text-2xl text-neutral-100 font-normal mb-8 leading-relaxed max-w-2xl">
-                    {slides[0].description}
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Link href={slides[0].ctaPrimary.link}>
-                      <Button variant="primary" className="text-base sm:text-lg px-8 py-3 sm:py-4 w-full sm:w-auto font-semibold">
+                  
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link href={slides[0].ctaPrimary.link} className="w-full sm:w-auto">
+                      <Button variant="primary" className="text-sm sm:text-lg px-6 py-2.5 w-full font-semibold">
                         {slides[0].ctaPrimary.text}
                       </Button>
                     </Link>
-                    {slides[0].ctaSecondary && (
-                      <Link href={slides[0].ctaSecondary.link}>
-                        <Button
-                          variant="outline"
-                          className="text-base sm:text-lg px-8 py-3 sm:py-4 border-2 border-white text-white hover:bg-white hover:text-secondary w-full sm:w-auto font-semibold transition-all"
-                        >
-                          {slides[0].ctaSecondary.text}
-                        </Button>
-                      </Link>
-                    )}
                   </div>
                 </div>
               ) : (
                 <div>
-                  <h2 className="!text-3xl sm:!text-4xl md:!text-5xl lg:!text-6xl font-bold text-white mb-4 leading-tight">
+                  <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 leading-tight">
                     {slides[currentSlide].heading}
                   </h2>
                   {slides[currentSlide].subheading && (
-                    <p className="text-xl sm:text-2xl md:text-3xl text-accent font-semibold mb-6 leading-snug">
+                    <p className="text-base sm:text-2xl md:text-3xl text-accent font-semibold mb-5 leading-snug">
                       {slides[currentSlide].subheading}
                     </p>
                   )}
-                  <p className="text-lg sm:text-xl md:text-2xl text-neutral-100 mb-8 leading-relaxed max-w-2xl">
-                    {slides[currentSlide].description}
-                  </p>
-                  <Link href={slides[currentSlide].ctaPrimary.link}>
-                    <Button variant="primary" className="text-base sm:text-lg px-8 py-3 sm:py-4 w-full sm:w-auto font-semibold">
+                  <Link href={slides[currentSlide].ctaPrimary.link} className="w-full sm:w-auto">
+                    <Button variant="primary" className="text-sm sm:text-lg px-6 py-2.5 w-full font-semibold">
                       {slides[currentSlide].ctaPrimary.text}
                     </Button>
                   </Link>
@@ -205,28 +157,31 @@ export const HeroCarousel = () => {
         </div>
       </div>
 
+      {/* Control Chevrons: Hidden on mobile layouts (hidden md:flex) to prevent UI crowding */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all hover:scale-110"
+        className="hidden md:flex absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all hover:scale-110"
+        className="hidden md:flex absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all"
         aria-label="Next slide"
       >
         <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
       </button>
 
-      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2 md:gap-3">
+      {/* Carousel dot tracks configured seamlessly for compact spaces */}
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-1.5 md:gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 md:h-3 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-primary w-8 md:w-12' : 'bg-white/50 hover:bg-white/70 w-2 md:w-3'
-              }`}
+            className={`h-1.5 md:h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide ? 'bg-primary w-6 md:w-12' : 'bg-white/50 hover:bg-white/70 w-1.5 md:w-3'
+            }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

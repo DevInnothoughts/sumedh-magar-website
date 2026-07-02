@@ -31,12 +31,9 @@ export const metadata: Metadata = {
   "robots": {
     "index": true,
     "follow": true,
-    // maxImagePreview: 'large',
     "max-image-preview": "large",
     "max-snippet": -1,
     "max-video-preview": -1,
-    // maxSnippet: -1,
-    // maxVideoPreview: -1,
   },
 };
 
@@ -53,7 +50,6 @@ const faqs = [
     q: 'Can I return to normal activities?',
     a: 'Most patients can resume everyday activities after rehabilitation, although high-impact sports and strenuous activities should only be undertaken based on medical advice.',
   },
-
 ];
 
 const breadcrumbSchema = {
@@ -66,8 +62,7 @@ const breadcrumbSchema = {
   ],
 };
 
-const schema =
-{
+const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -108,18 +103,7 @@ const schema =
       ]
     }
   ]
-}
-
-
-// const faqSchema = {
-//   '@context': 'https://schema.org',
-//   '@type': 'FAQPage',
-//   mainEntity: faqs.map(({ q, a }) => ({
-//     '@type': 'Question',
-//     name: q,
-//     acceptedAnswer: { '@type': 'Answer', text: a },
-//   })),
-// };
+};
 
 export default function ACLTreatmentPage() {
   const currentPath = "/treatments/robotic-knee-replacement-pune";
@@ -133,63 +117,62 @@ export default function ACLTreatmentPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      <div className="min-h-screen pt-20">
-        {/* Hero */}
-        <section className="
-    relative
-    section-padding
-    bg-gradient-to-br
-    from-secondary
-    to-secondary-400
-    text-white
-    min-h-[450px]
-   
-    2xl:min-h-[650px]
-    flex
-    items-center
-  "
+      <div className="min-h-screen">
+        
+        {/* HERO SECTION CONFIGURATION */}
+        <section
+          className="relative text-white flex items-center mt-20"
           style={{
             backgroundImage: "url('/robotic Knee Surgery.png')",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "75% center",
-          }}>
-          <div className="container-custom max-w-5xl mx-auto">
-            <nav className="flex items-center gap-1.5 text-sm text-neutral-300 mb-6">
+            minHeight: "calc(100vw * (480 / 1440))", 
+            height: "auto",
+            maxHeight: "560px",
+          }}
+        >
+          <div className="relative mx-auto w-full max-w-[1350px] px-6 md:px-12 lg:px-16 py-20 md:py-28">
+            
+            <nav className="flex items-center flex-wrap gap-1.5 text-sm text-neutral-300 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-3.5 h-3.5" />
               <Link href="/treatments" className="hover:text-white transition-colors">Treatments</Link>
               <ChevronRight className="w-3.5 h-3.5" />
               <span className="text-white">Robotic Knee Replacement</span>
             </nav>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">
-                  Knee Surgery Specialist
-                </p>
-                <h1 className="mb-4 text-4xl md:text-4xl font-bold">
-                  Robotic Knee Replacement in Pune – Advanced Precision for Better Mobility
-                </h1>
-                {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
-                  Expert anterior cruciate ligament reconstruction using arthroscopic techniques.
-                  Trusted by athletes across Maharashtra.
-                </p> */}
-                <Link href="/contact" className="inline-flex items-center btn-primary">
-                  Book Consultation <ArrowRight className="ml-2 w-5 h-5" />
+
+            <div className="max-w-3xl">
+              {/* <p className="text-teal-400 font-semibold text-xs md:text-sm uppercase tracking-widest mb-3">
+                Knee Surgery Specialist
+              </p> */}
+              
+              <h1 className="mt-6 font-[Fraunces] text-3xl font-semibold leading-tight md:text-5xl text-white">
+                Robotic Knee Replacement in Pune – <br className="hidden sm:inline" />
+                <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent">
+                  Advanced Precision for Better Mobility
+                </span>
+              </h1>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-teal-300">
+                  Book Consultation <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-
             </div>
+
           </div>
         </section>
 
+        {/* Core Layout Content Block */}
         <section className="section-padding bg-white">
-          <div className="container-custom max-w-5xl mx-auto">
+          <div className="container-custom max-w-5xl mx-auto px-5">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-10">
-                {/* What is ACL */}
+                
+                {/* HEADINGS UPDATED TO REDUCED text-xl md:text-2xl SCALE */}
                 <div>
-                  <h2 className="text-secondary mb-4">What is Robotic Knee Replacement?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">What is Robotic Knee Replacement?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     Robotic knee replacement is a state-of-the-art joint replacement surgery that couples the skill of an orthopedic surgeon with robotic-assisted technology to enhance the accuracy of the procedure. The robotic system allows for a personalized surgical plan based on the patient's anatomy and guides precise implant placement while preserving healthy bone and soft tissue whenever possible.
                   </p>
@@ -214,17 +197,16 @@ export default function ACLTreatmentPage() {
                     ].map((s) => (
                       <li key={s} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-neutral-700">{s}</span>
+                        <span className="text-neutral-700 text-sm">{s}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <p className="text-neutral-700 leading-relaxed ">Robotic knee replacement is the best treatment option based on a complete clinical evaluation and imaging studies.</p>
+                  <p className="text-neutral-700 leading-relaxed">Robotic knee replacement is the best treatment option based on a complete clinical evaluation and imaging studies.</p>
                 </div>
 
-                {/* Symptoms */}
                 <div>
-                  <h2 className="text-secondary mb-4">Advantages of Robotic Knee Replacement</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Advantages of Robotic Knee Replacement</h2>
                   <p className='text-neutral-700 leading-relaxed mb-4'>Robotic-assisted technology offers better planning and surgical accuracy than traditional techniques. The objective is to improve the performance and the longevity of the knee, through accurate implant positioning and soft tissue balancing.
                   </p>
                   <p className='text-neutral-700 leading-relaxed mb-4'>
@@ -236,65 +218,51 @@ export default function ACLTreatmentPage() {
                   <p className='text-neutral-700 leading-relaxed mb-2'>
                     During the operation the robotic system gives real-time feedback and assists in precise bone preparation according to planned implant positioning. The surgeon supervises and directs each step making sure that it is correct and appropriate for the patient’s specific needs.
                   </p>
-                  <p>
+                  <p className="text-neutral-700 leading-relaxed">
                     The artificial parts substitute for the damaged cartilage and bone surfaces.
                   </p>
                 </div>
 
-                {/* Diagnosis */}
                 <ul className="space-y-4">
                   {[
                     {
                       title: "Arthritis Osteoarthritis",
-                      description:
-                        "Osteoarthritis, the most common reason for knee replacement, slowly wears away the cartilage in the joint causing pain, stiffness, swelling and limited mobility.",
+                      description: "Osteoarthritis, the most common reason for knee replacement, slowly wears away the cartilage in the joint causing pain, stiffness, swelling and limited mobility.",
                     },
                     {
                       title: "Rheumatoid Arthritis ",
-                      description:
-                        "Inflammatory joint disease may severely damage knee structures over time, making replacement surgery necessary when conservative management fails.",
+                      description: "Inflammatory joint disease may severely damage knee structures over time, making replacement surgery necessary when conservative management fails.",
                     },
                     {
                       title: "Deformity, Knee",
-                      description:
-                        "Robotic assisted surgery allows for precise correction of deformity in patients with arthritis and bow-legged or knock-kneed deformities.",
+                      description: "Robotic assisted surgery allows for precise correction of deformity in patients with arthritis and bow-legged or knock-kneed deformities.",
                     },
                   ].map((item) => (
                     <li key={item.title} className="flex items-start gap-3">
                       <ChevronRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
                       <div>
-                        <h4 className="font-medium text-secondary">
-                          {item.title}
-                        </h4>
-                        <p className="text-neutral-700 mt-1">
-                          {item.description}
-                        </p>
+                        <h4 className="font-medium text-secondary">{item.title}</h4>
+                        <p className="text-neutral-700 mt-1">{item.description}</p>
                       </div>
                     </li>
                   ))}
                 </ul>
 
-                {/* Surgery */}
                 <div>
-                  <h2 className="text-secondary mb-4">Recovery After Robotic Knee Replacement</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Recovery After Robotic Knee Replacement</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     Supervised mobilization and physiotherapy, soon after surgery, initiates the recovery process. Many patients are encouraged to get up and move about, with assistance, very soon after the procedure.
-
                   </p>
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     Early rehabilitation focuses on controlling pain, improving the range of motion, strengthening muscles and restoring the ability to walk. Over the following weeks and months, patients slowly return to their normal activities under tailored rehabilitation programs.
-
                   </p>
                   <p className="text-neutral-700 leading-relaxed">
                     While many people notice marked improvements within weeks, full recovery and adjustment to the new joint can take several months.
-
                   </p>
-
                 </div>
 
-                {/* Recovery */}
                 <div>
-                  <h2 className="text-secondary mb-4">Advantages Over Conventional Knee Replacement</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Advantages Over Conventional Knee Replacement</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">Robotic-assisted surgery is an advanced technology that helps improve surgical planning and execution. It may deliver, compared to traditional approaches:</p>
                   <ul className="space-y-3 mb-4">
                     {[
@@ -307,30 +275,15 @@ export default function ACLTreatmentPage() {
                     ].map((s) => (
                       <li key={s} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-neutral-700">{s}</span>
+                        <span className="text-neutral-700 text-sm">{s}</span>
                       </li>
                     ))}
                   </ul>
                   <p className="text-neutral-700 leading-relaxed">The skill of the orthopedic surgeon remains the most important factor for successful outcomes.</p>
-                  {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {[
-                      { phase: 'Week 1–2', milestone: 'Walking with crutches, pain management, swelling control' },
-                      { phase: 'Week 3–6', milestone: 'Full weight-bearing, range of motion restoration' },
-                      { phase: 'Month 2–4', milestone: 'Strength training, proprioception exercises' },
-                      { phase: 'Month 4–6', milestone: 'Running, agility, sport-specific drills' },
-                      { phase: 'Month 6–9', milestone: 'Advanced training, return-to-sport testing' },
-                      { phase: 'Month 9–12', milestone: 'Full competitive return with clearance' },
-                    ].map(({ phase, milestone }) => (
-                      <Card key={phase}>
-                        <p className="font-semibold text-primary text-sm mb-1">{phase}</p>
-                        <p className="text-neutral-700 text-sm">{milestone}</p>
-                      </Card>
-                    ))}
-                  </div> */}
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-6">Is Robotic Knee Replacement Safe?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-6">Is Robotic Knee Replacement Safe?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">Robotic knee replacement has become an established technique in modern orthopedic surgery in the hands of trained specialists using approved systems. It uses advanced imaging, computer-assisted planning and surgeon-controlled execution for improved accuracy.
                   </p>
                   <p className="text-neutral-700 leading-relaxed">
@@ -339,7 +292,7 @@ export default function ACLTreatmentPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-6">Why Choose Dr. Sumedh Magar for Robotic Knee Replacement in Pune?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-6">Why Choose Dr. Sumedh Magar for Robotic Knee Replacement in Pune?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">The patients who opt for robotic knee replacement in Pune get the advantage of a thorough examination of their condition, proper treatment plan, and effective rehabilitation process. The orthopedist Dr. Sumedh Magar has combined his skills in the field of sports orthopedics, arthroscopy, joint reconstruction with advanced procedures aimed at making them mobile and providing high-quality life.
                   </p>
                   <p className="text-neutral-700 leading-relaxed">
@@ -347,9 +300,8 @@ export default function ACLTreatmentPage() {
                   </p>
                 </div>
 
-                {/* FAQs */}
                 <div>
-                  <h2 className="text-secondary mb-6">Frequently Asked Questions</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-6">Frequently Asked Questions</h2>
                   <div className="space-y-4">
                     {faqs.map(({ q, a }) => (
                       <Card key={q}>
@@ -361,29 +313,23 @@ export default function ACLTreatmentPage() {
                 </div>
               </div>
 
-              {/* Sidebar */}
+              {/* Sidebar Block Grid Context */}
               <aside className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
                   <Card>
                     <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
-                    <Link href="/contact" className="block w-full text-center btn-primary">Book Appointment</Link>
+                    <Link href="/contact" className="block w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 rounded-md hover:bg-teal-300 transition-colors">Book Appointment</Link>
                     <a href="tel:+919145517171" className="flex items-center justify-center gap-2 mt-3 text-sm text-neutral-600 hover:text-primary transition-colors">
                       <Phone className="w-4 h-4" /> 9145517171
                     </a>
                   </Card>
 
                   <Card>
-                    <h3 className="font-heading font-semibold text-secondary mb-4">
-                      Related Treatments
-                    </h3>
-
+                    <h3 className="font-heading font-semibold text-secondary mb-4">Related Treatments</h3>
                     <ul className="space-y-2">
                       {filteredTreatments.map((item) => (
                         <li key={item.href}>
-                          <Link
-                            href={item.href}
-                            className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors"
-                          >
+                          <Link href={item.href} className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors">
                             <ChevronRight className="w-4 h-4 text-primary" />
                             {item.label}
                           </Link>
@@ -391,7 +337,6 @@ export default function ACLTreatmentPage() {
                       ))}
                     </ul>
                   </Card>
-
                 </div>
               </aside>
 

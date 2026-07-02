@@ -25,12 +25,9 @@ export const metadata: Metadata = {
   "robots": {
     "index": true,
     "follow": true,
-    // maxImagePreview: 'large',
     "max-image-preview": "large",
     "max-snippet": -1,
     "max-video-preview": -1,
-    // maxSnippet: -1,
-    // maxVideoPreview: -1,
   },
 };
 
@@ -59,8 +56,7 @@ const breadcrumbSchema = {
   ],
 };
 
-const schema =
-{
+const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -101,18 +97,7 @@ const schema =
       ]
     }
   ]
-}
-
-
-// const faqSchema = {
-//   '@context': 'https://schema.org',
-//   '@type': 'FAQPage',
-//   mainEntity: faqs.map(({ q, a }) => ({
-//     '@type': 'Question',
-//     name: q,
-//     acceptedAnswer: { '@type': 'Answer', text: a },
-//   })),
-// };
+};
 
 export default function ShoulderArthroscopyPage() {
   const currentPath = "/treatments/shoulder-surgery-pune";
@@ -126,78 +111,63 @@ export default function ShoulderArthroscopyPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      <div className="min-h-screen pt-20">
+      <div className="min-h-screen">
+        
+        {/* HERO SECTION */}
         <section
-          className="
-    relative
-    section-padding
-    bg-gradient-to-br
-    from-secondary
-    to-secondary-400
-    text-white
-    min-h-[450px]
-    2xl:min-h-[650px]
-    flex
-    items-center
-  "
+          className="relative text-white flex items-center mt-20"
           style={{
             backgroundImage: "url('/shoulder pain banner.png')",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "75% center",
+            minHeight: "calc(100vw * (480 / 1440))", 
+            height: "auto",
+            maxHeight: "560px",
           }}
         >
-          <div className="container-custom max-w-5xl mx-auto px-5">
-
+          <div className="relative mx-auto w-full max-w-[1350px] px-6 md:px-12 lg:px-16 py-20 md:py-28">
+            
             <nav className="flex items-center flex-wrap gap-1.5 text-sm text-neutral-300 mb-6">
               <Link href="/" className="hover:text-white transition-colors">
                 Home
               </Link>
-
               <ChevronRight className="w-3.5 h-3.5" />
-
               <Link href="/treatments" className="hover:text-white transition-colors">
                 Treatments
               </Link>
-
               <ChevronRight className="w-3.5 h-3.5" />
-
-              <span className="text-white">
-                Shoulder Surgery
-              </span>
+              <span className="text-white">Shoulder Surgery</span>
             </nav>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="max-w-3xl">
+              {/* <p className="text-teal-400 font-semibold text-xs md:text-sm uppercase tracking-widest mb-3">
+                Shoulder Specialist
+              </p> */}
 
-              <div>
+              <h1 className="mt-6 font-[Fraunces] text-3xl font-semibold leading-tight md:text-5xl text-white">
+                Shoulder Surgery in Pune – <br className="hidden sm:inline" />
+                <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent">
+                  Arthroscopic Shoulder Surgery by Dr. Sumedh Magar
+                </span>
+              </h1>
 
-                <p className="text-primary font-semibold text-xs md:text-sm uppercase tracking-widest mb-3">
-                  Shoulder Specialist
-                </p>
-
-
-                <h1 className="mb-5 text-3xl sm:text-4xl md:text-4xl font-bold leading-tight">
-                  Shoulder Surgery in Pune – Arthroscopic Shoulder Surgery by Dr. Sumedh Magar
-                </h1>
-
-                <Link href="/contact" className="inline-flex items-center btn-primary">
-                  Book Consultation
-                  <ArrowRight className="ml-2 w-5 h-5" />
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-teal-300">
+                  Book Consultation <ArrowRight className="h-4 w-4" />
                 </Link>
-
               </div>
-
             </div>
 
           </div>
         </section>
 
+        {/* Core Content Area */}
         <section className="section-padding bg-white">
-          <div className="container-custom max-w-5xl mx-auto">
+          <div className="container-custom max-w-5xl mx-auto px-5">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-10">
                 <div>
-                  {/* <h2 className="text-secondary mb-4">Rotator Cuff Injuries</h2> */}
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     Shoulder pain can make simple activities like lifting your arm, driving, exercising, or even sleeping uncomfortable. If non-surgical treatments such as medications, physiotherapy, or injections have not provided relief, shoulder surgery may be the most effective solution to restore movement and reduce pain.
                   </p>
@@ -206,11 +176,11 @@ export default function ShoulderArthroscopyPage() {
                   </p>
                 </div>
 
+                {/* REDUCED H2 FONT SIZE ACROSS ALL SECTIONS USING text-xl md:text-2xl */}
                 <div>
-                  <h2 className="text-secondary mb-4">What Is Shoulder Surgery?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">What Is Shoulder Surgery?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     Shoulder surgery is performed to diagnose and treat injuries affecting the tendons, ligaments, cartilage, muscles, and bones of the shoulder joint. Today, most procedures are carried out using arthroscopic (keyhole) surgery, where a tiny camera and specialized instruments are inserted through small incisions to repair damaged structures with greater precision.
-
                   </p>
                   <p className="text-neutral-700 leading-relaxed">
                     Compared with traditional open surgery, arthroscopic shoulder surgery often results in smaller scars, less tissue damage, reduced postoperative discomfort, and faster rehabilitation.
@@ -218,7 +188,7 @@ export default function ShoulderArthroscopyPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Who May Need Shoulder Surgery?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Who May Need Shoulder Surgery?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">You may benefit from shoulder surgery in Pune if you experience:</p>
                   <ul className="space-y-3 mb-4">
                     {[
@@ -241,44 +211,35 @@ export default function ShoulderArthroscopyPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Common Shoulder Conditions Treated</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Common Shoulder Conditions Treated</h2>
                   <ul className="space-y-4">
                     {[
                       {
                         title: "Rotator Cuff Tear",
-                        description:
-                          "Rotator cuff injuries are among the most common causes of shoulder pain. Arthroscopic rotator cuff repair restores tendon function, improves strength, and reduces pain.",
+                        description: "Rotator cuff injuries are among the most common causes of shoulder pain. Arthroscopic rotator cuff repair restores tendon function, improves strength, and reduces pain.",
                       },
                       {
                         title: "SLAP Tear (Labral Injury)",
-                        description:
-                          "SLAP tears affect the cartilage ring surrounding the shoulder socket and are commonly seen in athletes involved in throwing sports or overhead activities. Arthroscopic SLAP repair helps restore stability and shoulder function.",
+                        description: "SLAP tears affect the cartilage ring surrounding the shoulder socket and are commonly seen in athletes involved in throwing sports or overhead activities. Arthroscopic SLAP repair helps restore stability and shoulder function.",
                       },
                       {
                         title: "Shoulder Instability and Recurrent Dislocation",
-                        description:
-                          "Repeated shoulder dislocations may occur after ligament or labral injuries. Arthroscopic stabilization procedures repair damaged tissues and reduce the risk of future dislocations.",
+                        description: "Repeated shoulder dislocations may occur after ligament or labral injuries. Arthroscopic stabilization procedures repair damaged tissues and reduce the risk of future dislocations.",
                       },
                       {
                         title: "Shoulder Impingement Syndrome",
-                        description:
-                          "Inflamed tissues or bone spurs can compress shoulder tendons, causing pain during overhead movement. Arthroscopic decompression may relieve symptoms and improve mobility.",
+                        description: "Inflamed tissues or bone spurs can compress shoulder tendons, causing pain during overhead movement. Arthroscopic decompression may relieve symptoms and improve mobility.",
                       },
                       {
                         title: "Sports-Related Shoulder Injuries",
-                        description:
-                          "Athletes participating in cricket, tennis, badminton, swimming, volleyball, and gym training frequently develop shoulder injuries that may require surgical treatment after failed conservative management."
+                        description: "Athletes participating in cricket, tennis, badminton, swimming, volleyball, and gym training frequently develop shoulder injuries that may require surgical treatment after failed conservative management."
                       }
                     ].map((item) => (
                       <li key={item.title} className="flex items-start gap-3">
                         <ChevronRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
                         <div>
-                          <h4 className="font-medium text-secondary">
-                            {item.title}
-                          </h4>
-                          <p className="text-neutral-700 mt-1">
-                            {item.description}
-                          </p>
+                          <h4 className="font-medium text-secondary">{item.title}</h4>
+                          <p className="text-neutral-700 mt-1">{item.description}</p>
                         </div>
                       </li>
                     ))}
@@ -286,7 +247,7 @@ export default function ShoulderArthroscopyPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Arthroscopic Shoulder Surgery Procedures</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Arthroscopic Shoulder Surgery Procedures</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">Dr. Sumedh Magar performs advanced minimally invasive procedures including:</p>
                   <ul className="space-y-3 mb-4">
                     {[
@@ -309,7 +270,7 @@ export default function ShoulderArthroscopyPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Benefits of Arthroscopic Shoulder Surgery</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Benefits of Arthroscopic Shoulder Surgery</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">Compared with conventional open techniques, arthroscopic surgery may offer:</p>
                   <ul className="space-y-3 mb-4">
                     {[
@@ -332,26 +293,20 @@ export default function ShoulderArthroscopyPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Recovery After Shoulder Surgery</h2>
-                  <p className="text-neutral-700 leading-relaxed mb-4">Recovery timelines vary depending on the procedure performed and the severity of the injury.
-                  </p>
-                  <p className="text-neutral-700 leading-relaxed mb-4">
-                    In the initial weeks, patients may use a sling while beginning supervised rehabilitation. Physiotherapy gradually progresses to restore mobility, strengthen muscles, and improve shoulder stability.
-                  </p>
-                  <p className="text-neutral-700 leading-relaxed mb-4">
-                    Most patients resume daily activities within weeks, while return to heavy lifting or competitive sports typically requires several months based on healing and medical advice.
-                  </p>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Recovery After Shoulder Surgery</h2>
+                  <p className="text-neutral-700 leading-relaxed mb-4">Recovery timelines vary depending on the procedure performed and the severity of the injury.</p>
+                  <p className="text-neutral-700 leading-relaxed mb-4">In the initial weeks, patients may use a sling while beginning supervised rehabilitation. Physiotherapy gradually progresses to restore mobility, strengthen muscles, and improve shoulder stability.</p>
+                  <p className="text-neutral-700 leading-relaxed mb-4">Most patients resume daily activities within weeks, while return to heavy lifting or competitive sports typically requires several months based on healing and medical advice.</p>
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Why Choose Dr. Sumedh Magar for Shoulder Surgery in Pune?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Why Choose Dr. Sumedh Magar for Shoulder Surgery in Pune?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">Patients seeking a shoulder specialist in Pune benefit from comprehensive diagnosis, evidence-based treatment planning, and advanced arthroscopic techniques.</p>
-                  <p className="text-neutral-700 leading-relaxed mb-4">
-                    Dr. Sumedh Magar has expertise in treating sports injuries, rotator cuff tears, shoulder instability, and complex arthroscopic conditions using minimally invasive procedures designed to restore function while minimizing recovery time. Every treatment plan is personalized according to the patient's symptoms, imaging findings, lifestyle, and long-term goals.</p>
+                  <p className="text-neutral-700 leading-relaxed mb-4">Dr. Sumedh Magar has expertise in treating sports injuries, rotator cuff tears, shoulder instability, and complex arthroscopic conditions using minimally invasive procedures designed to restore function while minimizing recovery time. Every treatment plan is personalized according to the patient's symptoms, imaging findings, lifestyle, and long-term goals.</p>
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-6">Frequently Asked Questions</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-6">Frequently Asked Questions</h2>
                   <div className="space-y-4">
                     {faqs.map(({ q, a }) => (
                       <Card key={q}>
@@ -363,28 +318,23 @@ export default function ShoulderArthroscopyPage() {
                 </div>
               </div>
 
+              {/* Sidebar Block */}
               <aside className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
                   <Card>
                     <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
-                    <Link href="/contact" className="block w-full text-center btn-primary">Book Appointment</Link>
+                    <Link href="/contact" className="block w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 rounded-md hover:bg-teal-300 transition-colors">Book Appointment</Link>
                     <a href="tel:+919145517171" className="flex items-center justify-center gap-2 mt-3 text-sm text-neutral-600 hover:text-primary transition-colors">
                       <Phone className="w-4 h-4" /> 9145517171
                     </a>
                   </Card>
 
                   <Card>
-                    <h3 className="font-heading font-semibold text-secondary mb-4">
-                      Related Treatments
-                    </h3>
-
+                    <h3 className="font-heading font-semibold text-secondary mb-4">Related Treatments</h3>
                     <ul className="space-y-2">
                       {filteredTreatments.map((item) => (
                         <li key={item.href}>
-                          <Link
-                            href={item.href}
-                            className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors"
-                          >
+                          <Link href={item.href} className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors">
                             <ChevronRight className="w-4 h-4 text-primary" />
                             {item.label}
                           </Link>
@@ -392,10 +342,8 @@ export default function ShoulderArthroscopyPage() {
                       ))}
                     </ul>
                   </Card>
-
                 </div>
               </aside>
-
             </div>
           </div>
         </section>

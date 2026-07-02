@@ -25,12 +25,9 @@ export const metadata: Metadata = {
   "robots": {
     "index": true,
     "follow": true,
-    // maxImagePreview: 'large',
     "max-image-preview": "large",
     "max-snippet": -1,
     "max-video-preview": -1,
-    // maxSnippet: -1,
-    // maxVideoPreview: -1,
   },
 };
 
@@ -47,7 +44,6 @@ const faqs = [
     q: 'Will I need physiotherapy after knee surgery?',
     a: 'Yes. Physiotherapy is an important part of recovery and helps restore strength, flexibility, and knee function.',
   },
-
 ];
 
 const breadcrumbSchema = {
@@ -60,18 +56,7 @@ const breadcrumbSchema = {
   ],
 };
 
-// const faqSchema = {
-//   '@context': 'https://schema.org',
-//   '@type': 'FAQPage',
-//   mainEntity: faqs.map(({ q, a }) => ({
-//     '@type': 'Question',
-//     name: q,
-//     acceptedAnswer: { '@type': 'Answer', text: a },
-//   })),
-// };
-
-const schema =
-{
+const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -112,8 +97,7 @@ const schema =
       ]
     }
   ]
-}
-
+};
 
 export default function KneeArthroscopyPage() {
   const currentPath = "/treatments/knee-surgery-pune";
@@ -121,73 +105,79 @@ export default function KneeArthroscopyPage() {
   const filteredTreatments = relatedTreatments.filter(
     (item) => item.href !== currentPath
   );
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      <div className="min-h-screen pt-20">
-        <section className="
-    relative
-    section-padding
-    bg-gradient-to-br
-    from-secondary
-    to-secondary-400
-    text-white
-    min-h-[450px]
-   
-    2xl:min-h-[650px]
-    flex
-    items-center
-  "
+      <div className="min-h-screen">
+        
+        {/* STRUCTURAL HERO CONTAINER MARKUP */}
+        <section
+          className="relative text-white flex items-center mt-20"
           style={{
             backgroundImage: "url('/knee surgery banner.png')",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "75% center",
-          }}>
-          <div className="container-custom max-w-5xl mx-auto">
-            <nav className="flex items-center gap-1.5 text-sm text-neutral-300 mb-6">
+            minHeight: "calc(100vw * (480 / 1440))", 
+            height: "auto",
+            maxHeight: "560px",
+          }}
+        >
+          {/* CORE BRAND ALIGNMENT WRAPPER ELEMENT */}
+          <div className="relative mx-auto w-full max-w-[1350px] px-6 md:px-12 lg:px-16 py-20 md:py-28">
+            
+            <nav className="flex items-center flex-wrap gap-1.5 text-sm text-neutral-300 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-3.5 h-3.5" />
               <Link href="/treatments" className="hover:text-white transition-colors">Treatments</Link>
               <ChevronRight className="w-3.5 h-3.5" />
               <span className="text-white">Knee Surgery</span>
             </nav>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Minimally Invasive</p>
-                <h1 className="mb-4 text-4xl md:text-4xl font-bold">Knee Surgery in Pune – Expert ACL Reconstruction and Knee Arthroscopy</h1>
-                {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
-                  Keyhole knee surgery for meniscus tears, cartilage damage, and sports knee injuries
-                  with minimal recovery time.
-                </p> */}
-                <Link href="/contact" className="inline-flex items-center btn-primary">
-                  Book Consultation <ArrowRight className="ml-2 w-5 h-5" />
+
+            <div className="max-w-3xl">
+              {/* <p className="text-teal-400 font-semibold text-xs md:text-sm uppercase tracking-widest mb-3">Minimally Invasive</p> */}
+              
+              {/* BRAND UNIFORM H1 MARKUP AND GRADIENT */}
+              <h1 className="mt-6 font-[Fraunces] text-3xl font-semibold leading-tight md:text-5xl text-white">
+                Knee Surgery in Pune – <br className="hidden sm:inline" />
+                <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent">
+                  Expert ACL Reconstruction and Knee Arthroscopy
+                </span>
+              </h1>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-teal-300">
+                  Book Consultation <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-
             </div>
+
           </div>
         </section>
 
+        {/* Content Section Area */}
         <section className="section-padding bg-white">
-          <div className="container-custom max-w-5xl mx-auto">
+          <div className="container-custom max-w-5xl mx-auto px-5">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-10">
+                
+                {/* OPTIMIZED HEADINGS FOR REDUCED SIZE IN CONTENT FLOW (text-xl md:text-2xl) */}
                 <div>
-                  <h2 className="text-secondary mb-4">What Is Knee Surgery?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">What Is Knee Surgery?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     There are knee operations that use advanced arthroscopic surgery techniques used to diagnose and fix ligament problems, cartilage problems, meniscus tears, and sports injuries. Through minimally invasive surgery methods, knee joints can be stabilized and maintained.
                   </p>
-
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Who May Need Knee Surgery?</h2>
-                  <p className='mb-4'>If a patient suffers from constant knee pain, instability, or mechanical problems despite physiotherapy, he or she can opt for surgery.
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Who May Need Knee Surgery?</h2>
+                  <p className='mb-4 text-neutral-700 leading-relaxed'>
+                    If a patient suffers from constant knee pain, instability, or mechanical problems despite physiotherapy, he or she can opt for surgery.
                   </p>
-                  <p className='mb-4'>
+                  <p className='mb-4 text-neutral-700 leading-relaxed'>
                     Surgical interventions include:
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -210,39 +200,31 @@ export default function KneeArthroscopyPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Procedures Offered</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Procedures Offered</h2>
                   <ul className="space-y-4">
                     {[
                       {
                         title: "Anterior Cruciate Ligament Reconstruction",
-                        description:
-                          "Ligament reconstructive surgery done to restore stability in the knee following an injury from sports activities.",
+                        description: "Ligament reconstructive surgery done to restore stability in the knee following an injury from sports activities.",
                       },
                       {
                         title: "Posterior Cruciate Ligament Reconstruction",
-                        description:
-                          "Surgical procedure performed on the posterior cruciate ligament following ligament injuries.",
+                        description: "Surgical procedure performed on the posterior cruciate ligament following ligament injuries.",
                       },
                       {
                         title: "Meniscus Repair",
-                        description:
-                          "Techniques used in repairing the joint while preserving shock absorption to prevent arthritis.",
+                        description: "Techniques used in repairing the joint while preserving shock absorption to prevent arthritis.",
                       },
                       {
                         title: "Knee Arthroscopy",
-                        description:
-                          "Surgeries that can treat a variety of injuries within the joint including cartilage damage and synovitis.",
+                        description: "Surgeries that can treat a variety of injuries within the joint including cartilage damage and synovitis.",
                       },
                     ].map((item) => (
                       <li key={item.title} className="flex items-start gap-3">
                         <ChevronRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
                         <div>
-                          <h4 className="font-medium text-secondary">
-                            {item.title}
-                          </h4>
-                          <p className="text-neutral-700 mt-1">
-                            {item.description}
-                          </p>
+                          <h4 className="font-medium text-secondary">{item.title}</h4>
+                          <p className="text-neutral-700 mt-1">{item.description}</p>
                         </div>
                       </li>
                     ))}
@@ -250,7 +232,7 @@ export default function KneeArthroscopyPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Benefits of Arthroscopic Knee Surgery</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Benefits of Arthroscopic Knee Surgery</h2>
                   <ul className="space-y-3 mb-4">
                     {[
                       'Small incisions',
@@ -262,29 +244,28 @@ export default function KneeArthroscopyPage() {
                     ].map((s) => (
                       <li key={s} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-neutral-700">{s}</span>
+                        <span className="text-neutral-700 text-sm">{s}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Recovery</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Recovery</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
-                    Rehabilitation includes structured physiotherapy focused on restoring range of motion, strength, balance, and confidence. Recovery timelines vary depending on the procedure and patient goals.</p>
-                </div>
-
-                <div>
-                  <h2 className="text-secondary mb-4">Why Choose Dr. Sumedh Magar for Knee Surgery in Pune?</h2>
-                  <p className="text-neutral-700 leading-relaxed mb-4">
-                    Dr. Sumedh Magar specializes in sports medicine, ACL reconstruction, meniscus repair, and advanced knee arthroscopy, delivering evidence-based care tailored to athletes and active individuals.
-
-
+                    Rehabilitation includes structured physiotherapy focused on restoring range of motion, strength, balance, and confidence. Recovery timelines vary depending on the procedure and patient goals.
                   </p>
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-6">Frequently Asked Questions</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Why Choose Dr. Sumedh Magar for Knee Surgery in Pune?</h2>
+                  <p className="text-neutral-700 leading-relaxed mb-4">
+                    Dr. Sumedh Magar specializes in sports medicine, ACL reconstruction, meniscus repair, and advanced knee arthroscopy, delivering evidence-based care tailored to athletes and active individuals.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-6">Frequently Asked Questions</h2>
                   <div className="space-y-4">
                     {faqs.map(({ q, a }) => (
                       <Card key={q}>
@@ -296,28 +277,23 @@ export default function KneeArthroscopyPage() {
                 </div>
               </div>
 
+              {/* Sidebar Component Grid Block */}
               <aside className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
                   <Card>
                     <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
-                    <Link href="/contact" className="block w-full text-center btn-primary">Book Appointment</Link>
+                    <Link href="/contact" className="block w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 rounded-md hover:bg-teal-300 transition-colors">Book Appointment</Link>
                     <a href="tel:+919145517171" className="flex items-center justify-center gap-2 mt-3 text-sm text-neutral-600 hover:text-primary transition-colors">
                       <Phone className="w-4 h-4" /> 9145517171
                     </a>
                   </Card>
 
                   <Card>
-                    <h3 className="font-heading font-semibold text-secondary mb-4">
-                      Related Treatments
-                    </h3>
-
+                    <h3 className="font-heading font-semibold text-secondary mb-4">Related Treatments</h3>
                     <ul className="space-y-2">
                       {filteredTreatments.map((item) => (
                         <li key={item.href}>
-                          <Link
-                            href={item.href}
-                            className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors"
-                          >
+                          <Link href={item.href} className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors">
                             <ChevronRight className="w-4 h-4 text-primary" />
                             {item.label}
                           </Link>
@@ -325,7 +301,6 @@ export default function KneeArthroscopyPage() {
                       ))}
                     </ul>
                   </Card>
-
                 </div>
               </aside>
 
