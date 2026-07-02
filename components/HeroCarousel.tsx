@@ -76,7 +76,11 @@ export const HeroCarousel = () => {
   const goToSlide = (index: number) => setCurrentSlide(index);
 
   return (
-    <div className="relative w-full h-[400px] md:h-[calc(100vh-5rem)] mt-20 overflow-hidden bg-black">
+    /* 1. HEIGHT RESPONSIVENESS: 
+         - On mobile: Using h-[85vh] instead of 100vh prevents mobile browser address bars from breaking the layout.
+         - On desktop (md and up): Reverts to original h-[calc(100vh-5rem)] layout.
+    */
+    <div className="relative w-full h-[85vh] md:h-[calc(100vh-5rem)] min-h-[550px] md:min-h-[600px] mt-20 overflow-hidden bg-black">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -90,64 +94,92 @@ export const HeroCarousel = () => {
             src={slides[currentSlide].image}
             alt={slides[currentSlide].alt}
             fill
-            className="object-cover object-center" 
+            /* 2. MOBILE BACKGROUND POSITIONING:
+                 - Changed object-center to object-[75%_center] or similar if your subject is on the right, 
+                   or object-cover to guarantee full-bleed scaling.
+            */
+            className="object-cover object-center"
             priority={currentSlide === 0}
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
+          {/* Enhanced gradient overlay for high text legibility on small vertical screens */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30 md:bg-gradient-to-r md:from-black/90 md:via-black/50 md:to-transparent" />
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 flex flex-col justify-center z-10">
-        <div className="w-full max-w-[1350px] mx-auto px-6 md:px-12 lg:px-16">
+      {/* Adjust container alignment for mobile bottom-safe rendering */}
+      <div className="absolute inset-0 flex flex-col justify-end md:justify-center z-10 pb-20 md:pb-0">
+        <div className="w-full max-w-[1350px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
               className="max-w-3xl"
             >
               {currentSlide === 0 ? (
                 <div>
-                  <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 leading-tight">
+                  {/* Fine-tuned typography matching small screens (!text-2xl base up to lg:!text-6xl) */}
+                  <h1 className="!text-2xl sm:!text-4xl md:!text-5xl lg:!text-6xl font-bold text-white mb-3 md:mb-4 leading-tight">
                     {slides[0].heading}
                   </h1>
-                  
+                  <div className="space-y-1 md:space-y-2 mb-4 md:mb-6">
+                    {slides[0].qualifications?.map((qual, i) => (
+                      <p key={i} className="text-base sm:text-xl md:text-2xl text-neutral-100">
+                        {qual}
+                      </p>
+                    ))}
+                  </div>
                   {slides[0].tagline && (
-                    <p className="text-base sm:text-2xl md:text-3xl font-semibold text-accent mb-5 leading-snug">
+                    <p className="text-base sm:text-2xl md:text-3xl font-semibold text-accent mb-4 md:mb-6 leading-snug">
                       {slides[0].tagline}
                     </p>
                   )}
-                  
-                  {/* UPDATED: Removed w-full configs from both the container and inner Button handles */}
-                  <div className="flex flex-row gap-3">
-                    <Link href={slides[0].ctaPrimary.link}>
-                      <Button variant="primary" className="text-sm sm:text-lg px-6 py-2.5 font-semibold">
+                  {slides[0].description && (
+                    <p className="text-sm sm:text-xl md:text-2xl text-neutral-100 font-normal mb-6 md:mb-8 leading-relaxed max-w-2xl">
+                      {slides[0].description}
+                    </p>
+                  )}
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                    <Link href={slides[0].ctaPrimary.link} className="w-full sm:w-auto">
+                      <Button variant="primary" className="text-sm sm:text-lg px-6 py-2.5 sm:py-4 w-full sm:w-auto font-semibold">
                         {slides[0].ctaPrimary.text}
                       </Button>
                     </Link>
+                    {slides[0].ctaSecondary && (
+                      <Link href={slides[0].ctaSecondary.link} className="w-full sm:w-auto">
+                        <Button
+                          variant="outline"
+                          className="text-sm sm:text-lg px-6 py-2.5 sm:py-4 border-2 border-white text-white hover:bg-white hover:text-secondary w-full sm:w-auto font-semibold transition-all"
+                        >
+                          {slides[0].ctaSecondary.text}
+                        </Button>
+                      </Link>
+                    )}
                   </div>
                 </div>
               ) : (
                 <div>
-                  <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 leading-tight">
+                  <h2 className="!text-2xl sm:!text-4xl md:!text-5xl lg:!text-6xl font-bold text-white mb-3 md:mb-4 leading-tight">
                     {slides[currentSlide].heading}
                   </h2>
                   {slides[currentSlide].subheading && (
-                    <p className="text-base sm:text-2xl md:text-3xl text-accent font-semibold mb-5 leading-snug">
+                    <p className="text-base sm:text-2xl md:text-3xl text-accent font-semibold mb-4 md:mb-6 leading-snug">
                       {slides[currentSlide].subheading}
                     </p>
                   )}
-                  {/* UPDATED: Removed w-full configs here as well */}
-                  <div className="flex flex-row gap-3">
-                    <Link href={slides[currentSlide].ctaPrimary.link}>
-                      <Button variant="primary" className="text-sm sm:text-lg px-6 py-2.5 font-semibold">
-                        {slides[currentSlide].ctaPrimary.text}
-                      </Button>
-                    </Link>
-                  </div>
+                  {slides[currentSlide].description && (
+                    <p className="text-sm sm:text-xl md:text-2xl text-neutral-100 mb-6 md:mb-8 leading-relaxed max-w-2xl">
+                      {slides[currentSlide].description}
+                    </p>
+                  )}
+                  <Link href={slides[currentSlide].ctaPrimary.link} className="w-full sm:w-auto">
+                    <Button variant="primary" className="text-sm sm:text-lg px-6 py-2.5 sm:py-4 w-full sm:w-auto font-semibold">
+                      {slides[currentSlide].ctaPrimary.text}
+                    </Button>
+                  </Link>
                 </div>
               )}
             </motion.div>
@@ -155,22 +187,24 @@ export const HeroCarousel = () => {
         </div>
       </div>
 
+      {/* Hide side chevron navigation completely on mobile to prevent accidental swipes or cutoffs */}
       <button
         onClick={prevSlide}
-        className="hidden md:flex absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all"
+        className="hidden md:flex absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all hover:scale-110"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="hidden md:flex absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all"
+        className="hidden md:flex absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all hover:scale-110"
         aria-label="Next slide"
       >
         <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
       </button>
 
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-1.5 md:gap-3">
+      {/* Dot Indicators positioned gracefully above mobile edge spaces */}
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2 md:gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
