@@ -116,33 +116,52 @@ export default function KneePainPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <div className="min-h-screen pt-20">
-        <section className="section-padding bg-gradient-to-br from-secondary to-secondary-400 text-white">
-          <div className="container-custom max-w-5xl mx-auto">
-            <nav className="flex items-center gap-1.5 text-sm text-neutral-300 mb-6">
+      <div className="min-h-screen">
+
+        <section
+          className="relative text-white flex items-center mt-20"
+          style={{
+            backgroundImage: "url('/banner/Joint Replacement banner.png')",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "75% center",
+            minHeight: "calc(100vw * (480 / 1440))",
+            height: "auto",
+            maxHeight: "560px",
+          }}
+        >
+          <div className="relative mx-auto w-full max-w-[1350px] px-6 md:px-12 lg:px-16 py-20 md:py-28">
+
+            {/* Breadcrumbs */}
+            <nav className="flex items-center flex-wrap gap-1.5 text-sm text-neutral-300 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-3.5 h-3.5" />
               <Link href="/treatments" className="hover:text-white transition-colors">Treatments</Link>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-white">Joint Replacement </span>
+              <span className="text-white">Joint Replacement</span>
             </nav>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Joint Replacement Specialist</p>
-                <h1 className="mb-4 text-4xl md:text-4xl font-bold">Joint Replacement in Pune – Total Knee and Hip Replacement Surgery</h1>
-                {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
-                  Comprehensive evaluation and treatment for knee pain in athletes and active individuals.
-                </p> */}
-                <Link href="/contact" className="inline-flex items-center btn-primary">
-                  Book Consultation <ArrowRight className="ml-2 w-5 h-5" />
+
+            {/* Single Column Wrapper - Gives your 3-line headline room to breathe */}
+            <div className="max-w-4xl">
+              <h1 className="font-[Fraunces] text-3xl font-semibold leading-tight md:text-5xl text-white">
+                Joint Replacement in Pune – <br className="hidden md:inline" />
+                Total Knee and <br className="hidden md:inline" />
+                <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent inline-block">
+                  Hip Replacement Surgery
+                </span>
+              </h1>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-teal-300 shadow-lg hover:shadow-teal-400/20">
+                  Book Consultation <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-              <div className="relative h-72 rounded-2xl overflow-hidden">
-                <Image src="/KneeSurgery.jpeg" alt="Knee pain treatment Pune" fill className="object-cover" priority sizes="(max-width: 1024px) 100vw, 50vw" />
-              </div>
             </div>
+
           </div>
         </section>
+
+
 
         <section className="section-padding bg-white">
           <div className="container-custom max-w-5xl mx-auto">
@@ -150,14 +169,14 @@ export default function KneePainPage() {
               <div className="lg:col-span-2 space-y-10">
 
                 <div className="">
-                  <h2 className="font-heading font-semibold text-secondary mb-3">What Is Joint Replacement Surgery?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">What Is Joint Replacement Surgery?</h2>
                   <p className="text-neutral-700 text-sm leading-relaxed">
                     Joint replacement entails the replacement of worn-out joints with artificial implants in order to reduce the pain and increase mobility in people with severe arthritis or joint degeneration. The most up-to-date technique of minimizing tissue injury during joint replacement surgery includes the use of minimally invasive surgical procedures.</p>
                 </div>
 
 
                 <div>
-                  <h2 className="font-heading font-semibold text-secondary mb-4">Who May Need Joint Replacement?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Who May Need Joint Replacement?</h2>
                   <p>
                     Patients with advanced joint disease who experience:
                   </p>
@@ -182,7 +201,7 @@ export default function KneePainPage() {
                 </div>
 
                 <div>
-                  <h2 className="font-heading font-semibold text-secondary mb-4">Types of Joint Replacement</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Types of Joint Replacement</h2>
                   <ul className="space-y-4">
                     {[
                       {
@@ -217,7 +236,7 @@ export default function KneePainPage() {
                 </div>
 
                 <div className="">
-                  <h2 className="font-heading font-semibold text-secondary mb-3">Benefits</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Benefits</h2>
                   <p className="text-neutral-700 text-sm leading-relaxed">
                     Potential benefits include:</p>
                   <ul className="space-y-3">
@@ -240,7 +259,7 @@ export default function KneePainPage() {
                 </div>
 
                 <div className="">
-                  <h2 className="font-heading font-semibold text-secondary mb-3">Recovery</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Recovery</h2>
                   <p className="text-neutral-700 text-sm leading-relaxed">
                     Patients usually start their mobilization shortly after undergoing surgery, and thereafter, undertake physiotherapy sessions.
 
@@ -248,14 +267,14 @@ export default function KneePainPage() {
                 </div>
 
                 <div className="">
-                  <h2 className="font-heading font-semibold text-secondary mb-3">Why Choose Dr. Sumedh Magar?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Why Choose Dr. Sumedh Magar?</h2>
                   <p className="text-neutral-700 text-sm leading-relaxed">
                     Combining expertise in modern orthopedic surgery with personalized rehabilitation protocols, Dr. Sumedh Magar offers comprehensive care for patients seeking advanced hip and knee replacement surgery in Pune.
                   </p>
                 </div>
 
                 <div>
-                  <h2 className="font-heading font-semibold text-secondary mb-6">Frequently Asked Questions</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Frequently Asked Questions</h2>
                   <div className="space-y-4">
                     {faqs.map(({ q, a }) => (
                       <Card key={q}>
@@ -272,24 +291,24 @@ export default function KneePainPage() {
                 <div className="sticky top-24 space-y-6">
                   <Card>
                     <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
-                    <Link href="/contact" className="block w-full text-center btn-primary">Book Appointment</Link>
+                    {/* 1. Added whitespace-nowrap here to stop the two-line break */}
+                    <Link
+                      href="/contact"
+                      className="block w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 rounded-md hover:bg-teal-300 transition-colors whitespace-nowrap"
+                    >
+                      Book Appointment
+                    </Link>
                     <a href="tel:+919145517171" className="flex items-center justify-center gap-2 mt-3 text-sm text-neutral-600 hover:text-primary transition-colors">
                       <Phone className="w-4 h-4" /> 9145517171
                     </a>
                   </Card>
 
                   <Card>
-                    <h3 className="font-heading font-semibold text-secondary mb-4">
-                      Related Treatments
-                    </h3>
-
+                    <h3 className="font-heading font-semibold text-secondary mb-4">Related Treatments</h3>
                     <ul className="space-y-2">
                       {filteredTreatments.map((item) => (
                         <li key={item.href}>
-                          <Link
-                            href={item.href}
-                            className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors"
-                          >
+                          <Link href={item.href} className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors">
                             <ChevronRight className="w-4 h-4 text-primary" />
                             {item.label}
                           </Link>
@@ -297,7 +316,6 @@ export default function KneePainPage() {
                       ))}
                     </ul>
                   </Card>
-
                 </div>
               </aside>
 

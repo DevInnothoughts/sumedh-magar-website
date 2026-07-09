@@ -118,7 +118,7 @@ export default function ACLTreatmentPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <div className="min-h-screen">
-        
+
         {/* HERO SECTION CONFIGURATION */}
         <section
           className="relative text-white flex items-center mt-20"
@@ -127,13 +127,13 @@ export default function ACLTreatmentPage() {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "75% center",
-            minHeight: "calc(100vw * (480 / 1440))", 
+            minHeight: "calc(100vw * (480 / 1440))",
             height: "auto",
             maxHeight: "560px",
           }}
         >
           <div className="relative mx-auto w-full max-w-[1350px] px-6 md:px-12 lg:px-16 py-20 md:py-28">
-            
+
             <nav className="flex items-center flex-wrap gap-1.5 text-sm text-neutral-300 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -146,7 +146,7 @@ export default function ACLTreatmentPage() {
               {/* <p className="text-teal-400 font-semibold text-xs md:text-sm uppercase tracking-widest mb-3">
                 Knee Surgery Specialist
               </p> */}
-              
+
               <h1 className="mt-6 font-[Fraunces] text-3xl font-semibold leading-tight md:text-5xl text-white">
                 Robotic Knee Replacement in Pune – <br className="hidden sm:inline" />
                 <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent">
@@ -169,7 +169,7 @@ export default function ACLTreatmentPage() {
           <div className="container-custom max-w-5xl mx-auto px-5">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-10">
-                
+
                 {/* HEADINGS UPDATED TO REDUCED text-xl md:text-2xl SCALE */}
                 <div>
                   <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">What is Robotic Knee Replacement?</h2>
@@ -313,12 +313,17 @@ export default function ACLTreatmentPage() {
                 </div>
               </div>
 
-              {/* Sidebar Block Grid Context */}
               <aside className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
                   <Card>
                     <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
-                    <Link href="/contact" className="block w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 rounded-md hover:bg-teal-300 transition-colors">Book Appointment</Link>
+                    {/* 1. Added whitespace-nowrap here to stop the two-line break */}
+                    <Link
+                      href="/contact"
+                      className="block w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 rounded-md hover:bg-teal-300 transition-colors whitespace-nowrap"
+                    >
+                      Book Appointment
+                    </Link>
                     <a href="tel:+919145517171" className="flex items-center justify-center gap-2 mt-3 text-sm text-neutral-600 hover:text-primary transition-colors">
                       <Phone className="w-4 h-4" /> 9145517171
                     </a>
@@ -343,6 +348,7 @@ export default function ACLTreatmentPage() {
             </div>
           </div>
         </section>
+
       </div>
     </>
   );

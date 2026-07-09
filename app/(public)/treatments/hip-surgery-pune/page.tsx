@@ -114,31 +114,48 @@ export default function MeniscusTearPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      <div className="min-h-screen pt-20">
-        <section className="section-padding bg-gradient-to-br from-secondary to-secondary-400 text-white">
-          <div className="container-custom max-w-5xl mx-auto">
-            <nav className="flex items-center gap-1.5 text-sm text-neutral-300 mb-6">
+      <div className="min-h-screen">
+
+        <section
+          className="relative text-white flex items-center mt-20"
+          style={{
+            backgroundImage: "url('/banner/Hip Replacement.png')",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "75% center",
+            minHeight: "calc(100vw * (480 / 1440))",
+            height: "auto",
+            maxHeight: "560px",
+          }}
+        >
+          <div className="relative mx-auto w-full max-w-[1350px] px-6 md:px-12 lg:px-16 py-20 md:py-28">
+
+            {/* Breadcrumbs */}
+            <nav className="flex items-center flex-wrap gap-1.5 text-sm text-neutral-300 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-3.5 h-3.5" />
               <Link href="/treatments" className="hover:text-white transition-colors">Treatments</Link>
               <ChevronRight className="w-3.5 h-3.5" />
               <span className="text-white">Hip Surgery</span>
             </nav>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Hip Specialist</p>
-                <h1 className="mb-4 text-4xl md:text-4xl font-bold">Hip Surgery in Pune – Hip Arthroscopy, Labral Repair, and Hip Replacement</h1>
-                {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
-                  Precision arthroscopic meniscus repair and treatment for sports-related knee injuries.
-                </p> */}
-                <Link href="/contact" className="inline-flex items-center btn-primary">
-                  Book Consultation <ArrowRight className="ml-2 w-5 h-5" />
+
+            {/* Single Column Wrapper - Gives your 3-line headline room to breathe */}
+            <div className="max-w-4xl">
+              <h1 className="font-[Fraunces] text-3xl font-semibold leading-tight md:text-5xl text-white">
+                Hip Surgery in Pune – <br className="hidden md:inline" />
+                Hip Arthroscopy, Labral Repair, <br className="hidden md:inline" />
+                <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent inline-block">
+                  and Hip Replacement
+                </span>
+              </h1>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-teal-300 shadow-lg hover:shadow-teal-400/20">
+                  Book Consultation <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-              <div className="relative h-72 rounded-2xl overflow-hidden">
-                <Image src="/Arthroscopy.jpeg" alt="Meniscus tear treatment Pune" fill className="object-cover" priority sizes="(max-width: 1024px) 100vw, 50vw" />
-              </div>
             </div>
+
           </div>
         </section>
 
@@ -147,14 +164,14 @@ export default function MeniscusTearPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-10">
                 <div>
-                  <h2 className="text-secondary mb-4">What Is Hip Surgery?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">What Is Hip Surgery?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     Hip surgery refers to minimally invasive and reconstructive surgical techniques performed to address labral tears, femoroacetabular impingement, arthritis, cartilage injuries, and long-term hip pain. Hip surgery aims at providing pain relief, maintaining joint functionality, and restoring movement.
                   </p>
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Who May Need Hip Surgery?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Who May Need Hip Surgery?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     A patient may be required to undergo hip surgery if he/she experiences:
                   </p>
@@ -175,7 +192,7 @@ export default function MeniscusTearPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Procedures Offered</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Procedures Offered</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       { type: 'Hip Arthroscopy', desc: 'Minimally-invasive surgery for treating impingement, cartilage injury, and hip disorders.' },
@@ -192,7 +209,7 @@ export default function MeniscusTearPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Benefits</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Benefits</h2>
                   <ul className="space-y-3">
                     {[
 
@@ -213,20 +230,20 @@ export default function MeniscusTearPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Recovery</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Recovery</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     Recovery involves guided physiotherapy and gradual progression of weight-bearing and strengthening exercises based on surgical findings and healing.
                   </p>
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Why Choose Dr. Sumedh Magar for Hip Surgery in Pune?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Why Choose Dr. Sumedh Magar for Hip Surgery in Pune?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     Patients receive individualized evaluation and advanced treatment using evidence-based techniques for hip arthroscopy, labral preservation, and hip replacement surgery, with an emphasis on long-term mobility and function. </p>
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-6">Frequently Asked Questions</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Frequently Asked Questions</h2>
                   <div className="space-y-4">
                     {faqs.map(({ q, a }) => (
                       <Card key={q}>

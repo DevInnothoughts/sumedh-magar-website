@@ -127,41 +127,59 @@ export default function RegenerativeMedicinePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <div className="min-h-screen pt-20">
-        <section className="section-padding bg-gradient-to-br from-secondary to-secondary-400 text-white">
-          <div className="container-custom max-w-5xl mx-auto">
-            <nav className="flex items-center gap-1.5 text-sm text-neutral-300 mb-6">
+      <div className="min-h-screen">
+
+        <section
+          className="relative text-white flex items-center mt-20"
+          style={{
+            backgroundImage: "url('/banner/Hip Replacement.png')",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "75% center",
+            minHeight: "calc(100vw * (480 / 1440))",
+            height: "auto",
+            maxHeight: "560px",
+          }}
+        >
+          <div className="relative mx-auto w-full max-w-[1350px] px-6 md:px-12 lg:px-16 py-20 md:py-28">
+
+            {/* Breadcrumbs */}
+            <nav className="flex items-center flex-wrap gap-1.5 text-sm text-neutral-300 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-3.5 h-3.5" />
               <Link href="/treatments" className="hover:text-white transition-colors">Treatments</Link>
               <ChevronRight className="w-3.5 h-3.5" />
-              <span className="text-white">Regenerative Medicine</span>
+              <span className="text-white">Hip Surgery</span>
             </nav>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Athlete Recovery</p>
-                <h1 className="mb-4 text-3xl sm:text-4xl md:text-4xl font-bold">Regenerative Medicine in Pune – PRP Therapy, Stem Cell Treatments & Cartilage Restoration</h1>
-                {/* <p className="text-neutral-200 text-lg leading-relaxed mb-6">
-                  Evidence-based rehabilitation programmes designed to return athletes to peak
-                  performance safely and efficiently.
-                </p> */}
-                <Link href="/contact" className="inline-flex items-center btn-primary">
-                  Book Consultation <ArrowRight className="ml-2 w-5 h-5" />
+
+            {/* Single Column Wrapper - Gives your 3-line headline room to breathe */}
+            <div className="max-w-4xl">
+              <h1 className="font-[Fraunces] text-3xl font-semibold leading-tight md:text-5xl text-white">
+                Regenerative Medicine in Pune – <br className="hidden md:inline" />
+                PRP Therapy, Stem Cell Treatments <br className="hidden md:inline" />
+                <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent inline-block">
+                  & Cartilage Restoration
+                </span>
+              </h1>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-teal-300 shadow-lg hover:shadow-teal-400/20">
+                  Book Consultation <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-              <div className="relative h-72 rounded-2xl overflow-hidden">
-                <Image src="/SportsMedicine.jpeg" alt="Sports rehabilitation Pune" fill className="object-cover" priority sizes="(max-width: 1024px) 100vw, 50vw" />
-              </div>
             </div>
+
           </div>
         </section>
+
+
 
         <section className="section-padding bg-white">
           <div className="container-custom max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-10">
                 <div>
-                  <h2 className="text-secondary mb-4">What Is Regenerative Medicine?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">What Is Regenerative Medicine?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     Regenerative Medicine represents an innovative approach to orthopedic care that aims at helping the body heal itself by repairing damaged tissues and reducing pain while preserving joint mobility. Regenerative medicine does not involve replacement but uses biological approaches like Platelet Rich Plasma (PRP), certain stem cell therapy, and cartilage restoration to facilitate healing.</p>
                   <p className="text-neutral-700 leading-relaxed">
@@ -170,7 +188,7 @@ export default function RegenerativeMedicinePage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Who May Benefit from Regenerative Medicine?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Who May Benefit from Regenerative Medicine?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     If you suffer from joint pain or soft tissue injury that fails to improve through adequate rest, medication, or physiotherapy, then there is a chance you may qualify for regenerative orthopedics treatment
                   </p>
@@ -203,7 +221,7 @@ export default function RegenerativeMedicinePage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Regenerative Treatments We Offer</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Regenerative Treatments We Offer</h2>
 
                   <ul className="space-y-4">
                     {[
@@ -239,7 +257,7 @@ export default function RegenerativeMedicinePage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Benefits of Regenerative Medicine</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Benefits of Regenerative Medicine</h2>
 
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     The potential benefits of using regenerative orthopedics are:
@@ -267,7 +285,7 @@ export default function RegenerativeMedicinePage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Regenerative Treatments We Offer</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Regenerative Treatments We Offer</h2>
 
                   <ul className="space-y-4">
                     {[
@@ -308,14 +326,14 @@ export default function RegenerativeMedicinePage() {
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Recovery After Regenerative Therapy</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Recovery After Regenerative Therapy</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
                     Regenerative therapies are normally done in an outpatient setting without extended downtime. The patient is expected to be discharged on the same day and can slowly get back into their routine as advised by the doctor.</p>
                   <p>A physical therapy and exercise regimen tailored to suit the patient’s needs is also suggested. </p>
                 </div>
 
                 <div>
-                  <h2 className="text-secondary mb-4">Why Choose Dr. Sumedh Magar for Regenerative Medicine in Pune?</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Why Choose Dr. Sumedh Magar for Regenerative Medicine in Pune?</h2>
                   <p>
                     Dr. Sumedh Magar offers evidence-based regenerative orthopedic treatments tailored to each patient's condition and goals. By combining expertise in sports medicine, arthroscopy, and joint preservation with modern biologic therapies, treatment plans are designed to maximize function while minimizing unnecessary surgery whenever appropriate.
                   </p>
@@ -325,7 +343,7 @@ export default function RegenerativeMedicinePage() {
 
                 {/* FAQs */}
                 <div>
-                  <h2 className="text-secondary mb-6">Frequently Asked Questions</h2>
+                  <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Frequently Asked Questions</h2>
                   <div className="space-y-4">
                     {faqs.map(({ q, a }) => (
                       <Card key={q}>
