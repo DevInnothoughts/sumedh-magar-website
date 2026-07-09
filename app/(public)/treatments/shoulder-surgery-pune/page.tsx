@@ -164,7 +164,7 @@ export default function ShoulderArthroscopyPage() {
 
         {/* Core Content Area */}
         <section className="section-padding bg-white">
-          <div className="container-custom max-w-5xl mx-auto px-5">
+          <div className="container-custom max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-10">
                 <div>
@@ -323,7 +323,14 @@ export default function ShoulderArthroscopyPage() {
                 <div className="sticky top-24 space-y-6">
                   <Card>
                     <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
-                    <Link href="/contact" className="block w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 rounded-md hover:bg-teal-300 transition-colors">Book Appointment</Link>
+                    {/* 1. Added inline style to guarantee single line display */}
+                    <Link
+                      href="/contact"
+                      className="block w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 rounded-md hover:bg-teal-300 transition-colors"
+                      style={{ whiteSpace: 'nowrap' }}
+                    >
+                      Book Appointment
+                    </Link>
                     <a href="tel:+919145517171" className="flex items-center justify-center gap-2 mt-3 text-sm text-neutral-600 hover:text-primary transition-colors">
                       <Phone className="w-4 h-4" /> 9145517171
                     </a>

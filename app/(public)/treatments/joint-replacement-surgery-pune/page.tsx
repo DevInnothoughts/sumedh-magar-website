@@ -291,10 +291,11 @@ export default function KneePainPage() {
                 <div className="sticky top-24 space-y-6">
                   <Card>
                     <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
-                    {/* 1. Added whitespace-nowrap here to stop the two-line break */}
+                    {/* 1. Added inline style to guarantee single line display */}
                     <Link
                       href="/contact"
-                      className="block w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 rounded-md hover:bg-teal-300 transition-colors whitespace-nowrap"
+                      className="block w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 rounded-md hover:bg-teal-300 transition-colors"
+                      style={{ whiteSpace: 'nowrap' }}
                     >
                       Book Appointment
                     </Link>

@@ -143,10 +143,6 @@ export default function ACLTreatmentPage() {
             </nav>
 
             <div className="max-w-3xl">
-              {/* <p className="text-teal-400 font-semibold text-xs md:text-sm uppercase tracking-widest mb-3">
-                Knee Surgery Specialist
-              </p> */}
-
               <h1 className="mt-6 font-[Fraunces] text-3xl font-semibold leading-tight md:text-5xl text-white">
                 Robotic Knee Replacement in Pune – <br className="hidden sm:inline" />
                 <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent">
@@ -166,11 +162,10 @@ export default function ACLTreatmentPage() {
 
         {/* Core Layout Content Block */}
         <section className="section-padding bg-white">
-          <div className="container-custom max-w-5xl mx-auto px-5">
+          <div className="container-custom max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-10">
 
-                {/* HEADINGS UPDATED TO REDUCED text-xl md:text-2xl SCALE */}
                 <div>
                   <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">What is Robotic Knee Replacement?</h2>
                   <p className="text-neutral-700 leading-relaxed mb-4">
@@ -223,30 +218,32 @@ export default function ACLTreatmentPage() {
                   </p>
                 </div>
 
-                <ul className="space-y-4">
-                  {[
-                    {
-                      title: "Arthritis Osteoarthritis",
-                      description: "Osteoarthritis, the most common reason for knee replacement, slowly wears away the cartilage in the joint causing pain, stiffness, swelling and limited mobility.",
-                    },
-                    {
-                      title: "Rheumatoid Arthritis ",
-                      description: "Inflammatory joint disease may severely damage knee structures over time, making replacement surgery necessary when conservative management fails.",
-                    },
-                    {
-                      title: "Deformity, Knee",
-                      description: "Robotic assisted surgery allows for precise correction of deformity in patients with arthritis and bow-legged or knock-kneed deformities.",
-                    },
-                  ].map((item) => (
-                    <li key={item.title} className="flex items-start gap-3">
-                      <ChevronRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-medium text-secondary">{item.title}</h4>
-                        <p className="text-neutral-700 mt-1">{item.description}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <ul className="space-y-4">
+                    {[
+                      {
+                        title: "Arthritis Osteoarthritis",
+                        description: "Osteoarthritis, the most common reason for knee replacement, slowly wears away the cartilage in the joint causing pain, stiffness, swelling and limited mobility.",
+                      },
+                      {
+                        title: "Rheumatoid Arthritis ",
+                        description: "Inflammatory joint disease may severely damage knee structures over time, making replacement surgery necessary when conservative management fails.",
+                      },
+                      {
+                        title: "Deformity, Knee",
+                        description: "Robotic assisted surgery allows for precise correction of deformity in patients with arthritis and bow-legged or knock-kneed deformities.",
+                      },
+                    ].map((item) => (
+                      <li key={item.title} className="flex items-start gap-3">
+                        <ChevronRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-medium text-secondary">{item.title}</h4>
+                          <p className="text-neutral-700 mt-1">{item.description}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 <div>
                   <h2 className="text-secondary font-bold text-xl md:text-2xl mb-4">Recovery After Robotic Knee Replacement</h2>
@@ -317,10 +314,11 @@ export default function ACLTreatmentPage() {
                 <div className="sticky top-24 space-y-6">
                   <Card>
                     <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
-                    {/* 1. Added whitespace-nowrap here to stop the two-line break */}
+                    {/* Explicit layout overrides using flex centering, text tracking, and custom padding to ensure safe single line placement */}
                     <Link
                       href="/contact"
-                      className="block w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 rounded-md hover:bg-teal-300 transition-colors whitespace-nowrap"
+                      className="flex items-center justify-center w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 px-1 rounded-md hover:bg-teal-300 transition-colors tracking-tight text-sm md:text-base"
+                      style={{ whiteSpace: 'nowrap' }}
                     >
                       Book Appointment
                     </Link>
