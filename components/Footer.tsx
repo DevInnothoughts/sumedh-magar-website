@@ -87,12 +87,44 @@ export const Footer = () => {
                   Shp 9-13 UPPER GROUND FLOOR, Madhukosh Society, Balewadi, Pune 411045
                 </span>
               </li>
-              <li className="flex items-center space-x-3">
+              {/* <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                 <a href="tel:+919145517171" className="text-neutral-300 hover:text-primary transition-colors text-sm">
-                  9145517171 / 02067813869
+                  9145517171 / 02067813869 / +919421681395
                 </a>
-              </li>
+              </li> */}
+
+              <li className="flex items-start space-x-3">
+  <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+
+  <div className="flex flex-wrap items-center gap-1 text-sm">
+    <a
+      href="tel:+919145517171"
+      className="text-neutral-300 hover:text-primary transition-colors"
+    >
+      +91 9145517171
+    </a>
+
+    <span>/</span>
+
+    <a
+      href="tel:+912067813869"
+      className="text-neutral-300 hover:text-primary transition-colors"
+    >
+      02067813869
+    </a>
+
+    <span>/</span>
+
+    <a
+      href="tel:+919421681395"
+      className="text-neutral-300 hover:text-primary transition-colors"
+    >
+      +919421681395
+    </a>
+  </div>
+</li>
+
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
