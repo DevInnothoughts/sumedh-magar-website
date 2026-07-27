@@ -117,13 +117,13 @@ export default function ThankYouClient() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex flex-col sm:flex-row justify-center gap-4"
           >
-            <Link href="/" passHref legacyBehavior>
+            <Link href="/">
               <Button variant="primary" className="inline-flex items-center justify-center gap-2">
                 Back to Home <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
             
-            <Link href="/blog" passHref legacyBehavior>
+            <Link href="/blog">
               <Button variant="outline" className="inline-flex items-center justify-center gap-2">
                 <BookOpen className="w-4 h-4" /> Read Health Blog
               </Button>

@@ -44,6 +44,27 @@ export default function ContactClient() {
 
       if (error) throw error;
 
+      // Trigger email notification asynchronously
+      try {
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            message: data.message,
+            contact_type: data.needsAppointment ? 'appointment' : 'general',
+            appointment_date: data.appointmentDate || null,
+            appointment_time: data.appointmentTime || null,
+          }),
+        });
+      } catch (emailError) {
+        console.error('Failed to trigger email notification:', emailError);
+      }
+
       toast.success('Message sent successfully!');
       reset();
       router.push('/thank-you');
