@@ -159,28 +159,27 @@ export const Footer = () => {
                 href="https://www.instagram.com/isport_pune/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"
-                aria-label="Follow on Instagram"
+                className="w-7 h-7 bg-primary rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-4 h-4" />
               </a>
               <a
                 href="https://www.linkedin.com/in/drsumedhmagar/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"
+                className="w-7 h-7 bg-primary rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"
                 aria-label="Follow on LinkedIn"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-4 h-4" />
               </a>
               <a
                 href="https://www.facebook.com/profile.php?id=61554417404222"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"
-                aria-label="Follow on LinkedIn"
+                className="w-7 h-7 bg-primary rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"
+                aria-label="Follow on Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-4 h-4" />
               </a>
             </div>
             <div className="mt-6">
