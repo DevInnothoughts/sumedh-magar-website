@@ -491,7 +491,9 @@ Create or edit a blog article.
 - **Medical Thesis** — ACL Reconstruction, Patellofemoral Instability, Biomechanics, Rehabilitation Study
 - **Surgery** — Knee, Shoulder, Hip, Elbow, Ankle, Hand & Wrist
 - **Rehabilitation** — Return-to-Sport, Movement Analysis, Physiotherapy Protocols, Injury Prevention
-- **Research** — Sports Medicine, Arthroscopy, Regenerative Medicine, Orthopedic Innovations
+- **Research** — Sports Medicine, Arthroscopy, Regenerative Medicine, Regenerative Medicine in Pune, Orthopedic Innovations
+- **Sport Medicine** — Doctor, Surgeon, Orthopedic Surgeon, Regenerative Medicine
+- **Regenerative Medicine** — Regenerative Medicine in Pune, PRP Therapy, Stem Cell Therapy, Cartilage Restoration, Biologic Therapies, Orthobiologics
 
 **Preview Mode:** Toggle between editor and rendered preview.
 

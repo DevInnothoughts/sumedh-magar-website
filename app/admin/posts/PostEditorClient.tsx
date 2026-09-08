@@ -25,8 +25,9 @@ const categories = [
   { value: 'Medical Thesis', subcategories: ['ACL Reconstruction', 'Patellofemoral Instability', 'Biomechanics', 'Rehabilitation Study'] },
   { value: 'Surgery', subcategories: ['Knee', 'Shoulder', 'Hip', 'Elbow', 'Ankle', 'Hand & Wrist'] },
   { value: 'Rehabilitation', subcategories: ['Return-to-Sport', 'Movement Analysis', 'Physiotherapy Protocols', 'Injury Prevention'] },
-  { value: 'Research', subcategories: ['Sports Medicine', 'Arthroscopy', 'Regenerative Medicine', 'Orthopedic Innovations'] },
-  { value: 'Sport Medicine', subcategories: ['Doctor', 'Surgeon', 'Orthopedic Surgeon'] }
+  { value: 'Research', subcategories: ['Sports Medicine', 'Arthroscopy', 'Regenerative Medicine', 'Regenerative Medicine in Pune', 'Orthopedic Innovations'] },
+  { value: 'Sport Medicine', subcategories: ['Doctor', 'Surgeon', 'Orthopedic Surgeon', 'Regenerative Medicine'] },
+  { value: 'Regenerative Medicine', subcategories: ['Regenerative Medicine in Pune', 'PRP Therapy', 'Stem Cell Therapy', 'Cartilage Restoration', 'Biologic Therapies', 'Orthobiologics'] }
 ];
 
 const modules = {

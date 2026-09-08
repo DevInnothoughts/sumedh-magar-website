@@ -104,7 +104,15 @@ const categories = [
   },
   {
     value: 'Research',
-    subcategories: ['Sports Medicine', 'Arthroscopy', 'Regenerative Medicine', 'Orthopedic Innovations'],
+    subcategories: ['Sports Medicine', 'Arthroscopy', 'Regenerative Medicine', 'Regenerative Medicine in Pune', 'Orthopedic Innovations'],
+  },
+  {
+    value: 'Sport Medicine',
+    subcategories: ['Doctor', 'Surgeon', 'Orthopedic Surgeon', 'Regenerative Medicine'],
+  },
+  {
+    value: 'Regenerative Medicine',
+    subcategories: ['Regenerative Medicine in Pune', 'PRP Therapy', 'Stem Cell Therapy', 'Cartilage Restoration', 'Biologic Therapies', 'Orthobiologics'],
   },
 ];
 ```
