@@ -24,7 +24,7 @@ const navLinks: NavItem[] = [
     ],
   },
   { path: '/sports-medicine', label: 'Sports Medicine' },
-  { path: '/expertise', label: 'Expertise' },
+  // { path: '/expertise', label: 'Expertise' },
   { path: '/blog', label: 'Blog' },
   { path: '/gallery', label: 'Gallery' },
   { path: '/contact', label: 'Contact' },
@@ -66,16 +66,15 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 h-20 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-soft' : 'bg-white border-b border-neutral-100'
-      }`}
+      className={`fixed top-0 left-0 right-0 h-20 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-soft' : 'bg-white border-b border-neutral-100'
+        }`}
       ref={headerRef}
     >
       {/* CRITICAL FIX: Changed from container-custom to match the exact max-width (1350px) 
         and padding classes (px-6 md:px-12 lg:px-16) used in your HeroCarousel text container!
       */}
       <div className="w-full max-w-[1350px] mx-auto h-full px-6 md:px-12 lg:px-16 flex items-center justify-between">
-        
+
         {/* LOGO BLOCK - Aligns perfectly down the vertical axis with the hero content */}
         <Link href="/" className="flex items-center space-x-2 shrink-0">
           <img
@@ -103,17 +102,15 @@ export const Header = () => {
                 <div key={link.label} className="relative">
                   <button
                     onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
-                    className={`flex items-center gap-1 px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm whitespace-nowrap ${
-                      isActive(link)
+                    className={`flex items-center gap-1 px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm whitespace-nowrap ${isActive(link)
                         ? 'text-primary bg-primary/10'
                         : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
-                    }`}
+                      }`}
                   >
                     {link.label}
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        openDropdown === link.label ? 'rotate-180' : ''
-                      }`}
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''
+                        }`}
                     />
                   </button>
                   <AnimatePresence>
@@ -144,11 +141,10 @@ export const Header = () => {
               <Link
                 key={link.path}
                 href={link.path!}
-                className={`px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm whitespace-nowrap ${
-                  pathname === link.path
+                className={`px-3 py-2 rounded-xl font-medium transition-all duration-300 text-sm whitespace-nowrap ${pathname === link.path
                     ? 'text-primary bg-primary/10'
                     : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -184,17 +180,15 @@ export const Header = () => {
                         onClick={() =>
                           setExpandedMobile(expandedMobile === link.label ? null : link.label)
                         }
-                        className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
-                          isActive(link)
+                        className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-all duration-300 ${isActive(link)
                             ? 'text-primary bg-primary/10'
                             : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
-                        }`}
+                          }`}
                       >
                         {link.label}
                         <ChevronDown
-                          className={`w-4 h-4 transition-transform ${
-                            expandedMobile === link.label ? 'rotate-180' : ''
-                          }`}
+                          className={`w-4 h-4 transition-transform ${expandedMobile === link.label ? 'rotate-180' : ''
+                            }`}
                         />
                       </button>
                       <AnimatePresence>
@@ -224,11 +218,10 @@ export const Header = () => {
                   <Link
                     key={link.path}
                     href={link.path!}
-                    className={`px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
-                      pathname === link.path
+                    className={`px-4 py-3 rounded-xl font-medium transition-all duration-300 ${pathname === link.path
                         ? 'text-primary bg-primary/10'
                         : 'text-neutral-700 hover:text-primary hover:bg-primary/5'
-                    }`}
+                      }`}
                   >
                     {link.label}
                   </Link>

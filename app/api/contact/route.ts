@@ -18,7 +18,10 @@ export async function POST(req: NextRequest) {
     const user = process.env.SMTP_USER;
     const pass = process.env.SMTP_PASSWORD;
     const fromEmail = process.env.SMTP_FROM_EMAIL || user;
-    const toEmail = process.env.SMTP_TO_EMAIL || 'vijayalaxmi.shejale@innothoughts.in';
+
+    // const toEmail = process.env.SMTP_TO_EMAIL || 'vijayalaxmi.shejale@innothoughts.in'
+
+    const toEmail = process.env.SMTP_TO_EMAIL || 'frontdesk@isportmedicalcentre.com';
 
     const typeLabel = contact_type === 'appointment' ? 'Appointment Request' : 'General Inquiry';
     const dateSection = appointment_date ? `<p><strong>Requested Date:</strong> ${appointment_date}</p>` : '';

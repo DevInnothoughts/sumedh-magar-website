@@ -193,49 +193,49 @@ export default function SportsMedicineClient() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       {/* HERO SECTION - KEPT EXACTLY AS IT IS FOR BANNER IMAGE */}
- <section
-  className="relative bg-gradient-to-br from-secondary to-secondary-400 text-white flex items-center mt-20"
-  style={{
-    backgroundImage: `url('/sport-medicine.png')`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "93% center",
-    minHeight: "calc(100vw * (480 / 1440))", 
-    height: "auto",
-    maxHeight: "560px",
-  }}
->
-  {/* FIXED FOR VERTICAL CENTERING:
+      <section
+        className="relative bg-gradient-to-br from-secondary to-secondary-400 text-white flex items-center mt-20"
+        style={{
+          backgroundImage: `url('/sport-medicine.png')`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "93% center",
+          minHeight: "calc(100vw * (480 / 1440))",
+          height: "auto",
+          maxHeight: "560px",
+        }}
+      >
+        {/* FIXED FOR VERTICAL CENTERING:
     - Changed asymmetrical padding to perfectly balanced vertical padding (py-20 md:py-28).
     - This allows the parent's `flex items-center` to balance the content cleanly from top to bottom.
   */}
-  <div className="relative mx-auto w-full max-w-[1350px] px-6 md:px-12 lg:px-16 py-20 md:py-28 w-full">
-    <div className="max-w-3xl">
-      
-      <p className="text-teal-400 font-semibold text-xs md:text-sm uppercase tracking-widest mb-3">
-        Sports Medicine Specialist
-      </p>
+        <div className="relative mx-auto w-full max-w-[1350px] px-6 md:px-12 lg:px-16 py-20 md:py-28 w-full">
+          <div className="max-w-3xl">
 
-      {/* FIXED H1 TYPOGRAPHY: Exact font style and gradient from the About page */}
-      <h1 className="mt-6 font-[Fraunces] text-3xl font-semibold leading-tight md:text-5xl text-white">
-        Best Sports Medicine Doctor in <br className="hidden sm:inline" />Pune – 
-        <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent">
-          {" "}Dr. Sumedh Magar
-        </span>
-      </h1>
+            <p className="text-teal-400 font-semibold text-xs md:text-sm uppercase tracking-widest mb-3">
+              Sports Medicine Specialist
+            </p>
 
-      <div className="mt-8 flex flex-wrap gap-3">
-        <Link
-          href="/contact"
-          className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-teal-300"
-        >
-          Book Consultation <ArrowRight className="h-4 w-4" />
-        </Link>
-      </div>
+            {/* FIXED H1 TYPOGRAPHY: Exact font style and gradient from the About page */}
+            <h1 className="mt-6 font-[Fraunces] text-3xl font-semibold leading-tight md:text-5xl text-white">
+              Best Sports Medicine Doctor in <br className="hidden sm:inline" />Pune –
+              <span className="bg-gradient-to-r from-teal-300 to-sky-300 bg-clip-text text-transparent">
+                {" "}Dr. Sumedh Magar
+              </span>
+            </h1>
 
-    </div>
-  </div>
-</section>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-teal-300"
+              >
+                Book Consultation <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* INTRODUCTION SECTION (STUNNING DOUBLE-GLOW & TWO-TONE TYPOGRAPHY) */}
       <section className="section-padding bg-white relative overflow-hidden">
@@ -382,7 +382,7 @@ export default function SportsMedicineClient() {
       </section>
 
       {/* MEET DR. SUMEDH MAGAR & QUALIFICATIONS (MODERNIZED CARD GRID) */}
-      <section className="section-padding bg-white relative">
+      {/* <section className="section-padding bg-white relative">
         <div className="container-custom max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -437,7 +437,7 @@ export default function SportsMedicineClient() {
             </p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* CONDITIONS TREATED BY TABS (PREMIUM LIGHT SYSTEM) */}
       <section className="section-padding bg-neutral-50/60 relative">
