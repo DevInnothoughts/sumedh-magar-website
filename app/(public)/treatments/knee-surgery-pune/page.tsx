@@ -149,7 +149,7 @@ export default function KneeArthroscopyPage() {
               </h1>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-teal-300">
+                <Link href="/contact?category=knee&procedure=ACL+(Anterior+Cruciate+Ligament)+Reconstruction" className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-teal-300">
                   Book Consultation <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -284,7 +284,7 @@ export default function KneeArthroscopyPage() {
                     <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
                     {/* 1. Added inline style to guarantee single line display */}
                     <Link
-                      href="/contact"
+                      href="/contact?category=knee&procedure=ACL+(Anterior+Cruciate+Ligament)+Reconstruction"
                       className="block w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 rounded-md hover:bg-teal-300 transition-colors"
                       style={{ whiteSpace: 'nowrap' }}
                     >

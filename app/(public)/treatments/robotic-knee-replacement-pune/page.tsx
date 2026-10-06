@@ -151,7 +151,7 @@ export default function ACLTreatmentPage() {
               </h1>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-teal-300">
+                <Link href="/contact?category=robotic_joint&procedure=Robotic-Assisted+Knee+Replacement" className="inline-flex items-center gap-2 rounded-full bg-teal-400 px-6 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-teal-300">
                   Book Consultation <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -316,7 +316,7 @@ export default function ACLTreatmentPage() {
                     <h3 className="font-heading font-semibold text-secondary mb-4">Book a Consultation</h3>
                     {/* Explicit layout overrides using flex centering, text tracking, and custom padding to ensure safe single line placement */}
                     <Link
-                      href="/contact"
+                      href="/contact?category=robotic_joint&procedure=Robotic-Assisted+Knee+Replacement"
                       className="flex items-center justify-center w-full text-center bg-teal-400 text-slate-950 font-semibold py-3 px-1 rounded-md hover:bg-teal-300 transition-colors tracking-tight text-sm md:text-base"
                       style={{ whiteSpace: 'nowrap' }}
                     >

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Search, Filter, Mail, Phone, Calendar, Clock, CheckCircle, Trash2, Users, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Search, Filter, Mail, Phone, Calendar, Clock, CheckCircle, Trash2, Users, CheckCircle2, AlertCircle, Stethoscope, Sparkles } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { supabase, Contact } from '@/lib/supabase';
 import { getSession } from '@/lib/auth';
@@ -13,6 +13,60 @@ import { Loading } from '@/components/Loading';
 import { AdminLayout } from '@/components/AdminLayout';
 
 type FilterType = 'all' | 'general' | 'appointment';
+
+interface ClinicalMetadata {
+  procedure?: string;
+  category?: string;
+  purpose?: string;
+  urgency?: string;
+  preferredContact?: string;
+}
+
+function parseClinicalMessage(fullMessage: string): { metadata: ClinicalMetadata | null; notes: string } {
+  if (!fullMessage || !fullMessage.includes('--- CLINICAL INQUIRY METADATA ---')) {
+    return { metadata: null, notes: fullMessage };
+  }
+
+  try {
+    const metadata: ClinicalMetadata = {};
+    const lines = fullMessage.split('\n');
+    let isParsingMeta = false;
+    let notesLines: string[] = [];
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (line.includes('--- CLINICAL INQUIRY METADATA ---')) {
+        isParsingMeta = true;
+        continue;
+      }
+      if (line.startsWith('---------------------------------')) {
+        isParsingMeta = false;
+        continue;
+      }
+      if (line.startsWith('Patient Clinical Notes')) {
+        isParsingMeta = false;
+        continue;
+      }
+
+      if (isParsingMeta) {
+        if (line.startsWith('Procedure / Surgery:')) metadata.procedure = line.replace('Procedure / Surgery:', '').trim();
+        else if (line.startsWith('Specialty Category:')) metadata.category = line.replace('Specialty Category:', '').trim();
+        else if (line.startsWith('Consultation Purpose:')) metadata.purpose = line.replace('Consultation Purpose:', '').trim();
+        else if (line.startsWith('Target Timeline:')) metadata.urgency = line.replace('Target Timeline:', '').trim();
+        else if (line.startsWith('Preferred Contact Method:')) metadata.preferredContact = line.replace('Preferred Contact Method:', '').trim();
+      } else if (!line.startsWith('---') && !line.startsWith('----------------')) {
+        notesLines.push(lines[i]);
+      }
+    }
+
+    return {
+      metadata: (metadata.procedure || metadata.category) ? metadata : null,
+      notes: notesLines.join('\n').trim() || 'No additional notes provided.',
+    };
+  } catch {
+    return { metadata: null, notes: fullMessage };
+  }
+}
 
 export default function AdminContactsPage() {
   const [contacts, setContacts] = useState<Contact[]>([]);
@@ -32,7 +86,15 @@ export default function AdminContactsPage() {
 
   useEffect(() => {
     let filtered = [...contacts];
-    if (search) filtered = filtered.filter((c) => c.name.toLowerCase().includes(search.toLowerCase()) || c.email.toLowerCase().includes(search.toLowerCase()) || c.message.toLowerCase().includes(search.toLowerCase()));
+    if (search) {
+      const s = search.toLowerCase();
+      filtered = filtered.filter((c) => 
+        c.name.toLowerCase().includes(s) || 
+        c.email.toLowerCase().includes(s) || 
+        c.phone.toLowerCase().includes(s) || 
+        c.message.toLowerCase().includes(s)
+      );
+    }
     if (filter !== 'all') filtered = filtered.filter((c) => c.contact_type === filter);
     setFilteredContacts(filtered);
   }, [search, filter, contacts]);
@@ -128,7 +190,7 @@ export default function AdminContactsPage() {
   return (
     <AdminLayout>
       <div className="space-y-6">
-        <h2 className="text-3xl font-heading font-bold text-secondary">Contacts & Appointments</h2>
+        <h2 className="text-3xl font-heading font-bold text-secondary">Contacts & Clinical Inquiries</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {statsConfig.map((stat) => {
@@ -163,7 +225,7 @@ export default function AdminContactsPage() {
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-neutral-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search by name, email, phone or message..."
+                placeholder="Search by patient name, procedure, category, phone..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="w-full pl-12 pr-4 py-3 rounded-2xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 text-neutral-700 bg-neutral-50/30"
@@ -201,142 +263,187 @@ export default function AdminContactsPage() {
           <Card><p className="text-center text-neutral-600 py-8">No contacts found</p></Card>
         ) : (
           <div className="space-y-4">
-            {filteredContacts.map((contact) => (
-              <motion.div key={contact.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-                <Card
-                  className={`border-l-4 ${
-                    contact.contact_type === 'appointment' ? 'border-primary' : 'border-secondary'
-                  } bg-white shadow-soft hover:shadow-md transition-shadow`}
-                >
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-                    <div className="flex-1 space-y-4">
-                      <div className="flex items-center gap-2.5 flex-wrap">
-                        <span
-                          className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                            contact.contact_type === 'appointment'
-                              ? 'bg-teal-50 text-teal-700 border border-teal-100'
-                              : 'bg-blue-50 text-blue-700 border border-blue-100'
-                          }`}
-                        >
-                          {contact.contact_type === 'appointment' ? 'Appointment Request' : 'General Inquiry'}
-                        </span>
-                        
-                        {contact.is_contacted ? (
-                          <span className="flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-100">
-                            <CheckCircle2 className="w-3.5 h-3.5" />
-                            Contacted
-                          </span>
-                        ) : (
-                          <span className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-100">
-                            <span className="relative flex h-2 w-2">
-                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-                            </span>
-                            Pending
-                          </span>
-                        )}
-                      </div>
+            {filteredContacts.map((contact) => {
+              const { metadata, notes } = parseClinicalMessage(contact.message);
 
-                      <div>
-                        <h3 className="text-xl font-bold text-secondary mb-3">{contact.name}</h3>
-                        
-                        <div className="flex flex-wrap gap-4 items-center text-sm text-neutral-600 bg-neutral-50 p-3 rounded-xl border border-neutral-100">
-                          <div className="flex items-center gap-2">
-                            <Mail className="w-4 h-4 text-teal-600" />
-                            <a href={`mailto:${contact.email}`} className="hover:text-primary transition-colors font-medium text-neutral-700">
-                              {contact.email}
-                            </a>
-                          </div>
-                          <div className="w-1.5 h-1.5 bg-neutral-300 rounded-full hidden sm:block" />
-                          <div className="flex items-center gap-2">
-                            <Phone className="w-4 h-4 text-teal-600" />
-                            <a href={`tel:${contact.phone}`} className="hover:text-primary transition-colors font-medium text-neutral-700">
-                              {contact.phone}
-                            </a>
+              return (
+                <motion.div key={contact.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+                  <Card
+                    className={`border-l-4 ${
+                      contact.contact_type === 'appointment' ? 'border-primary' : 'border-secondary'
+                    } bg-white shadow-soft hover:shadow-md transition-shadow`}
+                  >
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+                      <div className="flex-1 space-y-4">
+                        <div className="flex items-center gap-2.5 flex-wrap">
+                          <span
+                            className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                              contact.contact_type === 'appointment'
+                                ? 'bg-teal-50 text-teal-700 border border-teal-100'
+                                : 'bg-blue-50 text-blue-700 border border-blue-100'
+                            }`}
+                          >
+                            {contact.contact_type === 'appointment' ? 'Appointment Request' : 'General Inquiry'}
+                          </span>
+                          
+                          {contact.is_contacted ? (
+                            <span className="flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-100">
+                              <CheckCircle2 className="w-3.5 h-3.5" />
+                              Contacted
+                            </span>
+                          ) : (
+                            <span className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-100">
+                              <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                              </span>
+                              Pending Action
+                            </span>
+                          )}
+                        </div>
+
+                        <div>
+                          <h3 className="text-xl font-bold text-secondary mb-3">{contact.name}</h3>
+                          
+                          <div className="flex flex-wrap gap-4 items-center text-sm text-neutral-600 bg-neutral-50 p-3 rounded-xl border border-neutral-100 mb-4">
+                            <div className="flex items-center gap-2">
+                              <Mail className="w-4 h-4 text-teal-600" />
+                              <a href={`mailto:${contact.email}`} className="hover:text-primary transition-colors font-medium text-neutral-700">
+                                {contact.email}
+                              </a>
+                            </div>
+                            <div className="w-1.5 h-1.5 bg-neutral-300 rounded-full hidden sm:block" />
+                            <div className="flex items-center gap-2">
+                              <Phone className="w-4 h-4 text-teal-600" />
+                              <a href={`tel:${contact.phone}`} className="hover:text-primary transition-colors font-semibold text-teal-800">
+                                {contact.phone}
+                              </a>
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      {contact.contact_type === 'appointment' && contact.appointment_date && (
-                        <div className="flex items-stretch gap-4 border border-teal-100 bg-gradient-to-r from-teal-50/70 to-emerald-50/20 rounded-2xl p-4">
-                          <div className="flex flex-col items-center justify-center bg-white border border-teal-200 rounded-xl px-4 py-2 shadow-sm min-w-[80px]">
-                            <span className="text-xs font-bold text-teal-600 uppercase tracking-wider">
-                              {new Date(contact.appointment_date).toLocaleDateString('en-IN', { month: 'short' })}
-                            </span>
-                            <span className="text-2xl font-extrabold text-secondary">
-                              {new Date(contact.appointment_date).toLocaleDateString('en-IN', { day: 'numeric' })}
-                            </span>
-                          </div>
-                          <div className="flex flex-col justify-center">
-                            <p className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-1">Requested Schedule</p>
-                            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm font-semibold text-secondary">
-                              <div className="flex items-center gap-1.5">
-                                <Calendar className="w-4 h-4 text-teal-600" />
-                                {new Date(contact.appointment_date).toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric' })}
-                              </div>
-                              {contact.appointment_time && (
-                                <div className="flex items-center gap-1.5">
-                                  <Clock className="w-4 h-4 text-teal-600" />
-                                  {contact.appointment_time}
+                        {/* CLINICAL PROCEDURE CALLOUT BADGE */}
+                        {metadata && (
+                          <div className="bg-gradient-to-r from-teal-950 via-slate-900 to-slate-950 text-white rounded-2xl p-4 border border-teal-500/40 shadow-md">
+                            <div className="flex items-center justify-between gap-2 border-b border-teal-800/60 pb-2 mb-2">
+                              <span className="text-xs font-bold text-teal-300 uppercase tracking-wider flex items-center gap-1.5">
+                                <Stethoscope className="w-4 h-4 text-teal-400" /> Targeted Procedure / Surgery
+                              </span>
+                              {metadata.category && (
+                                <span className="text-[11px] font-semibold bg-teal-500/20 text-teal-200 border border-teal-400/30 px-2.5 py-0.5 rounded-full">
+                                  {metadata.category}
+                                </span>
+                              )}
+                            </div>
+
+                            <div className="text-lg font-extrabold text-white mb-2">
+                              {metadata.procedure || 'Specialist Consultation'}
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-slate-300 pt-1">
+                              {metadata.purpose && (
+                                <div className="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700">
+                                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Purpose</span>
+                                  <span className="font-semibold text-teal-200">{metadata.purpose}</span>
+                                </div>
+                              )}
+                              {metadata.urgency && (
+                                <div className="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700">
+                                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Timeline</span>
+                                  <span className="font-semibold text-amber-300">{metadata.urgency}</span>
+                                </div>
+                              )}
+                              {metadata.preferredContact && (
+                                <div className="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700">
+                                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Preferred Contact</span>
+                                  <span className="font-semibold text-sky-200">{metadata.preferredContact}</span>
                                 </div>
                               )}
                             </div>
                           </div>
+                        )}
+
+                        {contact.contact_type === 'appointment' && contact.appointment_date && (
+                          <div className="flex items-stretch gap-4 border border-teal-100 bg-gradient-to-r from-teal-50/70 to-emerald-50/20 rounded-2xl p-4">
+                            <div className="flex flex-col items-center justify-center bg-white border border-teal-200 rounded-xl px-4 py-2 shadow-sm min-w-[80px]">
+                              <span className="text-xs font-bold text-teal-600 uppercase tracking-wider">
+                                {new Date(contact.appointment_date).toLocaleDateString('en-IN', { month: 'short' })}
+                              </span>
+                              <span className="text-2xl font-extrabold text-secondary">
+                                {new Date(contact.appointment_date).toLocaleDateString('en-IN', { day: 'numeric' })}
+                              </span>
+                            </div>
+                            <div className="flex flex-col justify-center">
+                              <p className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-1">Requested Schedule</p>
+                              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm font-semibold text-secondary">
+                                <div className="flex items-center gap-1.5">
+                                  <Calendar className="w-4 h-4 text-teal-600" />
+                                  {new Date(contact.appointment_date).toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric' })}
+                                </div>
+                                {contact.appointment_time && (
+                                  <div className="flex items-center gap-1.5">
+                                    <Clock className="w-4 h-4 text-teal-600" />
+                                    {contact.appointment_time}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="border-l-2 border-neutral-300 pl-4 py-1 italic text-neutral-700 bg-neutral-50/50 rounded-r-lg pr-2 text-sm">
+                          "{notes}"
                         </div>
-                      )}
 
-                      <div className="border-l-2 border-neutral-300 pl-4 py-1 italic text-neutral-700 bg-neutral-50/50 rounded-r-lg pr-2 text-base">
-                        "{contact.message}"
+                        <div className="flex items-center gap-1.5 text-xs text-neutral-400 pt-1">
+                          <Clock className="w-3.5 h-3.5" />
+                          <span>Submitted on {new Date(contact.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true })}</span>
+                        </div>
                       </div>
 
-                      <div className="flex items-center gap-1.5 text-xs text-neutral-400 pt-1">
-                        <Clock className="w-3.5 h-3.5" />
-                        <span>Submitted on {new Date(contact.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true })}</span>
-                      </div>
-                    </div>
-
-                    <div className="flex sm:flex-row lg:flex-col gap-2.5 min-w-[180px] justify-end lg:justify-start pt-2 lg:pt-0 border-t lg:border-t-0 border-neutral-100">
-                      <Button
-                        variant={contact.is_contacted ? 'outline' : 'primary'}
-                        onClick={() => handleToggleContacted(contact.id, contact.is_contacted)}
-                        className="w-full text-sm py-2.5 flex items-center justify-center gap-2 border-2"
-                      >
-                        <CheckCircle className="w-4 h-4" />
-                        <span>{contact.is_contacted ? 'Mark Pending' : 'Mark Contacted'}</span>
-                      </Button>
-                      
-                      {deleteConfirmId === contact.id ? (
-                        <div className="flex gap-2 w-full">
-                          <Button
-                            variant="primary"
-                            onClick={() => handleDelete(contact.id)}
-                            className="flex-1 text-xs py-2.5 bg-red-600 hover:bg-red-700 text-white border-0 shadow-sm"
-                          >
-                            Confirm
-                          </Button>
+                      <div className="flex sm:flex-row lg:flex-col gap-2.5 min-w-[180px] justify-end lg:justify-start pt-2 lg:pt-0 border-t lg:border-t-0 border-neutral-100">
+                        <Button
+                          variant={contact.is_contacted ? 'outline' : 'primary'}
+                          onClick={() => handleToggleContacted(contact.id, contact.is_contacted)}
+                          className="w-full text-sm py-2.5 flex items-center justify-center gap-2 border-2"
+                        >
+                          <CheckCircle className="w-4 h-4" />
+                          <span>{contact.is_contacted ? 'Mark Pending' : 'Mark Contacted'}</span>
+                        </Button>
+                        
+                        {deleteConfirmId === contact.id ? (
+                          <div className="flex gap-2 w-full">
+                            <Button
+                              variant="primary"
+                              onClick={() => handleDelete(contact.id)}
+                              className="flex-1 text-xs py-2.5 bg-red-600 hover:bg-red-700 text-white border-0 shadow-sm"
+                            >
+                              Confirm
+                            </Button>
+                            <Button
+                              variant="outline"
+                              onClick={() => setDeleteConfirmId(null)}
+                              className="flex-1 text-xs py-2.5 border-neutral-300 text-neutral-700 hover:bg-neutral-100"
+                            >
+                              Cancel
+                            </Button>
+                          </div>
+                        ) : (
                           <Button
                             variant="outline"
-                            onClick={() => setDeleteConfirmId(null)}
-                            className="flex-1 text-xs py-2.5 border-neutral-300 text-neutral-700 hover:bg-neutral-100"
+                            onClick={() => setDeleteConfirmId(contact.id)}
+                            className="w-full text-sm py-2.5 flex items-center justify-center gap-2 border-2 border-red-200 text-red-600 hover:bg-red-50 hover:border-red-300"
                           >
-                            Cancel
+                            <Trash2 className="w-4 h-4" />
+                            <span>Delete</span>
                           </Button>
-                        </div>
-                      ) : (
-                        <Button
-                          variant="outline"
-                          onClick={() => setDeleteConfirmId(contact.id)}
-                          className="w-full text-sm py-2.5 flex items-center justify-center gap-2 border-2 border-red-200 text-red-600 hover:bg-red-50 hover:border-red-300"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                          <span>Delete</span>
-                        </Button>
-                      )}
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         )}
       </div>
