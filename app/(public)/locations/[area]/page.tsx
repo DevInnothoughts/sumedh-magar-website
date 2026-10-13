@@ -100,7 +100,7 @@ export default async function LocationPage({ params }: { params: Promise<{ area:
       addressCountry: 'IN',
     },
     geo: { '@type': 'GeoCoordinates', latitude: 18.5786803, longitude: 73.7682788 },
-    openingHours: ['Mo-Sa 09:00-18:00'],
+    openingHours: ['Mo-Fr 14:00-20:00', 'Sa-Su 10:00-13:00'],
     medicalSpecialty: 'OrthopedicSurgery',
     areaServed: { '@type': 'City', name: 'Pune' },
   };
@@ -210,7 +210,20 @@ export default async function LocationPage({ params }: { params: Promise<{ area:
                     </li>
                     <li className="flex items-start gap-3">
                       <Clock className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-neutral-600 text-sm">Mon–Sat: 9am–6pm<br />Sunday: By appointment</span>
+                      <div className="text-neutral-600 text-sm space-y-1">
+                        <div>
+                          <strong className="text-secondary font-medium">I-SPORT Medical Centre:</strong>
+                          <br />
+                          Mon–Fri: 2:00 PM – 8:00 PM
+                          <br />
+                          Sat–Sun: 10:00 AM – 1:00 PM
+                        </div>
+                        <div className="pt-1 border-t border-neutral-100">
+                          <strong className="text-secondary font-medium">Ruby Hall Clinic:</strong>
+                          <br />
+                          Tue &amp; Fri: 10:00 AM – 1:00 PM
+                        </div>
+                      </div>
                     </li>
                   </ul>
                   <Link href="/contact" className="block w-full text-center btn-primary mt-4">Book Appointment</Link>

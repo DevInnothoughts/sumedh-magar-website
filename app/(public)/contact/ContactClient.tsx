@@ -7,6 +7,7 @@ import {
   Phone,
   Mail,
   Clock,
+  Building2,
   Send,
   CheckCircle2,
   Calendar,
@@ -181,6 +182,7 @@ type FormData = {
   needsAppointment: boolean;
   appointmentDate?: string;
   appointmentTime?: string;
+  consultationLocation?: string;
   website?: string; // Honeypot anti-spam field
 };
 
@@ -252,6 +254,7 @@ function ContactFormInner() {
     const problemText = data.problem.trim();
 
     // Build structured message format for reliable Supabase & admin viewing
+    const locationNote = data.needsAppointment && data.consultationLocation ? `Preferred Location: ${data.consultationLocation}\n` : '';
     const structuredMessage = `
 --- CLINICAL INQUIRY METADATA ---
 Procedure / Surgery: ${problemText}
@@ -259,7 +262,7 @@ Specialty Category: ${categoryName}
 Consultation Purpose: ${consultationPurpose}
 Target Timeline: ${urgencyTimeline}
 Preferred Contact Method: ${preferredContactMethod}
----------------------------------
+${locationNote}---------------------------------
 
 Patient Clinical Notes / Additional Message:
 ${data.message || 'No additional notes provided.'}
@@ -301,6 +304,7 @@ ${data.message || 'No additional notes provided.'}
             contact_type: data.needsAppointment ? 'appointment' : 'general',
             appointment_date: data.appointmentDate || null,
             appointment_time: data.appointmentTime || null,
+            location: data.consultationLocation || (data.needsAppointment ? 'I-SPORT Medical Centre' : undefined),
             website: data.website || '',
           }),
         });
@@ -416,9 +420,8 @@ ${data.message || 'No additional notes provided.'}
                 handleCategorySelect(e.target.value);
                 setValidationError(null);
               }}
-              className={`w-full px-4 py-3 rounded-xl border text-sm font-medium focus:outline-none focus:border-primary appearance-none cursor-pointer ${
-                selectedCategoryId ? 'bg-neutral-50/50 text-neutral-800' : 'bg-neutral-50/50 text-neutral-400'
-              } border-neutral-200`}
+              className={`w-full px-4 py-3 rounded-xl border text-sm font-medium focus:outline-none focus:border-primary appearance-none cursor-pointer ${selectedCategoryId ? 'bg-neutral-50/50 text-neutral-800' : 'bg-neutral-50/50 text-neutral-400'
+                } border-neutral-200`}
             >
               <option value="" disabled className="text-neutral-400">
                 Select Specialty...
@@ -458,9 +461,8 @@ ${data.message || 'No additional notes provided.'}
                 setConsultationPurpose(e.target.value);
                 setValidationError(null);
               }}
-              className={`w-full px-4 py-3 rounded-xl border text-sm font-medium focus:outline-none focus:border-primary appearance-none cursor-pointer ${
-                consultationPurpose ? 'bg-neutral-50/50 text-neutral-800' : 'bg-neutral-50/50 text-neutral-400'
-              } border-neutral-200`}
+              className={`w-full px-4 py-3 rounded-xl border text-sm font-medium focus:outline-none focus:border-primary appearance-none cursor-pointer ${consultationPurpose ? 'bg-neutral-50/50 text-neutral-800' : 'bg-neutral-50/50 text-neutral-400'
+                } border-neutral-200`}
             >
               <option value="" disabled className="text-neutral-400">
                 Select Purpose...
@@ -519,27 +521,54 @@ ${data.message || 'No additional notes provided.'}
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1 overflow-hidden"
+              className="space-y-4 pt-1 overflow-hidden"
             >
-              <div>
-                <label className="block text-sm font-semibold text-neutral-700 mb-1">Preferred Date</label>
-                <input
-                  {...register('appointmentDate')}
-                  type="date"
-                  className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-primary"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-neutral-700 mb-1">Preferred Location</label>
+                  <select
+                    {...register('consultationLocation')}
+                    defaultValue="I-SPORT Medical Centre (Balewadi)"
+                    className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-primary bg-white"
+                  >
+                    <option value="I-SPORT Medical Centre (Balewadi)">I-SPORT Medical Centre, Balewadi</option>
+                    <option value="Ruby Hall Clinic (Pune)">Ruby Hall Clinic (Tue &amp; Fri only)</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-neutral-700 mb-1">Preferred Date</label>
+                  <input
+                    {...register('appointmentDate')}
+                    type="date"
+                    className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-primary"
+                  />
+                </div>
               </div>
+
               <div>
                 <label className="block text-sm font-semibold text-neutral-700 mb-1">Preferred Time Slot</label>
                 <select
                   {...register('appointmentTime')}
                   className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-primary bg-white"
                 >
-                  <option value="">Select time</option>
-                  {['09:00 AM', '11:00 AM', '02:00 PM', '04:00 PM', '06:00 PM'].map(t => (
-                    <option key={t} value={t}>{t}</option>
-                  ))}
+                  <option value="">Select time slot</option>
+                  <optgroup label="Morning (Sat–Sun at I-SPORT / Tue &amp; Fri at Ruby Hall)">
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                  </optgroup>
+                  <optgroup label="Evening (Mon–Fri at I-SPORT)">
+                    <option value="02:00 PM">02:00 PM</option>
+                    <option value="03:00 PM">03:00 PM</option>
+                    <option value="04:00 PM">04:00 PM</option>
+                    <option value="05:00 PM">05:00 PM</option>
+                    <option value="06:00 PM">06:00 PM</option>
+                    <option value="07:00 PM">07:00 PM</option>
+                  </optgroup>
                 </select>
+                <p className="text-xs text-neutral-500 mt-1">
+                  Hours: I-SPORT Mon–Fri 2:00–8:00 PM, Sat–Sun 10:00 AM–1:00 PM | Ruby Hall Tue &amp; Fri 10:00 AM–1:00 PM
+                </p>
               </div>
             </motion.div>
           )}
@@ -622,8 +651,8 @@ export default function ContactClient() {
               {[
                 { icon: MapPin, title: 'Clinic Address', desc: <>Shp 9-13 UPPER GROUND FLOOR<br />Madhukosh Society<br />Balewadi, Pune 411045</> },
                 { icon: Phone, title: 'Phone / Whatsapp', desc: <><a href="tel:+919145517171" className="hover:text-primary font-medium transition-colors">+91 9145517171</a><br /><a href="tel:+912067813869" className="hover:text-primary transition-colors">+91 02067813869</a></> },
-                { icon: Mail, title: 'Email', desc: <><a href="mailto:sumedh@isportmedicalcentre.com" className="hover:text-primary transition-colors block truncate">sumedh@isportmedicalcentre.com</a><a href="mailto:admin@isportmedicalcentre.com" className="hover:text-primary transition-colors block truncate">admin@isportmedicalcentre.com</a></> },
-                { icon: Clock, title: 'Clinic Hours', desc: <>Monday - Saturday: 9:00 AM - 6:00 PM<br />Sunday: By Appointment Only</> },
+                { icon: Mail, title: 'Email', desc: <><a href="mailto:sumedh@isportmedicalcentre.com" className="hover:text-primary transition-colors block truncate">sumedh@isportmedicalcentre.com</a></> },
+                { icon: Clock, title: 'Clinic Hours', desc: <>Monday – Friday: 2:00 PM – 8:00 PM<br />Saturday – Sunday: 10:00 AM – 1:00 PM</> },
               ].map((item, index) => (
                 <Card key={index} className="p-5 border border-neutral-200/80 shadow-sm hover:border-primary/20 transition-all duration-300">
                   <div className="flex items-start space-x-4">
@@ -635,6 +664,26 @@ export default function ContactClient() {
                   </div>
                 </Card>
               ))}
+
+              {/* Visiting Consultation: Ruby Hall Clinic */}
+              <div className="pt-2">
+                <Card className="p-5 border border-neutral-200/80 shadow-sm hover:border-primary/20 transition-all duration-300 bg-neutral-50/60">
+                  <div className="flex items-start space-x-4">
+                    <Building2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="font-heading font-bold text-secondary text-base mb-0.5">Ruby Hall Clinic</h3>
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Hospital OPD Consultation</p>
+                      <div className="text-neutral-600 text-sm leading-relaxed space-y-1">
+                        <div className="flex items-center gap-1.5 font-medium text-slate-800">
+                          <Clock className="w-4 h-4 text-primary shrink-0" />
+                          <span>Tuesday &amp; Friday: 10:00 AM – 1:00 PM</span>
+                        </div>
+                        <p className="text-xs text-neutral-500 pt-0.5">Pune, Maharashtra</p>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </div>
             </div>
 
             {/* Right Column: Redesigned Procedure Form */}

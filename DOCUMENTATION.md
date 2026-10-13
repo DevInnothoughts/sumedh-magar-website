@@ -380,6 +380,8 @@ Contact and appointment request page. Features:
 - Address: Shop No. 9-13, Madhukosh Society, Balewadi, Pune 411045
 - Phone: +91 9145517171 / +91 02067813869
 - Email: sumedh@isportmedicalcentre.com
+- Hours (I-SPORT Medical Centre): Mon – Fri: 2:00 PM – 8:00 PM | Sat – Sun: 10:00 AM – 1:00 PM
+- Visiting Hours (Ruby Hall Clinic): Tue &amp; Fri: 10:00 AM – 1:00 PM
 
 **Database writes:** `contacts`
 

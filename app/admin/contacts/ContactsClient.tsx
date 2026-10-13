@@ -20,6 +20,7 @@ interface ClinicalMetadata {
   purpose?: string;
   urgency?: string;
   preferredContact?: string;
+  location?: string;
 }
 
 function parseClinicalMessage(fullMessage: string): { metadata: ClinicalMetadata | null; notes: string } {
@@ -54,6 +55,7 @@ function parseClinicalMessage(fullMessage: string): { metadata: ClinicalMetadata
         else if (line.startsWith('Consultation Purpose:')) metadata.purpose = line.replace('Consultation Purpose:', '').trim();
         else if (line.startsWith('Target Timeline:')) metadata.urgency = line.replace('Target Timeline:', '').trim();
         else if (line.startsWith('Preferred Contact Method:')) metadata.preferredContact = line.replace('Preferred Contact Method:', '').trim();
+        else if (line.startsWith('Preferred Location:')) metadata.location = line.replace('Preferred Location:', '').trim();
       } else if (!line.startsWith('---') && !line.startsWith('----------------')) {
         notesLines.push(lines[i]);
       }
@@ -357,6 +359,12 @@ export default function AdminContactsPage() {
                                 <div className="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700">
                                   <span className="text-slate-400 block text-[10px] uppercase font-bold">Preferred Contact</span>
                                   <span className="font-semibold text-sky-200">{metadata.preferredContact}</span>
+                                </div>
+                              )}
+                              {metadata.location && (
+                                <div className="bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700 sm:col-span-3">
+                                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Requested Location</span>
+                                  <span className="font-semibold text-emerald-300">{metadata.location}</span>
                                 </div>
                               )}
                             </div>

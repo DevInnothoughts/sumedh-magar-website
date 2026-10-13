@@ -182,14 +182,25 @@ export const Footer = () => {
                 <Facebook className="w-4 h-4" />
               </a>
             </div>
-            <div className="mt-6">
-              <p className="text-sm text-neutral-300">
-                <strong>Clinic Hours:</strong>
-                <br />
-                Mon - Sat: 9:00 AM - 6:00 PM
-                <br />
-                Sunday: By Appointment
-              </p>
+            <div className="mt-6 space-y-3">
+              <div>
+                <p className="text-sm font-semibold text-white">
+                  I-SPORT Medical Centre:
+                </p>
+                <p className="text-sm text-neutral-300">
+                  Mon – Fri: 2:00 PM – 8:00 PM
+                  <br />
+                  Sat – Sun: 10:00 AM – 1:00 PM
+                </p>
+              </div>
+              <div className="pt-2 border-t border-secondary-600/60">
+                <p className="text-sm font-semibold text-white">
+                  Ruby Hall Clinic:
+                </p>
+                <p className="text-sm text-neutral-300">
+                  Tue &amp; Fri: 10:00 AM – 1:00 PM
+                </p>
+              </div>
             </div>
           </div>
         </div>

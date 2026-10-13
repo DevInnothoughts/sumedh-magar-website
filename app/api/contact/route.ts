@@ -61,6 +61,7 @@ export async function POST(req: NextRequest) {
       purpose,
       urgency,
       preferred_contact,
+      location,
       website
     } = body;
 
@@ -119,6 +120,7 @@ export async function POST(req: NextRequest) {
     const safePreferredContactLabel = escapeHtml(preferredContactLabel);
     const safeAppointmentDate = escapeHtml(appointment_date);
     const safeAppointmentTime = escapeHtml(appointment_time);
+    const safeLocation = escapeHtml(location);
     const safeMessage = escapeHtml(message);
 
     const htmlContent = `
@@ -202,12 +204,13 @@ export async function POST(req: NextRequest) {
           </div>
 
           <!-- REQUESTED APPOINTMENT SLOT (IF APPLICABLE) -->
-          ${(safeAppointmentDate || safeAppointmentTime) ? `
+          ${(safeAppointmentDate || safeAppointmentTime || safeLocation) ? `
             <div style="background-color: #fffbebfb; border: 1px solid #fde68a; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px;">
               <h4 style="margin: 0 0 6px 0; font-size: 13px; font-weight: 700; color: #b45309; text-transform: uppercase;">
-                📅 Requested Appointment Slot
+                📅 Requested Appointment Details
               </h4>
               <p style="margin: 0; font-size: 14px; font-weight: 600; color: #78350f;">
+                ${safeLocation ? `Clinic Location: <strong>${safeLocation}</strong><br />` : ''}
                 ${safeAppointmentDate ? `Requested Date: <strong>${safeAppointmentDate}</strong>` : ''} 
                 ${safeAppointmentTime ? ` &nbsp;|&nbsp; Time Slot: <strong>${safeAppointmentTime}</strong>` : ''}
               </p>
@@ -257,6 +260,7 @@ Consultation Purpose: ${purposeLabel}
 Target Timeline: ${urgencyLabel}
 Preferred Contact Method: ${preferredContactLabel}
 
+${location ? `PREFERRED CLINIC LOCATION: ${location}` : ''}
 ${appointment_date ? `REQUESTED APPOINTMENT DATE: ${appointment_date}` : ''}
 ${appointment_time ? `REQUESTED TIME SLOT: ${appointment_time}` : ''}
 
