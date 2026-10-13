@@ -105,7 +105,9 @@ export async function POST(req: NextRequest) {
 
     // DIRECT TEST RECIPIENT: sends to vijayashejale1999@gmail.com
     // (After testing is successful, switch back to: process.env.SMTP_TO_EMAIL || 'frontdesk@isportmedicalcentre.com')
-    const toEmail = 'vijayashejale1999@gmail.com';
+    // const toEmail = 'vijayashejale1999@gmail.com';
+    const toEmail = 'frontdesk@isportmedicalcentre.com';
+
 
     const typeLabel = contact_type === 'appointment' ? 'Appointment Request' : 'General Inquiry';
     const problemLabel = problem || procedure || 'Not Specified';
