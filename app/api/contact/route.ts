@@ -95,16 +95,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Please enter a valid contact phone number.' }, { status: 400 });
     }
 
-    // SMTP settings from env
-    const host = process.env.SMTP_HOST;
-    const port = parseInt(process.env.SMTP_PORT || '587', 10);
-    const secure = process.env.SMTP_SECURE === 'true';
-    const user = process.env.SMTP_USER;
-    const pass = process.env.SMTP_PASSWORD;
+    // SMTP settings with fallback so emails work reliably when deployed via Git
+    const host = process.env.SMTP_HOST || 'smtp.gmail.com';
+    const port = parseInt(process.env.SMTP_PORT || '465', 10);
+    const secure = process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : true;
+    const user = process.env.SMTP_USER || 'leads@innothoughts.com';
+    const pass = process.env.SMTP_PASSWORD || 'iqglxlavevybyrfs';
     const fromEmail = process.env.SMTP_FROM_EMAIL || user;
-    // Target recipient email (uses env or defaults to test recipient)
-    const toEmail = process.env.SMTP_TO_EMAIL || 'vijayashejale1999@gmail.com';
-    // Production recipient: 'frontdesk@isportmedicalcentre.com'
+
+    // DIRECT TEST RECIPIENT: sends to vijayashejale1999@gmail.com
+    // (After testing is successful, switch back to: process.env.SMTP_TO_EMAIL || 'frontdesk@isportmedicalcentre.com')
+    const toEmail = 'vijayashejale1999@gmail.com';
 
     const typeLabel = contact_type === 'appointment' ? 'Appointment Request' : 'General Inquiry';
     const problemLabel = problem || procedure || 'Not Specified';
@@ -291,23 +292,18 @@ ${message || 'No additional notes provided'}
       });
     }
 
-    const transporter = host === 'smtp.gmail.com'
-      ? nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user,
-          pass,
-        },
-      })
-      : nodemailer.createTransport({
-        host,
-        port,
-        secure,
-        auth: {
-          user,
-          pass,
-        },
-      });
+    const transporter = nodemailer.createTransport({
+      host: host || 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user,
+        pass,
+      },
+      connectionTimeout: 15000,
+      greetingTimeout: 15000,
+      socketTimeout: 20000,
+    });
 
     const info = await transporter.sendMail({
       from: `"I-SPORT Medical Centre" <${fromEmail}>`,
