@@ -285,7 +285,7 @@ ${data.message || 'No additional notes provided.'}
 
       // Trigger email notification with rich procedure details
       try {
-        await fetch('/api/contact', {
+        const emailResponse = await fetch('/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -308,6 +308,13 @@ ${data.message || 'No additional notes provided.'}
             website: data.website || '',
           }),
         });
+
+        const emailResult = await emailResponse.json().catch(() => ({}));
+        if (!emailResponse.ok) {
+          console.warn('Email API response warning:', emailResult);
+        } else {
+          console.log('Email sent successfully:', emailResult);
+        }
       } catch (emailError) {
         console.error('Failed to trigger email notification:', emailError);
       }

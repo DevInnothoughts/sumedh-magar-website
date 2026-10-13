@@ -5,9 +5,14 @@ import nodemailer from 'nodemailer';
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 
 function isRateLimited(ip: string): boolean {
+  // Allow unrestricted testing in local development
+  if (process.env.NODE_ENV !== 'production' || ip === 'anonymous' || ip === '127.0.0.1' || ip === '::1') {
+    return false;
+  }
+
   const now = Date.now();
   const limitWindow = 15 * 60 * 1000; // 15 minutes
-  const maxRequests = 5; // Max 5 inquiries per 15 min per IP
+  const maxRequests = 10; // Max 10 inquiries per 15 min per IP
 
   const record = rateLimitMap.get(ip);
   if (!record || now > record.resetTime) {
@@ -97,9 +102,9 @@ export async function POST(req: NextRequest) {
     const user = process.env.SMTP_USER;
     const pass = process.env.SMTP_PASSWORD;
     const fromEmail = process.env.SMTP_FROM_EMAIL || user;
+    // Target recipient email (uses env or defaults to test recipient)
     const toEmail = process.env.SMTP_TO_EMAIL || 'vijayashejale1999@gmail.com';
-
-    // const toEmail = process.env.SMTP_TO_EMAIL || 'frontdesk@isportmedicalcentre.com';
+    // Production recipient: 'frontdesk@isportmedicalcentre.com'
 
     const typeLabel = contact_type === 'appointment' ? 'Appointment Request' : 'General Inquiry';
     const problemLabel = problem || procedure || 'Not Specified';
