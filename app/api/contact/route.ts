@@ -97,9 +97,9 @@ export async function POST(req: NextRequest) {
     const user = process.env.SMTP_USER;
     const pass = process.env.SMTP_PASSWORD;
     const fromEmail = process.env.SMTP_FROM_EMAIL || user;
-    // const toEmail = process.env.SMTP_TO_EMAIL || 'vijayashejale1999@gmail.com';
+    const toEmail = process.env.SMTP_TO_EMAIL || 'vijayashejale1999@gmail.com';
 
-    const toEmail = process.env.SMTP_TO_EMAIL || 'frontdesk@isportmedicalcentre.com';
+    // const toEmail = process.env.SMTP_TO_EMAIL || 'frontdesk@isportmedicalcentre.com';
 
     const typeLabel = contact_type === 'appointment' ? 'Appointment Request' : 'General Inquiry';
     const problemLabel = problem || procedure || 'Not Specified';
