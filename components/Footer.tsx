@@ -12,9 +12,9 @@ export const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               {/* <Activity className="w-8 h-8 text-primary" /> */}
               <img
-                src="/logo.bmp"
+                src="/MAGAR_ORTHOPEDICS_LOGO.svg"
                 alt="Dr. Sumedh Magar Logo"
-                className="w-10 h-10 object-contain"
+                className="h-12 w-auto object-contain"
               />
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-lg leading-tight">Dr. Sumedh Magar</span>

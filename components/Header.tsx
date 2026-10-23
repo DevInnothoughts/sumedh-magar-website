@@ -109,20 +109,12 @@ export const Header = () => {
     >
       <div className="w-full max-w-[1350px] mx-auto h-full px-6 md:px-12 lg:px-16 flex items-center justify-between">
         {/* LOGO BLOCK */}
-        <Link href="/" className="flex items-center space-x-2 shrink-0">
+        <Link href="/" className="flex items-center shrink-0">
           <img
-            src="/logo.bmp"
+            src="/MAGAR_ORTHOPEDICS_LOGO.svg"
             alt="Dr. Sumedh Magar Logo"
-            className="w-14 h-14 object-contain"
+            className="h-14 md:h-24 w-auto object-contain"
           />
-          <div className="flex flex-col">
-            <span className="font-heading font-bold text-secondary text-base sm:text-lg leading-tight whitespace-nowrap">
-              Dr. Sumedh Magar
-            </span>
-            <span className="text-xs text-neutral-600 whitespace-nowrap">
-              Sports Orthopedic Surgeon
-            </span>
-          </div>
         </Link>
 
         {/* DESKTOP NAVIGATION */}
