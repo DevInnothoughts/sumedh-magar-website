@@ -1,153 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	  xmlns:xhtml="http://www.w3.org/1999/xhtml"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	  	  
-<!-- www.check-domains.com sitemap generator -->
 
-<url>
-   <loc>https://www.sportsurgeon.in/</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>1.0000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/about</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/sports-medicine</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/expertise</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/blog</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/gallery</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/contact</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/privacy-policy</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/terms-conditions</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/medical-disclaimer</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/treatments/robotic-knee-replacement-pune</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/treatments/shoulder-surgery-pune</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/treatments/knee-surgery-pune</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/treatments/joint-replacement-surgery-pune</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/treatments/hip-surgery-pune</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/treatments/regenerative-medicine</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/blog/joint-replacement-surgery-pune</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.6400</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/blog/hip-replacement-surgery-pune</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.6400</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/blog/shoulder-specialist-in-pune</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.6400</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/blog/robotic-knee-replacement-in-pune</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.6400</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/blog/best-orthopedic-surgeon-in-pune</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.6400</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/blog/best-sports-medicine-doctor</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.6400</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/blog/best-sports-medicine-doctor-in-pune</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.6400</priority>
-</url>
-<url>
-   <loc>https://www.sportsurgeon.in/blog/best-knee-specialist-in-pune-for-robotic-knee-replacement-surgery</loc>
-   <lastmod>2026-08-18T07:21:40+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.6400</priority>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+       <loc>https://www.sportsurgeon.in/</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>1.0000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/about</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/sports-medicine</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/blog</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/contact</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/expertise</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/privacy-policy</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/terms-conditions</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/medical-disclaimer</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/treatments/robotic-knee-replacement-pune</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/treatments/shoulder-surgery-pune</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/treatments/knee-surgery-pune</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/treatments/joint-replacement-surgery-pune</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/treatments/hip-surgery-pune</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/treatments/regenerative-medicine</loc>
+       <lastmod>2026-11-02T06:51:30+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/blog/acl-treatment-in-pune</loc>
+       <lastmod>2026-10-30T05:48:44+00:00</lastmod>
+       <priority>0.6400</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/blog/best-robotic-knee-replacement-in-pune</loc>
+       <lastmod>2026-10-28T06:01:14+00:00</lastmod>
+       <priority>0.6400</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/blog/regenerative-medicine</loc>
+       <lastmod>2026-09-08T09:38:22+00:00</lastmod>
+       <priority>0.6400</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/blog/joint-replacement-surgery-pune</loc>
+       <lastmod>2026-08-17T05:51:36+00:00</lastmod>
+       <priority>0.6400</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/blog/hip-replacement-surgery-pune</loc>
+       <lastmod>2026-08-17T05:49:14+00:00</lastmod>
+       <priority>0.6400</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/blog/shoulder-specialist-in-pune</loc>
+       <lastmod>2026-07-25T09:37:51+00:00</lastmod>
+       <priority>0.6400</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/blog/robotic-knee-replacement-in-pune</loc>
+       <lastmod>2026-07-14T05:06:22+00:00</lastmod>
+       <priority>0.6400</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/blog/best-orthopedic-surgeon-in-pune</loc>
+       <lastmod>2026-06-15T09:47:59+00:00</lastmod>
+       <priority>0.6400</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/blog/best-sports-medicine-doctor</loc>
+       <lastmod>2026-06-19T10:45:34+00:00</lastmod>
+       <priority>0.6400</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/blog/best-sports-medicine-doctor-in-pune</loc>
+       <lastmod>2026-06-19T10:45:59+00:00</lastmod>
+       <priority>0.6400</priority>
+  </url>
+  <url>
+       <loc>https://www.sportsurgeon.in/blog/best-knee-specialist-in-pune-for-robotic-knee-replacement-surgery</loc>
+       <lastmod>2026-05-26T08:02:36+00:00</lastmod>
+       <priority>0.6400</priority>
+  </url>
 </urlset>
