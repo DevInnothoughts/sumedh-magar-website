@@ -12,7 +12,7 @@ export const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               {/* <Activity className="w-8 h-8 text-primary" /> */}
               <img
-                src="/MAGAR_ORTHOPEDICS_LOGO.svg"
+                src="/MAGAR_ORTHOPEDICS_FINAL_LOGO.svg"
                 alt="Dr. Sumedh Magar Logo"
                 className="h-12 w-auto object-contain"
               />

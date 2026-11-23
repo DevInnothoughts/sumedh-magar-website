@@ -111,7 +111,7 @@ export const Header = () => {
         {/* LOGO BLOCK */}
         <Link href="/" className="flex items-center shrink-0">
           <img
-            src="/MAGAR_ORTHOPEDICS_LOGO.svg"
+            src="/MAGAR_ORTHOPEDICS_FINAL_LOGO.svg"
             alt="Dr. Sumedh Magar Logo"
             className="h-14 md:h-24 w-auto object-contain"
           />
